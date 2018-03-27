@@ -46,9 +46,23 @@
   \tableofcontents
   %% Put your contents here
 \chapter{Theory}
+\section{Light Field Parametrization}
+The earliest introduction to Light Fields in literature can be found in \cite{adelson1991plenoptic}, where they parametrize the field of light as a  so-called \glqq plenoptic function \grqq. If we assume that every point in space emits a light ray  in a given direction which is characterized by a intensity value $P$, the whole information in the light field is given as a 5-dimensional function
+\begin{equation}\label{key}
+P(V_x,V_y, V_z, \theta, \phi, \lambda),
+\end{equation}
+where $\theta$ and $\phi$ are the solid angles describing the direction of any light field, $\lambda$ describes the wavelength dependence. $V_\{x,y,z\}$ describe the room coordinates. If we use the pixel of a pinhole camera picture as the coordinate system of our choice, the plenoptic function would be parametrized as 
+\begin{equation}\label{eq:plenoptic}
+P(x,y, V_x, V_y, V_z, \lambda).
+\end{equation}
+ A more generalized model of the plenoptic function could also include a time dependence, leading to a 7-dimensional ray space. In general, the plenoptic function serves as the global funcion that gets mapped into a low-dimensonal space in some form by any camera device, e.g. a pinhole camera mapping the whole ray space down to a 2-dimensional image.\\
+ A more detailed introduction to Lightfields can also be found in \cite{wanner2014orientation}. 
+ 
+\subsection{The Lumigraph}
+In the form of \ref{eq:plenoptic} the plenoptic function is a 7-dimensional function, which is difficult to record and to handle. As described by \cite{wu2017light} this plenoptic function is usually simplified in 3 steps: First, we neglect the time dependence (assuming a static scene), further we neglect the wavelength $\lambda$, instead we define the mapped value of the plenoptic function as a vector containing the color channels.
 \section{Depth from focus}
 \label{sec:theo depth}
-One advantage of using lightfields for depth measure is its ability to get a two-dimensional image of the scene at any depth. Integrating the views of the light field camera array has the same effect as the integration of a focussed lense camera, as the lense is simply integrating slightly different viewpoints of the same scene point when focussed on the correct depth. \\
+One advantage of using lightfields for depth measure is its ability to get a two-dimensional mapping of the scene with focus at any depth. Integrating the views of the light field camera array has the same effect as the integration of a focussed lense camera, as the lense is simply integrating slightly different viewpoints of the same scene point when focussed on the correct depth. \\
  Obtaining the refocussed integrated image is a synthetic process that only requires shifting the view coordinates artificially. Given a full four-dimensional light field $L(u, v, x, y)$ we can refocus the light field as described in \cite{ng2005light}:\begin{equation}\label{eq:refocus}
 L'(u, v, x, y) = L(u(1-d'), v(1-d'), x, y),
 \end{equation}
@@ -148,12 +162,7 @@ P2' =  \frac{P2}{\sqrt{(Im_b^2 +Im_r^2 + Im_g^2)}},
 with $Im$ being the center view of the lightfield and $Im_{b,g,r}$ being the 3 color channels. If the color intensity changes, the penalty for a disparity discontinuity is lowered.
 
 \subsection{Occlusion awareness in SGM for light Fields}
-Having a look at the results of the the benchmark test of \cite{honauer2016benchmark} one realizes that most Light field depth estimation algorithms suffer from large errors near depth discontinuities. Since the center view pixels close to the edge of a depth discontinuity are at least partly occluded, this behaviour is to be expected. The ST almost always produces a systematic error near discontinuities, leading to a \glqq magnification \grqq of the object closer to the camera in the depth map, see figure \ref{fig:cottondiscontinuities0070}. The reason for this error has its origin in the smoothing of the EPI as part of the algorithm. In figure (INPUT EPI) one can identify that after smoothing , the structure tensor near a occlusion edge calculates the structure of the object in the foreground, since it is 
-\begin{itemize}
-	\item not occluded at all, providing his structure over the whole Angular spectrum,
-	\item under better illumination in most cases,
-	\item provided with higher structure resolution.
-\end{itemize}
+Having a look at the results of the the benchmark test of \cite{honauer2016benchmark} one realizes that most Light field depth estimation algorithms suffer from large errors near depth discontinuities. Since the center view pixels close to the edge of a depth discontinuity are at least partly occluded, this behaviour is to be expected. The ST almost always produces a systematic error near discontinuities, leading to a \glqq magnification \grqq of the object closer to the camera in the depth map, see figure \ref{fig:cottondiscontinuities0070}. We refer to this as \glq qedge fattening \grqq. The reason for this error has its origin in the smoothing of the EPI as part of the algorithm. In figure (INPUT EPI) one can identify that after smoothing , the structure tensor near a occlusion edge calculates the structure of the object in the foreground, since the edge itself is 
 If we take a close look at figure \ref{fig:discretecont}, one can see that at least at some discontinuities the ST pipeline manages to calculate the depth of the background structure near boundaries with good coherence, but the foreground structure is overlapping and quantitatively measured with higher coherence. Once we know that at least at some edges an improvement can be made by adapting the evaluation function in a sense that the highest coherence does not necessarily measure the right depth, we realize that SGM is doing the job already. The simple heuristic approach is to change the global minimization function \ref{eq:global_sgm_cont} such that a positive disparity jump is less punished than a negative one. In fact, the function changes to
 \begin{equation}\label{eq:global_sgm_cont_occlusion}
 E(d) = \sum_{\vec p} \left(C(\vec{p}, d_{\vec p}) + \sum_{q\in N_p} 

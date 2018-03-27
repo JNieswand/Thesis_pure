@@ -6,7 +6,9 @@ The style file: plainnat.bst
 A level-1 auxiliary file: deposition.aux
 Database file #1: references.bib
 Warning--I didn't find a database entry for "loremIpsum"
+Warning--empty journal in adelson1991plenoptic
 Warning--empty journal in ng2005light
 Warning--empty year in ng2005light
 Warning--empty year in ng2005light
-(There were 4 warnings)
+Warning--empty school in wanner2014orientation
+(There were 6 warnings)

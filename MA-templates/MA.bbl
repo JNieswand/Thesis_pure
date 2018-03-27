@@ -1,9 +1,14 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Adelson et~al.(1991)Adelson, Bergen, et~al.]{adelson1991plenoptic}
+Edward~H Adelson, James~R Bergen, et~al.
+\newblock The plenoptic function and the elements of early vision.
+\newblock 1991.
 
 \bibitem[Hirschmuller(2005)]{hirschmuller2005accurate}
 Heiko Hirschmuller.
@@ -39,10 +44,23 @@ Michael~W Tao, Pratul~P Srinivasan, Sunil Hadap, Szymon Rusinkiewicz, Jitendra
 \newblock \emph{IEEE transactions on pattern analysis and machine
   intelligence}, 39\penalty0 (3):\penalty0 546--560, 2017.
 
+\bibitem[Wanner(2014)]{wanner2014orientation}
+Sven Wanner.
+\newblock \emph{Orientation Analysis in 4D Light Fields}.
+\newblock PhD thesis, 2014.
+
 \bibitem[Watanabe and Nayar(1998)]{watanabe1998rational}
 Masahiro Watanabe and Shree~K Nayar.
 \newblock Rational filters for passive depth from defocus.
 \newblock \emph{International Journal of Computer Vision}, 27\penalty0
   (3):\penalty0 203--225, 1998.
+
+\bibitem[Wu et~al.(2017)Wu, Masia, Jarabo, Zhang, Wang, Dai, Chai, and
+  Liu]{wu2017light}
+Gaochang Wu, Belen Masia, Adrian Jarabo, Yuchen Zhang, Liangyong Wang, Qionghai
+  Dai, Tianyou Chai, and Yebin Liu.
+\newblock Light field image processing: An overview.
+\newblock \emph{IEEE Journal of Selected Topics in Signal Processing},
+  11\penalty0 (7):\penalty0 926--954, 2017.
 
 \end{thebibliography}
