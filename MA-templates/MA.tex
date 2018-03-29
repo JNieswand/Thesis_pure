@@ -26,7 +26,7 @@
 \usepackage     [english]               {babel}
 \usepackage                             {natbib}
 \usepackage                             {hyperref}
-
+\usepackage								{amssymb}
 % links
 \definecolor{darkblue}{rgb}{0.0,0.0,0.4}
 \definecolor{darkgreen}{rgb}{0.0,0.4,0.0}
@@ -36,6 +36,8 @@
     citecolor=darkgreen,
     urlcolor=darkblue
 }
+
+\DeclareMathOperator*{\argmax}{argmax}
 
 \begin{document}
   %% title pages similar to providet template instead of maketitle
@@ -59,7 +61,44 @@ P(x,y, V_x, V_y, V_z, \lambda).
  A more detailed introduction to Lightfields can also be found in \cite{wanner2014orientation}. 
  
 \subsection{The Lumigraph}
-In the form of \ref{eq:plenoptic} the plenoptic function is a 7-dimensional function, which is difficult to record and to handle. As described by \cite{wu2017light} this plenoptic function is usually simplified in 3 steps: First, we neglect the time dependence (assuming a static scene), further we neglect the wavelength $\lambda$, instead we define the mapped value of the plenoptic function as a vector containing the color channels.
+In the form of \ref{eq:plenoptic} the plenoptic function is a 7-dimensional function, which is difficult to record and to handle. As described by \cite{wu2017light} this plenoptic function is usually simplified in 3 steps: First, we neglect the time dependence (assuming a static scene), further we neglect the wavelength $\lambda$, instead we define the mapped value of the plenoptic function as a vector containing the color channels. 
+Additionally the plenoptic function obtains redundant information due to the fact, that light rays that are lying on one line in space propagate in the same direction, as introduced by \cite{bolles1987epipolar}. The 4D- representation is also known as the \textit{Lumigraph}. Those 4 dimensions can be split to 2 angular dimensions describing the direction of each ray and 2 dimensions for the loaction of the ray: Since every ray would pass an image plane of infinite size once (if not parallel), two coordinates for localizing the ray are sufficient. Commonly the \textit{two-plane-parametrisation} is used to describe the light field. Every ray is characterized by the intersection of two arbitrary parallel planes $\Pi$ and $\Omega$. Mathematically spoken the light field $L$ is a function
+\begin{equation}\label{key}
+L:\Omega\times \Pi \rightarrow \!R\qquad x,y,s,t\rightarrow L(x,y,s,t),
+\end{equation}
+where $x,y$ are the coordinates in the first plane $\Omega$ and $s,t$ are the coordinates in the second plane $\Pi$. If we move a camera in a plane and take pictures of a scene orthogonal to the camera plane, the image itself is described by the image coordinates $x,y$ while the position of the camera is denoted as $s,t$. Both planes are parallel to each other; that way a light field can be measured in a straight forward manner.
+\subsection{Epipolar Plane Images}
+\label{sec:epi}
+We measure the light field in order to obtain as much information about the scene we're looking at as possible. In order to obtain the threedimensional structure one needs to map the light field in a certain manner: We take a look at one 2-dimensional slice through the 4-dimensional space while keeping 2 coordinates constant: one horizontal coordinate  $x^{*}$  in the image plane and one vertical coordinate $t^{*}$ in the camera plane (or vice versa). The slice $\Sigma_{x^{*}, t^{*}}$ is a 2-dimensonal image called Epipolar Plane Image (EPI). As seen in figure (FIGURE) it consists of lines with different slopes, each point on one light with the same slope belongs to the same point in the scene und different angles. From the slope $\Delta$ of the line at each point we obtain the distance from the camera plane with the equation
+\begin{equation}\label{key}
+\text{distance} = \frac{f\cdot b}{\Delta},
+\end{equation}
+where $f$ is the focal length of the camera and $b$ is the baseline between the camera positions. One may notices that this equation looks equal to distance estimation in stereo vision, where we replace the slope $\Delta$ by the disparity shift of a feature in 2 views. In fact, a stereo light field capture would result in an epi with only 2 pixel rows, the slope of a line consisting of only two points is then defined as the disparity shift between the views.
+\section{Depth from Structure Tensor}
+Measuring depth from light field data can be done using various approaches.
+\cite{wu2017light} divide light field depth estimation approches in three categories:
+\begin{enumerate}
+	\item Sub-Aperture Image Matching-based Methods
+	\item EPI-based methods
+	\item Learning-based methods
+\end{enumerate}
+In the following we focus on one EPI-based method on which is investigated as part of this work. However, the reader is encouraged to take a look at the cited paper \glqq Light Field Image Processing: An Overview \grqq by \cite{wu2017light} for a state-of-the-art overview of different light field approaches.\\
+\cite{wanner2014orientation} make use of the oriented structure of the EPI using image-processing techniques. This idea has first been introduced by \cite{bigun1987optimal} in 1987.\\
+
+The structure tensor $J$  on a function $g:\Omega \rightarrow \!R, \Omega \subset \!R^2 $ is defined as
+\begin{equation}\label{key}
+J =\left(
+\begin{matrix}
+G*\frac{\partial g}{\partial x}\frac{\partial g}{\partial x} & G*\frac{\partial g}{\partial x}\frac{\partial g}{\partial s} \\
+G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial s} 
+\end{matrix}\right),
+\end{equation}
+ where $G$ is a gaussian window function. The derivation can be found in the appendix.
+ The eigenvectors of this matrix result in  \cite{jahne2013digitale} proposes a coherence value as a measurement for the anisotropy of the local environment:
+ \begin{equation}\label{key}
+ C = \frac{\sqrt{(J_{xx} - J_{ss})^2 + 4J_{12}^2}}{J_{11} + J_{22}}
+ \end{equation}
+ which obeys the value 1 in case of complete anisotropy, a value of 0 would indicate total isotropy.
 \section{Depth from focus}
 \label{sec:theo depth}
 One advantage of using lightfields for depth measure is its ability to get a two-dimensional mapping of the scene with focus at any depth. Integrating the views of the light field camera array has the same effect as the integration of a focussed lense camera, as the lense is simply integrating slightly different viewpoints of the same scene point when focussed on the correct depth. \\
@@ -247,6 +286,35 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
 
   \part{Appendix}
   \begin{appendix}
+  	\section{Derivation of the structure tensor}
+  	The derivation is taken from \cite{jahne2013digitale}. Taking a function $g:\Omega\rightarrow \!R, \Omega \subset \!R^D$, the pereferred local direction $\vec{n} \subset \!R^D$ must satisfy the following equation:
+  	\begin{equation}\label{key}
+  	( g^T\vec{n})^2 = |\nabla g |^2 \cos^2(\sphericalangle (g, \vec{n}))
+  	\end{equation}
+  	If $\nabla g$ is parallel or antiparallel to $\vec{n}$, the expression on the right side reaches a maximum. Therefor one needs to maximise the left hand expression in a local environment:
+  	\begin{equation}\label{key}
+  	\vec n_\text{preferred} = \argmax_n\left(\int w(\vec x - \vec x')\left(\nabla g(\vec{x'})^T \vec{n}\right)^2d^Dx' \right),
+  	\end{equation}
+  	$w$ is a window function defining the size of the local environment. Multipling with $\vec{n}$
+  	we obtain:
+  	\begin{align}\label{key}
+  	&\vec n_\text{preferred} = \argmax_n\left(\vec n  J \vec n \right)\\
+  	& J = \int w(\vec x - \vec x')\left(\nabla g(\vec{x'}) \nabla g(\vec{x'})^T\right)d^Dx'
+  	\end{align}
+  	This results in a $D\times D $ tensor of the form
+  	\begin{equation}\label{key}
+  	J_{pq} = \int_{-\infty}^{\infty} w(\vec x - \vec x')\left(\frac{g(\partial\vec{x'})}{\partial x'_p} \frac{g(\partial\vec{x'})}{\partial x'_q}\right)d^Dx'.
+  	\end{equation}
+  	In two dimensions we can write
+	\begin{equation}\label{key}
+	J =\left(
+	\begin{matrix}
+	w*\frac{\partial g}{\partial x}\frac{\partial g}{\partial x} & w*\frac{\partial g}{\partial x}\frac{\partial g}{\partial s} \\
+	w*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & w*\frac{\partial g}{\partial s}\frac{\partial g}{\partial s} 
+	\end{matrix}\right),
+	\end{equation}  
+	where \glqq $*$ \grqq describes a convolution.	
+  	
     \chapter{Lists}
     \listoffigures
     \listoftables

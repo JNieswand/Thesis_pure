@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,6 +9,17 @@
 Edward~H Adelson, James~R Bergen, et~al.
 \newblock The plenoptic function and the elements of early vision.
 \newblock 1991.
+
+\bibitem[Bigun(1987)]{bigun1987optimal}
+Josef Bigun.
+\newblock Optimal orientation detection of linear symmetry, 1987.
+
+\bibitem[Bolles et~al.(1987)Bolles, Baker, and Marimont]{bolles1987epipolar}
+Robert~C Bolles, H~Harlyn Baker, and David~H Marimont.
+\newblock Epipolar-plane image analysis: An approach to determining structure
+  from motion.
+\newblock \emph{International journal of computer vision}, 1\penalty0
+  (1):\penalty0 7--55, 1987.
 
 \bibitem[Hirschmuller(2005)]{hirschmuller2005accurate}
 Heiko Hirschmuller.
@@ -28,6 +39,11 @@ Katrin Honauer, Ole Johannsen, Daniel Kondermann, and Bastian Goldluecke.
 \newblock A dataset and evaluation methodology for depth estimation on 4d light
   fields.
 \newblock In \emph{Asian Conference on Computer Vision}. Springer, 2016.
+
+\bibitem[J{\"a}hne(2013)]{jahne2013digitale}
+Bernd J{\"a}hne.
+\newblock \emph{Digitale bildverarbeitung}.
+\newblock Springer-Verlag, 2013.
 
 \bibitem[Ng et~al.()Ng, Levoy, Br{\'e}dif, Duval, Horowitz, and
   Hanrahan]{ng2005light}

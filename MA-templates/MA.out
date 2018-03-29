@@ -1,16 +1,19 @@
 \BOOKMARK [0][-]{chapter.1}{Theory}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Light Field Parametrization}{chapter.1}% 2
 \BOOKMARK [2][-]{subsection.1.1.1}{The Lumigraph}{section.1.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Depth from focus}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Semi-Global Matching}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.3.1}{Semi - Global Matching for Stereo Vision}{section.1.3}% 6
-\BOOKMARK [2][-]{subsection.1.3.2}{Semi - Global Matching for Light fields}{section.1.3}% 7
-\BOOKMARK [2][-]{subsection.1.3.3}{Occlusion awareness in SGM for light Fields}{section.1.3}% 8
-\BOOKMARK [0][-]{chapter.2}{results}{}% 9
-\BOOKMARK [1][-]{section.2.1}{Depth from focus}{chapter.2}% 10
-\BOOKMARK [2][-]{subsection.2.1.1}{Using depth-from-refocus as a preestimate for the ST}{section.2.1}% 11
-\BOOKMARK [-1][-]{part.1}{Appendix}{}% 12
-\BOOKMARK [0][-]{appendix.A}{Lists}{part.1}% 13
-\BOOKMARK [1][-]{section.A.1}{List of Figures}{appendix.A}% 14
-\BOOKMARK [1][-]{section.A.2}{List of Tables}{appendix.A}% 15
-\BOOKMARK [0][-]{appendix.B}{Bibliography}{part.1}% 16
+\BOOKMARK [2][-]{subsection.1.1.2}{Epipolar Plane Images}{section.1.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Depth from Structure Tensor}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{Depth from focus}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.4}{Semi-Global Matching}{chapter.1}% 7
+\BOOKMARK [2][-]{subsection.1.4.1}{Semi - Global Matching for Stereo Vision}{section.1.4}% 8
+\BOOKMARK [2][-]{subsection.1.4.2}{Semi - Global Matching for Light fields}{section.1.4}% 9
+\BOOKMARK [2][-]{subsection.1.4.3}{Occlusion awareness in SGM for light Fields}{section.1.4}% 10
+\BOOKMARK [0][-]{chapter.2}{results}{}% 11
+\BOOKMARK [1][-]{section.2.1}{Depth from focus}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.1.1}{Using depth-from-refocus as a preestimate for the ST}{section.2.1}% 13
+\BOOKMARK [-1][-]{part.1}{Appendix}{}% 14
+\BOOKMARK [0][-]{section.Alph0.1}{Derivation of the structure tensor}{part.1}% 15
+\BOOKMARK [0][-]{appendix.A}{Lists}{part.1}% 16
+\BOOKMARK [1][-]{section.A.1}{List of Figures}{appendix.A}% 17
+\BOOKMARK [1][-]{section.A.2}{List of Tables}{appendix.A}% 18
+\BOOKMARK [0][-]{appendix.B}{Bibliography}{part.1}% 19
