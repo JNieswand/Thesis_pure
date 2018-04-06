@@ -27,6 +27,7 @@
 \usepackage                             {natbib}
 \usepackage                             {hyperref}
 \usepackage								{amssymb}
+%\usepackage{BibLatex}
 % links
 \definecolor{darkblue}{rgb}{0.0,0.0,0.4}
 \definecolor{darkgreen}{rgb}{0.0,0.4,0.0}
@@ -58,35 +59,59 @@ where $\theta$ and $\phi$ are the solid angles describing the direction of any l
 P(x,y, V_x, V_y, V_z, \lambda).
 \end{equation}
  A more generalized model of the plenoptic function could also include a time dependence, leading to a 7-dimensional ray space. In general, the plenoptic function serves as the global funcion that gets mapped into a low-dimensonal space in some form by any camera device, e.g. a pinhole camera mapping the whole ray space down to a 2-dimensional image.\\
+ \setcitestyle{numbers}
+ 	
  A more detailed introduction to Lightfields can also be found in \cite{wanner2014orientation}. 
- 
+ \setcitestyle{authoryear}
 \subsection{The Lumigraph}
 In the form of \ref{eq:plenoptic} the plenoptic function is a 7-dimensional function, which is difficult to record and to handle. As described by \cite{wu2017light} this plenoptic function is usually simplified in 3 steps: First, we neglect the time dependence (assuming a static scene), further we neglect the wavelength $\lambda$, instead we define the mapped value of the plenoptic function as a vector containing the color channels. 
-Additionally the plenoptic function obtains redundant information due to the fact, that light rays that are lying on one line in space propagate in the same direction, as introduced by \cite{bolles1987epipolar}. The 4D- representation is also known as the \textit{Lumigraph}. Those 4 dimensions can be split to 2 angular dimensions describing the direction of each ray and 2 dimensions for the loaction of the ray: Since every ray would pass an image plane of infinite size once (if not parallel), two coordinates for localizing the ray are sufficient. Commonly the \textit{two-plane-parametrisation} is used to describe the light field. Every ray is characterized by the intersection of two arbitrary parallel planes $\Pi$ and $\Omega$. Mathematically spoken the light field $L$ is a function
+Additionally the plenoptic function obtains redundant information due to the fact, that light rays that are lying on one line in space propagate in the same direction, as introduced by \cite{bolles1987epipolar}. The 4D- representation is also known as the \textit{Lumigraph}. Those 4 dimensions can be split to 2 angular dimensions describing the direction of each ray and 2 dimensions for the loaction of the ray: Since every ray would pass an image plane of infinite size once (if the propagation vector is not parallel), two coordinates for localizing the ray are sufficient. Commonly the \textit{two-plane-parametrisation} is used to describe the light field. Every ray is characterized by the intersection of two arbitrary parallel planes $\Pi$ and $\Omega$. Mathematically spoken the light field $L$ is a function
 \begin{equation}\label{key}
 L:\Omega\times \Pi \rightarrow \!R\qquad x,y,s,t\rightarrow L(x,y,s,t),
 \end{equation}
 where $x,y$ are the coordinates in the first plane $\Omega$ and $s,t$ are the coordinates in the second plane $\Pi$. If we move a camera in a plane and take pictures of a scene orthogonal to the camera plane, the image itself is described by the image coordinates $x,y$ while the position of the camera is denoted as $s,t$. Both planes are parallel to each other; that way a light field can be measured in a straight forward manner.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/twoplane_param}
+	\caption[Two-plane parametrisation]{In a 4-dimensional two-plane parametrisation a light ray is characterized by the intersection with two parallel planes. we refer to the plane  $\Pi$ as the camera plane and the plane $\Omega$ as the image plane. From \cite{Xu:12}}
+	\label{fig:twoplaneparam}
+\end{figure}
+
 \subsection{Epipolar Plane Images}
 \label{sec:epi}
-We measure the light field in order to obtain as much information about the scene we're looking at as possible. In order to obtain the threedimensional structure one needs to map the light field in a certain manner: We take a look at one 2-dimensional slice through the 4-dimensional space while keeping 2 coordinates constant: one horizontal coordinate  $x^{*}$  in the image plane and one vertical coordinate $t^{*}$ in the camera plane (or vice versa). The slice $\Sigma_{x^{*}, t^{*}}$ is a 2-dimensonal image called Epipolar Plane Image (EPI). As seen in figure (FIGURE) it consists of lines with different slopes, each point on one light with the same slope belongs to the same point in the scene und different angles. From the slope $\Delta$ of the line at each point we obtain the distance from the camera plane with the equation
-\begin{equation}\label{key}
+We measure the light field in order to obtain as much information about the scene we're looking at as possible. In order to obtain the threedimensional structure one needs to map the light field in a certain manner: We take a look at one 2-dimensional slice through the 4-dimensional space while keeping 2 coordinates constant: one horizontal coordinate  $x^{*}$  in the image plane and one vertical coordinate $t^{*}$ in the camera plane (or vice versa). The slice $\Sigma_{x^{*}, t^{*}}$ is a 2-dimensonal image called Epipolar Plane Image (EPI). In figure \ref{fig:epivisualization} the extraction of an EPI from camera array data is visualized. As seen in figure \ref{fig:simpleepi} it consists of lines with different slopes, each point on one line with the same slope belongs to the same point in the scene und different angles. From the slope $\Delta$ of the line at each point we obtain the distance from the camera plane with the equation
+\begin{equation}\label{eq:distance}
 \text{distance} = \frac{f\cdot b}{\Delta},
 \end{equation}
-where $f$ is the focal length of the camera and $b$ is the baseline between the camera positions. One may notices that this equation looks equal to distance estimation in stereo vision, where we replace the slope $\Delta$ by the disparity shift of a feature in 2 views. In fact, a stereo light field capture would result in an epi with only 2 pixel rows, the slope of a line consisting of only two points is then defined as the disparity shift between the views.
+where $f$ is the focal length of the camera and $b$ is the baseline between the camera positions. One may notices that this equation looks equal to distance estimation in stereo vision, where we replace the slope $\Delta$ by the disparity shift of a feature in 2 views. In fact, a stereo light field capture would result in an EPI with only 2 pixel rows, the slope of a line consisting of only two points is then defined as the disparity shift between the views.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/epiVisualization}
+	\caption[Visualization of an EPI extraction]{Visualization of an Epipolar Plane Image extractoin: A camera array takes images of the same scene from slightly different angles (left array). For a fixed image coordinate $y^*$ (green) and a fixed camera coordinate $t^*$ (red) the pixels are extracted and stacked up resulting in an EPI $\Sigma_{y^*, t^*}$ (green box on the right). From   \setcitestyle{numbers}\cite{iwr.uni-heidelberg.de} \setcitestyle{authoryear}}
+	\label{fig:epivisualization}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/simple_epi}
+	\caption[Example Epipolar Plane image]{An Epipolar Plane Image (EPI) that consists of 9 rows ( 9 equidistant views or sample points in the camera plane). Points with the same color correspond to the same scene point. Since the viewpoints are slightly shifted, the scene point is also shifted in each view by the disparity $d$. Marked in red one can identify the center position of the camera viewpoints.}
+	\label{fig:simpleepi}
+\end{figure}
+
 \section{Depth from Structure Tensor}
 Measuring depth from light field data can be done using various approaches.
-\cite{wu2017light} divide light field depth estimation approches in three categories:
+\cite{wu2017light} divide light field depth estimation approaches in three categories:
 \begin{enumerate}
 	\item Sub-Aperture Image Matching-based Methods
 	\item EPI-based methods
 	\item Learning-based methods
 \end{enumerate}
-In the following we focus on one EPI-based method on which is investigated as part of this work. However, the reader is encouraged to take a look at the cited paper \glqq Light Field Image Processing: An Overview \grqq by \cite{wu2017light} for a state-of-the-art overview of different light field approaches.\\
-\cite{wanner2014orientation} make use of the oriented structure of the EPI using image-processing techniques. This idea has first been introduced by \cite{bigun1987optimal} in 1987.\\
+In the following we focus on one specific EPI-based method on which is investigated as part of this work. However, the reader is encouraged to take a look at the cited paper \glqq Light Field Image Processing: An Overview \grqq by \cite{wu2017light} for a state-of-the-art overview of different light field approaches.\\
+\cite{wanner2014orientation} makes use of the oriented structure of the EPI using image-processing techniques. This idea has first been introduced by \cite{bigun1987optimal} in 1987.\\
 
-The structure tensor $J$  on a function $g:\Omega \rightarrow \!R, \Omega \subset \!R^2 $ is defined as
-\begin{equation}\label{key}
+The 2-dimensional structure tensor $J$  on a function $g:\Omega \rightarrow \!R, \Omega \subset \!R^2 $ is defined as
+\begin{equation}\label{eq:structuretensor}
 J =\left(
 \begin{matrix}
 G*\frac{\partial g}{\partial x}\frac{\partial g}{\partial x} & G*\frac{\partial g}{\partial x}\frac{\partial g}{\partial s} \\
@@ -94,11 +119,90 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
 \end{matrix}\right),
 \end{equation}
  where $G$ is a gaussian window function. The derivation can be found in the appendix.
- The eigenvectors of this matrix result in  \cite{jahne2013digitale} proposes a coherence value as a measurement for the anisotropy of the local environment:
- \begin{equation}\label{key}
- C = \frac{\sqrt{(J_{xx} - J_{ss})^2 + 4J_{12}^2}}{J_{11} + J_{22}}
+ The first eigenvector of this tensor $J$ indicates the preferred orientation in the local neighbourhood (defined by the window function). The second eigenvector is orthogonal to the first. 
+ 
+   \cite{jahne2013digitale} proposes a coherence value as a measurement for the anisotropy of the local environment:
+ \begin{equation}\label{eq:coherence}
+ C = \frac{\sqrt{(J_{11} - J_{22})^2 + 4J_{12}^2}}{J_{11} + J_{22}}
  \end{equation}
- which obeys the value 1 in case of complete anisotropy, a value of 0 would indicate total isotropy.
+ which obeys the value 1 in case of complete anisotropy, a value of 0 would indicate total isotropy.\\
+ In case of an EPI, the structure tensor provides an estimate for the slope of an EPI line, as defined by \cite{bigun1987optimal}:
+ \begin{equation}\label{eq:disparity}
+ \Delta = \tan\left(\frac{1}{2} \arctan\left( \frac{J_{22}-J_{11}}{2J_{12}}\right)\right)
+ \end{equation}
+ we refer to $\Delta$ as the disparity $d$ in the following. Via equation \ref{eq:distance} one obtains the depth in meters.
+ 
+ \subsection{Implementation}
+ The following implementation steps have been proposed by \cite{wanner2014orientation}. The code uses \textit{crosshair} light field data, that can be obtained e.g. by a camera as depicted in figure \ref{fig:lumiplus}. The scope of the light field in the camera coordinates is significantly reduced, in the following the horizontal camera row and the vertical camera column are viewed seperately as 1-dimensional light-field cameras.\\
+ \begin{figure}[]
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{images/Lumiplus}
+ 	\caption[LumiPlus Scanner from HDVisionSystems]{Instead of a complete camera array a crosshair camera reduces the number of cameras to one row and one column for faster processing. This Scanner from HDVisionSystems is mounted an a robot arm for industrial applications.}
+ 	\label{fig:lumiplus}
+ \end{figure}
+ 
+ From the input images one extracts the EPIs, which have the dimensions
+ \begin{align*}
+ \text{vertical view}&\rightarrowtail \text{Nr of rows in image coordinates }\times \text{Nr of cameras}\\
+ \text{horizontal view}&\rightarrowtail \text{Nr of columns in image coordinates }\times \text{Nr of cameras}
+ \end{align*}
+ 
+ For each EPI we calculate the structure tensor independently. This is done by first presmoothing the EPI with a $3\times3$ gaussian kernel to obtain reasonable results when calculating the gradient in the next step. Note that before calculating the gradient, the EPI is converted to grayscale format.\\
+ The gradient is calculated via the Scharr-filter, which has the form
+ \begin{align}\label{key}
+ \text{Scharr}_x &= \left(\begin{matrix}
+ 3&0&-3\\
+ 10&0&-10\\
+ 3&0&-3
+ \end{matrix}\right)
+\\
+ \text{Scharr}_y &= \left(\begin{matrix}
+ 3&10&3\\
+ 0&0&0\\
+ -3&-10&-3
+ \end{matrix}\right).
+ \end{align}
+ \cite{wanner2014orientation} and \cite{diebold2016light} both tested out different gradient filters and came to the conclusion that the Scharr-filter performs best. With the gradients the structure tensor and the disparity is obtained via equation \ref{eq:structuretensor} and \ref{eq:disparity}.\\
+ Further Wanner found out that the structure tensor results are most accurate when the disparity is close to zero. Therefore the EPI is artificially refocussed by simple linear shifting of the rows such that the slope of any line in the EPI would be increased by the same amount. The disparity shift can simply be subtracted from the disparity later. The refocussing of the EPI is illustrated in \ref{fig:refocusedcut}. For each EPI the structure tensor is calculated at each disparity shift, so that the necessary disparity range is fully covered.  \\
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{images/refocused_cut}
+ 	\caption[Refocussed EPI]{The EPI is refocussed by integer disparity steps. If the slope at a scene point is zero (vertical line) the EPI is perfectly focussed on that point. An integration of all views would still result in a sharp view at this point.}
+ 	\label{fig:refocusedcut}
+ \end{figure}
+ 
+ From all disparity shifts the value with the highest coherence measure (equation \ref{eq:coherence}) is selected. Hence one obtains two depth estimations for each image coordinate in the center view: one from the vertical EPI, one from the horizontal EPI. The merging of both direction follows
+ \begin{equation}\label{key}
+ d(x,y) = \begin{cases} d_\text{horizontal}(x,y) & C_\text{horizontal}(x,y)>C_\text{vertical}(x,y)\\
+ 						d_\text{vertical}(x,y) & C_\text{horizontal}(x,y)<C_\text{vertical}(x,y)\\
+ 		\end{cases}.
+ \end{equation} 
+ \subsection{The occlusion problem of the structure Tensor}
+ Having a look at the results of the the benchmark test of \cite{honauer2016benchmark} one realizes that most Light field depth estimation algorithms suffer from large errors near depth discontinuities. Since the center view pixels close to the edge of a depth discontinuity are at least partly occluded, this behaviour is to be expected. The ST almost always produces a systematic error near discontinuities, leading to a \glqq magnification\grqq of the object closer to the camera in the depth map, see figure \ref{fig:cottondiscontinuities0070}. We refer to this as \glqq edge fattening \grqq. The reason for this error has its origin in the smoothing of the EPI as part of the algorithm.  At the occlusion, the edge between the fore- and background follows the same orientation as the foreground does. Furthermore the occlusion mostly comes with a a color change, resulting in a high gradient which dominates the local environment orientation: Edge fattening is the consequence.
+ \section{Modifications on the structure tensor}
+ In the following diffent methods will be explained which modify the Structure tensor algorithm proposed by \cite{wanner2014orientation}. In section \ref{Evaluation} implementations of those modifications will be evaluated and discussed.
+ \subsection{Kernelsizes}
+ The Structure tensor algorithm calculates the depth based on the preffered orientation of the EPI in a local neighbourhood. If one chooses a bigger neighbourhood, the resulting depth map is likely to be smoother, however the accuracy at edges in the scene will rapidly decrease.\\
+ Even though one often wants to smoothen the depth map in a postprocessing step to improve the overall result and cancel out outlyiers, the structure tensor algorithm by Wanner is forced to smoothen the depth map beforehand.\\
+ In the work of \cite{wanner2014orientation} the effect of the kernel size has been examined extensively and calculated the best parameters for different scenes by grid search.\\
+ Note that if the kernel is smaller then the height of the EPI, the outer cameras are neglected and do not enter in the calculation of the depth. To maintain the information of all cameras and vary the kernel size at the same time, \cite{diebold2016light} proposes asymmetrical kernelsizes to eventually reduce edge-fattening effects. However, assymetrical kernels still need to find a trade off between denoising and avoiding edge fattening and do not significantly invrease the quality of the depth map result.\\
+ Another approach is to choose a custom kernel form which only weights the local gradients that could possibly be part of the \glqq correct\grqq line in the EPI. Such a kernel is illustrated in figure (FIGURE), it has the form of as sandclock. in y-direction, it still follows a gaussian distribution.
+ \subsection{Color-awareness with bilateral filtering}
+ All local gradients in the EPI that belong to the same color in the EPI are very likely to belong to the same orientation. In theory one only has to find all points with the same color which then lie on the same line in the EPI. The preferred orientation of the gradients at those points will then correspond to their slope with high confidence. However, most objects are not perfectly lambertian such that not all points on the correct line have to be of the exact same color. Only filtering the exact color will lead to noisy results. Though one could implement a filter weighting not only the distance in a gaussian manner but also the distance from the  EPI kernel origin in the color RGB space. Pixels with completely different color will be excluded from the Neighbourhood when calculating the structure tensor. In equation \ref{eq:structuretensor} the window function $G$ is then defined as 
+ \begin{equation}\label{key}
+ G_P = \frac{1}{W_p}\sum_{q\in N} g_{\sigma_d}(||p-q||) g_{\sigma_c}(||I_{p, \text{EPI}}-I_{q, \text{EPI}}||),
+ \end{equation}
+ where
+ \begin{itemize}
+ 	\item[$p$] is the position of the pixel,
+ 	\item[$q$] is the position of the pixel in a neighbourhood $N$,
+ 	\item[ $g_{\sigma_d}$] is a gaussian function weighting the distance between $p$ and $q$ using $\sigma_d$ as standard deviation,
+ 	\item[ $g_{\sigma_c}$] is a gaussian function weighting the color distance in RGB space between the  RGB values of the original EPI at $p$ and $q$ using $\sigma_c$ as standard deviation,
+ 	\item[$W_P$] is a normalization factor so that the sum over all the neighbourhood always is 1. 
+ \end{itemize}
+ \subsection{Thresholding the gradients}
+ \subsection{Occlusion-awareness using segmentation of the EPI}
+ \subsection{An alternative to the coherence as the confidence measure}
 \section{Depth from focus}
 \label{sec:theo depth}
 One advantage of using lightfields for depth measure is its ability to get a two-dimensional mapping of the scene with focus at any depth. Integrating the views of the light field camera array has the same effect as the integration of a focussed lense camera, as the lense is simply integrating slightly different viewpoints of the same scene point when focussed on the correct depth. \\
@@ -201,7 +305,7 @@ P2' =  \frac{P2}{\sqrt{(Im_b^2 +Im_r^2 + Im_g^2)}},
 with $Im$ being the center view of the lightfield and $Im_{b,g,r}$ being the 3 color channels. If the color intensity changes, the penalty for a disparity discontinuity is lowered.
 
 \subsection{Occlusion awareness in SGM for light Fields}
-Having a look at the results of the the benchmark test of \cite{honauer2016benchmark} one realizes that most Light field depth estimation algorithms suffer from large errors near depth discontinuities. Since the center view pixels close to the edge of a depth discontinuity are at least partly occluded, this behaviour is to be expected. The ST almost always produces a systematic error near discontinuities, leading to a \glqq magnification \grqq of the object closer to the camera in the depth map, see figure \ref{fig:cottondiscontinuities0070}. We refer to this as \glq qedge fattening \grqq. The reason for this error has its origin in the smoothing of the EPI as part of the algorithm. In figure (INPUT EPI) one can identify that after smoothing , the structure tensor near a occlusion edge calculates the structure of the object in the foreground, since the edge itself is 
+
 If we take a close look at figure \ref{fig:discretecont}, one can see that at least at some discontinuities the ST pipeline manages to calculate the depth of the background structure near boundaries with good coherence, but the foreground structure is overlapping and quantitatively measured with higher coherence. Once we know that at least at some edges an improvement can be made by adapting the evaluation function in a sense that the highest coherence does not necessarily measure the right depth, we realize that SGM is doing the job already. The simple heuristic approach is to change the global minimization function \ref{eq:global_sgm_cont} such that a positive disparity jump is less punished than a negative one. In fact, the function changes to
 \begin{equation}\label{eq:global_sgm_cont_occlusion}
 E(d) = \sum_{\vec p} \left(C(\vec{p}, d_{\vec p}) + \sum_{q\in N_p} 
@@ -212,7 +316,7 @@ P3 & \text{ if }d_{\vec p} - d_{\vec q} < -1\\
 \end{cases}  
 \right).
 \end{equation}
-
+\subsection{SGM as postprocessing smoothing}
 
 \begin{figure}
 	\centering
@@ -221,7 +325,8 @@ P3 & \text{ if }d_{\vec p} - d_{\vec q} < -1\\
 	\label{fig:cottondiscontinuities0070}
 \end{figure}
 
-\chapter{results}
+\chapter{Evaluation}
+\label{Evaluation}
 \section{Depth from focus}
 \label{sec: depth from focus}
 The depth measure using epipolar plane analysis requires iterative calculation of the structure tensor for each EPI at each disparity. A way to overcome this is to generate a preestimate of the depth before actually calculating the correct depth. This could also help to prevent possible errors due to periodic scene characteristics which can lead to mismatch errors when calculating the structure tensor. Therefore the depth pre-estimate should fulfil the following criteria:
@@ -315,6 +420,8 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
 	\end{equation}  
 	where \glqq $*$ \grqq describes a convolution.	
   	
+  	
+  	 \setcitestyle{numbers}
     \chapter{Lists}
     \listoffigures
     \listoftables

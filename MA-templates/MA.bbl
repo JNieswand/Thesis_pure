@@ -1,9 +1,14 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[iwr()]{iwr.uni-heidelberg.de}
+Website of the iwr heidelberg.
+\newblock \url{https://klimt.iwr.uni-heidelberg.de/Staff/swanner/}.
+\newblock Accessed: 2018-04-06.
 
 \bibitem[Adelson et~al.(1991)Adelson, Bergen, et~al.]{adelson1991plenoptic}
 Edward~H Adelson, James~R Bergen, et~al.
@@ -20,6 +25,11 @@ Robert~C Bolles, H~Harlyn Baker, and David~H Marimont.
   from motion.
 \newblock \emph{International journal of computer vision}, 1\penalty0
   (1):\penalty0 7--55, 1987.
+
+\bibitem[Diebold(2016)]{diebold2016light}
+Maximilian Diebold.
+\newblock \emph{Light-Field Imaging and Heterogeneous Light Fields}.
+\newblock PhD thesis, 2016.
 
 \bibitem[Hirschmuller(2005)]{hirschmuller2005accurate}
 Heiko Hirschmuller.
@@ -42,7 +52,7 @@ Katrin Honauer, Ole Johannsen, Daniel Kondermann, and Bastian Goldluecke.
 
 \bibitem[J{\"a}hne(2013)]{jahne2013digitale}
 Bernd J{\"a}hne.
-\newblock \emph{Digitale bildverarbeitung}.
+\newblock \emph{Digitale Bildverarbeitung}.
 \newblock Springer-Verlag, 2013.
 
 \bibitem[Ng et~al.()Ng, Levoy, Br{\'e}dif, Duval, Horowitz, and
@@ -78,5 +88,14 @@ Gaochang Wu, Belen Masia, Adrian Jarabo, Yuchen Zhang, Liangyong Wang, Qionghai
 \newblock Light field image processing: An overview.
 \newblock \emph{IEEE Journal of Selected Topics in Signal Processing},
   11\penalty0 (7):\penalty0 926--954, 2017.
+
+\bibitem[Xu et~al.(2012)Xu, Ke, and Lam]{Xu:12}
+Zhimin Xu, Jun Ke, and Edmund~Y. Lam.
+\newblock High-resolution lightfield photography using two masks.
+\newblock \emph{Opt. Express}, 20\penalty0 (10):\penalty0 10971--10983, May
+  2012.
+\newblock \doi{10.1364/OE.20.010971}.
+\newblock URL
+  \url{http://www.opticsexpress.org/abstract.cfm?URI=oe-20-10-10971}.
 
 \end{thebibliography}

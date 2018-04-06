@@ -1,9 +1,14 @@
 \select@language {english}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Example values: One point $\mathaccentV {vec}17Ep$ contains different values}}{13}{figure.1.1}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Discrete scanline to continuous scanline}}{14}{figure.1.2}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Discontinuity evaluation}}{15}{figure.1.3}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Two-plane parametrisation}}{8}{figure.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Visualization of an EPI extraction}}{9}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Example Epipolar Plane image}}{9}{figure.1.3}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces LumiPlus Scanner from HDVisionSystems}}{11}{figure.1.4}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Refocussed EPI}}{12}{figure.1.5}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Example values: One point $\mathaccentV {vec}17Ep$ contains different values}}{18}{figure.1.6}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Discrete scanline to continuous scanline}}{19}{figure.1.7}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Discontinuity evaluation}}{20}{figure.1.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Pixel response for depth from focus techniques}}{18}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Pixel response for depth from focus techniques}}{23}{figure.2.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
