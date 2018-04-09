@@ -95,7 +95,7 @@ where $f$ is the focal length of the camera and $b$ is the baseline between the 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/simple_epi}
-	\caption[Example Epipolar Plane image]{An Epipolar Plane Image (EPI) that consists of 9 rows ( 9 equidistant views or sample points in the camera plane). Points with the same color correspond to the same scene point. Since the viewpoints are slightly shifted, the scene point is also shifted in each view by the disparity $d$. Marked in red one can identify the center position of the camera viewpoints.}
+	\caption[Example Epipolar Plane image]{An Epipolar Plane Image (EPI) that consists of 9 rows (9 equidistant views or sample points in the camera plane). Points with the same color correspond to the same scene point. Since the viewpoints are slightly shifted, the scene point is also shifted in each view by the disparity $d$. Marked in red one can identify the center position of the camera viewpoints.}
 	\label{fig:simpleepi}
 \end{figure}
 
@@ -167,7 +167,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \begin{figure}
  	\centering
  	\includegraphics[width=0.7\linewidth]{images/refocused_cut}
- 	\caption[Refocussed EPI]{The EPI is refocussed by integer disparity steps. If the slope at a scene point is zero (vertical line) the EPI is perfectly focussed on that point. An integration of all views would still result in a sharp view at this point.}
+ 	\caption[Refocussed EPI]{The EPI is refocussed by integer disparity steps. If the slope at a scene point is zero (vertical line) the EPI is perfectly focussed on that point. An integration of all views would still result in a sharp image at the corresponding depth.}
  	\label{fig:refocusedcut}
  \end{figure}
  
@@ -178,17 +178,32 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  		\end{cases}.
  \end{equation} 
  \subsection{The occlusion problem of the structure Tensor}
- Having a look at the results of the the benchmark test of \cite{honauer2016benchmark} one realizes that most Light field depth estimation algorithms suffer from large errors near depth discontinuities. Since the center view pixels close to the edge of a depth discontinuity are at least partly occluded, this behaviour is to be expected. The ST almost always produces a systematic error near discontinuities, leading to a \glqq magnification\grqq of the object closer to the camera in the depth map, see figure \ref{fig:cottondiscontinuities0070}. We refer to this as \glqq edge fattening \grqq. The reason for this error has its origin in the smoothing of the EPI as part of the algorithm.  At the occlusion, the edge between the fore- and background follows the same orientation as the foreground does. Furthermore the occlusion mostly comes with a a color change, resulting in a high gradient which dominates the local environment orientation: Edge fattening is the consequence.
+ \label{sec:occlusionproblem}
+ Having a look at the results of the the benchmark test of \cite{honauer2016benchmark} one realizes that most Light field depth estimation algorithms suffer from large errors near depth discontinuities. Since the center view pixels close to the edge of a depth discontinuity are at least partly occluded, this behaviour is to be expected. The ST almost always produces a systematic error near discontinuities, leading to a \glqq magnification\grqq of the object closer to the camera in the depth map, see figure \ref{fig:cottondiscontinuities0070}. We refer to this as \glqq edge fattening \grqq. The reason for this error has its origin in the smoothing of the EPI as part of the algorithm.  At the occlusion, the edge between the fore- and background follows the same orientation as the foreground does. \\
+  Furthermore the occlusion mostly comes with a a color change, resulting in a high gradient which dominates the local environment orientation: Edge fattening is the consequence. In figure \ref{fig:occlusion} one can recognize two effects leading to edge fattening: Firstly the EPI is smoothed with a $3\times 3$ gaussian kernel which already will enlarge the foreground structure (b). This becomes clear when we illustrate the norm of the gradients (c), since the strong (white) gradients all measure the forground (green) structure. A clear shift to the left is visible from (b) to (c). However, this bias error is small compared to the second error that is indicated in (d): The red dot lies clearly in the background structure. However, calculating the structure tensor components from the local environment (green square) one would obtain the foreground structure at the red dot, since the strong gradients in the square dominate. In (e) the total bias in labeling the two structures is illustrated. 
+  \begin{figure}
+  	\centering
+  	\includegraphics[width=0.7\linewidth]{images/occlusion_painted2}
+  	\caption[Occlusion in an EPI]{(a) The structure of an occlusion border in a gray-value EPI. (b) Before calculating the gradient, the EPI is smoothed with a $3 \times 3$ gaussian kernel. One sees the smoothed EPI with colored lines indicating the Ground Truth orientation. (c) shows the norm of the gradient calculated via the Scharr-filter. White significates a high gradient, black significates low gradient. In (d) the local environment around the red dot $(x_r,y_r)$ as an example point is marked to show which gradient values go into the structure tensor components $J(x_r,y_r)$. (e) marks the orientation labeling measured and ground truth. The blue line marks the transition in the center view that corresponds with the ground thruth labeling. }
+  	\label{fig:occlusion}
+  \end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/cotton_discontinuities_0070}
+	\caption[Discontinuity evaluation]{Evaluation of the deviation from Ground truth at the depth discontinuity for scene "cotton". The red border indicates that the depth map is errorneous at the outside of the edge.}
+	\label{fig:cottondiscontinuities0070}
+\end{figure}
+  
  \section{Modifications on the structure tensor}
  In the following diffent methods will be explained which modify the Structure tensor algorithm proposed by \cite{wanner2014orientation}. In section \ref{Evaluation} implementations of those modifications will be evaluated and discussed.
  \subsection{Kernelsizes}
  The Structure tensor algorithm calculates the depth based on the preffered orientation of the EPI in a local neighbourhood. If one chooses a bigger neighbourhood, the resulting depth map is likely to be smoother, however the accuracy at edges in the scene will rapidly decrease.\\
  Even though one often wants to smoothen the depth map in a postprocessing step to improve the overall result and cancel out outlyiers, the structure tensor algorithm by Wanner is forced to smoothen the depth map beforehand.\\
- In the work of \cite{wanner2014orientation} the effect of the kernel size has been examined extensively and calculated the best parameters for different scenes by grid search.\\
- Note that if the kernel is smaller then the height of the EPI, the outer cameras are neglected and do not enter in the calculation of the depth. To maintain the information of all cameras and vary the kernel size at the same time, \cite{diebold2016light} proposes asymmetrical kernelsizes to eventually reduce edge-fattening effects. However, assymetrical kernels still need to find a trade off between denoising and avoiding edge fattening and do not significantly invrease the quality of the depth map result.\\
+ In the work of \cite{wanner2014orientation} the effect of the kernel size has been examined extensively and he calculated the best parameters for different scenes by grid search.\\
+ Note that if the kernel is smaller then the height of the EPI, the outer cameras are neglected and do not enter in the calculation of the depth. To maintain the information of all cameras and vary the kernel size at the same time, \cite{diebold2016light} proposes asymmetrical kernelsizes to eventually reduce edge-fattening effects. However, assymetrical kernels still need to find a trade off between denoising and avoiding edge fattening and do not significantly increase the quality of the depth map result.\\
  Another approach is to choose a custom kernel form which only weights the local gradients that could possibly be part of the \glqq correct\grqq line in the EPI. Such a kernel is illustrated in figure (FIGURE), it has the form of as sandclock. in y-direction, it still follows a gaussian distribution.
  \subsection{Color-awareness with bilateral filtering}
- All local gradients in the EPI that belong to the same color in the EPI are very likely to belong to the same orientation. In theory one only has to find all points with the same color which then lie on the same line in the EPI. The preferred orientation of the gradients at those points will then correspond to their slope with high confidence. However, most objects are not perfectly lambertian such that not all points on the correct line have to be of the exact same color. Only filtering the exact color will lead to noisy results. Though one could implement a filter weighting not only the distance in a gaussian manner but also the distance from the  EPI kernel origin in the color RGB space. Pixels with completely different color will be excluded from the Neighbourhood when calculating the structure tensor. In equation \ref{eq:structuretensor} the window function $G$ is then defined as 
+ In its original form the structure tensor pipeline weights the square of all gradients in a local environment by the distance to the reference point. Since all local gradients in the EPI that belong to the same color in the EPI are very likely to belong to the same orientation, in theory one only has to find all points with the same color which then lie on the same line in the EPI. The preferred orientation of the gradients at those points will then correspond to their slope with high confidence. However, most objects are not perfectly lambertian such that not all points on the correct line have to be of the exact same color. Only filtering the exact color will lead to noisy results. Though one could implement a filter weighting not only the distance in a gaussian manner but also the distance from the  EPI kernel origin in the color RGB space; such a filter is called \glqq bilateral filter \grqq (\cite{tomasi1998bilateral}). Pixels with completely different color will be excluded from the Neighbourhood when calculating the structure tensor. In equation \ref{eq:structuretensor} the window function $G$ is then defined as 
  \begin{equation}\label{key}
  G_P = \frac{1}{W_p}\sum_{q\in N} g_{\sigma_d}(||p-q||) g_{\sigma_c}(||I_{p, \text{EPI}}-I_{q, \text{EPI}}||),
  \end{equation}
@@ -200,7 +215,19 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  	\item[ $g_{\sigma_c}$] is a gaussian function weighting the color distance in RGB space between the  RGB values of the original EPI at $p$ and $q$ using $\sigma_c$ as standard deviation,
  	\item[$W_P$] is a normalization factor so that the sum over all the neighbourhood always is 1. 
  \end{itemize}
+It is important to notice that the color distance is extracted from the EPI, though we are filtering the components of the second derivatives, see equation \ref{eq:structuretensor}. In fact, the EPI only serves as a \glqq guide\grqq for the filtering.
  \subsection{Thresholding the gradients}
+ In section \ref{sec:occlusionproblem} it is explained why the structure tensor struggles to serve with a  good estimation at depth transitions. It is referred to two errors, one coming from the first smoothing, the other one as a result from the second gaussian smoothing. To avoid the second error, one could in principle normalize all local gradients such that in figure \ref{fig:occlusion} (d) the foreground gradients in a local environment obey the same weight in the structure tensor calculation as the background gradients around the red dot.\\
+ The gradient components of the EPI would be given by
+ \begin{align}
+ 	\tilde{\vec \nabla}(x,y) = \frac{1}{\sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}} \vec \nabla_x(x,y)
+ \end{align}
+ Nevertheless in some occasions one wants the stronger gradients to play a bigger role in the preferred orientation, since small gradients are more likely to be noisy. The only way to damp the gradients at occlusions while not strengthening the small noisy gradients in an EPI is to implement a trunctation threshold. The gradient is then given by
+ \begin{align}
+ \tilde{\vec \nabla}(x,y) &= \frac{\text{threshold}}{\text{norm}} \vec \nabla_x(x,y) \quad &\text{if}\quad \text{norm}> \text{threshold}\\
+ \tilde{\vec \nabla}(x,y) &=  \vec \nabla_x(x,y) \quad &\text{else}\\
+\text{with} \quad \text{norm} &= \sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}&\\
+ \end{align}
  \subsection{Occlusion-awareness using segmentation of the EPI}
  \subsection{An alternative to the coherence as the confidence measure}
 \section{Depth from focus}
@@ -318,12 +345,7 @@ P3 & \text{ if }d_{\vec p} - d_{\vec q} < -1\\
 \end{equation}
 \subsection{SGM as postprocessing smoothing}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{images/cotton_discontinuities_0070}
-	\caption[Discontinuity evaluation]{Evaluation of the deviation from Ground truth at the depth discontinuity for scene "cotton". The red border indicates that the depth map is errorneous at the outside of the edge.}
-	\label{fig:cottondiscontinuities0070}
-\end{figure}
+
 
 \chapter{Evaluation}
 \label{Evaluation}
