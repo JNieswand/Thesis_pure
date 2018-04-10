@@ -13,17 +13,17 @@
 \contentsline {subsection}{\numberline {1.3.4}Occlusion-awareness using segmentation of the EPI}{17}{subsection.1.3.4}
 \contentsline {subsection}{\numberline {1.3.5}An alternative to the coherence as the confidence measure}{17}{subsection.1.3.5}
 \contentsline {section}{\numberline {1.4}Depth from focus}{17}{section.1.4}
-\contentsline {section}{\numberline {1.5}Semi-Global Matching}{18}{section.1.5}
-\contentsline {subsection}{\numberline {1.5.1}Semi - Global Matching for Stereo Vision}{18}{subsection.1.5.1}
+\contentsline {section}{\numberline {1.5}Semi-Global Matching}{19}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Semi - Global Matching for Stereo Vision}{19}{subsection.1.5.1}
 \contentsline {subsection}{\numberline {1.5.2}Semi - Global Matching for Light fields}{20}{subsection.1.5.2}
 \contentsline {subsection}{\numberline {1.5.3}Occlusion awareness in SGM for light Fields}{22}{subsection.1.5.3}
-\contentsline {subsection}{\numberline {1.5.4}SGM as postprocessing smoothing}{22}{subsection.1.5.4}
-\contentsline {chapter}{\numberline {2}Evaluation}{23}{chapter.2}
-\contentsline {section}{\numberline {2.1}Depth from focus}{23}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Using depth-from-refocus as a preestimate for the ST}{24}{subsection.2.1.1}
-\contentsline {part}{\numberline {I}Appendix}{26}{part.1}
-\contentsline {section}{\numberline {.1}Derivation of the structure tensor}{27}{section.Alph0.1}
-\contentsline {chapter}{\numberline {A}Lists}{28}{appendix.A}
-\contentsline {section}{\numberline {A.1}List of Figures}{28}{section.A.1}
-\contentsline {section}{\numberline {A.2}List of Tables}{28}{section.A.2}
-\contentsline {chapter}{\numberline {B}Bibliography}{29}{appendix.B}
+\contentsline {subsection}{\numberline {1.5.4}SGM as postprocessing smoothing}{23}{subsection.1.5.4}
+\contentsline {chapter}{\numberline {2}Evaluation}{24}{chapter.2}
+\contentsline {section}{\numberline {2.1}Depth from focus}{24}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Using depth-from-refocus as a preestimate for the ST}{25}{subsection.2.1.1}
+\contentsline {part}{\numberline {I}Appendix}{27}{part.1}
+\contentsline {section}{\numberline {.1}Derivation of the structure tensor}{28}{section.Alph0.1}
+\contentsline {chapter}{\numberline {A}Lists}{29}{appendix.A}
+\contentsline {section}{\numberline {A.1}List of Figures}{29}{section.A.1}
+\contentsline {section}{\numberline {A.2}List of Tables}{29}{section.A.2}
+\contentsline {chapter}{\numberline {B}Bibliography}{30}{appendix.B}

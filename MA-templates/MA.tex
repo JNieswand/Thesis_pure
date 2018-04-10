@@ -203,6 +203,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  Note that if the kernel is smaller then the height of the EPI, the outer cameras are neglected and do not enter in the calculation of the depth. To maintain the information of all cameras and vary the kernel size at the same time, \cite{diebold2016light} proposes asymmetrical kernelsizes to eventually reduce edge-fattening effects. However, assymetrical kernels still need to find a trade off between denoising and avoiding edge fattening and do not significantly increase the quality of the depth map result.\\
  Another approach is to choose a custom kernel form which only weights the local gradients that could possibly be part of the \glqq correct\grqq line in the EPI. Such a kernel is illustrated in figure (FIGURE), it has the form of as sandclock. in y-direction, it still follows a gaussian distribution.
  \subsection{Color-awareness with bilateral filtering}
+ \label{sec:bilateral}
  In its original form the structure tensor pipeline weights the square of all gradients in a local environment by the distance to the reference point. Since all local gradients in the EPI that belong to the same color in the EPI are very likely to belong to the same orientation, in theory one only has to find all points with the same color which then lie on the same line in the EPI. The preferred orientation of the gradients at those points will then correspond to their slope with high confidence. However, most objects are not perfectly lambertian such that not all points on the correct line have to be of the exact same color. Only filtering the exact color will lead to noisy results. Though one could implement a filter weighting not only the distance in a gaussian manner but also the distance from the  EPI kernel origin in the color RGB space; such a filter is called \glqq bilateral filter \grqq (\cite{tomasi1998bilateral}). Pixels with completely different color will be excluded from the Neighbourhood when calculating the structure tensor. In equation \ref{eq:structuretensor} the window function $G$ is then defined as 
  \begin{equation}\label{key}
  G_P = \frac{1}{W_p}\sum_{q\in N} g_{\sigma_d}(||p-q||) g_{\sigma_c}(||I_{p, \text{EPI}}-I_{q, \text{EPI}}||),
@@ -217,6 +218,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \end{itemize}
 It is important to notice that the color distance is extracted from the EPI, though we are filtering the components of the second derivatives, see equation \ref{eq:structuretensor}. In fact, the EPI only serves as a \glqq guide\grqq for the filtering.
  \subsection{Thresholding the gradients}
+ \label{sec:thresholdinggradients}
  In section \ref{sec:occlusionproblem} it is explained why the structure tensor struggles to serve with a  good estimation at depth transitions. It is referred to two errors, one coming from the first smoothing, the other one as a result from the second gaussian smoothing. To avoid the second error, one could in principle normalize all local gradients such that in figure \ref{fig:occlusion} (d) the foreground gradients in a local environment obey the same weight in the structure tensor calculation as the background gradients around the red dot.\\
  The gradient components of the EPI would be given by
  \begin{align}
@@ -224,16 +226,23 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \end{align}
  Nevertheless in some occasions one wants the stronger gradients to play a bigger role in the preferred orientation, since small gradients are more likely to be noisy. The only way to damp the gradients at occlusions while not strengthening the small noisy gradients in an EPI is to implement a trunctation threshold. The gradient is then given by
  \begin{align}
- \tilde{\vec \nabla}(x,y) &= \frac{\text{threshold}}{\text{norm}} \vec \nabla_x(x,y) \quad &\text{if}\quad \text{norm}> \text{threshold}\\
- \tilde{\vec \nabla}(x,y) &=  \vec \nabla_x(x,y) \quad &\text{else}\\
-\text{with} \quad \text{norm} &= \sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}&\\
+ \tilde{\vec \nabla}(x,y) &= \begin{cases}
+\frac{\text{threshold}}{\text{norm}} \vec \nabla(x,y) \quad &\text{if}\quad \text{norm}> \text{threshold}\\
+\tilde{\vec \nabla}(x,y) =  \vec \nabla(x,y)\qquad &\text{else}\\
+ \end{cases} \\
+\text{with} \quad \text{norm} &= \sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}.\\
  \end{align}
+ The threshold should be chosen the lowest possible in a manner that gradients higher than the threshold are barely affected by noise. In section \ref{sec:evaluation} different thresholds are tested, if not mentioned otherwise a threshold of 0.1 is used assuming that the underlying EPI is a gray-value image with range 0-1.\\
+ 
  \subsection{Occlusion-awareness using segmentation of the EPI}
+ In the section a method is proposed that attempts to handle both occlusion errors mentioned in section \ref{sec:occlusionproblem}.\\
+ Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs. See section \ref{sec:evaluation} for more details. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculating those seperately. By extracting them from the EPI, background and foreground structure are calculated without being biased by the transition itself. Therefor the EPI is segmented into occlusion transistions and areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach is fastly implemented and is sufficient for our pipeline.
  \subsection{An alternative to the coherence as the confidence measure}
 \section{Depth from focus}
 \label{sec:theo depth}
 One advantage of using lightfields for depth measure is its ability to get a two-dimensional mapping of the scene with focus at any depth. Integrating the views of the light field camera array has the same effect as the integration of a focussed lense camera, as the lense is simply integrating slightly different viewpoints of the same scene point when focussed on the correct depth. \\
- Obtaining the refocussed integrated image is a synthetic process that only requires shifting the view coordinates artificially. Given a full four-dimensional light field $L(u, v, x, y)$ we can refocus the light field as described in \cite{ng2005light}:\begin{equation}\label{eq:refocus}
+ Obtaining the refocussed integrated image is a synthetic process that only requires shifting the view coordinates artificially. Given a full four-dimensional light field $L(u, v, x, y)$ we can refocus the light field as described in\setcitestyle{numbers} \cite{ng2005light}\setcitestyle{authoryear}:
+ \begin{equation}\label{eq:refocus}
 L'(u, v, x, y) = L(u(1-d'), v(1-d'), x, y),
 \end{equation}
 where $d'$ describes the relative pixel shift. The disparity is directly related to the absolute depth of the focus (relate to PICTURE) if the relevant camera parameters are  known. Given the baseline $b$ in meters and the focal length $f$ in pixels, the depth $Z$ is given as \begin{equation}\label{key}
