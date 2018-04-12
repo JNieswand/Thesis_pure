@@ -7,9 +7,11 @@
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Refocussed EPI}}{12}{figure.1.5}
 \contentsline {figure}{\numberline {1.6}{\ignorespaces Occlusion in an EPI}}{14}{figure.1.6}
 \contentsline {figure}{\numberline {1.7}{\ignorespaces Discontinuity evaluation}}{15}{figure.1.7}
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Example values: One point $\mathaccentV {vec}17Ep$ contains different values}}{21}{figure.1.8}
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Discrete scanline to continuous scanline}}{22}{figure.1.9}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Segmentating an EPI}}{18}{figure.1.8}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Enhanced segmentation mask}}{19}{figure.1.9}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Example values: One point $\mathaccentV {vec}17Ep$ contains different values}}{23}{figure.1.10}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Discrete scanline to continuous scanline}}{24}{figure.1.11}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Pixel response for depth from focus techniques}}{26}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Pixel response for depth from focus techniques}}{28}{figure.2.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

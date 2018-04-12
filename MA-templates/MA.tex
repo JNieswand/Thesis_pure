@@ -23,6 +23,7 @@
 \usepackage                             {color}
 \usepackage                             {amsmath}
 \usepackage                             {graphicx}
+\usepackage								{epsfig}
 \usepackage     [english]               {babel}
 \usepackage                             {natbib}
 \usepackage                             {hyperref}
@@ -237,6 +238,24 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \subsection{Occlusion-awareness using segmentation of the EPI}
  In the section a method is proposed that attempts to handle both occlusion errors mentioned in section \ref{sec:occlusionproblem}.\\
  Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs. See section \ref{sec:evaluation} for more details. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculating those seperately. By extracting them from the EPI, background and foreground structure are calculated without being biased by the transition itself. Therefor the EPI is segmented into occlusion transistions and areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach is fastly implemented and is sufficient for our pipeline.
+ 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/derivatives_full}
+	\caption[Segmentating an EPI]{(a) Input EPI to be segmented. (b) show the local derivatives along the center view line. (c) shows the vector norm of the derivative. (d) shows the center view norm with the threshold that is applyed to mask transitions. (e) shows the resulting mask. (f) shows the improved mask using morphological image processing. (g) shows the mask at the center view before and after using morph. image processing. }
+	\label{fig:derivativesfull}
+
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/segm_gaussian}
+	\caption[Enhanced segmentation mask]{Enhanced segmentation mask}
+	\label{fig:segmgaussian}
+\end{figure}
+
+
+ 
  \subsection{An alternative to the coherence as the confidence measure}
 \section{Depth from focus}
 \label{sec:theo depth}
