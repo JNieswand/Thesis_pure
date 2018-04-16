@@ -11,19 +11,19 @@
 \contentsline {subsection}{\numberline {1.3.2}Color-awareness with bilateral filtering}{15}{subsection.1.3.2}
 \contentsline {subsection}{\numberline {1.3.3}Thresholding the gradients}{16}{subsection.1.3.3}
 \contentsline {subsection}{\numberline {1.3.4}Occlusion-awareness using segmentation of the EPI}{17}{subsection.1.3.4}
-\contentsline {subsection}{\numberline {1.3.5}An alternative to the coherence as the confidence measure}{17}{subsection.1.3.5}
-\contentsline {section}{\numberline {1.4}Depth from focus}{17}{section.1.4}
-\contentsline {section}{\numberline {1.5}Semi-Global Matching}{21}{section.1.5}
-\contentsline {subsection}{\numberline {1.5.1}Semi - Global Matching for Stereo Vision}{21}{subsection.1.5.1}
-\contentsline {subsection}{\numberline {1.5.2}Semi - Global Matching for Light fields}{22}{subsection.1.5.2}
-\contentsline {subsection}{\numberline {1.5.3}Occlusion awareness in SGM for light Fields}{24}{subsection.1.5.3}
-\contentsline {subsection}{\numberline {1.5.4}SGM as postprocessing smoothing}{25}{subsection.1.5.4}
-\contentsline {chapter}{\numberline {2}Evaluation}{26}{chapter.2}
-\contentsline {section}{\numberline {2.1}Depth from focus}{26}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Using depth-from-refocus as a preestimate for the ST}{27}{subsection.2.1.1}
-\contentsline {part}{\numberline {I}Appendix}{29}{part.1}
-\contentsline {section}{\numberline {.1}Derivation of the structure tensor}{30}{section.Alph0.1}
-\contentsline {chapter}{\numberline {A}Lists}{31}{appendix.A}
-\contentsline {section}{\numberline {A.1}List of Figures}{31}{section.A.1}
-\contentsline {section}{\numberline {A.2}List of Tables}{31}{section.A.2}
-\contentsline {chapter}{\numberline {B}Bibliography}{32}{appendix.B}
+\contentsline {subsection}{\numberline {1.3.5}An alternative to the coherence as the confidence measure}{18}{subsection.1.3.5}
+\contentsline {section}{\numberline {1.4}Depth from focus}{21}{section.1.4}
+\contentsline {section}{\numberline {1.5}Semi-Global Matching}{22}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Semi - Global Matching for Stereo Vision}{22}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Semi - Global Matching for Light fields}{23}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Occlusion awareness in SGM for light Fields}{26}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}SGM as postprocessing smoothing}{26}{subsection.1.5.4}
+\contentsline {chapter}{\numberline {2}Evaluation}{27}{chapter.2}
+\contentsline {section}{\numberline {2.1}Depth from focus}{27}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Using depth-from-refocus as a preestimate for the ST}{28}{subsection.2.1.1}
+\contentsline {part}{\numberline {I}Appendix}{30}{part.1}
+\contentsline {section}{\numberline {.1}Derivation of the structure tensor}{31}{section.Alph0.1}
+\contentsline {chapter}{\numberline {A}Lists}{32}{appendix.A}
+\contentsline {section}{\numberline {A.1}List of Figures}{32}{section.A.1}
+\contentsline {section}{\numberline {A.2}List of Tables}{32}{section.A.2}
+\contentsline {chapter}{\numberline {B}Bibliography}{33}{appendix.B}

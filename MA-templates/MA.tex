@@ -51,7 +51,7 @@
   %% Put your contents here
 \chapter{Theory}
 \section{Light Field Parametrization}
-The earliest introduction to Light Fields in literature can be found in \cite{adelson1991plenoptic}, where they parametrize the field of light as a  so-called \glqq plenoptic function \grqq. If we assume that every point in space emits a light ray  in a given direction which is characterized by a intensity value $P$, the whole information in the light field is given as a 5-dimensional function
+The earliest introduction to Light Fields in literature can be found in \cite{adelson1991plenoptic}, where they parametrize the field of light as a  so-called \glqq plenoptic function \grqq. If we assume that every point in space emits a light ray  in a given direction which is characterized by a intensity value $P$, the whole information in the light field is given as a 6-dimensional function
 \begin{equation}\label{key}
 P(V_x,V_y, V_z, \theta, \phi, \lambda),
 \end{equation}
@@ -229,7 +229,7 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \begin{align}
  \tilde{\vec \nabla}(x,y) &= \begin{cases}
 \frac{\text{threshold}}{\text{norm}} \vec \nabla(x,y) \quad &\text{if}\quad \text{norm}> \text{threshold}\\
-\tilde{\vec \nabla}(x,y) =  \vec \nabla(x,y)\qquad &\text{else}\\
+\tilde{\vec \nabla}(x,y)\qquad &\text{else}\\
  \end{cases} \\
 \text{with} \quad \text{norm} &= \sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}.\\
  \end{align}
@@ -237,7 +237,16 @@ It is important to notice that the color distance is extracted from the EPI, tho
  
  \subsection{Occlusion-awareness using segmentation of the EPI}
  In the section a method is proposed that attempts to handle both occlusion errors mentioned in section \ref{sec:occlusionproblem}.\\
- Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs. See section \ref{sec:evaluation} for more details. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculating those seperately. By extracting them from the EPI, background and foreground structure are calculated without being biased by the transition itself. Therefor the EPI is segmented into occlusion transistions and areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach is fastly implemented and is sufficient for our pipeline.
+ Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs as one can see in the evaluation. See section \ref{sec:evaluation} for more details. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculate them seperately. By extracting them from the EPI, background and foreground structure are calculated without being biased by the transition itself. Therefor the EPI is segmented into occlusion transistions and areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach is fastly implemented and is sufficient for our needs. In principle the algorithm works as follows:
+ \begin{enumerate}
+ 	\item Segmentate the transitions and the rest of the EPI with a binary mask.
+ 	\item Calculate the structure tensor components on the masked gradient of the EPI. All masked gradients are zero and do not affect the local environment structure.
+ 	\item Calculate the structure tensor components again, now on the inverted masked gradient of the EPI.
+ \end{enumerate}
+ In figure \ref{fig:derivativesfull} the segmentation process is illustrated step-by-step. The gradient of the gray-valued EPI (a) is calculated in x- and y-direction (b), from which one calculates and thresholds the norm (c, d). The threshold itself is chosen to be 0.5 if not mentioned otherwise. It is essential to modify resulting mask from the binary thresholding (e)  using morphological image-processing operators as explained in detail in \cite{homepages.inf.ed.ac.uk}. It is made use of Morphological Closing (structured filling in of image region boundary pixels), which is explained in figure \ref{fig:closing}.\\
+ Having a look at the different scenarios in the given EPI that can happen when segmenting, the necessarity for morphological closing becomes clear. The EPI has two visible disparity transitions, one at Pixel [133] and one at Pixel [185]. At [133] (a) it is seen that the transition affects multiple neighbouring pixels even though the EPI isn't smoothed yet. Our aim is to mask those transtions. However at Pixel [63] and[174] the threshold is also crossed, since big gradients do not necessarily have to lie on a transition. Still the false-positive masked transitions are less uncomfortable to handle then a false negative result. It is clearly visible at [63], that zero crossings in the gradient lead to holes in the mask which need to be closed by morphological closing. Since the local environment of each pixel is only given by near pixels in the same segment (masked/unmasked), small holes lead to errorneous results at those pixels. After morphological closing, a last postprocessing step has to be made to handle the smearing due to the $3\times 3§$-gaussian presmoothing. In figure \ref{fig:closing} (d) one sees that the transition peak is gaussian-formed. If one simply cuts out the segment at the threshold transition, the background segment gradient is still dominated by the gradients directly next to the segment transtions. This becomes visible in figure \ref{fig:segmgaussian}, where the inverted mask of the EPI gradient is shown. Thus morphological dilation with a $3\times3$ kernel is applied on the inverted filter, resulting in a complete seperation of any peak crossing the threshold.
+ 
+ 
  
 \begin{figure}
 	\centering
@@ -246,17 +255,42 @@ It is important to notice that the color distance is extracted from the EPI, tho
 	\label{fig:derivativesfull}
 
 \end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/closing}
+	\caption[Morphological closing]{Morphological closing is a combination of Dilation and Erosion. Dilation uses a custom-sized kernel and turnes any 0 to 1, if at least one 1 isfound in the local environment. Erosion turnes any 1 to 0, if at least one 0 is found in the local environment. Image from \cite{what-when-how.com}}
+	\label{fig:closing}
+\end{figure}
+
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/segm_gaussian}
-	\caption[Enhanced segmentation mask]{Enhanced segmentation mask}
+	\caption[Enhanced segmentation mask]{In the upper diagram the thresholded gradient norm of the EPI (middle) is seen. The norm (masked with the inverted mask) is depicted in the lower figure (blue), while the inverted mask with a dilation filter is depicted in orange.}
 	\label{fig:segmgaussian}
 \end{figure}
 
 
  
  \subsection{An alternative to the coherence as the confidence measure}
+ The coherence describes, how strong the anisotropy of a structure in an image is. In the structure tensor pipeline (section \ref{sec:theo depth}) this value is used as a confidence meausure for the corresponding depth value. In this section we try to define a more profound definition for the confidence based on the distribution of the gradients in a small environment.
+ From the structure tensor components we obtain the disparity 
+ \begin{equation}\label{eq:disparity2}
+ d = \tan\left(\frac{1}{2} \arctan\left( \frac{J_{22}-J_{11}}{2J_{12}}\right)\right),
+ \end{equation}
+ whose error $\Delta d$ is then given by
+ \begin{equation}\label{key}
+ \Delta d = \left(\left(\frac{\partial d}{J_{11}}  \Delta J_{11}\right)^2 + \left(\frac{\partial d}{J_{22}}  \Delta J_{22}\right)^2 + \left(\frac{\partial d}{J_{12}} \Delta J_{12}\right)^2 \right)
+ \end{equation}
+ When substituting
+ \begin{equation}\label{eq:disparity2}
+ d = \tan\left(\frac{1}{2} \arctan\left( x\right)\right),\quad \text{with}\quad  x = \frac{J_{22}-J_{11}}{2J_{12}}
+ \end{equation}
+ we obtain
+ \begin{equation}\label{key}
+ \frac{\partial d}{\partial x} = 0.5\cdot \frac{d^2+1}{x^2+1}
+ \end{equation}
+ 
 \section{Depth from focus}
 \label{sec:theo depth}
 One advantage of using lightfields for depth measure is its ability to get a two-dimensional mapping of the scene with focus at any depth. Integrating the views of the light field camera array has the same effect as the integration of a focussed lense camera, as the lense is simply integrating slightly different viewpoints of the same scene point when focussed on the correct depth. \\
