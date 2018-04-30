@@ -202,7 +202,14 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  Even though one often wants to smoothen the depth map in a postprocessing step to improve the overall result and cancel out outlyiers, the structure tensor algorithm by Wanner is forced to smoothen the depth map beforehand.\\
  In the work of \cite{wanner2014orientation} the effect of the kernel size has been examined extensively and he calculated the best parameters for different scenes by grid search.\\
  Note that if the kernel is smaller then the height of the EPI, the outer cameras are neglected and do not enter in the calculation of the depth. To maintain the information of all cameras and vary the kernel size at the same time, \cite{diebold2016light} proposes asymmetrical kernelsizes to eventually reduce edge-fattening effects. However, assymetrical kernels still need to find a trade off between denoising and avoiding edge fattening and do not significantly increase the quality of the depth map result.\\
- Another approach is to choose a custom kernel form which only weights the local gradients that could possibly be part of the \glqq correct\grqq line in the EPI. Such a kernel is illustrated in figure (FIGURE), it has the form of as sandclock. in y-direction, it still follows a gaussian distribution.
+ Another approach is to choose a custom kernel form which only weights the local gradients that could possibly be part of the \glqq correct\grqq line in the EPI. Such a kernel is illustrated in figure \ref{fig:sandclock},  it has the form of as sandclock. in y-direction, it still follows a gaussian distribution.
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{images/sandclock.png}
+ 	\caption[Sandclock Kernel]{(a) shows a custom-shaped kernel in form of a sandclock. (b) shows a normal gaussian kernel.}
+ 	\label{fig:sandclock}
+ \end{figure}
+ 
  \subsection{Color-awareness with bilateral filtering}
  \label{sec:bilateral}
  In its original form the structure tensor pipeline weights the square of all gradients in a local environment by the distance to the reference point. Since all local gradients in the EPI that belong to the same color in the EPI are very likely to belong to the same orientation, in theory one only has to find all points with the same color which then lie on the same line in the EPI. The preferred orientation of the gradients at those points will then correspond to their slope with high confidence. However, most objects are not perfectly lambertian such that not all points on the correct line have to be of the exact same color. Only filtering the exact color will lead to noisy results. Though one could implement a filter weighting not only the distance in a gaussian manner but also the distance from the  EPI kernel origin in the color RGB space; such a filter is called \glqq bilateral filter \grqq (\cite{tomasi1998bilateral}). Pixels with completely different color will be excluded from the Neighbourhood when calculating the structure tensor. In equation \ref{eq:structuretensor} the window function $G$ is then defined as 
@@ -217,6 +224,13 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  	\item[ $g_{\sigma_c}$] is a gaussian function weighting the color distance in RGB space between the  RGB values of the original EPI at $p$ and $q$ using $\sigma_c$ as standard deviation,
  	\item[$W_P$] is a normalization factor so that the sum over all the neighbourhood always is 1. 
  \end{itemize}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/bilat}
+	\caption[Bilateral filtering]{Bilateral filtering of an epi}
+	\label{fig:bilat}
+\end{figure}
+
 It is important to notice that the color distance is extracted from the EPI, though we are filtering the components of the second derivatives, see equation \ref{eq:structuretensor}. In fact, the EPI only serves as a \glqq guide\grqq for the filtering.
  \subsection{Thresholding the gradients}
  \label{sec:thresholdinggradients}
@@ -273,14 +287,14 @@ It is important to notice that the color distance is extracted from the EPI, tho
 
  
  \subsection{An alternative to the coherence as the confidence measure}
- The coherence describes, how strong the anisotropy of a structure in an image is. In the structure tensor pipeline (section \ref{sec:theo depth}) this value is used as a confidence meausure for the corresponding depth value. In this section we try to define a more profound definition for the confidence based on the distribution of the gradients in a small environment.
+ The coherence (\ref{eq:coherence}) describes how strong the anisotropy of a structure in an image is. In the structure tensor pipeline (section \ref{sec:theo depth}) this value is used as a confidence meausure for the corresponding depth value. In this section we try to define a more profound definition for the confidence based on the distribution of the gradients in a small environment.
  From the structure tensor components we obtain the disparity 
  \begin{equation}\label{eq:disparity2}
  d = \tan\left(\frac{1}{2} \arctan\left( \frac{J_{22}-J_{11}}{2J_{12}}\right)\right),
  \end{equation}
- whose error $\Delta d$ is then given by
- \begin{equation}\label{key}
- \Delta d = \left(\left(\frac{\partial d}{J_{11}}  \Delta J_{11}\right)^2 + \left(\frac{\partial d}{J_{22}}  \Delta J_{22}\right)^2 + \left(\frac{\partial d}{J_{12}} \Delta J_{12}\right)^2 \right)
+ whose error $\Delta d$ is then given by first order error propagation:
+ \begin{equation}\label{eq:err_d}
+ \Delta d = \sqrt{\left(\frac{\partial d}{J_{11}}  \Delta J_{11}\right)^2 + \left(\frac{\partial d}{J_{22}}  \Delta J_{22}\right)^2 + \left(\frac{\partial d}{J_{12}} \Delta J_{12}\right)^2 }
  \end{equation}
  When substituting
  \begin{equation}\label{eq:disparity2}
@@ -288,8 +302,32 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \end{equation}
  we obtain
  \begin{equation}\label{key}
- \frac{\partial d}{\partial x} = 0.5\cdot \frac{d^2+1}{x^2+1}
+ \frac{\partial d}{\partial x} = 0.5\cdot \frac{d^2+1}{x^2+1}.
  \end{equation}
+ With
+ \begin{equation}\label{key}
+ \frac{\partial x}{\partial J_{11}} = \frac{x}{J_{11} - J_{22}},\quad \frac{\partial x}{\partial J_{22}} = \frac{-x}{J_{11} - J_{22}},\quad  \frac{\partial x}{\partial J_{12}} = \frac{x}{J_{12}}
+ \end{equation}
+ inserting in \ref{eq:err_d}:
+ \begin{equation}\label{key}
+ \Delta d =\sqrt{\left(\frac{0.5\cdot(d^2+1)}{x^2+1}\cdot x\right)^2 \cdot \left(\left|\frac{\Delta J_{12}}{J_{12}}\right|^2 + \left|\frac{\Delta J_{11}}{J_{11}-J_{22}}\right|^2 + \left|\frac{\Delta J_{22}}{J_{11}-J_{22}}\right|^2\right)}
+ \end{equation}
+ The errors $\Delta J_{11}$, $\Delta J_{12}$ and $\Delta J_{22}$ can be obtained from the statistical deviations of the gradient:
+ \begin{align}\label{key}
+ \Delta J_{11} &= G *|2\nabla_x|\Delta\nabla_x\\
+ \Delta J_{22} &= G *|2\nabla_y|\Delta\nabla_y\\
+ \Delta J_{12} &= G *\sqrt{\nabla_x^2\Delta\nabla_y^2 + \nabla_y^2\Delta\nabla_x^2}
+ \end{align}
+ Those equations are obtained from equation \ref{eq:structuretensor} using first order error propagation. We define $\Delta\nabla_x , \Delta\nabla_y$ as the statistical standard deviation of $\nabla_x, \nabla_y$ in the neighbourhood and calcuate it via
+ \begin{align}\label{key}
+ \Delta\nabla_x &= \sqrt{E[\nabla_x^2] - E[\nabla_x]^2}\\
+ \Delta\nabla_y &= \sqrt{E[\nabla_y^2] - E[\nabla_y]^2}
+ \end{align}
+ with the expectation value defined as the Gaussian weighted mean:
+ \begin{equation}\label{key}
+ E[I] = G* I
+ \end{equation}
+ If we insert the above equations into each other, we obtain a deviation measure $\Delta d$ for the disparity based on the gradient deviation in the EPI.
  
 \section{Depth from focus}
 \label{sec:theo depth}
@@ -406,7 +444,7 @@ P3 & \text{ if }d_{\vec p} - d_{\vec q} < -1\\
 \right).
 \end{equation}
 \subsection{SGM as postprocessing smoothing}
-
+In general Semi-Global Matching refers to minimizing an energy function in one dimension for different paths in the given space. In case of disparity mapping, the disparity candidate values and its initial cost values have to be given. One can e.g. take the final disparity map and choose N values for each pixel that are extracted randomly from a local neighbourhood. 
 
 
 \chapter{Evaluation}
@@ -442,7 +480,7 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
 	 \left[ {\begin{array}{ccc}
 	 	-1 &-2 &-1 \\
 	 	0 & 0 & 0 \\
-	 	1 & 0 & 1 \\
+	 	1 & 2 & 1 \\
 	 	\end{array} } \right] \cdot I
 	\end{equation} 
 	The directional gradients are simply added up to the response value
@@ -452,26 +490,164 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
 	\item[Laplace] Here we calculate the second derivative laplacian by appling the sobel operator twice:\begin{equation}\label{key}
 	D'(x,y) = \text{Laplace}(I)(x,y) = \frac{\partial^2 I}{\partial x^2}(x,y) + \frac{\partial^2 I}{\partial y^2}(x,y)
 	\end{equation}
-	
-	In the following we are going to compare the method qualitatively and quantitatively. In figure \ref{fig:originalmarked} one can see the pixel response value refocussed at different disparities for all the methods at example points in the testscene \glqq complextestscene\grqq. We chose points close to edges as well as points on clear surface with less structure on it. One can see that the pixel response of the Angular correspondence and the Photoconsistency method for those points show a more consistent behaviour, meaning that only one clear maximum can be seen. The derivative method as well as the Laplace method both seem to have trouble especially on pixel coordinates close to edges. This can be seen most clearly at the edge of the melon, where The first derivative shows 2 Maxima, while the Angular correspondence and Photo consistency measure find a clean maximum indicating at which depth the point can be found. However, on surfaces with less structure as for example on the potato, the Photo consistency measure struggles to find a clear maximum -- still it has one at the right position. 
+\end{description}
+	In the following we are going to compare the method qualitatively and quantitatively. In figure \ref{fig:originalmarked} one can see the pixel response value refocussed at different disparities for all the methods at example points in the testscene \glqq complextestscene\grqq. Points close to edges as well as points on clear surface with less structure on it are chosen. One can see that the pixel response of the Angular correspondence and the Photoconsistency method for those points show a more consistent behaviour, meaning that only one clear maximum can be seen. The derivative method as well as the Laplace method both seem to have trouble especially on pixel coordinates close to edges. This can be seen most clearly at the edge of the melon, where The first derivative shows 2 Maxima, while the Angular correspondence and Photo consistency measure find a clean maximum indicating at which depth the point can be found. However, on surfaces with less structure as for example on the potato, the Photo consistency measure struggles to find a clear maximum -- still it has one at the right position. 
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/original_marked}
 		\caption[Pixel response for depth from focus techniques]{At different pixel positions we take a look on how the Pixel response value behaves for the four different depth-from-focus techniques: Photo consistency (orange), Angular correspondence ( blue), First derivative (red) and The Laplace method (green) A high value means high confidence (low cost).}
 		\label{fig:originalmarked}
 	\end{figure}
-	Having a look at the actual disparity maps produced by the different techniques we can already
-	capture that the angular correspondence and photo consistency method produce the more consistent, smooth disparity maps. A quantitative evaluation confirms this impression: We measure the mean relative error (MRE), which is defined as the mean squared error over all pixels $\vec{p}$ divided by the maximum disparity range (the maximum error possible).
+	Having a look at the actual disparity maps produced by the different techniques (figure \ref{fig:resultdepthfromfocus}) we can already capture that the angular correspondence and photo consistency method produce the more consistent, smooth disparity maps. A quantitative evaluation confirms this impression: We measure the mean relative error (MRE), which is defined as the mean squared error over all pixels $\vec{p}$ divided by the maximum disparity range (the maximum error possible).
 	\begin{equation}\label{key}
 	MRE = \sum_{\vec p } (d_{\text{ground truth}} - d_{\vec p} )^2/(\text{max. disp - min. disp})
 	\end{equation}
+	The diagram in figure \ref{fig:errorres20all} indicates that for all scenes either the Photo consistency or the Angular Correspondence method obtain the lowest mean relative error.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{images/result_depth_from_focus_res20}
+		\caption[Depth from focus: depthmaps]{The depth maps of the scenes (from up to down) \textit{complextestscene, cotton, occlusiontestscene, pens, testscene, tiltplane} is depicted for different depth-from-focus techniques. The Disparity stepsize is 1/20.}
+		\label{fig:resultdepthfromfocus}
+	\end{figure}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/error_res20_all}
+		\caption[Mean squared error for depth-from-focus techniques]{The mean squared error is depicted for depth-from-focus techniques. The stepsize is 1/20.}
+		\label{fig:errorres20all}
+	\end{figure}
+	
+
+	
+	
 	
 	
 	
 	
 	\subsection{Using depth-from-refocus as a preestimate for the ST}
-	The long-term aim of this work is to make the structure tensor pipeline more robust. We achieve this by using the depth-from-refocus method as a pre
-\end{description}
+		\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{images/result_depth_from_focus_pre}
+		\caption[Depth from focus: depthmaps with Resolution 1]{The depth maps of the scenes (from up to down) \textit{complextestscene, cotton, occlusiontestscene, pens, testscene} is depicted for different depth-from-focus techniques. On the right the ground trhouth is depicted The disparity stepsize is 1.}
+		\label{fig:resultdepthfromfocuspre}
+	\end{figure}
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/error_res1_all}
+	\caption[Mean squared error for depth-from-focus techniques]{The mean squared error is depicted for depth-from-focus techniques. The stepsize is 1.}
+	\label{fig:errorres1all}
+	\end{figure}
+
+	
+	The long-term aim of this work is to make the structure tensor pipeline more robust. We achieve this by using the depth-from-refocus method as a preestimate, therefore reducing the disparity window at each pixel. The Light field is now refocussed by integer disparity steps, resulting in disparty maps that obtain equidistant layers.
+	 All disparity maps with integer disparity stepsize are compared to the ground truth in figure \ref{fig:resultdepthfromfocuspre}. Again the Angular Correspondence and Photo consistency measures result in the lowest MRE (figure \ref{fig:errorres1all}), though the Angular Correspondence cue is about 1.5 times more time-consuming than the photo consistency measure under the same conditions (figure \ref{fig:speeds}).
+	 \begin{figure}
+	 	\centering
+	 	\includegraphics[width=0.7\linewidth]{images/speeds.eps}
+	 	\caption[Speed of different depth-from-focus techniques]{ On the left the speed of different depth-from-focus techniques is depicted in function of the resolution chosen. (a)-(d) show the disparity map of the scene \textit{complextestscene} for the resolutions 1, $\frac{1}{2}$, $\frac{1}{3}$, $\frac{1}{10}$ respectively.}
+	 	\label{fig:speeds}
+	 \end{figure}
+ 	Further testing we stick to the Photo Consitency measure, as it procuces the best results in terms of speed and precision.\\
+ 	The next step is to use the preestimate at each pixel to skip the iterative refocussing in the structure tensor pipeline. However, since not all points on an EPI are of the same depth, the EPI is segmented in parts of the same pre-estimation depth. Those parts are refocussed seperately to the estimated depth, results are illustrated in figure \ref{fig:epivsgdepth}. Note that the edge of the depth images have been removed when calculating the MRE. 
+ 	Unfortunately the Photo Consistency pre-estimate pipeline yields worse results then the Structure Tensor itself. The reason is that artifacts from the preestimate maintain after the structure tensor pipeline has been applied to the EPI. Additionally one has to mention that only those pixels in the depth map that have a high coherence measure given by the ST pipeline are taken into account when calculating the errors. Hence a bias towards the Structure tensor pipeline in terms of optimal error results is expected. \\
+ 	Also the preestimation is even more time-consuming than the structure tensor itself. Because of the splitting of the EPI, the runtime is scene dependentthe time difference between the scene is therefor enormous, the results can be found in table \ref{tab:time_gdepth}. If one jumps the preestimation step and takes the Ground truth data as a \glqq pre-estimate \grqq, the pipeline is significantly faster than iteratively refocussing on each depth. The pre-estimate itself neither takes too long (about 2 seconds), but the EPI gets segmentated into smaller parts when using the pre-estimate. A global smoothing scheme can possibly improve the runtime by minimizing the amount of disparity jumps, however this would result in even more artefact effects. We leave that aspect for future work.\\
+ 	\begin{table}
+	\begin{tabular}{|c|c|c|c|}
+		\hline 
+		Scene & Structuretensor Pipeline & Preestimate+ ST & Use GT as preestimate \\ 
+		\hline 
+		complextestscene & 12.89 s & 13.62 s & 8.83 s \\ 
+		\hline 
+		pens & 5.1 s & 5.2 s & 4.7 s \\ 
+		\hline 
+		cotton & 5.09 s & 6.78 s & 3.97 s \\ 
+		\hline 
+		tiltplane & 22.25 s & 17.46 &  9.3 s \\ 
+		\hline 
+		occlusiontestscene & 10.9 s & 12.1 s & 6.7 s \\ 
+		\hline 
+		
+	\end{tabular} 
+\label{tab:time_gdepth}
+\caption[Time]{Time for different pipelines}
+ 	\end{table}
+
+ 	
+ 	
+ 	
+ 	\begin{figure}
+ 		\centering
+ 		\includegraphics[width=1\linewidth]{images/epi_vs_gdepth}
+ 		\caption[Photoconsistency Preestimate for the structure tensor]{Comparison between the Structure Tensor Pipeline with and without a Photo Consistency pre-estimate. On the left the MRE is depicted for different scenes. The right images show the absolute difference of the depth map tho the ground truth, while the left column represents the results with the photo consistiency preestimate.}
+ 		\label{fig:epivsgdepth}
+ 	\end{figure}
+ 	
+	 
+
+\section{Modification on the Structure Tensor}
+In the following section we concentrate on benchmark data from the dataset of \cite{honauer2016benchmark} as it not only provides a big data set, it also comes with a toolkit for evaluating scenes with different metrics. Whenever it is referred to a metric score, lower score means always better score.
+\subsection{Sandclock kernel}
+In figure \ref{fig:sandclockresults} the results we obtain from using a sandclock-shaped kernel instead of a normal gaussian kernel are shown. Even though one could expect the custom-sized kernel to perform better at edges, the opposite is the case; the original gaussian kernel outperforms the sandclock kernel in all scenes. The motivation to define the kernel in form of a sandclock was to localize structure clearly to the pixel it belongs to. However it becomes clear that the sandclock kernel cannot handle the occlusion problem explained in section \ref{sec:occlusionproblem}. On the surface regions less smoothing between neighbouring pixels lead to a higher noise resulting in a higher mean squared error. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/sandclock_results}
+	\caption[Results with custom sized kernel]{Comparison between the normal structure tensor and the sandclock- like kernel for the scenes \textit{dino, cotton, sideboard, boxes}. The left side compares the mean squared errors in the disparity map, the right side shows the error where discontinuities in the disparity map are masked explicitely.}
+	\label{fig:sandclockresults}
+\end{figure}
+
+\subsection{Bilateralfilter}
+ This section illustrates the effects of using a bilateral filter in the Structure Tensor pipeline instead of a Gaussian Filter. Figure \ref{fig:bilateralparams} shows the Mean Squared Error as well as the discontinuity score when using a bilateral filter with the original EPI as a guide. The Scores are normed to the score of the Structure tensor pipeline. For large $\sigma_\text{Color}$ both converge to 1, because the we account all color values equally in this limit. Thus one again obtains the same result as with a normal gaussian filter. Note that the $\sigma_\text{Space}$ remains the same as in the case of a normal filtering ( $\sigma_\text{Space}=7$). Unfortunately the MSE metric score and the discontinuity score is worse than with using the gaussian kernel for the complete parameter space. Especially surfaces with a lot of texture suffer from splitting the weights by their color values. This becomes clear as the scene \textit{sideboard} with the fine patterned wallpaper reaches the worst results. Any pixel that doesn't encounter enough neighboring pixels with an equal color results in a Stucture tensor that only takes into account the very local gradient in the EPI. Since the aim was to especially handle disparity transitions by not mixing up two regions in the EPI with different colors, we take a look at the results for the discontinuity metric defined by \cite{honauer2016benchmark}. Even if one can see a slight improvement at some transitions looking at the disparity maps, the discontinuity score is still unaffected since the edge fattening is still visible. Since the results do not satisfy the expections and the guided bilateral filter also takes about 5 times longer then the normal structure tensor, we try an alternative approach.\\
+ Instead of using the original EPI as a guide, one could directly take the structure tensor component vector 
+ \begin{equation}\label{key}
+ \vec S = \left(\begin{matrix}
+ \frac{\partial g^2}{\partial x \partial x} \\
+ \frac{\partial g^2}{\partial s \partial s} \\
+ \frac{\partial g^2}{\partial x \partial s} \\
+ \end{matrix}\right)
+ \end{equation}
+ as the guide for the bilateral filtering of itself. The idea behind it is closely related to the EPI segmentation as described in section \ref{sec:occlusionawareness}. Big gradients in the EPI are more consistently referring to the same transition. By separating small and big gradients, the influence of the structure in front is less significant than it is without using the bilateral filtering. As one can see in figure \ref{fig:bilateralnormparams}, using the ST components as a guide can actually result in a better MSE. However, for each scene the score is dependent on the parameter $\sigma$ that is chosen. Also, the discontinuity score does not improve even though in figure \ref{fig:bilatresults} a clear improvement can be seen at occlusion borders. Actually the edge fattening is by far bigger then the masks used to determine the discontinuity score in figure \ref{fig:bilateralnormparams}. In figure \ref{fig:bilatresults} The depth maps zoomed at some disparity transitions in the given scenes \textit{boxes, cotton, dino} and \textit{sideboard} are shown, calculated with the gaussian and bilateral filter. One can observe that the bilateral filter (with the Structure tensor component as a guide) results in sharper edges that are significanly less \glqq fattened \grqq than the gaussian equivalent. This becomes clear when looking at the head of the teddy bear in the scene \textit{dino}. Even though the front object steill occupies more space then it should (edge fattening), the edge has become smaller. This effect cannot be seen when using a bilateral filter with the EPI as a guide however.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/bilateral_params}
+	\caption[Parameter dependency for bilateral filtering using EPI]{Bilateral filtering with original EPI as the guide: On the left the Mean Squared error for different scenes in function of the $\sigma_\text{Color}$ of the bilateral filtering is shown, devided by the MSE with using a gaussian filter. On the right the Discontinuity score based on \cite{honauer2016benchmark} is shown, also normed to the Score using the standard gaussian filter.}
+	\label{fig:bilateralparams}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/bilateral_norm_params}
+	\caption[Parameter dependency for bilateral filtering]{Bilateral filtering with Structure Tensor Components themselves as the guide:On the left the Mean Squared error for different scenes in function of the $\sigma_\text{Color}$ of the bilateral filtering is shown, devided by the MSE with using a gaussian filter. On the right the Discontinuity score based on \cite{honauer2016benchmark} is shown, also normed to the Score using the standard gaussian filter.}
+	\label{fig:bilateralnormparams}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/bilat_results}
+	\caption[Results of the bilateral filtering]{Results of Bilateral filtering for the scenes \textit{ boxes, cotton, dino, sideboard}.}
+	\label{fig:bilatresults}
+\end{figure}
+
+\subsection{thresholding gradients}
+Resultate nur mit normalisierung
+Verschiedene Thresholds testen.
+Adaptive Threshold testen.
+\subsection{Occlusion awareness segmentation}
+Verschiedene thresholds\\
+
+adaptive threshold testen
+\\
+bester threshold -> verschiedene background/foreground parameter testen (2-parameter python darstellen)\\
+
+\subsection{alternative coherence}
+confidence maps zeigen, probleme anhand einzelner pixel erklären.\\
+Direkter vergleich ergebnisse mit coherence.
+Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen. Alternative: direkt die coherence nehmen. Überleitung zu gaussian pyramid ansatz
+\section{Semi-Global Matching}
+Einfaches Ergebnis mit (zu) starkem parameter.
+beste parameter mit nur 2 parametern.\\
+beste parameter mit 3 parametern.\\
+
 
   \part{Appendix}
   \begin{appendix}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.31)  16 APR 2018 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.31)  30 APR 2018 18:55
 entering extended mode
 **./MA.tex
 (MA.tex
@@ -752,10 +752,28 @@ LaTeX Warning: Label `key' multiply defined.
 LaTeX Warning: Label `key' multiply defined.
 
 
+LaTeX Warning: Label `eq:disparity2' multiply defined.
+
+
 LaTeX Warning: Label `key' multiply defined.
 
 
-LaTeX Warning: Label `eq:disparity2' multiply defined.
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
+
+
+LaTeX Warning: Label `key' multiply defined.
 
 
 LaTeX Warning: Label `key' multiply defined.
@@ -919,39 +937,39 @@ Package natbib Warning: Citation `loremIpsum' on page 5 undefined on input line
 )) [5
 
 
-] (MA.toc)
+] (MA.toc [6
+
+
+])
 \tf@toc=\write4
 \openout4 = `MA.toc'.
 
- [6
-
-
-]
+ [7]
 chapter 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 61--64
 
  []
 
-[7
+[8
 
 ]
-<images/twoplane_param.jpg, id=204, 343.71613pt x 147.86443pt>
+<images/twoplane_param.jpg, id=243, 343.71613pt x 147.86443pt>
 File: images/twoplane_param.jpg Graphic file (type jpg)
 <use images/twoplane_param.jpg>
 Package pdftex.def Info: images/twoplane_param.jpg  used on input line 76. on i
 nput line 76.
 Package pdftex.def Info: Requested size: 298.75267pt x 128.53044pt on input lin
 e 76.
- [8 <./images/twoplane_param.jpg>]
-<images/epiVisualization.jpg, id=222, 2006.9379pt x 635.976pt>
+ [9 <./images/twoplane_param.jpg>]
+<images/epiVisualization.jpg, id=261, 2006.9379pt x 635.976pt>
 File: images/epiVisualization.jpg Graphic file (type jpg)
 <use images/epiVisualization.jpg>
 Package pdftex.def Info: images/epiVisualization.jpg  used on input line 91. on
  input line 91.
 Package pdftex.def Info: Requested size: 426.7914pt x 135.23772pt on input line
  91.
-<images/simple_epi.png, id=225, 797.98125pt x 91.09032pt>
+<images/simple_epi.png, id=264, 797.98125pt x 91.09032pt>
 File: images/simple_epi.png Graphic file (type png)
 <use images/simple_epi.png>
 Package pdftex.def Info: images/simple_epi.png  used on input line 98. on input
@@ -963,61 +981,91 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--113
 
  []
 
-[9 <./images/epiVisualization.jpg> <./images/simple_epi.png>]
+[10 <./images/epiVisualization.jpg> <./images/simple_epi.png>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 138.
 
-<images/Lumiplus.jpg, id=253, 529.98pt x 584.1825pt>
+<images/Lumiplus.jpg, id=292, 529.98pt x 584.1825pt>
 File: images/Lumiplus.jpg Graphic file (type jpg)
 <use images/Lumiplus.jpg>
 Package pdftex.def Info: images/Lumiplus.jpg  used on input line 140. on input 
 line 140.
 Package pdftex.def Info: Requested size: 298.75267pt x 329.30603pt on input lin
 e 140.
-[10] [11 <./images/Lumiplus.jpg>]
-<images/refocused_cut.png, id=278, 711.4078pt x 267.24844pt>
+[11] [12 <./images/Lumiplus.jpg>]
+<images/refocused_cut.png, id=317, 711.4078pt x 267.24844pt>
 File: images/refocused_cut.png Graphic file (type png)
 <use images/refocused_cut.png>
 Package pdftex.def Info: images/refocused_cut.png  used on input line 170. on i
 nput line 170.
 Package pdftex.def Info: Requested size: 298.75267pt x 112.23134pt on input lin
 e 170.
-<images/occlusion_painted2.png, id=284, 778.40813pt x 500.62032pt>
+<images/occlusion_painted2.png, id=323, 778.40813pt x 500.62032pt>
 File: images/occlusion_painted2.png Graphic file (type png)
 <use images/occlusion_painted2.png>
 Package pdftex.def Info: images/occlusion_painted2.png  used on input line 187.
  on input line 187.
 Package pdftex.def Info: Requested size: 298.75267pt x 192.13977pt on input lin
 e 187.
-<images/cotton_discontinuities_0070.png, id=285, 212.9556pt x 175.857pt>
+<images/cotton_discontinuities_0070.png, id=324, 212.9556pt x 175.857pt>
 File: images/cotton_discontinuities_0070.png Graphic file (type png)
 <use images/cotton_discontinuities_0070.png>
 Package pdftex.def Info: images/cotton_discontinuities_0070.png  used on input 
 line 193. on input line 193.
 Package pdftex.def Info: Requested size: 298.75267pt x 246.72673pt on input lin
 e 193.
- [12 <./images/refocused_cut.png>] [13]
-[14 <./images/occlusion_painted2.png>] [15 <./images/cotton_discontinuities_007
-0.png>] [16]
+ [13 <./images/refocused_cut.png>]
+<images/sandclock.png, id=344, 40.10588pt x 12.60754pt>
+File: images/sandclock.png Graphic file (type png)
+<use images/sandclock.png>
+Package pdftex.def Info: images/sandclock.png  used on input line 208. on input
+ line 208.
+Package pdftex.def Info: Requested size: 298.75267pt x 93.94275pt on input line
+ 208.
+ [14]
+[15 <./images/occlusion_painted2.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `sec:evaluation' on page 17 undefined on input line 23
-6.
+ [16 <./images/cotton_discontinuities_0070.png> <./images/sandclock.png>]
+Package epstopdf Info: Source file: <images/bilat.eps>
+(epstopdf)                    date: 2018-04-16 15:49:56
+(epstopdf)                    size: 175553 bytes
+(epstopdf)             Output file: <images/bilat-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-04-18 15:27:28
+(epstopdf)                    size: 63009 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/bilat-eps-converted-
+to.pdf images/bilat.eps>
+(epstopdf)             \includegraphics on input line 229.
+Package epstopdf Info: Output file is already uptodate.
+<images/bilat-eps-converted-to.pdf, id=367, pagebox=cropbox, 462.72874pt x 359.
+3425pt>
+File: images/bilat-eps-converted-to.pdf Graphic file (type pdf)
+<use images/bilat-eps-converted-to.pdf>
+Package pdftex.def Info: images/bilat-eps-converted-to.pdf  used on input line 
+229. on input line 229.
+Package pdftex.def Info: Requested size: 298.75267pt x 232.00716pt on input lin
+e 229.
+ [17]
+
+LaTeX Warning: Reference `sec:evaluation' on page 18 undefined on input line 25
+0.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--237
+Underfull \hbox (badness 10000) in paragraph at lines 249--251
 
  []
 
 
-LaTeX Warning: Reference `sec:evaluation' on page 17 undefined on input line 24
-0.
+LaTeX Warning: Reference `sec:evaluation' on page 18 undefined on input line 25
+4.
 
+[18 <./images/bilat-eps-converted-to.pdf>]
 
-LaTeX Warning: Command \textsection invalid in math mode on input line 247.
+LaTeX Warning: Command \textsection invalid in math mode on input line 261.
 
 Missing character: There is no Ÿ in font cmr12!
-[17]
+[19]
 Package epstopdf Info: Source file: <images/derivatives_full.eps>
 (epstopdf)                    date: 2018-04-12 15:32:10
 (epstopdf)                    size: 139770 bytes
@@ -1027,23 +1075,23 @@ df>
 (epstopdf)                    size: 50813 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/derivatives_full-eps
 -converted-to.pdf images/derivatives_full.eps>
-(epstopdf)             \includegraphics on input line 253.
+(epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
-<images/derivatives_full-eps-converted-to.pdf, id=357, pagebox=cropbox, 476.781
+<images/derivatives_full-eps-converted-to.pdf, id=410, pagebox=cropbox, 476.781
 25pt x 346.29375pt>
 File: images/derivatives_full-eps-converted-to.pdf Graphic file (type pdf)
 <use images/derivatives_full-eps-converted-to.pdf>
 Package pdftex.def Info: images/derivatives_full-eps-converted-to.pdf  used on 
-input line 253. on input line 253.
+input line 267. on input line 267.
 Package pdftex.def Info: Requested size: 426.7914pt x 310.0023pt on input line 
-253.
-<images/closing.png, id=358, 642.4pt x 228.855pt>
+267.
+<images/closing.png, id=411, 642.4pt x 228.855pt>
 File: images/closing.png Graphic file (type png)
 <use images/closing.png>
-Package pdftex.def Info: images/closing.png  used on input line 260. on input l
-ine 260.
+Package pdftex.def Info: images/closing.png  used on input line 274. on input l
+ine 274.
 Package pdftex.def Info: Requested size: 298.75267pt x 106.43393pt on input lin
-e 260.
+e 274.
 Package epstopdf Info: Source file: <images/segm_gaussian.eps>
 (epstopdf)                    date: 2018-04-12 15:50:40
 (epstopdf)                    size: 120800 bytes
@@ -1053,61 +1101,291 @@ Package epstopdf Info: Source file: <images/segm_gaussian.eps>
 (epstopdf)                    size: 41477 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/segm_gaussian-eps-co
 nverted-to.pdf images/segm_gaussian.eps>
-(epstopdf)             \includegraphics on input line 268.
+(epstopdf)             \includegraphics on input line 282.
 Package epstopdf Info: Output file is already uptodate.
-<images/segm_gaussian-eps-converted-to.pdf, id=361, pagebox=cropbox, 462.72874p
+<images/segm_gaussian-eps-converted-to.pdf, id=414, pagebox=cropbox, 462.72874p
 t x 346.29375pt>
 File: images/segm_gaussian-eps-converted-to.pdf Graphic file (type pdf)
 <use images/segm_gaussian-eps-converted-to.pdf>
 Package pdftex.def Info: images/segm_gaussian-eps-converted-to.pdf  used on inp
-ut line 268. on input line 268.
+ut line 282. on input line 282.
 Package pdftex.def Info: Requested size: 426.7914pt x 319.40256pt on input line
- 268.
- [18] [19 <./images/derivatives_full-eps-converted-to.pdf> <./images/closing.pn
-g>] [20 <./images/segm_gaussian-eps-converted-to.pdf>]
+ 282.
 
-LaTeX Warning: Reference `label' on page 21 undefined on input line 309.
+Underfull \vbox (badness 3525) has occurred while \output is active []
 
-[21] [22] [23]
-<images/table-skizze.jpg, id=432, 1445.4pt x 813.0375pt>
+ [20 <./images/derivatives_full-eps-converted-to.pdf>] [21 <./images/closing.pn
+g> <./images/segm_gaussian-eps-converted-to.pdf>] [22]
+
+LaTeX Warning: Reference `label' on page 23 undefined on input line 347.
+
+[23] [24] [25]
+<images/table-skizze.jpg, id=495, 1445.4pt x 813.0375pt>
 File: images/table-skizze.jpg Graphic file (type jpg)
 <use images/table-skizze.jpg>
-Package pdftex.def Info: images/table-skizze.jpg  used on input line 357. on in
-put line 357.
+Package pdftex.def Info: images/table-skizze.jpg  used on input line 395. on in
+put line 395.
 Package pdftex.def Info: Requested size: 298.75267pt x 168.05083pt on input lin
-e 357.
-<images/discrete_cont.jpg, id=436, 1445.4pt x 813.0375pt>
+e 395.
+<images/discrete_cont.jpg, id=499, 1445.4pt x 813.0375pt>
 File: images/discrete_cont.jpg Graphic file (type jpg)
 <use images/discrete_cont.jpg>
-Package pdftex.def Info: images/discrete_cont.jpg  used on input line 365. on i
-nput line 365.
+Package pdftex.def Info: images/discrete_cont.jpg  used on input line 403. on i
+nput line 403.
 Package pdftex.def Info: Requested size: 298.75267pt x 168.05083pt on input lin
-e 365.
+e 403.
 
-Overfull \hbox (17.02443pt too wide) detected at line 389
+Overfull \hbox (17.02443pt too wide) detected at line 427
  $\OML/cmm/m/it/12 L[]\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; s\OT1/cmr/m/n/12 ) 
 = \OML/cmm/m/it/12 C\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; s\OT1/cmr/m/n/12 ) + 
 [][] []$  
  []
 
-[24 <./images/table-skizze.jpg>] [25 <./images/discrete_cont.jpg>] [26]
+[26 <./images/table-skizze.jpg>] [27 <./images/discrete_cont.jpg>] [28]
 chapter 2.
-[27
+[29
 
 ]
-<images/original_marked.png, id=473, 1026.83624pt x 697.8572pt>
+<images/original_marked.png, id=535, 1026.83624pt x 697.8572pt>
 File: images/original_marked.png Graphic file (type png)
 <use images/original_marked.png>
-Package pdftex.def Info: images/original_marked.png  used on input line 459. on
- input line 459.
+Package pdftex.def Info: images/original_marked.png  used on input line 497. on
+ input line 497.
 Package pdftex.def Info: Requested size: 426.7914pt x 290.05257pt on input line
- 459.
- [28] [29 <./images/original_marked.png>]
+ 497.
+Package epstopdf Info: Source file: <images/result_depth_from_focus_res20.eps>
+(epstopdf)                    date: 2018-04-20 15:03:15
+(epstopdf)                    size: 15411238 bytes
+(epstopdf)             Output file: <images/result_depth_from_focus_res20-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2018-04-20 15:07:20
+(epstopdf)                    size: 661697 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/result_depth_from_fo
+cus_res20-eps-converted-to.pdf images/result_depth_from_focus_res20.eps>
+(epstopdf)             \includegraphics on input line 509.
+Package epstopdf Info: Output file is already uptodate.
+<images/result_depth_from_focus_res20-eps-converted-to.pdf, id=538, pagebox=cro
+pbox, 2168.1pt x 2168.1pt>
+File: images/result_depth_from_focus_res20-eps-converted-to.pdf Graphic file (t
+ype pdf)
+<use images/result_depth_from_focus_res20-eps-converted-to.pdf>
+Package pdftex.def Info: images/result_depth_from_focus_res20-eps-converted-to.
+pdf  used on input line 509. on input line 509.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.76425pt on input line
+ 509.
+Package epstopdf Info: Source file: <images/error_res20_all.eps>
+(epstopdf)                    date: 2018-04-19 11:21:29
+(epstopdf)                    size: 252392 bytes
+(epstopdf)             Output file: <images/error_res20_all-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2018-04-19 11:39:31
+(epstopdf)                    size: 88875 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/error_res20_all-eps-
+converted-to.pdf images/error_res20_all.eps>
+(epstopdf)             \includegraphics on input line 516.
+Package epstopdf Info: Output file is already uptodate.
+<images/error_res20_all-eps-converted-to.pdf, id=539, pagebox=cropbox, 433.62pt
+ x 306.14375pt>
+File: images/error_res20_all-eps-converted-to.pdf Graphic file (type pdf)
+<use images/error_res20_all-eps-converted-to.pdf>
+Package pdftex.def Info: images/error_res20_all-eps-converted-to.pdf  used on i
+nput line 516. on input line 516.
+Package pdftex.def Info: Requested size: 298.75267pt x 210.93576pt on input lin
+e 516.
+Package epstopdf Info: Source file: <images/result_depth_from_focus_pre.eps>
+(epstopdf)                    date: 2018-04-18 15:02:31
+(epstopdf)                    size: 15411236 bytes
+(epstopdf)             Output file: <images/result_depth_from_focus_pre-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2018-04-18 16:04:02
+(epstopdf)                    size: 550654 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/result_depth_from_fo
+cus_pre-eps-converted-to.pdf images/result_depth_from_focus_pre.eps>
+(epstopdf)             \includegraphics on input line 531.
+Package epstopdf Info: Output file is already uptodate.
+<images/result_depth_from_focus_pre-eps-converted-to.pdf, id=540, pagebox=cropb
+ox, 2168.1pt x 2168.1pt>
+File: images/result_depth_from_focus_pre-eps-converted-to.pdf Graphic file (typ
+e pdf)
+<use images/result_depth_from_focus_pre-eps-converted-to.pdf>
+Package pdftex.def Info: images/result_depth_from_focus_pre-eps-converted-to.pd
+f  used on input line 531. on input line 531.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.76425pt on input line
+ 531.
+Package epstopdf Info: Source file: <images/error_res1_all.eps>
+(epstopdf)                    date: 2018-04-19 11:20:07
+(epstopdf)                    size: 253712 bytes
+(epstopdf)             Output file: <images/error_res1_all-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2018-04-19 11:39:33
+(epstopdf)                    size: 89335 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/error_res1_all-eps-c
+onverted-to.pdf images/error_res1_all.eps>
+(epstopdf)             \includegraphics on input line 537.
+Package epstopdf Info: Output file is already uptodate.
+<images/error_res1_all-eps-converted-to.pdf, id=541, pagebox=cropbox, 433.62pt 
+x 306.14375pt>
+File: images/error_res1_all-eps-converted-to.pdf Graphic file (type pdf)
+<use images/error_res1_all-eps-converted-to.pdf>
+Package pdftex.def Info: images/error_res1_all-eps-converted-to.pdf  used on in
+put line 537. on input line 537.
+Package pdftex.def Info: Requested size: 298.75267pt x 210.93576pt on input lin
+e 537.
+Package epstopdf Info: Source file: <images/speeds.eps>
+(epstopdf)                    date: 2018-04-23 12:08:16
+(epstopdf)                    size: 1407574 bytes
+(epstopdf)             Output file: <images/speeds-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-04-23 12:08:33
+(epstopdf)                    size: 284056 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/speeds-eps-converted
+-to.pdf images/speeds.eps>
+(epstopdf)             \includegraphics on input line 547.
+Package epstopdf Info: Output file is already uptodate.
+<images/speeds-eps-converted-to.pdf, id=545, pagebox=cropbox, 445.665pt x 289.0
+8pt>
+File: images/speeds-eps-converted-to.pdf Graphic file (type pdf)
+<use images/speeds-eps-converted-to.pdf>
+Package pdftex.def Info: images/speeds-eps-converted-to.pdf  used on input line
+ 547. on input line 547.
+Package pdftex.def Info: Requested size: 298.75267pt x 193.78845pt on input lin
+e 547.
+
+Overfull \hbox (45.67844pt too wide) in paragraph at lines 556--573
+[][]
+ []
+
+[30] [31 <./images/original_marked.png>] [32 <./images/result_depth_from_focus_
+res20-eps-converted-to.pdf>]
+Underfull \vbox (badness 1184) has occurred while \output is active []
+
+ [33 <./images/error_res20_all-eps-converted-to.pdf>] [34 <./images/result_dept
+h_from_focus_pre-eps-converted-to.pdf>] [35 <./images/error_res1_all-eps-conver
+ted-to.pdf> <./images/speeds-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <images/epi_vs_gdepth.eps>
+(epstopdf)                    date: 2018-04-23 16:41:40
+(epstopdf)                    size: 16011929 bytes
+(epstopdf)             Output file: <images/epi_vs_gdepth-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2018-04-23 16:41:58
+(epstopdf)                    size: 1701735 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/epi_vs_gdepth-eps-co
+nverted-to.pdf images/epi_vs_gdepth.eps>
+(epstopdf)             \includegraphics on input line 581.
+Package epstopdf Info: Output file is already uptodate.
+<images/epi_vs_gdepth-eps-converted-to.pdf, id=718, pagebox=cropbox, 742.775pt 
+x 722.7pt>
+File: images/epi_vs_gdepth-eps-converted-to.pdf Graphic file (type pdf)
+<use images/epi_vs_gdepth-eps-converted-to.pdf>
+Package pdftex.def Info: images/epi_vs_gdepth-eps-converted-to.pdf  used on inp
+ut line 581. on input line 581.
+Package pdftex.def Info: Requested size: 426.7914pt x 415.26256pt on input line
+ 581.
+<images/sandclock_results.png, id=723, 730.73pt x 664.4825pt>
+File: images/sandclock_results.png Graphic file (type png)
+<use images/sandclock_results.png>
+Package pdftex.def Info: images/sandclock_results.png  used on input line 594. 
+on input line 594.
+Package pdftex.def Info: Requested size: 298.75267pt x 271.669pt on input line 
+594.
+ [36] [37 <./images/epi_vs_gdepth-eps-converted-to.pdf>] [38 <./images/sandcloc
+k_results.png>]
+
+LaTeX Warning: Reference `sec:occlusionawareness' on page 39 undefined on input
+ line 609.
+
+Package epstopdf Info: Source file: <images/bilateral_params.eps>
+(epstopdf)                    date: 2018-04-30 12:43:56
+(epstopdf)                    size: 129496 bytes
+(epstopdf)             Output file: <images/bilateral_params-eps-converted-to.p
+df>
+(epstopdf)                    date: 2018-04-30 12:44:03
+(epstopdf)                    size: 41748 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/bilateral_params-eps
+-converted-to.pdf images/bilateral_params.eps>
+(epstopdf)             \includegraphics on input line 613.
+Package epstopdf Info: Output file is already uptodate.
+<images/bilateral_params-eps-converted-to.pdf, id=758, pagebox=cropbox, 444.661
+25pt x 289.08pt>
+File: images/bilateral_params-eps-converted-to.pdf Graphic file (type pdf)
+<use images/bilateral_params-eps-converted-to.pdf>
+Package pdftex.def Info: images/bilateral_params-eps-converted-to.pdf  used on 
+input line 613. on input line 613.
+Package pdftex.def Info: Requested size: 298.75267pt x 194.22072pt on input lin
+e 613.
+Package epstopdf Info: Source file: <images/bilateral_norm_params.eps>
+(epstopdf)                    date: 2018-04-30 12:42:21
+(epstopdf)                    size: 138596 bytes
+(epstopdf)             Output file: <images/bilateral_norm_params-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2018-04-30 12:44:03
+(epstopdf)                    size: 43730 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/bilateral_norm_param
+s-eps-converted-to.pdf images/bilateral_norm_params.eps>
+(epstopdf)             \includegraphics on input line 619.
+Package epstopdf Info: Output file is already uptodate.
+<images/bilateral_norm_params-eps-converted-to.pdf, id=763, pagebox=cropbox, 44
+4.66125pt x 289.08pt>
+File: images/bilateral_norm_params-eps-converted-to.pdf Graphic file (type pdf)
+
+<use images/bilateral_norm_params-eps-converted-to.pdf>
+Package pdftex.def Info: images/bilateral_norm_params-eps-converted-to.pdf  use
+d on input line 619. on input line 619.
+Package pdftex.def Info: Requested size: 298.75267pt x 194.22072pt on input lin
+e 619.
+Package epstopdf Info: Source file: <images/bilat_results.eps>
+(epstopdf)                    date: 2018-04-30 17:03:10
+(epstopdf)                    size: 56203502 bytes
+(epstopdf)             Output file: <images/bilat_results-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2018-04-30 17:33:18
+(epstopdf)                    size: 4307041 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/bilat_results-eps-co
+nverted-to.pdf images/bilat_results.eps>
+(epstopdf)             \includegraphics on input line 626.
+Package epstopdf Info: Output file is already uptodate.
+<images/bilat_results-eps-converted-to.pdf, id=768, pagebox=cropbox, 722.7pt x 
+722.7pt>
+File: images/bilat_results-eps-converted-to.pdf Graphic file (type pdf)
+<use images/bilat_results-eps-converted-to.pdf>
+Package pdftex.def Info: images/bilat_results-eps-converted-to.pdf  used on inp
+ut line 626. on input line 626.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 626.
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--637
+
+ []
+
+
+Overfull \hbox (16.924pt too wide) in paragraph at lines 638--641
+\T1/cmr/m/n/12 bester thresh-old -> ver-schiedene back-ground/foreground pa-ram
+-e-ter testen (2-parameter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 638--641
+
+ []
+
+[39] [40 <./images/bilateral_params-eps-converted-to.pdf> <./images/bilateral_n
+orm_params-eps-converted-to.pdf>] [41 <./images/bilat_results-eps-converted-to.
+pdf>]
+Overfull \hbox (0.95235pt too wide) in paragraph at lines 643--646
+\T1/cmr/m/n/12 testen, size mit gröÿter con-fi-dence wählen. Al-ter-na-tive: di
+-rekt die co-her-ence nehmen.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 647--650
+
+ []
+
+[42]
 part I.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 476.
-[30
+(scrkbase)              on input line 652.
+[43
 
 ]
 
@@ -1122,13 +1400,13 @@ Class scrreprt Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrreprt)              inconsistent.
 (scrreprt)              Because of this, you should remove `\end{appendix}'
 (scrreprt)              and replace `\begin{appendix}' by command
-(scrreprt)              `\appendix' on input line 477.
+(scrreprt)              `\appendix' on input line 653.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 478.
+(hyperref)                than one, level fixed on input line 654.
 
-[31]
+[44]
 chapter A.
 (MA.lof)
 \tf@lof=\write5
@@ -1138,7 +1416,7 @@ chapter A.
 \tf@lot=\write6
 \openout6 = `MA.lot'.
 
- (MA.bbl [32
+ (MA.bbl [45
 
 ]
 chapter B.
@@ -1163,25 +1441,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--23
 ng-[]part-[]2/$[][]\T1/cmr/m/n/12 .
  []
 
-[33
+[46
 
-]) [34]
+]) [47]
 \openout2 = `deposition.aux'.
 
- (deposition.tex) [35
+ (deposition.tex) [48
 
 ]
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 517.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 517.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 693.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 693.
 (MA.aux (titlepages-ger.aux) (titlepages-eng.aux) (abstracts.aux)
 (deposition.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 517.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 517.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 693.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 693.
 Package rerunfilecheck Info: File `MA.out' has not changed.
-(rerunfilecheck)             Checksum: D68E830C983193A1584DBAFA1D30947C;2121.
+(rerunfilecheck)             Checksum: 68B6DBB8ED7F71F4BB76132506C302C9;2654.
 
 
 LaTeX Warning: There were undefined references.
@@ -1189,53 +1467,53 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 517.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 693.
  ) 
 Here is how much of TeX's memory you used:
- 9937 strings out of 493312
- 157205 string characters out of 3128087
- 340916 words of memory out of 3000000
- 13120 multiletter control sequences out of 15000+200000
+ 10060 strings out of 493312
+ 160700 string characters out of 3128087
+ 344891 words of memory out of 3000000
+ 13190 multiletter control sequences out of 15000+200000
  22376 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,18n,80p,8815b,601s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{equation.1.5.24} has been referenced but does not
- exist, replaced by a fixed one
-
- <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ectt1200.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
-appen\ec\dpi600\ecsx2488.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk> <C:\Users\jnieswand\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\jnieswand\Ap
-pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\User
-s\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti120
-0.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\
-dpi600\ecsx1440.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\
-fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\jnieswand\AppData\Loc
-al\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2074.pk> <C:\Users\jnieswa
-nd\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:
-\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
-bx1095.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecsx1728.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440.pk> <C:\Users\jnieswand\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1728.pk><C:/Users/jni
-eswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.
-pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmmi12.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jnieswand/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jnieswand/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/
-jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8
-.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jnieswand/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jnieswand/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on MA.pdf (35 pages, 3154811 bytes).
+ 49i,18n,80p,8815b,599s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
+600\ectt1200.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
+knappen\ec\dpi600\ecsx2488.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fon
+ts\pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk> <C:\Users\jnieswand\AppData\Local\
+MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\jnieswand\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Us
+ers\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1
+200.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\e
+c\dpi600\ecsx1440.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.
+9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\jnieswand\AppData\L
+ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2074.pk> <C:\Users\jnies
+wand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <
+C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ecbx1095.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
+pen\ec\dpi600\ecsx1728.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\jnieswand\AppData\Local\MiKT
+eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440.pk> <C:\Users\jnieswand\AppD
+ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1728.pk><C:/Users/j
+nieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jnieswand/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jnieswand/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/User
+s/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r6.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr8.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/jnieswand/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jnieswand/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Use
+rs/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy8.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/symbols/msam10.pfb>
+Output written on MA.pdf (48 pages, 11264421 bytes).
 PDF statistics:
- 1169 PDF objects out of 1200 (max. 8388607)
- 150 named destinations out of 1000 (max. 500000)
- 290 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1537 PDF objects out of 1728 (max. 8388607)
+ 191 named destinations out of 1000 (max. 500000)
+ 406 words of extra memory for PDF output out of 10000 (max. 10000000)
 
