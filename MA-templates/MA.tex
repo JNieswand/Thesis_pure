@@ -628,10 +628,25 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 	\label{fig:bilatresults}
 \end{figure}
 
+
+
+
 \subsection{thresholding gradients}
-Resultate nur mit normalisierung
-Verschiedene Thresholds testen.
-Adaptive Threshold testen.
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/thresh_params}
+	\caption[Results when thresholding the Gradients in the EPI]{Results when thresholding the Gradients in the EPI are shown. All results are divided by the score obtained from the normal structure tensor algorithm. On the left the Mean Squared Error is shown, in the middle the discontinuity score is shown, on the right we see the Mean Average Error on planar surfaces in the scene. All metric scores follow the metrics from \cite{honauer2016benchmark}. }
+	\label{fig:threshparams}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/thresh_results}
+	\caption[Disparity map Zoom-ins for different methods]{Disparity map Zoom-ins for different Structure Tensor filtering. From Left to right gaussian filtering, bilateral filtering and gaussian filtering when thresholding the gradients.}
+	\label{fig:threshresults}
+\end{figure}
+
+
 \subsection{Occlusion awareness segmentation}
 Verschiedene thresholds\\
 

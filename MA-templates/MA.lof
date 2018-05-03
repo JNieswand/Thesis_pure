@@ -26,5 +26,7 @@
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Parameter dependency for bilateral filtering using EPI}}{40}{figure.2.9}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Parameter dependency for bilateral filtering}}{40}{figure.2.10}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Results of the bilateral filtering}}{41}{figure.2.11}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Results when thresholding the Gradients in the EPI}}{42}{figure.2.12}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Disparity map Zoom-ins for different methods}}{42}{figure.2.13}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

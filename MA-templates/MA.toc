@@ -26,11 +26,11 @@
 \contentsline {subsection}{\numberline {2.2.2}Bilateralfilter}{36}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}thresholding gradients}{39}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Occlusion awareness segmentation}{39}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}alternative coherence}{42}{subsection.2.2.5}
-\contentsline {section}{\numberline {2.3}Semi-Global Matching}{42}{section.2.3}
-\contentsline {part}{\numberline {I}Appendix}{43}{part.1}
-\contentsline {section}{\numberline {.1}Derivation of the structure tensor}{44}{section.Alph0.1}
-\contentsline {chapter}{\numberline {A}Lists}{45}{appendix.A}
-\contentsline {section}{\numberline {A.1}List of Figures}{45}{section.A.1}
-\contentsline {section}{\numberline {A.2}List of Tables}{45}{section.A.2}
-\contentsline {chapter}{\numberline {B}Bibliography}{46}{appendix.B}
+\contentsline {subsection}{\numberline {2.2.5}alternative coherence}{43}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Semi-Global Matching}{43}{section.2.3}
+\contentsline {part}{\numberline {I}Appendix}{44}{part.1}
+\contentsline {section}{\numberline {.1}Derivation of the structure tensor}{45}{section.Alph0.1}
+\contentsline {chapter}{\numberline {A}Lists}{46}{appendix.A}
+\contentsline {section}{\numberline {A.1}List of Figures}{46}{section.A.1}
+\contentsline {section}{\numberline {A.2}List of Tables}{46}{section.A.2}
+\contentsline {chapter}{\numberline {B}Bibliography}{47}{appendix.B}
