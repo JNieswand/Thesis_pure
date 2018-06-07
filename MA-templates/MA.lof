@@ -12,8 +12,8 @@
 \contentsline {figure}{\numberline {1.10}{\ignorespaces Segmentating an EPI}}{20}{figure.1.10}
 \contentsline {figure}{\numberline {1.11}{\ignorespaces Morphological closing}}{21}{figure.1.11}
 \contentsline {figure}{\numberline {1.12}{\ignorespaces Enhanced segmentation mask}}{21}{figure.1.12}
-\contentsline {figure}{\numberline {1.13}{\ignorespaces Example values: One point $\mathaccentV {vec}17Ep$ contains different values}}{26}{figure.1.13}
-\contentsline {figure}{\numberline {1.14}{\ignorespaces Discrete scanline to continuous scanline}}{27}{figure.1.14}
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Example values: One point $\mathaccentV {vec}17Ep$ contains different values}}{27}{figure.1.13}
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Discrete scanline to continuous scanline}}{28}{figure.1.14}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Pixel response for depth from focus techniques}}{31}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Depth from focus: depthmaps}}{32}{figure.2.2}
@@ -27,6 +27,13 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Parameter dependency for bilateral filtering}}{40}{figure.2.10}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Results of the bilateral filtering}}{41}{figure.2.11}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Results when thresholding the Gradients in the EPI}}{42}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Disparity map Zoom-ins for different methods}}{42}{figure.2.13}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Disparity map Zoom-ins for different methods}}{43}{figure.2.13}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Segmentation of Epi dependence on the morphology kernel}}{44}{figure.2.14}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Disparity map Zoom-ins for different methods}}{45}{figure.2.15}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Varying kernelsize}}{46}{figure.2.16}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces parameter grid test for semi global matching}}{46}{figure.2.17}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces mse_100}}{47}{figure.2.18}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces discontinuities_0070}}{48}{figure.2.19}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces mae_planes}}{49}{figure.2.20}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -309,17 +309,17 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \frac{\partial x}{\partial J_{11}} = \frac{x}{J_{11} - J_{22}},\quad \frac{\partial x}{\partial J_{22}} = \frac{-x}{J_{11} - J_{22}},\quad  \frac{\partial x}{\partial J_{12}} = \frac{x}{J_{12}}
  \end{equation}
  inserting in \ref{eq:err_d}:
- \begin{equation}\label{key}
+ \begin{equation}\label{eq:deviation_d}
  \Delta d =\sqrt{\left(\frac{0.5\cdot(d^2+1)}{x^2+1}\cdot x\right)^2 \cdot \left(\left|\frac{\Delta J_{12}}{J_{12}}\right|^2 + \left|\frac{\Delta J_{11}}{J_{11}-J_{22}}\right|^2 + \left|\frac{\Delta J_{22}}{J_{11}-J_{22}}\right|^2\right)}
  \end{equation}
  The errors $\Delta J_{11}$, $\Delta J_{12}$ and $\Delta J_{22}$ can be obtained from the statistical deviations of the gradient:
- \begin{align}\label{key}
+ \begin{align}\label{eq:std_struct}
  \Delta J_{11} &= G *|2\nabla_x|\Delta\nabla_x\\
  \Delta J_{22} &= G *|2\nabla_y|\Delta\nabla_y\\
  \Delta J_{12} &= G *\sqrt{\nabla_x^2\Delta\nabla_y^2 + \nabla_y^2\Delta\nabla_x^2}
  \end{align}
  Those equations are obtained from equation \ref{eq:structuretensor} using first order error propagation. We define $\Delta\nabla_x , \Delta\nabla_y$ as the statistical standard deviation of $\nabla_x, \nabla_y$ in the neighbourhood and calcuate it via
- \begin{align}\label{key}
+ \begin{align}\label{eq:unnormed_std}
  \Delta\nabla_x &= \sqrt{E[\nabla_x^2] - E[\nabla_x]^2}\\
  \Delta\nabla_y &= \sqrt{E[\nabla_y^2] - E[\nabla_y]^2}
  \end{align}
@@ -327,7 +327,23 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \begin{equation}\label{key}
  E[I] = G* I
  \end{equation}
- If we insert the above equations into each other, we obtain a deviation measure $\Delta d$ for the disparity based on the gradient deviation in the EPI.
+ However, equation \ref{eq:unnormed_std} only makes sense under the assumption that the underlying distribution of the magnitude whose standard deviation will be computed is close to a normal distribution. This is in general not  the case for the gradient components since deviationsin the magnitude of the gradient should not affect on the disparity error estimation. Given that the gradients are normalized, a gaussian distribution of the gradient around the mean normalized gradient is expected: 
+ \begin{align}\label{eq:normed_std}
+ \Delta\nabla_{x, \text{normalized}} &= \sqrt{E[\nabla_{x, \text{normalized}}^2] - E[\nabla_{x, \text{normalized}}]^2}\\
+ \Delta\nabla_{y, \text{normalized}} &= \sqrt{E[\nabla_{y, \text{normalized}}^2] - E[\nabla_{y, \text{normalized}}]^2}
+ \end{align}
+ The interrelation between $\Delta\nabla_{y, \text{normalized}}$ and  $\Delta\nabla_x$ is given by
+ \begin{align}\label{eq:norm_error}
+ \nabla_{x, \text{normalized}} &= \frac{1}{\sqrt{\nabla_x^2 + \nabla_y^2}}\nabla_x \\
+ \Delta \nabla_{x, \text{normalized}} &\approx  \frac{1}{\sqrt{\nabla_x^2 + \nabla_y^2}}\Delta\nabla_x,
+ \end{align}
+ where we neglect the fact that the normalization itself is also errorneous. This simplifies and speeds up the calculation. Equation \ref{eq:norm_error} leads to the expression
+ \begin{align}\label{eq:normed_std_final}
+ \Delta\nabla_{x} &=  \sqrt{\nabla_x^2 + \nabla_y^2} \cdot \sqrt{E[\nabla_{x, \text{normalized}}^2] - E[\nabla_{x, \text{normalized}}]^2}\\
+ \Delta\nabla_{y} &= \sqrt{\nabla_x^2 + \nabla_y^2} \cdot \sqrt{E[\nabla_{y, \text{normalized}}^2] - E[\nabla_{y, \text{normalized}}]^2},
+ \end{align}
+ which can be calculated from the EPI.
+ If we insert the above equation \ref{eq:normed_std_final} into \ref{eq:std_struct} into \ref{eq:deviation_d}, we obtain a deviation measure $\Delta d$ for the disparity based on the gradient deviation in the EPI.
  
 \section{Depth from focus}
 \label{sec:theo depth}
@@ -529,7 +545,7 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
 		\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/result_depth_from_focus_pre}
-		\caption[Depth from focus: depthmaps with Resolution 1]{The depth maps of the scenes (from up to down) \textit{complextestscene, cotton, occlusiontestscene, pens, testscene} is depicted for different depth-from-focus techniques. On the right the ground trhouth is depicted The disparity stepsize is 1.}
+		\caption[Depth from focus: depthmaps with Resolution 1]{The depth maps of the scenes (from up to down) \textit{complextestscene, cotton, occlusiontestscene, pens, testscene} is depicted for different depth-from-focus techniques. On the right the ground truth is depicted The disparity stepsize is 1.}
 		\label{fig:resultdepthfromfocuspre}
 	\end{figure}
 	\begin{figure}
@@ -551,7 +567,7 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
  	Further testing we stick to the Photo Consitency measure, as it procuces the best results in terms of speed and precision.\\
  	The next step is to use the preestimate at each pixel to skip the iterative refocussing in the structure tensor pipeline. However, since not all points on an EPI are of the same depth, the EPI is segmented in parts of the same pre-estimation depth. Those parts are refocussed seperately to the estimated depth, results are illustrated in figure \ref{fig:epivsgdepth}. Note that the edge of the depth images have been removed when calculating the MRE. 
  	Unfortunately the Photo Consistency pre-estimate pipeline yields worse results then the Structure Tensor itself. The reason is that artifacts from the preestimate maintain after the structure tensor pipeline has been applied to the EPI. Additionally one has to mention that only those pixels in the depth map that have a high coherence measure given by the ST pipeline are taken into account when calculating the errors. Hence a bias towards the Structure tensor pipeline in terms of optimal error results is expected. \\
- 	Also the preestimation is even more time-consuming than the structure tensor itself. Because of the splitting of the EPI, the runtime is scene dependentthe time difference between the scene is therefor enormous, the results can be found in table \ref{tab:time_gdepth}. If one jumps the preestimation step and takes the Ground truth data as a \glqq pre-estimate \grqq, the pipeline is significantly faster than iteratively refocussing on each depth. The pre-estimate itself neither takes too long (about 2 seconds), but the EPI gets segmentated into smaller parts when using the pre-estimate. A global smoothing scheme can possibly improve the runtime by minimizing the amount of disparity jumps, however this would result in even more artefact effects. We leave that aspect for future work.\\
+ 	Also the preestimation is even more time-consuming than the structure tensor itself. Because of the splitting of the EPI, the runtime is scene dependent. The time difference between the scene is therefor enormous, the results can be found in table \ref{tab:time_gdepth}. If one jumps the preestimation step and takes the Ground truth data as a \glqq pre-estimate \grqq, the pipeline is significantly faster than iteratively refocussing on each depth. The pre-estimate itself neither takes too long (about 2 seconds), but the EPI gets segmentated into smaller parts when using the pre-estimate. A global smoothing scheme can possibly improve the runtime by minimizing the amount of disparity jumps, however this would result in even more artefact effects. We leave that aspect for future work.\\
  	\begin{table}
 	\begin{tabular}{|c|c|c|c|}
 		\hline 
@@ -606,7 +622,7 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
  \frac{\partial g^2}{\partial x \partial s} \\
  \end{matrix}\right)
  \end{equation}
- as the guide for the bilateral filtering of itself. The idea behind it is closely related to the EPI segmentation as described in section \ref{sec:occlusionawareness}. Big gradients in the EPI are more consistently referring to the same transition. By separating small and big gradients, the influence of the structure in front is less significant than it is without using the bilateral filtering. As one can see in figure \ref{fig:bilateralnormparams}, using the ST components as a guide can actually result in a better MSE. However, for each scene the score is dependent on the parameter $\sigma$ that is chosen. Also, the discontinuity score does not improve even though in figure \ref{fig:bilatresults} a clear improvement can be seen at occlusion borders. Actually the edge fattening is by far bigger then the masks used to determine the discontinuity score in figure \ref{fig:bilateralnormparams}. In figure \ref{fig:bilatresults} The depth maps zoomed at some disparity transitions in the given scenes \textit{boxes, cotton, dino} and \textit{sideboard} are shown, calculated with the gaussian and bilateral filter. One can observe that the bilateral filter (with the Structure tensor component as a guide) results in sharper edges that are significanly less \glqq fattened \grqq than the gaussian equivalent. This becomes clear when looking at the head of the teddy bear in the scene \textit{dino}. Even though the front object steill occupies more space then it should (edge fattening), the edge has become smaller. This effect cannot be seen when using a bilateral filter with the EPI as a guide however.
+ as the guide for the bilateral filtering of itself. The idea behind it is closely related to the EPI segmentation as described in section \ref{sec:occlusionawareness}. Big gradients in the EPI are more consistently referring to the same transition. By separating small and big gradients, the influence of the structure in front is less significant than it is without using the bilateral filtering. As one can see in figure \ref{fig:bilateralnormparams}, using the ST components as a guide can actually result in a better MSE. However, for each scene the score is dependent on the parameter $\sigma$ that is chosen. Also, the discontinuity score does not improve even though in figure \ref{fig:bilatresults} a clear improvement can be seen at occlusion borders. Actually the edge fattening is by far bigger then the masks used to determine the discontinuity score in figure \ref{fig:bilateralnormparams}. In figure \ref{fig:bilatresults} The depth maps zoomed at some disparity transitions in the given scenes \textit{boxes, cotton, dino} and \textit{sideboard} are shown, calculated with the gaussian and bilateral filter. One can observe that the bilateral filter (with the Structure tensor component as a guide) results in sharper edges that are significanly less \glqq fattened \grqq than the gaussian equivalent. This becomes clear when looking at the head of the teddy bear in the scene \textit{dino}. Even though the front object still occupies more space then it should (edge fattening), the edge has become smaller. This effect cannot be seen when using a bilateral filter with the EPI as a guide however.
 
 \begin{figure}
 	\centering
@@ -641,29 +657,121 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/thresh_results}
+	\includegraphics[width=1\linewidth]{images/thresh_results}
 	\caption[Disparity map Zoom-ins for different methods]{Disparity map Zoom-ins for different Structure Tensor filtering. From Left to right gaussian filtering, bilateral filtering and gaussian filtering when thresholding the gradients.}
 	\label{fig:threshresults}
 \end{figure}
 
 
 \subsection{Occlusion awareness segmentation}
-Verschiedene thresholds\\
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/thresh_segm_morph}
+	\caption[Segmentation of Epi dependence on the morphology kernel]{Upper row: Metric scores in dependence of the size in $y$-direction of the morphology kernel, $x$-direction size is 7.\\ Lower row: dependence of the MSE for the size of the kernel. the $y$-size is depicted on the $x$-axis.}
+	\label{fig:threshsegmmorph}
+\end{figure}
 
-adaptive threshold testen
-\\
-bester threshold -> verschiedene background/foreground parameter testen (2-parameter python darstellen)\\
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/thresh_results_morph}
+	\caption[Disparity map Zoom-ins for different methods]{Disparity map Zoom-ins for different Structure Tensor filtering. From Left to right gaussian filtering, segmentation filtering and gaussian filtering when thresholding the gradients.}
+	\label{fig:threshresultsmorph}
+\end{figure}
+
+
 
 \subsection{alternative coherence}
 confidence maps zeigen, probleme anhand einzelner pixel erklären.\\
 Direkter vergleich ergebnisse mit coherence.
 Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen. Alternative: direkt die coherence nehmen. Überleitung zu gaussian pyramid ansatz
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/old_outer}
+	\caption[Varying kernelsize]{Varying the kernelsize, using the old ST pipeline}
+	\label{fig:oldouter}
+\end{figure}
+
 \section{Semi-Global Matching}
 Einfaches Ergebnis mit (zu) starkem parameter.
 beste parameter mit nur 2 parametern.\\
 beste parameter mit 3 parametern.\\
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{../../Thesis/Python_master/Plots/sgm_param_contour}
+	\caption[parameter grid test for semi global matching]{parameter grid test for semi global matching}
+	\label{fig:sgmparamcontour}
+\end{figure}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_params_contour_mse_100}
+	\caption[mse_100]{Mean squared error for different (3) parameters}
+	\label{fig:sgmparamscontourmse100}
+\end{figure}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_params_contour_discontinuities_0070}
+	\caption[discontinuities_0070]{discontinuity score for different (3) parameters}
+	\label{fig:sgmparamscontourdis}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_params_contour_mae_planes}
+	\caption[mae_planes]{planes score for different (3) parameters}
+	\label{fig:sgmparamscontourdmae}
+\end{figure}
+\section{Resumee}
+\begin{table}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline 
+		Method & Time(s) (cotton) & \multicolumn{4}{c|}{MSE} \\ 
+		\hline 
+		&  & boxes & cotton & dino & sideboard \\ 
+		\hline
+		Old Pipeline & 4.78 & 17.03 & 6.16 & 2.09 & 3.89 \\
+		\hline 
+		Sandclock & 6.81  & 18.55  & 6.78  & 2.23  & 4.14 \\ 
+		\hline 
+		epi-bilateralfilter ($\sigma = 90$) &  43.96 &  19.26  & 6.41  & 2.22  & 4.16  \\ 
+		\hline 
+		bilateralfilter($\sigma = 750$) & 20.18  & 18.95  &  6.38 & 2.10  &4.32  \\ 
+		\hline 
+		Thresholding (thresh = 0.1) & 6.06 & 15.57  & 4.38  & 1.39  & 3.03  \\ 
+		\hline 
+		occlusion segmentation\\(7x7 morph, thresh = 0.1) & 11.28  & 18.08 &  3.39 & 1.78  & 3.91  \\ 
+		\hline 
+		alternative coherence +Treshold & 14.15  & 15.85  & 4.30  & 1.25  & 3.38  \\ 
+		\hline 
+		SGM (4000,64000,1000) & 8.90 & 14.98  & 3.84  & 1.75  & 3.18  \\ 
+		\hline 
+		SGM+Threshold & 12.75  & 13.31  & 2.96   & 1.11   & 2.43 \\ 
+		\hline 
+		\hline
+		pp Gauss 3 & & 12.59 & 4.80 & 1.68 & 2.92 \\
+		\hline
+		pp Gauss 5 & & 11.95 & 4.54 & 1.59 &  2.72 \\
+		\hline 
+		pp Gauss 7 & & 11.51 & 4.31 & 1.50 & 2.58 \\
+		\hline
+		pp Gauss 9 & & 11.34 & 4.16 & 1.46 & 2.52 \\
+		\hline
+		pp sgm (4000, 256000, 400) & &12.0 & 2.15 & 1.08 & 1.98\\
+		\hline
+		pp Median 3 & & 13.21 & 4.96 & 1.83 & 3.35 \\
+		\hline
+		pp Median 5 & & 12.73 & 4.76 & 1.76 & 3.20 \\
+		\hline
+		pp Median 7 & & 12.73 & 4.76 & 1.76 & 3.20 \\
+		\hline 
+		pp Median 9 & & 12.73 & 4.76 & 1.76 &3.20 \\
+		\hline 
+		pp Median 11 & & 12.73 & 4.76 & 1.76 &3.20 \\
+	\end{tabular} 
+\end{table}
   \part{Appendix}
   \begin{appendix}
   	\section{Derivation of the structure tensor}
