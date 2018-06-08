@@ -55,6 +55,48 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Evaluation: Depth-from-focus}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/original_marked}
+	\label{fig:originalmarked}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluation: Depth-from-focus}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\linewidth]{images/result_depth_from_focus_res20}
+\caption[Depth from focus: depthmaps]{The depth maps of the scenes (from up to down) \textit{complextestscene, cotton, occlusiontestscene, pens, testscene, tiltplane} is depicted for different depth-from-focus techniques. The Disparity stepsize is 1/20.}
+\label{fig:resultdepthfromfocus}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluation: Depth-from-focus}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\linewidth]{images/epi_vs_gdepth}
+
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Occlusion problem}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/cotton_discontinuities_0070}
+		\caption[Discontinuity evaluation]{Evaluation of the deviation from Ground truth at the depth discontinuity for scene "cotton". The red border indicates that the depth map is errorneous at the outside of the edge.}
+		\label{fig:cottondiscontinuities0070}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
 \frametitle{Occlusion Problem}
 \begin{figure}
 	\centering
@@ -75,12 +117,44 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Evaluation:Sandclock kernel}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/sandclock_results}
+	\caption[Results with custom sized kernel]{Comparison between the normal structure tensor and the sandclock- like kernel for the scenes \textit{dino, cotton, sideboard, boxes}. The left side compares the mean squared errors in the disparity map, the right side shows the error where discontinuities in the disparity map are masked explicitely.}
+	\label{fig:sandclockresults}
+\end{figure}
+\end{frame}
+
+\begin{frame}
 \frametitle{Bilateral filtering}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/bilat}
-	\caption[Bilateral filtering]{Bilateral filtering of an epi}
-	\label{fig:bilat}
+	\includegraphics[width=1\linewidth]{images/simple_epi}
+
+\end{figure}
+\begin{equation}\label{key}
+G_P = \frac{1}{W_p}\sum_{q\in N} g_{\sigma_d}(||p-q||) g_{\sigma_c}(||I_{p, \text{EPI}}-I_{q, \text{EPI}}||),
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluation: Bilateral filtering}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/bilateral_norm_params}
+	\caption[Parameter dependency for bilateral filtering]{Bilateral filtering with Structure Tensor Components themselves as the guide:On the left the Mean Squared error for different scenes in function of the $\sigma_\text{Color}$ of the bilateral filtering is shown, devided by the MSE with using a gaussian filter. On the right the Discontinuity score based on \cite{honauer2016benchmark} is shown, also normed to the Score using the standard gaussian filter.}
+	\label{fig:bilateralnormparams}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluation: Bilateral filtering}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\linewidth]{images/thresh_results}
+\caption[Disparity map Zoom-ins for different methods]{Disparity map Zoom-ins for different Structure Tensor filtering. From Left to right gaussian filtering, bilateral filtering and gaussian filtering when thresholding the gradients.}
+\label{fig:threshresults}
 \end{figure}
 \end{frame}
 
@@ -94,6 +168,28 @@
 \text{with} \quad \text{norm} &= \sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}.\\
 \end{align}
 \end{frame}
+
+\begin{frame}
+\frametitle{Evaluation: Thresholding gradients}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/thresh_params}
+	\caption[Results when thresholding the Gradients in the EPI]{Results when thresholding the Gradients in the EPI are shown. All results are divided by the score obtained from the normal structure tensor algorithm. On the left the Mean Squared Error is shown, in the middle the discontinuity score is shown, on the right we see the Mean Average Error on planar surfaces in the scene. All metric scores follow the metrics from \cite{honauer2016benchmark}. }
+	\label{fig:threshparams}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{ Evaluation: Thresholding gradients}
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{images/old_outer}
+\caption[Varying kernelsize]{Varying the kernelsize, using the old ST pipeline (up) and with thresholded gradients (down)}
+\label{fig:oldouter}
+\end{figure}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Occlusion Segmentation}
@@ -124,6 +220,18 @@
 	\label{fig:closing}
 \end{figure}
 \end{frame}
+
+\begin{frame}
+\frametitle{Evaluation: Segmentation}
+
+\begin{figure}
+%	\centering
+	\includegraphics[width=1\linewidth]{images/thresh_segm_morph}
+	\caption[Segmentation of Epi dependence on the morphology kernel]{Upper row: Metric scores in dependence of the size in $y$-direction of the morphology kernel. Lower row: dependence of the MSE for the size of the kernel.}
+%	\label{fig:threshsegmmorph}
+\end{figure}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Alternative to coherence}
@@ -202,74 +310,11 @@ P3 & \text{ if }d_{\vec p} - d_{\vec q} < -1\\
 \end{equation}
 \end{frame}
 
-\begin{frame}
-\frametitle{Evaluation: Depth-from-focus}
-	\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/original_marked}
-	\label{fig:originalmarked}
-\end{figure}
-\end{frame}
 
-\begin{frame}
-\frametitle{Evaluation: Depth-from-focus}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\linewidth]{images/result_depth_from_focus_res20}
-	\caption[Depth from focus: depthmaps]{The depth maps of the scenes (from up to down) \textit{complextestscene, cotton, occlusiontestscene, pens, testscene, tiltplane} is depicted for different depth-from-focus techniques. The Disparity stepsize is 1/20.}
-	\label{fig:resultdepthfromfocus}
-\end{figure}
-\end{frame}
 
-\begin{frame}
-\frametitle{Evaluation:Sandclock kernel}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{images/sandclock_results}
-	\caption[Results with custom sized kernel]{Comparison between the normal structure tensor and the sandclock- like kernel for the scenes \textit{dino, cotton, sideboard, boxes}. The left side compares the mean squared errors in the disparity map, the right side shows the error where discontinuities in the disparity map are masked explicitely.}
-	\label{fig:sandclockresults}
-\end{figure}
-\end{frame}
 
-\begin{frame}
-\frametitle{Evaluation: Bilateral filtering}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{images/bilateral_norm_params}
-	\caption[Parameter dependency for bilateral filtering]{Bilateral filtering with Structure Tensor Components themselves as the guide:On the left the Mean Squared error for different scenes in function of the $\sigma_\text{Color}$ of the bilateral filtering is shown, devided by the MSE with using a gaussian filter. On the right the Discontinuity score based on \cite{honauer2016benchmark} is shown, also normed to the Score using the standard gaussian filter.}
-	\label{fig:bilateralnormparams}
-\end{figure}
-\end{frame}
 
-\begin{frame}
-\frametitle{Evaluation: Bilateral filtering}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\linewidth]{images/thresh_results}
-	\caption[Disparity map Zoom-ins for different methods]{Disparity map Zoom-ins for different Structure Tensor filtering. From Left to right gaussian filtering, bilateral filtering and gaussian filtering when thresholding the gradients.}
-	\label{fig:threshresults}
-\end{figure}
-\end{frame}
 
-\begin{frame}
-\frametitle{Evaluation: Thresholding gradients}
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/thresh_params}
-	\caption[Results when thresholding the Gradients in the EPI]{Results when thresholding the Gradients in the EPI are shown. All results are divided by the score obtained from the normal structure tensor algorithm. On the left the Mean Squared Error is shown, in the middle the discontinuity score is shown, on the right we see the Mean Average Error on planar surfaces in the scene. All metric scores follow the metrics from \cite{honauer2016benchmark}. }
-	\label{fig:threshparams}
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{ Evaluation: Thresholding gradients}
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/old_outer}
-	\caption[Varying kernelsize]{Varying the kernelsize, using the old ST pipeline (up) and with thresholded gradients (down)}
-	\label{fig:oldouter}
-\end{figure}
-\end{frame}
 
 \begin{frame}
 \frametitle{Evaluation: Semiglobal Matching}

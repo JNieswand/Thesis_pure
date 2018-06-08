@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.31)  7 JUN 2018 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.31)  8 JUN 2018 10:31
 entering extended mode
 **./Presentation.tex
 (Presentation.tex
@@ -1078,7 +1078,11 @@ Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 "
 File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-)) (Presentation.aux)
+)) (Presentation.aux
+
+LaTeX Warning: Label `key' multiply defined.
+
+)
 \openout1 = `Presentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -1329,134 +1333,15 @@ Package pdftex.def Info: Requested size: 215.10196pt x 80.80722pt on input line
  [5
 
  <./images/refocused_cut.png>]
-<images/occlusion_painted2.png, id=159, 778.40813pt x 500.62032pt>
-File: images/occlusion_painted2.png Graphic file (type png)
-<use images/occlusion_painted2.png>
-Package pdftex.def Info: images/occlusion_painted2.png  used on input line 65. 
-on input line 65.
-Package pdftex.def Info: Requested size: 215.10196pt x 138.3394pt on input line
- 65.
-
-Overfull \vbox (41.31151pt too high) detected at line 65
- []
-
-[6
-
- <./images/occlusion_painted2.png>]
-<images/sandclock.png, id=189, 40.10588pt x 12.60754pt>
-File: images/sandclock.png Graphic file (type png)
-<use images/sandclock.png>
-Package pdftex.def Info: images/sandclock.png  used on input line 75. on input 
-line 75.
-Package pdftex.def Info: Requested size: 215.10196pt x 67.63872pt on input line
- 75.
- [7
-
- <./images/sandclock.png>]
-Package epstopdf Info: Source file: <images/bilat.eps>
-(epstopdf)                    date: 2018-04-16 15:49:56
-(epstopdf)                    size: 175553 bytes
-(epstopdf)             Output file: <images/bilat-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-04-18 15:27:28
-(epstopdf)                    size: 63009 bytes
-(epstopdf)             Command: <epstopdf --outfile=images/bilat-eps-converted-
-to.pdf images/bilat.eps>
-(epstopdf)             \includegraphics on input line 85.
-Package epstopdf Info: Output file is already uptodate.
-<images/bilat-eps-converted-to.pdf, id=218, pagebox=cropbox, 462.72874pt x 359.
-3425pt>
-File: images/bilat-eps-converted-to.pdf Graphic file (type pdf)
-<use images/bilat-eps-converted-to.pdf>
-Package pdftex.def Info: images/bilat-eps-converted-to.pdf  used on input line 
-85. on input line 85.
-Package pdftex.def Info: Requested size: 215.10196pt x 167.04318pt on input lin
-e 85.
- [8
-
- <./images/bilat-eps-converted-to.pdf>] [9
-
-] [10
-
-]
-Package epstopdf Info: Source file: <images/derivatives_full.eps>
-(epstopdf)                    date: 2018-04-12 15:32:10
-(epstopdf)                    size: 139770 bytes
-(epstopdf)             Output file: <images/derivatives_full-eps-converted-to.p
-df>
-(epstopdf)                    date: 2018-04-12 15:32:49
-(epstopdf)                    size: 50813 bytes
-(epstopdf)             Command: <epstopdf --outfile=images/derivatives_full-eps
--converted-to.pdf images/derivatives_full.eps>
-(epstopdf)             \includegraphics on input line 116.
-Package epstopdf Info: Output file is already uptodate.
-<images/derivatives_full-eps-converted-to.pdf, id=300, pagebox=cropbox, 476.781
-25pt x 346.29375pt>
-File: images/derivatives_full-eps-converted-to.pdf Graphic file (type pdf)
-<use images/derivatives_full-eps-converted-to.pdf>
-Package pdftex.def Info: images/derivatives_full-eps-converted-to.pdf  used on 
-input line 116. on input line 116.
-Package pdftex.def Info: Requested size: 307.28987pt x 223.20187pt on input lin
-e 116.
-
-Overfull \vbox (78.17398pt too high) detected at line 116
- []
-
-[11
-
- <./images/derivatives_full-eps-converted-to.pdf>]
-<images/closing.png, id=330, 642.4pt x 228.855pt>
-File: images/closing.png Graphic file (type png)
-<use images/closing.png>
-Package pdftex.def Info: images/closing.png  used on input line 126. on input l
-ine 126.
-Package pdftex.def Info: Requested size: 215.10196pt x 76.62935pt on input line
- 126.
- [12
-
- <./images/closing.png>]
-Overfull \hbox (34.62991pt too wide) detected at line 144
-[][]\OT1/cmss/m/n/10.95 \OT1/mathkerncmss/m/sl/10.95 d \OT1/cmss/m/n/10.95 = [
-]
- []
-
-[13
-
-] [14
-
-] [15
-
-]
-Overfull \hbox (4.07022pt too wide) detected at line 186
-[][]\OT1/mathkerncmss/m/sl/10.95 E\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/1
-0.95 d\OT1/cmss/m/n/10.95 ) = [] [] \OML/cmm/m/it/10.95 :
- []
-
-<images/sgm_paths.png, id=442, 335.2525pt x 151.56625pt>
-File: images/sgm_paths.png Graphic file (type png)
-<use images/sgm_paths.png>
-Package pdftex.def Info: images/sgm_paths.png  used on input line 186. on input
- line 186.
-Package pdftex.def Info: Requested size: 215.10196pt x 97.24489pt on input line
- 186.
-[16
-
- <./images/sgm_paths.png>]
-Overfull \hbox (7.41605pt too wide) detected at line 203
-[][]\OT1/mathkerncmss/m/sl/10.95 E\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/1
-0.95 d\OT1/cmss/m/n/10.95 ) = [] [] \OML/cmm/m/it/10.95 :
- []
-
-[17
-
-]
-<images/original_marked.png, id=499, 1026.83624pt x 697.8572pt>
+<images/original_marked.png, id=159, 1026.83624pt x 697.8572pt>
 File: images/original_marked.png Graphic file (type png)
 <use images/original_marked.png>
-Package pdftex.def Info: images/original_marked.png  used on input line 212. on
- input line 212.
+Package pdftex.def Info: images/original_marked.png  used on input line 64. on 
+input line 64.
 Package pdftex.def Info: Requested size: 307.28987pt x 208.83699pt on input lin
-e 212.
- [18
+e 64.
+
+[6
 
  <./images/original_marked.png>]
 Package epstopdf Info: Source file: <images/result_depth_from_focus_res20.eps>
@@ -1468,38 +1353,107 @@ onverted-to.pdf>
 (epstopdf)                    size: 661697 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/result_depth_from_fo
 cus_res20-eps-converted-to.pdf images/result_depth_from_focus_res20.eps>
-(epstopdf)             \includegraphics on input line 222.
+(epstopdf)             \includegraphics on input line 74.
 Package epstopdf Info: Output file is already uptodate.
-<images/result_depth_from_focus_res20-eps-converted-to.pdf, id=527, pagebox=cro
+<images/result_depth_from_focus_res20-eps-converted-to.pdf, id=187, pagebox=cro
 pbox, 2168.1pt x 2168.1pt>
 File: images/result_depth_from_focus_res20-eps-converted-to.pdf Graphic file (t
 ype pdf)
 <use images/result_depth_from_focus_res20-eps-converted-to.pdf>
 Package pdftex.def Info: images/result_depth_from_focus_res20-eps-converted-to.
-pdf  used on input line 222. on input line 222.
-Package pdftex.def Info: Requested size: 276.559pt x 276.5366pt on input line 2
-22.
+pdf  used on input line 74. on input line 74.
+Package pdftex.def Info: Requested size: 276.559pt x 276.5366pt on input line 7
+4.
 
-Overfull \vbox (108.06413pt too high) detected at line 222
+Overfull \vbox (108.06413pt too high) detected at line 74
  []
 
-[19
+[7
 
  <./images/result_depth_from_focus_res20-eps-converted-to.pdf>]
-<images/sandclock_results.png, id=618, 730.73pt x 664.4825pt>
-File: images/sandclock_results.png Graphic file (type png)
-<use images/sandclock_results.png>
-Package pdftex.def Info: images/sandclock_results.png  used on input line 232. 
-on input line 232.
-Package pdftex.def Info: Requested size: 215.10196pt x 195.59479pt on input lin
-e 232.
+Package epstopdf Info: Source file: <images/epi_vs_gdepth.eps>
+(epstopdf)                    date: 2018-04-23 16:41:40
+(epstopdf)                    size: 16011929 bytes
+(epstopdf)             Output file: <images/epi_vs_gdepth-eps-converted-to.pdf>
 
-Overfull \vbox (38.5669pt too high) detected at line 232
+(epstopdf)                    date: 2018-04-23 16:41:58
+(epstopdf)                    size: 1701735 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/epi_vs_gdepth-eps-co
+nverted-to.pdf images/epi_vs_gdepth.eps>
+(epstopdf)             \includegraphics on input line 83.
+Package epstopdf Info: Output file is already uptodate.
+<images/epi_vs_gdepth-eps-converted-to.pdf, id=278, pagebox=cropbox, 742.775pt 
+x 722.7pt>
+File: images/epi_vs_gdepth-eps-converted-to.pdf Graphic file (type pdf)
+<use images/epi_vs_gdepth-eps-converted-to.pdf>
+Package pdftex.def Info: images/epi_vs_gdepth-eps-converted-to.pdf  used on inp
+ut line 83. on input line 83.
+Package pdftex.def Info: Requested size: 261.19826pt x 254.13976pt on input lin
+e 83.
+
+Overfull \vbox (21.1679pt too high) detected at line 83
  []
 
-[20
+[8
+
+ <./images/epi_vs_gdepth-eps-converted-to.pdf>]
+<images/cotton_discontinuities_0070.png, id=314, 212.9556pt x 175.857pt>
+File: images/cotton_discontinuities_0070.png Graphic file (type png)
+<use images/cotton_discontinuities_0070.png>
+Package pdftex.def Info: images/cotton_discontinuities_0070.png  used on input 
+line 95. on input line 95.
+Package pdftex.def Info: Requested size: 215.10196pt x 177.63026pt on input lin
+e 95.
+ [9
+
+ <./images/cotton_discontinuities_0070.png>]
+<images/occlusion_painted2.png, id=342, 778.40813pt x 500.62032pt>
+File: images/occlusion_painted2.png Graphic file (type png)
+<use images/occlusion_painted2.png>
+Package pdftex.def Info: images/occlusion_painted2.png  used on input line 107.
+ on input line 107.
+Package pdftex.def Info: Requested size: 215.10196pt x 138.3394pt on input line
+ 107.
+
+Overfull \vbox (41.31151pt too high) detected at line 107
+ []
+
+[10
+
+ <./images/occlusion_painted2.png>]
+<images/sandclock.png, id=372, 40.10588pt x 12.60754pt>
+File: images/sandclock.png Graphic file (type png)
+<use images/sandclock.png>
+Package pdftex.def Info: images/sandclock.png  used on input line 117. on input
+ line 117.
+Package pdftex.def Info: Requested size: 215.10196pt x 67.63872pt on input line
+ 117.
+ [11
+
+ <./images/sandclock.png>]
+<images/sandclock_results.png, id=400, 730.73pt x 664.4825pt>
+File: images/sandclock_results.png Graphic file (type png)
+<use images/sandclock_results.png>
+Package pdftex.def Info: images/sandclock_results.png  used on input line 127. 
+on input line 127.
+Package pdftex.def Info: Requested size: 215.10196pt x 195.59479pt on input lin
+e 127.
+
+Overfull \vbox (38.5669pt too high) detected at line 127
+ []
+
+[12
 
  <./images/sandclock_results.png>]
+File: images/simple_epi.png Graphic file (type png)
+<use images/simple_epi.png>
+Package pdftex.def Info: images/simple_epi.png  used on input line 139. on inpu
+t line 139.
+Package pdftex.def Info: Requested size: 307.28987pt x 35.07751pt on input line
+ 139.
+ [13
+
+]
 Package epstopdf Info: Source file: <images/bilateral_norm_params.eps>
 (epstopdf)                    date: 2018-04-30 12:42:21
 (epstopdf)                    size: 138596 bytes
@@ -1509,27 +1463,27 @@ Package epstopdf Info: Source file: <images/bilateral_norm_params.eps>
 (epstopdf)                    size: 43730 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/bilateral_norm_param
 s-eps-converted-to.pdf images/bilateral_norm_params.eps>
-(epstopdf)             \includegraphics on input line 242.
+(epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
-<images/bilateral_norm_params-eps-converted-to.pdf, id=646, pagebox=cropbox, 44
+<images/bilateral_norm_params-eps-converted-to.pdf, id=459, pagebox=cropbox, 44
 4.66125pt x 289.08pt>
 File: images/bilateral_norm_params-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/bilateral_norm_params-eps-converted-to.pdf>
 Package pdftex.def Info: images/bilateral_norm_params-eps-converted-to.pdf  use
-d on input line 242. on input line 242.
+d on input line 149. on input line 149.
 Package pdftex.def Info: Requested size: 215.10196pt x 139.83751pt on input lin
-e 242.
+e 149.
 
 
-LaTeX Warning: Citation `honauer2016benchmark' on page 21 undefined on input li
-ne 242.
+LaTeX Warning: Citation `honauer2016benchmark' on page 14 undefined on input li
+ne 149.
 
 
-LaTeX Warning: Citation `honauer2016benchmark' on page 21 undefined on input li
-ne 242.
+LaTeX Warning: Citation `honauer2016benchmark' on page 14 undefined on input li
+ne 149.
 
-[21
+[14
 
  <./images/bilateral_norm_params-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <images/thresh_results.eps>
@@ -1541,23 +1495,25 @@ Package epstopdf Info: Source file: <images/thresh_results.eps>
 (epstopdf)                    size: 4308104 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/thresh_results-eps-c
 onverted-to.pdf images/thresh_results.eps>
-(epstopdf)             \includegraphics on input line 252.
+(epstopdf)             \includegraphics on input line 159.
 Package epstopdf Info: Output file is already uptodate.
-<images/thresh_results-eps-converted-to.pdf, id=677, pagebox=cropbox, 722.7pt x
+<images/thresh_results-eps-converted-to.pdf, id=490, pagebox=cropbox, 722.7pt x
  722.7pt>
 File: images/thresh_results-eps-converted-to.pdf Graphic file (type pdf)
 <use images/thresh_results-eps-converted-to.pdf>
 Package pdftex.def Info: images/thresh_results-eps-converted-to.pdf  used on in
-put line 252. on input line 252.
+put line 159. on input line 159.
 Package pdftex.def Info: Requested size: 276.559pt x 276.55865pt on input line 
-252.
+159.
 
-Overfull \vbox (95.53076pt too high) detected at line 252
+Overfull \vbox (95.53076pt too high) detected at line 159
  []
 
-[22
+[15
 
- <./images/thresh_results-eps-converted-to.pdf>]
+ <./images/thresh_results-eps-converted-to.pdf>] [16
+
+]
 Package epstopdf Info: Source file: <images/thresh_params.eps>
 (epstopdf)                    date: 2018-05-02 17:19:48
 (epstopdf)                    size: 203906 bytes
@@ -1567,26 +1523,26 @@ Package epstopdf Info: Source file: <images/thresh_params.eps>
 (epstopdf)                    size: 62076 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/thresh_params-eps-co
 nverted-to.pdf images/thresh_params.eps>
-(epstopdf)             \includegraphics on input line 262.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
-<images/thresh_params-eps-converted-to.pdf, id=730, pagebox=cropbox, 734.745pt 
+<images/thresh_params-eps-converted-to.pdf, id=568, pagebox=cropbox, 734.745pt 
 x 224.84pt>
 File: images/thresh_params-eps-converted-to.pdf Graphic file (type pdf)
 <use images/thresh_params-eps-converted-to.pdf>
 Package pdftex.def Info: images/thresh_params-eps-converted-to.pdf  used on inp
-ut line 262. on input line 262.
+ut line 181. on input line 181.
 Package pdftex.def Info: Requested size: 307.28987pt x 94.03418pt on input line
- 262.
+ 181.
 
 
-LaTeX Warning: Citation `honauer2016benchmark' on page 23 undefined on input li
-ne 262.
+LaTeX Warning: Citation `honauer2016benchmark' on page 17 undefined on input li
+ne 181.
 
 
-LaTeX Warning: Citation `honauer2016benchmark' on page 23 undefined on input li
-ne 262.
+LaTeX Warning: Citation `honauer2016benchmark' on page 17 undefined on input li
+ne 181.
 
-[23
+[17
 
  <./images/thresh_params-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <images/old_outer.eps>
@@ -1597,19 +1553,123 @@ Package epstopdf Info: Source file: <images/old_outer.eps>
 (epstopdf)                    size: 88999 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/old_outer-eps-conver
 ted-to.pdf images/old_outer.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 191.
 Package epstopdf Info: Output file is already uptodate.
-<images/old_outer-eps-converted-to.pdf, id=759, pagebox=cropbox, 734.745pt x 45
+<images/old_outer-eps-converted-to.pdf, id=597, pagebox=cropbox, 734.745pt x 45
 2.69125pt>
 File: images/old_outer-eps-converted-to.pdf Graphic file (type pdf)
 <use images/old_outer-eps-converted-to.pdf>
 Package pdftex.def Info: images/old_outer-eps-converted-to.pdf  used on input l
-ine 272. on input line 272.
+ine 191. on input line 191.
 Package pdftex.def Info: Requested size: 307.28987pt x 189.32776pt on input lin
-e 272.
- [24
+e 191.
+ [18
 
- <./images/old_outer-eps-converted-to.pdf>]
+ <./images/old_outer-eps-converted-to.pdf>] [19
+
+]
+Package epstopdf Info: Source file: <images/derivatives_full.eps>
+(epstopdf)                    date: 2018-04-12 15:32:10
+(epstopdf)                    size: 139770 bytes
+(epstopdf)             Output file: <images/derivatives_full-eps-converted-to.p
+df>
+(epstopdf)                    date: 2018-04-12 15:32:49
+(epstopdf)                    size: 50813 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/derivatives_full-eps
+-converted-to.pdf images/derivatives_full.eps>
+(epstopdf)             \includegraphics on input line 212.
+Package epstopdf Info: Output file is already uptodate.
+<images/derivatives_full-eps-converted-to.pdf, id=652, pagebox=cropbox, 476.781
+25pt x 346.29375pt>
+File: images/derivatives_full-eps-converted-to.pdf Graphic file (type pdf)
+<use images/derivatives_full-eps-converted-to.pdf>
+Package pdftex.def Info: images/derivatives_full-eps-converted-to.pdf  used on 
+input line 212. on input line 212.
+Package pdftex.def Info: Requested size: 307.28987pt x 223.20187pt on input lin
+e 212.
+
+Overfull \vbox (78.17398pt too high) detected at line 212
+ []
+
+[20
+
+ <./images/derivatives_full-eps-converted-to.pdf>]
+<images/closing.png, id=682, 642.4pt x 228.855pt>
+File: images/closing.png Graphic file (type png)
+<use images/closing.png>
+Package pdftex.def Info: images/closing.png  used on input line 222. on input l
+ine 222.
+Package pdftex.def Info: Requested size: 215.10196pt x 76.62935pt on input line
+ 222.
+ [21
+
+ <./images/closing.png>]
+Package epstopdf Info: Source file: <images/thresh_segm_morph.eps>
+(epstopdf)                    date: 2018-05-08 10:40:39
+(epstopdf)                    size: 423729 bytes
+(epstopdf)             Output file: <images/thresh_segm_morph-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2018-05-08 10:42:59
+(epstopdf)                    size: 129269 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/thresh_segm_morph-ep
+s-converted-to.pdf images/thresh_segm_morph.eps>
+(epstopdf)             \includegraphics on input line 233.
+Package epstopdf Info: Output file is already uptodate.
+<images/thresh_segm_morph-eps-converted-to.pdf, id=710, pagebox=cropbox, 736.75
+25pt x 452.69125pt>
+File: images/thresh_segm_morph-eps-converted-to.pdf Graphic file (type pdf)
+<use images/thresh_segm_morph-eps-converted-to.pdf>
+Package pdftex.def Info: images/thresh_segm_morph-eps-converted-to.pdf  used on
+ input line 233. on input line 233.
+Package pdftex.def Info: Requested size: 307.28987pt x 188.8097pt on input line
+ 233.
+
+Overfull \vbox (5.83783pt too high) detected at line 233
+ []
+
+[22
+
+ <./images/thresh_segm_morph-eps-converted-to.pdf>]
+Overfull \hbox (34.62991pt too wide) detected at line 252
+[][]\OT1/cmss/m/n/10.95 \OT1/mathkerncmss/m/sl/10.95 d \OT1/cmss/m/n/10.95 = [
+]
+ []
+
+[23
+
+] [24
+
+] [25
+
+]
+Overfull \hbox (4.07022pt too wide) detected at line 294
+[][]\OT1/mathkerncmss/m/sl/10.95 E\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/1
+0.95 d\OT1/cmss/m/n/10.95 ) = [] [] \OML/cmm/m/it/10.95 :
+ []
+
+<images/sgm_paths.png, id=821, 335.2525pt x 151.56625pt>
+File: images/sgm_paths.png Graphic file (type png)
+<use images/sgm_paths.png>
+Package pdftex.def Info: images/sgm_paths.png  used on input line 294. on input
+ line 294.
+Package pdftex.def Info: Requested size: 215.10196pt x 97.24489pt on input line
+ 294.
+[26
+
+ <./images/sgm_paths.png>]pdfTeX warning (ext4): destination with the same iden
+tifier (name{key}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.311 \end{frame}
+                 
+Overfull \hbox (7.41605pt too wide) detected at line 311
+[][]\OT1/mathkerncmss/m/sl/10.95 E\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/1
+0.95 d\OT1/cmss/m/n/10.95 ) = [] [] \OML/cmm/m/it/10.95 :
+ []
+
+[27
+
+]
 Package epstopdf Info: Source file: <images/sgm_params_contour_mse_100.eps>
 (epstopdf)                    date: 2018-05-22 14:48:34
 (epstopdf)                    size: 7436617 bytes
@@ -1619,31 +1679,31 @@ erted-to.pdf>
 (epstopdf)                    size: 2129916 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/sgm_params_contour_m
 se_100-eps-converted-to.pdf images/sgm_params_contour_mse_100.eps>
-(epstopdf)             \includegraphics on input line 282.
+(epstopdf)             \includegraphics on input line 327.
 Package epstopdf Info: Output file is already uptodate.
-<images/sgm_params_contour_mse_100-eps-converted-to.pdf, id=788, pagebox=cropbo
+<images/sgm_params_contour_mse_100-eps-converted-to.pdf, id=876, pagebox=cropbo
 x, 722.7pt x 722.7pt>
 File: images/sgm_params_contour_mse_100-eps-converted-to.pdf Graphic file (type
  pdf)
 <use images/sgm_params_contour_mse_100-eps-converted-to.pdf>
 Package pdftex.def Info: images/sgm_params_contour_mse_100-eps-converted-to.pdf
-  used on input line 282. on input line 282.
+  used on input line 327. on input line 327.
 Package pdftex.def Info: Requested size: 307.28987pt x 307.2923pt on input line
- 282.
+ 327.
 
-Overfull \vbox (104.41983pt too high) detected at line 282
+Overfull \vbox (104.41983pt too high) detected at line 327
  []
 
-[25
+[28
 
  <./images/sgm_params_contour_mse_100-eps-converted-to.pdf>]
-Overfull \hbox (29.90303pt too wide) in paragraph at lines 314--314
+Overfull \hbox (29.90303pt too wide) in paragraph at lines 359--359
  [] 
  []
 
-[26
+[29
 
-] [27
+] [30
 
 ]
 \tf@nav=\write6
@@ -1655,23 +1715,26 @@ Overfull \hbox (29.90303pt too wide) in paragraph at lines 314--314
 \tf@snm=\write8
 \openout8 = `Presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 342.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 342.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 387.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 387.
  (Presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 342.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 342.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 387.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 387.
 Package rerunfilecheck Info: File `Presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 17617 strings out of 493312
- 336536 string characters out of 3128087
- 401439 words of memory out of 3000000
- 20650 multiletter control sequences out of 15000+200000
+ 17639 strings out of 493312
+ 337167 string characters out of 3128087
+ 401477 words of memory out of 3000000
+ 20664 multiletter control sequences out of 15000+200000
  22084 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,19n,55p,808b,549s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1679,8 +1742,8 @@ Here is how much of TeX's memory you used:
 600\ecsx1095.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
 knappen\ec\dpi600\ecsx1000.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fon
 ts\pk\ljfour\jknappen\ec\dpi600\ecss0700.pk> <C:\Users\jnieswand\AppData\Local\
-MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsi1000.pk> <C:\Users\jnieswand\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss0800.pk> <C:\Us
+MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss0800.pk> <C:\Users\jnieswand\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsi1000.pk> <C:\Us
 ers\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1
 000.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\e
 c\dpi600\ecss1095.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
@@ -1703,9 +1766,9 @@ nd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 ts/cm/cmsy5.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Presentation.pdf (27 pages, 9827221 bytes).
+Output written on Presentation.pdf (30 pages, 11730516 bytes).
 PDF statistics:
- 1167 PDF objects out of 1200 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1260 PDF objects out of 1440 (max. 8388607)
+ 89 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 
