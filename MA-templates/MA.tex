@@ -213,7 +213,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \subsection{Color-awareness with bilateral filtering}
  \label{sec:bilateral}
  In its original form the structure tensor pipeline weights the square of all gradients in a local environment by the distance to the reference point. Since all local gradients in the EPI that belong to the same color in the EPI are very likely to belong to the same orientation, in theory one only has to find all points with the same color which then lie on the same line in the EPI. The preferred orientation of the gradients at those points will then correspond to their slope with high confidence. However, most objects are not perfectly lambertian such that not all points on the correct line have to be of the exact same color. Only filtering the exact color will lead to noisy results. Though one could implement a filter weighting not only the distance in a gaussian manner but also the distance from the  EPI kernel origin in the color RGB space; such a filter is called \glqq bilateral filter \grqq (\cite{tomasi1998bilateral}). Pixels with completely different color will be excluded from the Neighbourhood when calculating the structure tensor. In equation \ref{eq:structuretensor} the window function $G$ is then defined as 
- \begin{equation}\label{key}
+ \begin{equation}\label{eq:bilateral}
  G_P = \frac{1}{W_p}\sum_{q\in N} g_{\sigma_d}(||p-q||) g_{\sigma_c}(||I_{p, \text{EPI}}-I_{q, \text{EPI}}||),
  \end{equation}
  where
@@ -344,6 +344,18 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \end{align}
  which can be calculated from the EPI.
  If we insert the above equation \ref{eq:normed_std_final} into \ref{eq:std_struct} into \ref{eq:deviation_d}, we obtain a deviation measure $\Delta d$ for the disparity based on the gradient deviation in the EPI.
+ 
+ \subsection{Alternative Merging of x- and y- orientation}
+ In the old ST Pipeline, the coherence value as defined in equation \ref{eq:coherence} not only determines which depth value should be chosen from refocussing the EPI, it is also used to decide wether the local depth estimation is taken from the x-directed EPI or the y-direction. In the article of \cite{sheng2018occlusion} a full Light field is evaluated such that multiple EPIs are available for each point. To handle occlusions, the EPI with less intensity variance is chosen to calculate the depth. In our case we are working with a crosshair light field only providing two EPIs for each szene point. Choosing the one with higher coherence seems logical, however at occlusions we are mostly provided with a clear structure in the EPI leading to a high coherence value. As a result, the EPI with occlusion effects is chosen, leading to edge fattening.\\
+ Instead one simply chooses the disparity value which relates to the a bigger depth, and only chooses the closer disparity value, if the coherence difference is big enough. Therefor we introduce a threshold:
+ \begin{equation}\label{eq:altmerging}
+ d(x,y) = \begin{cases}
+ \min(d_x(x,y),d_y(x,y))&\text{ if } |c_x(x,y)-c_y(x,y)|<\text{threshold} \\
+  d_x(x,y)&\text{ else, if } c_x(x,y)> c_y(x,y)\\
+  d_y(x,y)&\text{ else}\\
+  \end{cases}
+   \end{equation}
+
  
 \section{Depth from focus}
 \label{sec:theo depth}
@@ -607,13 +619,13 @@ In the following section we concentrate on benchmark data from the dataset of \c
 In figure \ref{fig:sandclockresults} the results we obtain from using a sandclock-shaped kernel instead of a normal gaussian kernel are shown. Even though one could expect the custom-sized kernel to perform better at edges, the opposite is the case; the original gaussian kernel outperforms the sandclock kernel in all scenes. The motivation to define the kernel in form of a sandclock was to localize structure clearly to the pixel it belongs to. However it becomes clear that the sandclock kernel cannot handle the occlusion problem explained in section \ref{sec:occlusionproblem}. On the surface regions less smoothing between neighbouring pixels lead to a higher noise resulting in a higher mean squared error. 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/sandclock_results}
+	\includegraphics[width=1\linewidth]{images/sandclock_results}
 	\caption[Results with custom sized kernel]{Comparison between the normal structure tensor and the sandclock- like kernel for the scenes \textit{dino, cotton, sideboard, boxes}. The left side compares the mean squared errors in the disparity map, the right side shows the error where discontinuities in the disparity map are masked explicitely.}
 	\label{fig:sandclockresults}
 \end{figure}
 
 \subsection{Bilateralfilter}
- This section illustrates the effects of using a bilateral filter in the Structure Tensor pipeline instead of a Gaussian Filter. Figure \ref{fig:bilateralparams} shows the Mean Squared Error as well as the discontinuity score when using a bilateral filter with the original EPI as a guide. The Scores are normed to the score of the Structure tensor pipeline. For large $\sigma_\text{Color}$ both converge to 1, because the we account all color values equally in this limit. Thus one again obtains the same result as with a normal gaussian filter. Note that the $\sigma_\text{Space}$ remains the same as in the case of a normal filtering ( $\sigma_\text{Space}=7$). Unfortunately the MSE metric score and the discontinuity score is worse than with using the gaussian kernel for the complete parameter space. Especially surfaces with a lot of texture suffer from splitting the weights by their color values. This becomes clear as the scene \textit{sideboard} with the fine patterned wallpaper reaches the worst results. Any pixel that doesn't encounter enough neighboring pixels with an equal color results in a Stucture tensor that only takes into account the very local gradient in the EPI. Since the aim was to especially handle disparity transitions by not mixing up two regions in the EPI with different colors, we take a look at the results for the discontinuity metric defined by \cite{honauer2016benchmark}. Even if one can see a slight improvement at some transitions looking at the disparity maps, the discontinuity score is still unaffected since the edge fattening is still visible. Since the results do not satisfy the expections and the guided bilateral filter also takes about 5 times longer then the normal structure tensor, we try an alternative approach.\\
+ This section illustrates the effects of using a bilateral filter in the Structure Tensor pipeline instead of a Gaussian Filter. Figure \ref{fig:bilateralparams} shows the Mean Squared Error as well as the discontinuity score when using a bilateral filter with the original EPI as a guide. The Scores are normed to the score of the Structure tensor pipeline. For large $\sigma_\text{Color}$ both converge to 1, because in this limit the weighting based on the color space distance (see equation \ref{eq:bilateral}) is a constant function. Thus one again obtains the same result as with a normal gaussian filter. Note that the $\sigma_\text{Space}$ remains the same as in the case of a normal filtering ( $\sigma_\text{Space}=7$). Unfortunately the MSE metric score and the discontinuity score is worse than with using the gaussian kernel for the complete parameter space. Especially surfaces with a lot of texture suffer from splitting the weights by their color values. This becomes clear as the scene \textit{sideboard} with the fine patterned wallpaper reaches the worst results. Any pixel that doesn't encounter enough neighboring pixels with an equal color results in a Stucture tensor that only takes into account the very local gradient in the EPI. Since the aim was to especially handle disparity transitions by not mixing up two regions in the EPI with different colors, we take a look at the results for the discontinuity metric defined by \cite{honauer2016benchmark}. Even if one can see a slight improvement at some transitions looking at the disparity maps, the discontinuity score is still unaffected since the edge fattening is still visible. Since the results do not satisfy the expections and the guided bilateral filter also takes about 5 times longer then the normal structure tensor, we try an alternative approach.\\
  Instead of using the original EPI as a guide, one could directly take the structure tensor component vector 
  \begin{equation}\label{key}
  \vec S = \left(\begin{matrix}
@@ -647,14 +659,15 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 
 
 
-\subsection{thresholding gradients}
+\subsection{Thresholding Gradients}
+When the gradient norm is thresholded as explained in section \ref{sec:thresholdinggradients}, the main aim is to change the weights of the gradients contributing to the structure tensor such that all gradients contribute the same. The smallest gradients however underly noise effect, therefor they are not upscaled. As one can see in figure \ref{fig:threshparams}, for big threshold values the result is equal to the old ST pipeline results as all gradients in the EPI are below the threshold, thus they are unaffected. Setting an extremely low threshold has the same effect as normalizing all gradients to the same strength. Especially on planar surfaces that typically have less texture and therefor low gradient strengths in the EPI, the error score is worse when normalizing the gradient, as one can see in figure \ref{fig:threshparams} on the right. However, the MSE is mostly affected by the edge fattening error as described in section \ref{sec:occlusionproblem}. Therefor simple normalizing already improves the MSE, since the gradient strength of the transition weights less into the structure tensor. The normed discontinuity score in the middle of figure \ref{fig:threshparams} is counter-intuitive since it is even worse for low threshold values. The reason is that the mask used for calculating the discontinuity score by \cite{honauer2016benchmark} is smaller then the edge fattening even after normalizing. Thus the discontinuity score cannot represent a better discontinuity behaviour if the edges do not lie in the mask. \\
+Since the scene \textit{boxes} is the noisiest one, the MSE is affected least by improving the disparity transitions. All scenes show an improved MSE for the complete parameter space. In figure \ref{fig:threshresults} the thresholded gradient ST result is compared to the bilateral and gaussian ST result. It is obvious that with a gaussian kernel, transitions are fattened and errorneus. It seems that the bilateral filter at least for the upper 3 scenes performs best, while the thresholded ST still produces the same errors as the gaussian ST, as one can see in the \textit{boxes}-scene (upper row). Nevertheless the additional noise (see scene \textit{sideboard}, last row) produced by the bilateral filtering finally results in a worse MSE score. 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/thresh_params}
 	\caption[Results when thresholding the Gradients in the EPI]{Results when thresholding the Gradients in the EPI are shown. All results are divided by the score obtained from the normal structure tensor algorithm. On the left the Mean Squared Error is shown, in the middle the discontinuity score is shown, on the right we see the Mean Average Error on planar surfaces in the scene. All metric scores follow the metrics from \cite{honauer2016benchmark}. }
 	\label{fig:threshparams}
 \end{figure}
-
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/thresh_results}
@@ -662,6 +675,14 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 	\label{fig:threshresults}
 \end{figure}
 
+Another advantage of using the Thresholded Gradient ST becomes clear in figure \ref{fig:oldouter}, where the gaussian outer kernelsize is varied for the old ST and for the Thresholded Gradient ST. Obviously the discontinuity score becomes worse for bigger gradients and the error score on planes improves due to bigger kernels being less affected by noise in both cases. Still the Thresholded Gradient ST is less affected by the discontinuity problems when increasing the kernel size, leading to a quasi- independence from the kernelsize when looking at the MSE Score.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/old_outer}
+	\caption[Varying kernelsize]{Top:Varying the kernelsize, using the old ST pipeline. Bottom: Varying the kernelsize with thresholding the gradients.}
+	\label{fig:oldouter}
+\end{figure}
 
 \subsection{Occlusion awareness segmentation}
 \begin{figure}
@@ -683,15 +704,46 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 \subsection{alternative coherence}
 confidence maps zeigen, probleme anhand einzelner pixel erklären.\\
 Direkter vergleich ergebnisse mit coherence.
-Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen. Alternative: direkt die coherence nehmen. Überleitung zu gaussian pyramid ansatz
+Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen. Alternative: direkt die coherence nehmen. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/thresh_vs_old_vs_newerror}
+	\caption[Comparing alternative coherence to new coherence]{Left: The Mean squared error using the old ST pipeline. Middle: Using the alternative error measure + thresholding the gradients. Right: Using the old coherence measure + thresholding the gradients.}
+	\label{fig:threshvsoldvsnewerror}
+\end{figure}
+
+\subsection{Alternative merging of x- and y-direction}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/old_vs_alternative}
+	\caption[Old coherence metric vs new error metric]{Left side: Old coherence metric for 4 test scenes. Right side: New error metric. Right column: Real error. Black significates no error (high coherence), white significates high error ( low coherence).}
+	\label{fig:oldvsalternative}
+\end{figure}
+
+
+
+
 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/old_outer}
-	\caption[Varying kernelsize]{Varying the kernelsize, using the old ST pipeline}
-	\label{fig:oldouter}
+	\includegraphics[width=1\linewidth]{images/choose_lower_difference}
+	\caption[The dependence on the threshold difference.]{The deviation of the ground truth in a close-up view of the scenes is shown. Purple is 0 deviation, yellow means high deviation. From Up t Down: 4 Different test scenes. From Left to Right: The Threshold value from equation \ref{eq:altmerging} is varied.}
+	\label{fig:chooselowerdifference}
 \end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_results}
+	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
+	\label{fig:chooselowerresults}
+\end{figure}
+
+
+
 
 \section{Semi-Global Matching}
 Einfaches Ergebnis mit (zu) starkem parameter.
@@ -707,21 +759,21 @@ beste parameter mit 3 parametern.\\
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/sgm_params_contour_mse_100}
-	\caption[mse_100]{Mean squared error for different (3) parameters}
+	\caption[Mean squared error for different (3) parameters]{Mean squared error for different (3) parameters}
 	\label{fig:sgmparamscontourmse100}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/sgm_params_contour_discontinuities_0070}
-	\caption[discontinuities_0070]{discontinuity score for different (3) parameters}
+	\caption[Discontinuity score for different (3) parameters]{discontinuity score for different (3) parameters}
 	\label{fig:sgmparamscontourdis}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/sgm_params_contour_mae_planes}
-	\caption[mae_planes]{planes score for different (3) parameters}
+	\caption[planes score for different (3) parameters]{planes score for different (3) parameters}
 	\label{fig:sgmparamscontourdmae}
 \end{figure}
 \section{Resumee}
@@ -772,6 +824,14 @@ beste parameter mit 3 parametern.\\
 		pp Median 11 & & 12.73 & 4.76 & 1.76 &3.20 \\
 	\end{tabular} 
 \end{table}
+\subsection*{Improved Coherence Measure by using SGM}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh}
+	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
+	\label{fig:sgmcoherencethresh}
+\end{figure}
+
   \part{Appendix}
   \begin{appendix}
   	\section{Derivation of the structure tensor}

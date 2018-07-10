@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -71,6 +71,13 @@ Bernd J{\"a}hne.
 Ren Ng, Marc Levoy, Mathieu Br{\'e}dif, Gene Duval, Mark Horowitz, and Pat
   Hanrahan.
 \newblock Light field photography with a hand-held plenoptic camera.
+
+\bibitem[Sheng et~al.(2018)Sheng, Zhao, Zhang, Zhang, and
+  Yang]{sheng2018occlusion}
+Hao Sheng, Pan Zhao, Shuo Zhang, Jun Zhang, and Da~Yang.
+\newblock Occlusion-aware depth estimation for light field using
+  multi-orientation epis.
+\newblock \emph{Pattern Recognition}, 74:\penalty0 587--599, 2018.
 
 \bibitem[Tao et~al.(2017)Tao, Srinivasan, Hadap, Rusinkiewicz, Malik, and
   Ramamoorthi]{tao2017shape}
