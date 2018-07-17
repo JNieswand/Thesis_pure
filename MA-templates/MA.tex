@@ -255,6 +255,7 @@ It is important to notice that the color distance is extracted from the EPI, tho
  The threshold should be chosen the lowest possible in a manner that gradients higher than the threshold are barely affected by noise. In section \ref{sec:evaluation} different thresholds are tested, if not mentioned otherwise a threshold of 0.1 is used assuming that the underlying EPI is a gray-value image with range 0-1.\\
  
  \subsection{Occlusion-awareness using segmentation of the EPI}
+ \label{sec:occlusionsegmentation}
  In the section a method is proposed that attempts to handle both occlusion errors mentioned in section \ref{sec:occlusionproblem}.\\
  Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs as one can see in the evaluation. See section \ref{sec:evaluation} for more details. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculate them seperately. By extracting them from the EPI, background and foreground structure are calculated without being biased by the transition itself. Therefor the EPI is segmented into occlusion transistions and areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach is fastly implemented and is sufficient for our needs. In principle the algorithm works as follows:
  \begin{enumerate}
@@ -694,11 +695,7 @@ Another advantage of using the Thresholded Gradient ST becomes clear in figure \
 \subsection{Occlusion awareness segmentation}
 \label{sec:occlusionawareness}
 In the next step we are trying to detect occlusions in the scan directly via the Gradient norm, as a high gradient is a good indicator for an occlusion edge. The result however is dependent on multiple parameters, two of them are the kernelsize of the morphology closing kernel. In figure \ref{fig:threshsegmmorph} (upper row) the metric scores are plotted in function of the $y$-directional size of the kernel. The x-morphology kernel is held constant to the size of 7. From figure \ref{fig:threshsegmmorph} (lower row) we can extract , that for all scenes we obtain the best result wne sticking to a 7-pix $x$-directional kernelsize. As the EPI is only 9 pixels wide, we do not go for bigger kernels.\\
-The bigger the kernel is, the bigger the connected parts belonging to the same segment in the EPI are. More segmentations have negative effect on the Mean average error on planar surfaces with lots of texture, which we can see in the scenes \textit{dino} and \textit{sideboard}. This is approved in the upper right plot showing the MAE on planar surfaces for bigger and smaller closing kernels. Furthermore the scenes \textit{cotton} and \textit{dino} are the ones whose mean squared error is mostly dependent on occlusions in the scene. Especially \textit{cotton} is quite well measured besides at the occlusion boarders.
-
-(FIGURE SHOWING PIXEL DIStANCES / ZOOMED IN EPI NORM)
-
-In figure
+The larger the kernel size is, the bigger the connected parts belonging to the same segment in the EPI are. More segmentations have negative effect on the Mean average error on planar surfaces with lots of texture, which we can see in the scenes \textit{dino} and \textit{sideboard}. This is approved in the upper right plot showing the MAE on planar surfaces for bigger and smaller closing kernels. A larger morphology size kernel results in a better planar surface score, however in the limit for very large kernels no segmentation is happening, thus the relative score is converging to 1. Furthermore the scenes \textit{cotton} and \textit{dino} are the ones whose mean squared error is mostly dependent on occlusions in the scene. 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/thresh_segm_morph}
@@ -706,9 +703,14 @@ In figure
 	\label{fig:threshsegmmorph}
 \end{figure}
 
+(FIGURE SHOWING PIXEL DIStANCES / ZOOMED IN EPI NORM)
+
+In figure \ref{fig:threshresultsmorph} the segmentation algorithm is compared to the old pipeline as well as to the thresholded norm pipeline that is evaluated on the previous section. Again we have a look at the same scenes \textit{boxes, cotton, dino} and \textit{sideboard}. It becomes clear that both algorithms to some degree improve the occlusion handling, still the results differ from each other. In the Zoom-in on the scene \textit{boxes} the Thresholded pipeline seems to achieve slightly better results, however on the occlusion in the scene \textit{cotton} the Segmentation algorithm proves to produces the better results. The Segmentation especially works well with 'clean' edges, where the edge itself results in a clear peak in the norm of the plot (See figure \ref{fig:derivativesfull} in section \ref{sec:occlusionsegmentation}). However in the other scenes the segmentation does not seem to work well as the algorithm only achieves minor improvements.
+
+
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/thresh_results_morph}
+	\includegraphics[width=1\linewidth]{images/thresh_results_morph-eps-converted-to.pdf}
 	\caption[Disparity map Zoom-ins for different methods]{Disparity map Zoom-ins for different Structure Tensor filtering. From Left to right gaussian filtering, segmentation filtering and gaussian filtering when thresholding the gradients.}
 	\label{fig:threshresultsmorph}
 \end{figure}
@@ -729,7 +731,6 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 
 \subsection{Alternative merging of x- and y-direction}
 
-<<<<<<< HEAD
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/old_vs_alternative-eps-converted-to}
@@ -738,19 +739,10 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 \end{figure}
 
 
-=======
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/old_vs_alternative}
-%	\caption[Old coherence metric vs new error metric]{Left side: Old coherence metric for 4 test scenes. Right side: New error metric. Right column: Real error. Black significates no error (high coherence), white significates high error ( low coherence).}
-%	\label{fig:oldvsalternative}
-%\end{figure}
->>>>>>> 4848bc9031848fe42ec7538dd6effce1667a2a9d
 
 
 
 
-<<<<<<< HEAD
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/choose_lower_difference-eps-converted-to}
@@ -765,66 +757,60 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
 	\label{fig:chooselowerresults}
 \end{figure}
-=======
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_params}
+	\caption[Alternative Merging: Parameter dependence]{Alternative Merging: Parameter dependence. Left: Mean Squared Error. Right: BadPixel Score}
+	\label{fig:chooselowerparams}
+\end{figure}
 
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/choose_lower_difference}
-%	\caption[The dependence on the threshold difference.]{The deviation of the ground truth in a close-up view of the scenes is shown. Purple is 0 deviation, yellow means high deviation. From Up t Down: 4 Different test scenes. From Left to Right: The Threshold value from equation \ref{eq:altmerging} is varied.}
-%	\label{fig:chooselowerdifference}
-%\end{figure}
-%
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/choose_lower_results}
-%	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
-%	\label{fig:chooselowerresults}
-%\end{figure}
->>>>>>> 4848bc9031848fe42ec7538dd6effce1667a2a9d
 
 
 
 
 \section{Semi-Global Matching}
-Einfaches Ergebnis mit (zu) starkem parameter.
-beste parameter mit nur 2 parametern.\\
-beste parameter mit 3 parametern.\\
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{../../Thesis/Python_master/Plots/sgm_param_contour}
-%	\caption[parameter grid test for semi global matching]{parameter grid test for semi global matching}
-%	\label{fig:sgmparamcontour}
-%\end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/sgm_params_contour_mse_100}
-	\caption[Mean squared error for different (3) parameters]{Mean squared error for different (3) parameters}
-	\label{fig:sgmparamscontourmse100}
+	\includegraphics[width=1\linewidth]{images/subplot_sgm}
+	\caption[SGM from different directions]{This Plot shows the disparity maps based on the modified cost function after going along 8 paths. The upper[lower] left[right] map represents the map after going along the path in upper[lower] left [right] direction.}
+	\label{fig:subplotsgm}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/sgm_params_contour_discontinuities_0070}
-	\caption[Discontinuity score for different (3) parameters]{discontinuity score for different (3) parameters}
-	\label{fig:sgmparamscontourdis}
+	\includegraphics[width=1\linewidth]{images/sgm_results_thresh}
+	\caption[Semi-Global Matching Results]{Disparity error maps using the old pipeline (left) and the Semi-Global Matching Algorithm (Right). Yellow is a big deviation, dark-blue is no deviation.}
+	\label{fig:sgmresultsthresh}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/sgm_params_contour_mae_planes}
-	\caption[planes score for different (3) parameters]{planes score for different (3) parameters}
-	\label{fig:sgmparamscontourdmae}
-\end{figure}
+
+
+
+
 \subsection*{Improved Coherence Measure by using SGM}
+
+
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh-eps-converted-to}
 	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
 	\label{fig:sgmcoherencethresh}
 \end{figure}
+
+\subsection*{SGM as pure Postprocessing}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/choose_lower_sgm_ppr_20_300_25}
+	\caption[Alternative Merging with SGM Postprocessing]{Alternative Merging with SGM Postprocessing}
+	\label{fig:chooselowersgmppr2030025}
+\end{figure}
+
+
+
 \section{Resumee}
 \begin{table}
 	\begin{tabular}{|c|c|c|c|c|c|}
@@ -875,17 +861,11 @@ beste parameter mit 3 parametern.\\
 \end{table}
 
 
-\subsection*{Improved Coherence Measure by using SGM}
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh}
-%	\caption[SGM Coherence measure]{The assumed error (grey-valued) when calculating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
-%	\label{fig:sgmcoherencethresh}
-%\end{figure}
+
 
   \part{Appendix}
   \begin{appendix}
-  	\section{Derivation of the structure tensor}
+  	\chapter{Derivation of the structure tensor}
   	The derivation is taken from \cite{jahne2013digitale}. Taking a function $g:\Omega\rightarrow \!R, \Omega \subset \!R^D$, the pereferred local direction $\vec{n} \subset \!R^D$ must satisfy the following equation:
   	\begin{equation}\label{key}
   	( g^T\vec{n})^2 = |\nabla g |^2 \cos^2(\sphericalangle (g, \vec{n}))
@@ -916,6 +896,35 @@ beste parameter mit 3 parametern.\\
   	
   	
   	 \setcitestyle{numbers}
+  	 
+  	\chapter{SGM Parameter Testing}
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=1\linewidth]{../../Thesis/Python_master/Plots/sgm_param_contour}
+  		\caption[parameter grid test for semi global matching]{parameter grid test for semi global matching}
+  		\label{fig:sgmparamcontour}
+  	\end{figure}
+  	
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_mse_100}
+  		\caption[Mean squared error for different (3) parameters]{Mean squared error for different (3) parameters}
+  		\label{fig:sgmparamscontourmse100}
+  	\end{figure}
+  	
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_discontinuities_0070}
+  		\caption[Discontinuity score for different (3) parameters]{discontinuity score for different (3) parameters}
+  		\label{fig:sgmparamscontourdis}
+  	\end{figure}
+  	
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_mae_planes}
+  		\caption[planes score for different (3) parameters]{planes score for different (3) parameters}
+  		\label{fig:sgmparamscontourdmae}
+  	\end{figure}
     \chapter{Lists}
     \listoffigures
     \listoftables
