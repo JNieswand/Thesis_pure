@@ -670,7 +670,7 @@ Since the scene \textit{boxes} is the noisiest one, the MSE is affected least by
 \end{figure}
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/thresh_results}
+	\includegraphics[width=1\linewidth]{images/thresh_results-eps-converted-to}
 	\caption[Disparity map Zoom-ins for different methods]{Disparity map Zoom-ins for different Structure Tensor filtering. From Left to right gaussian filtering, bilateral filtering and gaussian filtering when thresholding the gradients.}
 	\label{fig:threshresults}
 \end{figure}
@@ -717,7 +717,7 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/old_vs_alternative}
+	\includegraphics[width=1\linewidth]{images/old_vs_alternative-eps-converted-to}
 	\caption[Old coherence metric vs new error metric]{Left side: Old coherence metric for 4 test scenes. Right side: New error metric. Right column: Real error. Black significates no error (high coherence), white significates high error ( low coherence).}
 	\label{fig:oldvsalternative}
 \end{figure}
@@ -729,7 +729,7 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/choose_lower_difference}
+	\includegraphics[width=1\linewidth]{images/choose_lower_difference-eps-converted-to}
 	\caption[The dependence on the threshold difference.]{The deviation of the ground truth in a close-up view of the scenes is shown. Purple is 0 deviation, yellow means high deviation. From Up t Down: 4 Different test scenes. From Left to Right: The Threshold value from equation \ref{eq:altmerging} is varied.}
 	\label{fig:chooselowerdifference}
 \end{figure}
@@ -737,7 +737,7 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/choose_lower_results}
+	\includegraphics[width=1\linewidth]{images/choose_lower_results-eps-converted-to}
 	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
 	\label{fig:chooselowerresults}
 \end{figure}
@@ -776,6 +776,13 @@ beste parameter mit 3 parametern.\\
 	\caption[planes score for different (3) parameters]{planes score for different (3) parameters}
 	\label{fig:sgmparamscontourdmae}
 \end{figure}
+\subsection*{Improved Coherence Measure by using SGM}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh-eps-converted-to}
+	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
+	\label{fig:sgmcoherencethresh}
+\end{figure}
 \section{Resumee}
 \begin{table}
 	\begin{tabular}{|c|c|c|c|c|c|}
@@ -794,7 +801,7 @@ beste parameter mit 3 parametern.\\
 		\hline 
 		Thresholding (thresh = 0.1) & 6.06 & 15.57  & 4.38  & 1.39  & 3.03  \\ 
 		\hline 
-		occlusion segmentation\\(7x7 morph, thresh = 0.1) & 11.28  & 18.08 &  3.39 & 1.78  & 3.91  \\ 
+		occlusion segmentation&&&&&\\(7x7 morph, thresh = 0.1) & 11.28  & 18.08 &  3.39 & 1.78  & 3.91  \\ 
 		\hline 
 		alternative coherence +Treshold & 14.15  & 15.85  & 4.30  & 1.25  & 3.38  \\ 
 		\hline 
@@ -824,13 +831,7 @@ beste parameter mit 3 parametern.\\
 		pp Median 11 & & 12.73 & 4.76 & 1.76 &3.20 \\
 	\end{tabular} 
 \end{table}
-\subsection*{Improved Coherence Measure by using SGM}
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh}
-	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
-	\label{fig:sgmcoherencethresh}
-\end{figure}
+
 
   \part{Appendix}
   \begin{appendix}
