@@ -2,37 +2,43 @@
 \BOOKMARK [1][-]{section.1.1}{Light Field Parametrization}{chapter.1}% 2
 \BOOKMARK [2][-]{subsection.1.1.1}{The Lumigraph}{section.1.1}% 3
 \BOOKMARK [2][-]{subsection.1.1.2}{Epipolar Plane Images}{section.1.1}% 4
-\BOOKMARK [1][-]{section.1.2}{Depth from Structure Tensor}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.2.1}{Implementation}{section.1.2}% 6
-\BOOKMARK [2][-]{subsection.1.2.2}{The occlusion problem of the structure Tensor}{section.1.2}% 7
-\BOOKMARK [1][-]{section.1.3}{Modifications on the structure tensor}{chapter.1}% 8
-\BOOKMARK [2][-]{subsection.1.3.1}{Kernelsizes}{section.1.3}% 9
-\BOOKMARK [2][-]{subsection.1.3.2}{Color-awareness with bilateral filtering}{section.1.3}% 10
-\BOOKMARK [2][-]{subsection.1.3.3}{Thresholding the gradients}{section.1.3}% 11
-\BOOKMARK [2][-]{subsection.1.3.4}{Occlusion-awareness using segmentation of the EPI}{section.1.3}% 12
-\BOOKMARK [2][-]{subsection.1.3.5}{An alternative to the coherence as the confidence measure}{section.1.3}% 13
-\BOOKMARK [2][-]{subsection.1.3.6}{Alternative Merging of x- and y- orientation}{section.1.3}% 14
-\BOOKMARK [1][-]{section.1.4}{Depth from focus}{chapter.1}% 15
-\BOOKMARK [1][-]{section.1.5}{Semi-Global Matching}{chapter.1}% 16
-\BOOKMARK [2][-]{subsection.1.5.1}{Semi - Global Matching for Stereo Vision}{section.1.5}% 17
-\BOOKMARK [2][-]{subsection.1.5.2}{Semi - Global Matching for Light fields}{section.1.5}% 18
-\BOOKMARK [2][-]{subsection.1.5.3}{Occlusion awareness in SGM for light Fields}{section.1.5}% 19
-\BOOKMARK [2][-]{subsection.1.5.4}{SGM as postprocessing smoothing}{section.1.5}% 20
-\BOOKMARK [0][-]{chapter.2}{Evaluation}{}% 21
-\BOOKMARK [1][-]{section.2.1}{Depth from focus}{chapter.2}% 22
-\BOOKMARK [2][-]{subsection.2.1.1}{Using depth-from-refocus as a preestimate for the ST}{section.2.1}% 23
-\BOOKMARK [1][-]{section.2.2}{Modification on the Structure Tensor}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.2.1}{Sandclock kernel}{section.2.2}% 25
-\BOOKMARK [2][-]{subsection.2.2.2}{Bilateralfilter}{section.2.2}% 26
-\BOOKMARK [2][-]{subsection.2.2.3}{Thresholding Gradients}{section.2.2}% 27
-\BOOKMARK [2][-]{subsection.2.2.4}{Occlusion awareness segmentation}{section.2.2}% 28
-\BOOKMARK [2][-]{subsection.2.2.5}{alternative coherence}{section.2.2}% 29
-\BOOKMARK [2][-]{subsection.2.2.6}{Alternative merging of x- and y-direction}{section.2.2}% 30
-\BOOKMARK [1][-]{section.2.3}{Semi-Global Matching}{chapter.2}% 31
-\BOOKMARK [1][-]{section.2.4}{Resumee}{chapter.2}% 32
-\BOOKMARK [-1][-]{part.1}{Appendix}{}% 33
-\BOOKMARK [0][-]{section.Alph0.1}{Derivation of the structure tensor}{part.1}% 34
-\BOOKMARK [0][-]{appendix.A}{Lists}{part.1}% 35
-\BOOKMARK [1][-]{section.A.1}{List of Figures}{appendix.A}% 36
-\BOOKMARK [1][-]{section.A.2}{List of Tables}{appendix.A}% 37
-\BOOKMARK [0][-]{appendix.B}{Bibliography}{part.1}% 38
+\BOOKMARK [1][-]{section.1.2}{Metrics for the evaluation of depth maps}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.2.1}{dense and sparse maps}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.2}{mean squared error}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.3}{bad pixel score}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.4}{bumpiness}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.5}{discontinuity and planar scores}{section.1.2}% 10
+\BOOKMARK [1][-]{section.1.3}{Depth from Structure Tensor}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.3.1}{Implementation}{section.1.3}% 12
+\BOOKMARK [2][-]{subsection.1.3.2}{The occlusion problem of the structure Tensor}{section.1.3}% 13
+\BOOKMARK [1][-]{section.1.4}{Modifications on the structure tensor}{chapter.1}% 14
+\BOOKMARK [2][-]{subsection.1.4.1}{Kernelsizes}{section.1.4}% 15
+\BOOKMARK [2][-]{subsection.1.4.2}{Color-awareness with bilateral filtering}{section.1.4}% 16
+\BOOKMARK [2][-]{subsection.1.4.3}{Thresholding the gradients}{section.1.4}% 17
+\BOOKMARK [2][-]{subsection.1.4.4}{Occlusion-awareness using segmentation of the EPI}{section.1.4}% 18
+\BOOKMARK [2][-]{subsection.1.4.5}{An alternative to the coherence as the confidence measure}{section.1.4}% 19
+\BOOKMARK [2][-]{subsection.1.4.6}{Alternative Merging of x- and y- orientation}{section.1.4}% 20
+\BOOKMARK [1][-]{section.1.5}{Depth from focus}{chapter.1}% 21
+\BOOKMARK [1][-]{section.1.6}{Semi-Global Matching}{chapter.1}% 22
+\BOOKMARK [2][-]{subsection.1.6.1}{Semi - Global Matching for Stereo Vision}{section.1.6}% 23
+\BOOKMARK [2][-]{subsection.1.6.2}{Semi - Global Matching for Light fields}{section.1.6}% 24
+\BOOKMARK [2][-]{subsection.1.6.3}{Occlusion awareness in SGM for light Fields}{section.1.6}% 25
+\BOOKMARK [2][-]{subsection.1.6.4}{SGM as postprocessing smoothing}{section.1.6}% 26
+\BOOKMARK [0][-]{chapter.2}{Evaluation}{}% 27
+\BOOKMARK [1][-]{section.2.1}{Depth from focus}{chapter.2}% 28
+\BOOKMARK [2][-]{subsection.2.1.1}{Using depth-from-refocus as a preestimate for the ST}{section.2.1}% 29
+\BOOKMARK [1][-]{section.2.2}{Modification on the Structure Tensor}{chapter.2}% 30
+\BOOKMARK [2][-]{subsection.2.2.1}{Sandclock kernel}{section.2.2}% 31
+\BOOKMARK [2][-]{subsection.2.2.2}{Bilateralfilter}{section.2.2}% 32
+\BOOKMARK [2][-]{subsection.2.2.3}{Thresholding Gradients}{section.2.2}% 33
+\BOOKMARK [2][-]{subsection.2.2.4}{Occlusion awareness segmentation}{section.2.2}% 34
+\BOOKMARK [2][-]{subsection.2.2.5}{alternative coherence}{section.2.2}% 35
+\BOOKMARK [2][-]{subsection.2.2.6}{Alternative merging of x- and y-direction}{section.2.2}% 36
+\BOOKMARK [1][-]{section.2.3}{Semi-Global Matching}{chapter.2}% 37
+\BOOKMARK [1][-]{section.2.4}{Resumee}{chapter.2}% 38
+\BOOKMARK [-1][-]{part.1}{Appendix}{}% 39
+\BOOKMARK [0][-]{section.Alph0.1}{Derivation of the structure tensor}{part.1}% 40
+\BOOKMARK [0][-]{appendix.A}{Lists}{part.1}% 41
+\BOOKMARK [1][-]{section.A.1}{List of Figures}{appendix.A}% 42
+\BOOKMARK [1][-]{section.A.2}{List of Tables}{appendix.A}% 43
+\BOOKMARK [0][-]{appendix.B}{Bibliography}{part.1}% 44
