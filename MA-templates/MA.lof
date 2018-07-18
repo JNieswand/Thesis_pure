@@ -1,4 +1,4 @@
-\select@language {english}
+\babel@toc {english}{}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Two-plane parametrisation}}{9}{figure.1.1}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Visualization of an EPI extraction}}{10}{figure.1.2}
@@ -32,19 +32,11 @@
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Segmentation of Epi dependence on the morphology kernel}}{47}{figure.2.15}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Disparity map Zoom-ins for different methods}}{48}{figure.2.16}
 \contentsline {figure}{\numberline {2.17}{\ignorespaces Comparing alternative coherence to new coherence}}{49}{figure.2.17}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Old coherence metric vs new error metric}}{50}{figure.2.18}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces The dependence on the threshold difference.}}{51}{figure.2.19}
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Results from alternative merging of x- and y- direction}}{52}{figure.2.20}
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Alternative Merging: Parameter dependence}}{53}{figure.2.21}
-\contentsline {figure}{\numberline {2.22}{\ignorespaces SGM from different directions}}{53}{figure.2.22}
-\contentsline {figure}{\numberline {2.23}{\ignorespaces Semi-Global Matching Results}}{54}{figure.2.23}
-\contentsline {figure}{\numberline {2.24}{\ignorespaces SGM Coherence measure}}{55}{figure.2.24}
-\contentsline {figure}{\numberline {2.25}{\ignorespaces Alternative Merging with SGM Postprocessing}}{55}{figure.2.25}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces parameter grid test for semi global matching}}{59}{figure.B.1}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Mean squared error for different (3) parameters}}{60}{figure.B.2}
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Discontinuity score for different (3) parameters}}{61}{figure.B.3}
-\contentsline {figure}{\numberline {B.4}{\ignorespaces planes score for different (3) parameters}}{62}{figure.B.4}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces parameter grid test for semi global matching}}{53}{figure.B.1}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Mean squared error for different (3) parameters}}{54}{figure.B.2}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Discontinuity score for different (3) parameters}}{55}{figure.B.3}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces planes score for different (3) parameters}}{56}{figure.B.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

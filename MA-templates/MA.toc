@@ -1,4 +1,4 @@
-\select@language {english}
+\babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}Theory}{8}{chapter.1}
 \contentsline {section}{\numberline {1.1}Light Field Parametrization}{8}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}The Lumigraph}{8}{subsection.1.1.1}
@@ -33,14 +33,14 @@
 \contentsline {subsection}{\numberline {2.2.2}Bilateralfilter}{37}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Thresholding Gradients}{41}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Occlusion awareness segmentation}{44}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}alternative coherence}{46}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}Alternative merging of x- and y-direction}{46}{subsection.2.2.6}
-\contentsline {section}{\numberline {2.3}Semi-Global Matching}{46}{section.2.3}
-\contentsline {section}{\numberline {2.4}Resumee}{46}{section.2.4}
-\contentsline {part}{\numberline {I}Appendix}{57}{part.1}
-\contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{58}{appendix.A}
-\contentsline {chapter}{\numberline {B}SGM Parameter Testing}{59}{appendix.B}
-\contentsline {chapter}{\numberline {C}Lists}{63}{appendix.C}
-\contentsline {section}{\numberline {C.1}List of Figures}{63}{section.C.1}
-\contentsline {section}{\numberline {C.2}List of Tables}{64}{section.C.2}
-\contentsline {chapter}{\numberline {D}Bibliography}{65}{appendix.D}
+\contentsline {subsection}{\numberline {2.2.5}Alternative coherence}{46}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Alternative merging of x- and y-direction}{50}{subsection.2.2.6}
+\contentsline {section}{\numberline {2.3}Semi-Global Matching}{50}{section.2.3}
+\contentsline {section}{\numberline {2.4}Resumee}{50}{section.2.4}
+\contentsline {part}{\numberline {I}Appendix}{51}{part.1}
+\contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{52}{appendix.A}
+\contentsline {chapter}{\numberline {B}SGM Parameter Testing}{53}{appendix.B}
+\contentsline {chapter}{\numberline {C}Lists}{57}{appendix.C}
+\contentsline {section}{\numberline {C.1}List of Figures}{57}{section.C.1}
+\contentsline {section}{\numberline {C.2}List of Tables}{58}{section.C.2}
+\contentsline {chapter}{\numberline {D}Bibliography}{59}{appendix.D}

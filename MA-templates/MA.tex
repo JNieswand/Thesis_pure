@@ -293,6 +293,7 @@ It is important to notice that the color distance is extracted from the EPI, tho
 
  
  \subsection{An alternative to the coherence as the confidence measure}
+ \label{sec:alternative}
  The coherence (\ref{eq:coherence}) describes how strong the anisotropy of a structure in an image is. In the structure tensor pipeline (section \ref{sec:theo depth}) this value is used as a confidence meausure for the corresponding depth value. In this section we try to define a more profound definition for the confidence based on the distribution of the gradients in a small environment.
  From the structure tensor components we obtain the disparity 
  \begin{equation}\label{eq:disparity2}
@@ -659,7 +660,7 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/bilat_results}
+	\includegraphics[width=1\linewidth]{images/bilat_results-eps-converted-to}
 	\caption[Results of the bilateral filtering]{Results of Bilateral filtering for the scenes \textit{ boxes, cotton, dino, sideboard}.}
 	\label{fig:bilatresults}
 \end{figure}
@@ -668,8 +669,8 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 
 
 \subsection{Thresholding Gradients}
-When the gradient norm is thresholded as explained in section \ref{sec:thresholdinggradients}, the main aim is to change the weights of the gradients contributing to the structure tensor such that all gradients contribute the same. The smallest gradients however underly noise effects, therefor they are not upscaled. A threshold is set at which bigger gradient norms are normed to that threshold. As one can see in figure \ref{fig:threshparams}, for big threshold values the result is equal to the old ST pipeline results as all gradients in the EPI are below the threshold, thus they are unaffected. Setting an extremely low threshold has the same effect as normalizing all gradients to the same strength. Especially on planar surfaces which typically have less texture and therefor low gradient strengths in the EPI, the error score is worse when normalizing the gradient, as one can see in figure \ref{fig:threshparams} on the right. However, the MSE is mostly affected by the edge fattening error as described in section \ref{sec:occlusionproblem}. Therefor simple normalizing already improves the MSE, since the gradient strength of the transition weights less into the structure tensor. The normed discontinuity score in the middle of figure \ref{fig:threshparams} is counter-intuitive since it is even worse for low threshold values. The reason is that the mask used for calculating the discontinuity score by \cite{honauer2016benchmark} is smaller then the edge fattening even after normalizing. Thus the discontinuity score cannot represent a better discontinuity behaviour if the edges do not lie in the mask. \\
-Since the scene \textit{boxes} is the noisiest one, the MSE is affected least by improving the disparity transitions. All scenes show an improved MSE for the complete parameter space. In figure \ref{fig:threshresults} the thresholded gradient ST result is compared to the bilateral and gaussian ST result. It is obvious that with a gaussian kernel, transitions are fattened and errorneus. It seems that the bilateral filter at least for the upper 3 scenes performs best, while the thresholded ST still produces the same errors as the gaussian ST, as one can see in the \textit{boxes}-scene (upper row). Nevertheless the additional noise (see scene \textit{sideboard}, last row) produced by the bilateral filtering finally results in a worse MSE score. 
+When the gradient norm is thresholded as explained in section \ref{sec:thresholdinggradients}, the main aim is to change the weights of the gradients contributing to the structure tensor such that all gradients contribute the same. The smallest gradients however underly noise effects, therefor they are not upscaled. A threshold is set at which bigger gradient norms are normed to that threshold. As one can see in figure \ref{fig:threshparams}, for big threshold values the result is equal to the old ST pipeline results as all gradients in the EPI are below the threshold, thus they are unaffected. Setting an extremely low threshold has the same effect as normalizing all gradients to the same strength. Especially on planar surfaces which typically have less texture and therefor low gradient strengths in the EPI, the error score is worse when normalizing the gradient, as one can see in figure \ref{fig:threshparams} in the right plot. However, the MSE is mostly affected by the edge fattening error as described in section \ref{sec:occlusionproblem}. Therefor simple normalizing already improves the MSE, since the gradient strength of the transition weights less into the structure tensor. The normed discontinuity score in the middle of figure \ref{fig:threshparams} is counter-intuitive since it is even worse for low threshold values. The reason is that the mask used for calculating the discontinuity score by \cite{honauer2016benchmark} is smaller then the edge fattening even after normalizing. Thus the discontinuity score cannot represent a better discontinuity behaviour if the edges do not lie in the mask. \\
+Since the scene \textit{boxes} is the noisiest one, the MSE is affected least by improving the disparity transitions. The MSE in the scene \textit{cotton} on the other hand is mostly affected by the edge fattening error, thus its MSE is improved most by the Thresholding of the Gradients. All scenes show an improved MSE for the complete parameter space. Note that the threshold is plotted in a logarithmic scale. In figure \ref{fig:threshresults} the thresholded gradient ST result is compared to the bilateral and gaussian ST result. It is obvious that with a gaussian kernel, transitions are fattened and errorneous. It seems that the bilateral filter at least for the upper 3 scenes performs best, while the thresholded ST still produces the same errors as the gaussian ST, as one can see in the \textit{boxes}-scene (upper row). Nevertheless the additional noise (see scene \textit{sideboard}, last row) produced by the bilateral filtering finally results in a worse MSE score. 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/thresh_params}
@@ -683,7 +684,7 @@ Since the scene \textit{boxes} is the noisiest one, the MSE is affected least by
 	\label{fig:threshresults}
 \end{figure}
 
-Another advantage of using the Thresholded Gradient ST becomes clear in figure \ref{fig:oldouter}, where the gaussian outer kernelsize is varied for the old ST and for the Thresholded Gradient ST. Obviously the discontinuity score becomes worse for bigger gradients and the error score on planes improves due to bigger kernels being less affected by noise in both cases. Still the Thresholded Gradient ST is less affected by the discontinuity problems when increasing the kernel size, leading to a quasi- independence from the kernelsize when looking at the MSE Score.(MORE EVALUATIONS)
+Another advantage of using the Thresholded Gradient ST becomes clear in figure \ref{fig:oldouter}, where the gaussian outer kernelsize is varied for the old ST and for the Thresholded Gradient ST. Obviously the discontinuity score becomes worse for bigger gradients and the error score on planes improves due to bigger kernels being less affected by noise in both cases. Still the Thresholded Gradient ST is less affected by the discontinuity problems when increasing the kernel size, leading to a quasi- independence from the kernelsize when looking at the MSE Score. This fact is to be enjoyed with care as the kernelsize does have a significant impact on the resulting image.
 
 \begin{figure}
 	\centering
@@ -717,10 +718,8 @@ In figure \ref{fig:threshresultsmorph} the segmentation algorithm is compared to
 
 
 
-\subsection{alternative coherence}
-confidence maps zeigen, probleme anhand einzelner pixel erklären.\\
-Direkter vergleich ergebnisse mit coherence.
-Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen. Alternative: direkt die coherence nehmen. 
+\subsection{Alternative coherence}
+The use of the alternative Cost function as explained in section \ref{sec:alternative} only works in combination with thresholding the gradient (section \ref{sec:thresholdinggradients}). For this reason we compare the error maps of the old pipeline, the threshold pipeline and the new error measure to each other in figure \ref{fig:threshvsoldvsnewerror}. It becomes clear that the new error measure does perform about equally as good as the thresholded pipeline. The alternative coherence measure was expected to result in a better disparity map, because in theory it should handle occlusion edges to some degree better then the old coherence measure does. Still, \ref{fig:threshvsoldvsnewerror} shows that the errors remain in the same spot.
 
 \begin{figure}
 	\centering
@@ -729,41 +728,25 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 	\label{fig:threshvsoldvsnewerror}
 \end{figure}
 
+
 \subsection{Alternative merging of x- and y-direction}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/old_vs_alternative-eps-converted-to}
-	\caption[Old coherence metric vs new error metric]{Left side: Old coherence metric for 4 test scenes. Right side: New error metric. Right column: Real error. Black significates no error (high coherence), white significates high error ( low coherence).}
-	\label{fig:oldvsalternative}
-\end{figure}
 
 
 
-
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/choose_lower_difference-eps-converted-to}
-	\caption[The dependence on the threshold difference.]{The deviation of the ground truth in a close-up view of the scenes is shown. Purple is 0 deviation, yellow means high deviation. From Up t Down: 4 Different test scenes. From Left to Right: The Threshold value from equation \ref{eq:altmerging} is varied.}
-	\label{fig:chooselowerdifference}
-\end{figure}
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/choose_lower_results-eps-converted-to}
-	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
-	\label{fig:chooselowerresults}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/choose_lower_params}
-	\caption[Alternative Merging: Parameter dependence]{Alternative Merging: Parameter dependence. Left: Mean Squared Error. Right: BadPixel Score}
-	\label{fig:chooselowerparams}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1\linewidth]{images/choose_lower_results-eps-converted-to}
+%	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
+%	\label{fig:chooselowerresults}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1\linewidth]{images/choose_lower_params}
+%	\caption[Alternative Merging: Parameter dependence]{Alternative Merging: Parameter dependence. Left: Mean Squared Error. Right: BadPixel Score}
+%	\label{fig:chooselowerparams}
+%\end{figure}
 
 
 
@@ -772,19 +755,19 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 
 \section{Semi-Global Matching}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/subplot_sgm}
-	\caption[SGM from different directions]{This Plot shows the disparity maps based on the modified cost function after going along 8 paths. The upper[lower] left[right] map represents the map after going along the path in upper[lower] left [right] direction.}
-	\label{fig:subplotsgm}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/sgm_results_thresh}
-	\caption[Semi-Global Matching Results]{Disparity error maps using the old pipeline (left) and the Semi-Global Matching Algorithm (Right). Yellow is a big deviation, dark-blue is no deviation.}
-	\label{fig:sgmresultsthresh}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1\linewidth]{images/subplot_sgm}
+%	\caption[SGM from different directions]{This Plot shows the disparity maps based on the modified cost function after going along 8 paths. The upper[lower] left[right] map represents the map after going along the path in upper[lower] left [right] direction.}
+%	\label{fig:subplotsgm}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1\linewidth]{images/sgm_results_thresh}
+%	\caption[Semi-Global Matching Results]{Disparity error maps using the old pipeline (left) and the Semi-Global Matching Algorithm (Right). Yellow is a big deviation, dark-blue is no deviation.}
+%	\label{fig:sgmresultsthresh}
+%\end{figure}
 
 
 
@@ -793,21 +776,21 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
 \subsection*{Improved Coherence Measure by using SGM}
 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh-eps-converted-to}
-	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
-	\label{fig:sgmcoherencethresh}
-\end{figure}
-
-\subsection*{SGM as pure Postprocessing}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{images/choose_lower_sgm_ppr_20_300_25}
-	\caption[Alternative Merging with SGM Postprocessing]{Alternative Merging with SGM Postprocessing}
-	\label{fig:chooselowersgmppr2030025}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh-eps-converted-to}
+%	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
+%	\label{fig:sgmcoherencethresh}
+%\end{figure}
+%
+%\subsection*{SGM as pure Postprocessing}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{images/choose_lower_sgm_ppr_20_300_25}
+%	\caption[Alternative Merging with SGM Postprocessing]{Alternative Merging with SGM Postprocessing}
+%	\label{fig:chooselowersgmppr2030025}
+%\end{figure}
 
 
 
@@ -900,7 +883,7 @@ Adaptive Size : verschiedene Sizes testen, size mit größter confidence wählen
   	\chapter{SGM Parameter Testing}
   	\begin{figure}
   		\centering
-  		\includegraphics[width=1\linewidth]{../../Thesis/Python_master/Plots/sgm_param_contour}
+  		\includegraphics[width=1\linewidth]{images/sgm_param_contour}
   		\caption[parameter grid test for semi global matching]{parameter grid test for semi global matching}
   		\label{fig:sgmparamcontour}
   	\end{figure}
