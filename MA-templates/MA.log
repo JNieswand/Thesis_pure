@@ -1,38 +1,53 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.7.11)  18 JUL 2018 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.31)  20 JUL 2018 17:41
 entering extended mode
 **./MA.tex
 (MA.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrreprt.cls"
-Document Class: scrreprt 2018/03/30 v3.25 KOMA-Script document class (report)
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
-Package: scrkbase 2018/03/30 v3.25 KOMA-Script package (KOMA-Script-dependent b
+Babel <3.15> and hyphenation patterns for 75 language(s) loaded.
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\koma-script\sc
+rreprt.cls"
+Document Class: scrreprt 2017/09/07 v3.24 KOMA-Script document class (report)
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\koma-script\sc
+rkbase.sty"
+Package: scrkbase 2017/09/07 v3.24 KOMA-Script package (KOMA-Script-dependent b
 asics and keyval usage)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
-Package: scrbase 2018/03/30 v3.25 KOMA-Script package (KOMA-Script-independent 
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\koma-script\sc
+rbase.sty"
+Package: scrbase 2017/09/07 v3.24 KOMA-Script package (KOMA-Script-independent 
 basics and keyval usage)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyva
+l.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
-Package: scrlfile 2018/03/30 v3.25 KOMA-Script package (loading files)
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\koma-script\sc
+rlfile.sty"
+Package: scrlfile 2017/09/07 v3.24 KOMA-Script package (loading files)
 )))
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
-Package: tocbasic 2018/03/30 v3.25 KOMA-Script package (handling toc-files)
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\koma-script\to
+cbasic.sty"
+Package: tocbasic 2017/09/07 v3.24 KOMA-Script package (handling toc-files)
 \scr@dte@tocline@numberwidth=\skip41
 \scr@dte@tocline@numbox=\box26
 )
 Package tocbasic Info: omitting babel extension for `toc'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `toc' on input line 136.
-Package tocbasic Info: defining new hook before heading of `' on input line 166
+(tocbasic)             for `toc' on input line 135.
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 137.
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 138.
+Package tocbasic Info: defining new hook before heading of `' on input line 162
 7.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fleqn.clo"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fleqn.clo
+"
 File: fleqn.clo 2016/12/29 v1.2a Standard LaTeX option (flush left equations)
 \mathindent=\dimen102
 Applying: [2015/01/01] Make \[ robust on input line 50.
@@ -44,14 +59,16 @@ Already applied: [0000/00/00] Make \] robust on input line 83.
 )
 Class scrreprt Info: Switching compatibility level to `3.03'.
 Class scrreprt Info: File `scrsize12pt.clo' used to setup font sizes on input l
-ine 2328.
+ine 2293.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize12pt.clo"
-File: scrsize12pt.clo 2018/03/30 v3.25 KOMA-Script font size class option (12pt
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\koma-script\sc
+rsize12pt.clo"
+File: scrsize12pt.clo 2017/09/07 v3.24 KOMA-Script font size class option (12pt
 )
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
-Package: typearea 2018/03/30 v3.25 KOMA-Script package (type area)
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\koma-script\ty
+pearea.sty"
+Package: typearea 2017/09/07 v3.24 KOMA-Script package (type area)
 \ta@bcor=\skip42
 \ta@div=\count79
 Package typearea Info: Switching compatibility level to `3.03'.
@@ -75,7 +92,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 12.0pt
 (typearea)              \footskip       = 50.75pt
 (typearea)              \baselineskip   = 14.5pt
-(typearea)              on input line 1706.
+(typearea)              on input line 1686.
 )
 \c@part=\count80
 \c@chapter=\count81
@@ -91,37 +108,31 @@ Package typearea Info: These are the values describing the layout:
 \scr@dte@subsubsection@maxnumwidth=\skip51
 \scr@dte@paragraph@maxnumwidth=\skip52
 \scr@dte@subparagraph@maxnumwidth=\skip53
+LaTeX Info: Redefining \textsubscript on input line 4964.
 \abovecaptionskip=\skip54
 \belowcaptionskip=\skip55
 \c@pti@nb@sid@b@x=\box27
-\scr@dte@figure@maxnumwidth=\skip56
-Package tocbasic Info: omitting babel extension for `lof'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lof' on input line 6247.
 \c@figure=\count87
-\scr@dte@table@maxnumwidth=\skip57
-Package tocbasic Info: omitting babel extension for `lot'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lot' on input line 6264.
 \c@table=\count88
 Class scrreprt Info: Using old \@makefntext due to compatibility level
-(scrreprt)           less than 3.22 on input line 6420.
-Class scrreprt Info: Redefining `\numberline' on input line 6433.
+(scrreprt)           less than 3.22 on input line 6117.
+Class scrreprt Info: Redefining `\numberline' on input line 6130.
 \bibindent=\dimen103
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.
+sty"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu
+"
 File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -362,7 +373,8 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.df
+u"
 File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -403,7 +415,8 @@ File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.df
+u"
 File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -427,42 +440,53 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.s
+ty"
 Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.def
+"
 File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\color
+.sty"
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\c
+olor.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\p
+dftex.def"
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmat
+h.sty"
 Package: amsmath 2017/09/02 v2.17a AMS math features
-\@mathmargin=\skip58
+\@mathmargin=\skip56
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstex
+t.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen
+.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
 \ex@=\dimen104
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy
+.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen105
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn
+.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count89
@@ -497,22 +521,26 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \totwidth@=\dimen111
 \lineht@=\dimen112
 \@envbody=\toks20
-\multlinegap=\skip59
-\multlinetaggap=\skip60
+\multlinegap=\skip57
+\multlinetaggap=\skip58
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graph
+icx.sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graph
+ics.sty"
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.
+sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\g
+raphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
@@ -520,54 +548,67 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\epsfi
+g.sty"
 Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
 \epsfxsize=\dimen115
 \epsfysize=\dimen116
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2018/02/14 3.18 The Babel package
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.
+sty"
+Package: babel 2017/11/03 3.15 The Babel package
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def"
-File: switch.def 2018/02/14 3.18 Babel switching mechanism
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\switch
+.def"
+File: switch.def 2017/11/03 3.15 Babel switching mechanism
 )
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\arabi\bblopts.
+cfg"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-english\
+english.ldf"
 Language: english 2017/06/06 v3.3r English support from the babel system
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2018/02/14 3.18 Babel common definitions
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.
+def"
+File: babel.def 2017/11/03 3.15 Babel common definitions
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\switch
+.def"
+File: switch.def 2017/11/03 3.15 Babel switching mechanism
+)
 \babel@savecnt=\count101
 \U@D=\dimen117
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\txtbabel.def")
-\bbl@dirlevel=\count102
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\natbib\natbib.
+sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip61
-\bibsep=\skip62
+\bibhang=\skip59
+\bibsep=\skip60
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count103
+\c@NAT@ctr=\count102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
-Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyper
+ref.sty"
+Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hob
+sub-hyperref.sty"
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hob
+sub-generic.sty"
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -585,7 +626,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -607,78 +648,89 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxe
+tex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxho
+ok.sty"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvopt
+ions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen118
-\Hy@linkcounter=\count104
-\Hy@pagecounter=\count105
+\Hy@linkcounter=\count103
+\Hy@pagecounter=\count104
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
-File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1en
+c.def"
+File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count106
+\Hy@SavedSpaceFactor=\count105
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyper
+ref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4509.
-Package hyperref Info: Link nesting OFF on input line 4514.
-Package hyperref Info: Hyper index ON on input line 4517.
-Package hyperref Info: Plain pages OFF on input line 4524.
-Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Hyper figures OFF on input line 4498.
+Package hyperref Info: Link nesting OFF on input line 4503.
+Package hyperref Info: Hyper index ON on input line 4506.
+Package hyperref Info: Plain pages OFF on input line 4513.
+Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count107
+Package hyperref Info: Bookmarks ON on input line 4751.
+\c@Hy@tempcnt=\count106
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5115.
+LaTeX Info: Redefining \url on input line 5104.
 \XeTeXLinkMargin=\dimen119
-\Fld@menulength=\count108
+\Fld@menulength=\count107
 \Field@Width=\dimen120
 \Fld@charsize=\dimen121
-Package hyperref Info: Hyper figures OFF on input line 6369.
-Package hyperref Info: Link nesting OFF on input line 6374.
-Package hyperref Info: Hyper index ON on input line 6377.
-Package hyperref Info: backreferencing OFF on input line 6384.
-Package hyperref Info: Link coloring OFF on input line 6389.
-Package hyperref Info: Link coloring with OCG OFF on input line 6394.
-Package hyperref Info: PDF/A mode OFF on input line 6399.
-LaTeX Info: Redefining \ref on input line 6439.
-LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count109
-\c@Item=\count110
-\c@Hfootnote=\count111
+Package hyperref Info: Hyper figures OFF on input line 6358.
+Package hyperref Info: Link nesting OFF on input line 6363.
+Package hyperref Info: Hyper index ON on input line 6366.
+Package hyperref Info: backreferencing OFF on input line 6373.
+Package hyperref Info: Link coloring OFF on input line 6378.
+Package hyperref Info: Link coloring with OCG OFF on input line 6383.
+Package hyperref Info: PDF/A mode OFF on input line 6388.
+LaTeX Info: Redefining \ref on input line 6428.
+LaTeX Info: Redefining \pageref on input line 6432.
+\Hy@abspage=\count108
+\c@Item=\count109
+\c@Hfootnote=\count110
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
-File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count112
-\c@bookmark@seq@number=\count113
+Package hyperref Message: Driver (autodetected): hpdftex.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdft
+ex.def"
+File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
+\Fld@listcount=\count111
+\c@bookmark@seq@number=\count112
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerun
+filecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip63
+\Hy@SectionHShift=\skip61
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssy
+mb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfo
+nts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -686,8 +738,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 Package hyperref Info: Option `colorlinks' set `true' on input line 40.
- (MA.aux
-(titlepages-ger.aux) (titlepages-eng.aux) (abstracts.aux)
+ (MA.aux (titlepages-ger.aux) (titlepages-eng.aux) (abstracts.aux)
 
 LaTeX Warning: Label `key' multiply defined.
 
@@ -777,23 +828,28 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
 LaTeX Font Info:    ... okay on input line 44.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
 LaTeX Font Info:    ... okay on input line 44.
- ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pd
+f.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count114
+\scratchcounter=\count113
 \scratchdimen=\dimen122
 \scratchbox=\box30
-\nofMPsegments=\count115
-\nofMParguments=\count116
+\nofMPsegments=\count114
+\nofMParguments=\count115
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count117
+\MPscratchCnt=\count116
 \MPscratchDim=\dimen123
-\MPnumerator=\count118
-\makeMPintoPDFobject=\count119
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
 \everyMPtoPDFconversion=\toks23
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+)
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epsto
+pdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfex
+t.sty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -806,19 +862,20 @@ G,.JBIG2,.JB2,.eps]
 \AtBeginShipoutBox=\box31
 Package hyperref Info: Link coloring ON on input line 44.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\namer
+ef.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\get
+titlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count120
+\c@section@level=\count119
 )
 LaTeX Info: Redefining \ref on input line 44.
 LaTeX Info: Redefining \pageref on input line 44.
 LaTeX Info: Redefining \nameref on input line 44.
-
-(MA.out) (MA.out)
+ (MA.out) (MA.out)
 \@outlinefile=\write3
 \openout3 = `MA.out'.
 
@@ -827,16 +884,17 @@ LaTeX Info: Redefining \nameref on input line 44.
  (titlepages-ger.tex
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 12.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1cmss.fd
+"
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [1
 
 
-{C:/Users/Jacob/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) [2]
+{C:/Users/jnieswand/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
+[2]
 \openout2 = `titlepages-eng.aux'.
 
- (titlepages-eng.tex
-[3
+ (titlepages-eng.tex [3
 
 
 ]) [4]
@@ -849,12 +907,15 @@ Package natbib Warning: Citation `loremIpsum' on page 5 undefined on input line
 
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 19.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.
+fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 19.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.
+fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (abstract-eng.tex
 
@@ -884,19 +945,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--64
 <images/twoplane_param.jpg, id=293, 343.71613pt x 147.86443pt>
 File: images/twoplane_param.jpg Graphic file (type jpg)
 <use images/twoplane_param.jpg>
-Package pdftex.def Info: images/twoplane_param.jpg  used on input line 76.
-(pdftex.def)             Requested size: 298.75267pt x 128.53044pt.
+Package pdftex.def Info: images/twoplane_param.jpg  used on input line 76. on i
+nput line 76.
+Package pdftex.def Info: Requested size: 298.75267pt x 128.53044pt on input lin
+e 76.
  [9 <./images/twoplane_param.jpg>]
 <images/epiVisualization.jpg, id=311, 2006.9379pt x 635.976pt>
 File: images/epiVisualization.jpg Graphic file (type jpg)
 <use images/epiVisualization.jpg>
-Package pdftex.def Info: images/epiVisualization.jpg  used on input line 91.
-(pdftex.def)             Requested size: 426.7914pt x 135.23772pt.
+Package pdftex.def Info: images/epiVisualization.jpg  used on input line 91. on
+ input line 91.
+Package pdftex.def Info: Requested size: 426.7914pt x 135.23772pt on input line
+ 91.
 <images/simple_epi.png, id=314, 797.98125pt x 91.09032pt>
 File: images/simple_epi.png Graphic file (type png)
 <use images/simple_epi.png>
-Package pdftex.def Info: images/simple_epi.png  used on input line 98.
-(pdftex.def)             Requested size: 426.7914pt x 48.71823pt.
+Package pdftex.def Info: images/simple_epi.png  used on input line 98. on input
+ line 98.
+Package pdftex.def Info: Requested size: 426.7914pt x 48.71823pt on input line 
+98.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -913,49 +980,59 @@ LaTeX Warning: No positions in optional float specifier.
 <images/Lumiplus.jpg, id=352, 529.98pt x 584.1825pt>
 File: images/Lumiplus.jpg Graphic file (type jpg)
 <use images/Lumiplus.jpg>
-Package pdftex.def Info: images/Lumiplus.jpg  used on input line 145.
-(pdftex.def)             Requested size: 298.75267pt x 329.30603pt.
+Package pdftex.def Info: images/Lumiplus.jpg  used on input line 145. on input 
+line 145.
+Package pdftex.def Info: Requested size: 298.75267pt x 329.30603pt on input lin
+e 145.
 <images/refocused_cut.png, id=360, 711.4078pt x 267.24844pt>
 File: images/refocused_cut.png Graphic file (type png)
 <use images/refocused_cut.png>
-Package pdftex.def Info: images/refocused_cut.png  used on input line 175.
-(pdftex.def)             Requested size: 298.75267pt x 112.23134pt.
+Package pdftex.def Info: images/refocused_cut.png  used on input line 175. on i
+nput line 175.
+Package pdftex.def Info: Requested size: 298.75267pt x 112.23134pt on input lin
+e 175.
 [12] [13 <./images/Lumiplus.jpg> <./images/refocused_cut.png>]
 <images/occlusion_painted2.png, id=382, 778.40813pt x 500.62032pt>
 File: images/occlusion_painted2.png Graphic file (type png)
 <use images/occlusion_painted2.png>
 Package pdftex.def Info: images/occlusion_painted2.png  used on input line 192.
-
-(pdftex.def)             Requested size: 298.75267pt x 192.13977pt.
+ on input line 192.
+Package pdftex.def Info: Requested size: 298.75267pt x 192.13977pt on input lin
+e 192.
 <images/cotton_discontinuities_0070.png, id=383, 212.9556pt x 175.857pt>
 File: images/cotton_discontinuities_0070.png Graphic file (type png)
 <use images/cotton_discontinuities_0070.png>
 Package pdftex.def Info: images/cotton_discontinuities_0070.png  used on input 
-line 198.
-(pdftex.def)             Requested size: 298.75267pt x 246.72673pt.
+line 198. on input line 198.
+Package pdftex.def Info: Requested size: 298.75267pt x 246.72673pt on input lin
+e 198.
 <images/sandclock.png, id=392, 40.10588pt x 12.60754pt>
 File: images/sandclock.png Graphic file (type png)
 <use images/sandclock.png>
-Package pdftex.def Info: images/sandclock.png  used on input line 213.
-(pdftex.def)             Requested size: 298.75267pt x 93.94275pt.
+Package pdftex.def Info: images/sandclock.png  used on input line 213. on input
+ line 213.
+Package pdftex.def Info: Requested size: 298.75267pt x 93.94275pt on input line
+ 213.
  [14] [15 <./images/occlusion_painted2.png>] [16 <./images/cotton_discontinuiti
 es_0070.png>]
 Package epstopdf Info: Source file: <images/bilat.eps>
-(epstopdf)                    date: 2018-06-08 09:43:54
-(epstopdf)                    size: 178378 bytes
+(epstopdf)                    date: 2018-04-16 15:49:56
+(epstopdf)                    size: 175553 bytes
 (epstopdf)             Output file: <images/bilat-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:54
+(epstopdf)                    date: 2018-04-18 15:27:28
 (epstopdf)                    size: 63009 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/bilat-eps-converted-
 to.pdf images/bilat.eps>
 (epstopdf)             \includegraphics on input line 234.
 Package epstopdf Info: Output file is already uptodate.
-<images/bilat-eps-converted-to.pdf, id=416, 462.72874pt x 359.3425pt>
+<images/bilat-eps-converted-to.pdf, id=416, pagebox=cropbox, 462.72874pt x 359.
+3425pt>
 File: images/bilat-eps-converted-to.pdf Graphic file (type pdf)
 <use images/bilat-eps-converted-to.pdf>
 Package pdftex.def Info: images/bilat-eps-converted-to.pdf  used on input line 
-234.
-(pdftex.def)             Requested size: 298.75267pt x 232.00716pt.
+234. on input line 234.
+Package pdftex.def Info: Requested size: 298.75267pt x 232.00716pt on input lin
+e 234.
 
 [17 <./images/sandclock.png>]
 
@@ -978,45 +1055,50 @@ LaTeX Warning: Command \textsection invalid in math mode on input line 267.
 Missing character: There is no Ÿ in font cmr12!
 [19]
 Package epstopdf Info: Source file: <images/derivatives_full.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
-(epstopdf)                    size: 142125 bytes
+(epstopdf)                    date: 2018-04-12 15:32:10
+(epstopdf)                    size: 139770 bytes
 (epstopdf)             Output file: <images/derivatives_full-eps-converted-to.p
 df>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-12 15:32:49
 (epstopdf)                    size: 50813 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/derivatives_full-eps
 -converted-to.pdf images/derivatives_full.eps>
 (epstopdf)             \includegraphics on input line 273.
 Package epstopdf Info: Output file is already uptodate.
-<images/derivatives_full-eps-converted-to.pdf, id=460, 476.78125pt x 346.29375p
-t>
+<images/derivatives_full-eps-converted-to.pdf, id=460, pagebox=cropbox, 476.781
+25pt x 346.29375pt>
 File: images/derivatives_full-eps-converted-to.pdf Graphic file (type pdf)
 <use images/derivatives_full-eps-converted-to.pdf>
 Package pdftex.def Info: images/derivatives_full-eps-converted-to.pdf  used on 
-input line 273.
-(pdftex.def)             Requested size: 426.7914pt x 310.0023pt.
+input line 273. on input line 273.
+Package pdftex.def Info: Requested size: 426.7914pt x 310.0023pt on input line 
+273.
 <images/closing.png, id=461, 642.4pt x 228.855pt>
 File: images/closing.png Graphic file (type png)
 <use images/closing.png>
-Package pdftex.def Info: images/closing.png  used on input line 280.
-(pdftex.def)             Requested size: 298.75267pt x 106.43393pt.
+Package pdftex.def Info: images/closing.png  used on input line 280. on input l
+ine 280.
+Package pdftex.def Info: Requested size: 298.75267pt x 106.43393pt on input lin
+e 280.
 Package epstopdf Info: Source file: <images/segm_gaussian.eps>
-(epstopdf)                    date: 2018-06-08 09:43:56
-(epstopdf)                    size: 122795 bytes
+(epstopdf)                    date: 2018-04-12 15:50:40
+(epstopdf)                    size: 120800 bytes
 (epstopdf)             Output file: <images/segm_gaussian-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2018-07-11 16:04:42
+(epstopdf)                    date: 2018-07-17 10:40:25
 (epstopdf)                    size: 41910 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/segm_gaussian-eps-co
 nverted-to.pdf images/segm_gaussian.eps>
 (epstopdf)             \includegraphics on input line 288.
 Package epstopdf Info: Output file is already uptodate.
-<images/segm_gaussian-eps-converted-to.pdf, id=464, 462.72874pt x 346.29375pt>
+<images/segm_gaussian-eps-converted-to.pdf, id=464, pagebox=cropbox, 462.72874p
+t x 346.29375pt>
 File: images/segm_gaussian-eps-converted-to.pdf Graphic file (type pdf)
 <use images/segm_gaussian-eps-converted-to.pdf>
 Package pdftex.def Info: images/segm_gaussian-eps-converted-to.pdf  used on inp
-ut line 288.
-(pdftex.def)             Requested size: 426.7914pt x 319.40256pt.
+ut line 288. on input line 288.
+Package pdftex.def Info: Requested size: 426.7914pt x 319.40256pt on input line
+ 288.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1029,13 +1111,17 @@ LaTeX Warning: Reference `label' on page 24 undefined on input line 382.
 <images/table-skizze.jpg, id=564, 1445.4pt x 813.0375pt>
 File: images/table-skizze.jpg Graphic file (type jpg)
 <use images/table-skizze.jpg>
-Package pdftex.def Info: images/table-skizze.jpg  used on input line 430.
-(pdftex.def)             Requested size: 298.75267pt x 168.05083pt.
+Package pdftex.def Info: images/table-skizze.jpg  used on input line 430. on in
+put line 430.
+Package pdftex.def Info: Requested size: 298.75267pt x 168.05083pt on input lin
+e 430.
 <images/discrete_cont.jpg, id=568, 1445.4pt x 813.0375pt>
 File: images/discrete_cont.jpg Graphic file (type jpg)
 <use images/discrete_cont.jpg>
-Package pdftex.def Info: images/discrete_cont.jpg  used on input line 438.
-(pdftex.def)             Requested size: 298.75267pt x 168.05083pt.
+Package pdftex.def Info: images/discrete_cont.jpg  used on input line 438. on i
+nput line 438.
+Package pdftex.def Info: Requested size: 298.75267pt x 168.05083pt on input lin
+e 438.
  [27 <./images/table-skizze.jpg>]
 Overfull \hbox (17.02443pt too wide) detected at line 462
  $\OML/cmm/m/it/12 L[]\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; s\OT1/cmr/m/n/12 ) 
@@ -1043,276 +1129,469 @@ Overfull \hbox (17.02443pt too wide) detected at line 462
 [][] []$  
  []
 
-[28 <./images/discrete_cont.jpg>] [29]
+[28 <./images/discrete_cont.jpg>]
+Package epstopdf Info: Source file: <images/subplot_sgm.eps>
+(epstopdf)                    date: 2018-07-19 15:00:03
+(epstopdf)                    size: 568525 bytes
+(epstopdf)             Output file: <images/subplot_sgm-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-19 15:00:24
+(epstopdf)                    size: 33131 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/subplot_sgm-eps-conv
+erted-to.pdf images/subplot_sgm.eps>
+(epstopdf)             \includegraphics on input line 471.
+Package epstopdf Info: Output file is already uptodate.
+<images/subplot_sgm-eps-converted-to.pdf, id=584, pagebox=cropbox, 403.5075pt x
+ 107.40125pt>
+File: images/subplot_sgm-eps-converted-to.pdf Graphic file (type pdf)
+<use images/subplot_sgm-eps-converted-to.pdf>
+Package pdftex.def Info: images/subplot_sgm-eps-converted-to.pdf  used on input
+ line 471. on input line 471.
+Package pdftex.def Info: Requested size: 426.7914pt x 113.59894pt on input line
+ 471.
+<images/sgm_ppr_example.png, id=587, 829.59938pt x 385.44pt>
+File: images/sgm_ppr_example.png Graphic file (type png)
+<use images/sgm_ppr_example.png>
+Package pdftex.def Info: images/sgm_ppr_example.png  used on input line 493. on
+ input line 493.
+Package pdftex.def Info: Requested size: 426.7914pt x 198.28914pt on input line
+ 493.
+ [29 <./images/subplot_sgm-eps-converted-to.pdf>] [30 <./images/sgm_ppr_example
+.png>]
 chapter 2.
-[30
+[31
 
 ]
-<images/original_marked.png, id=605, 1026.83624pt x 697.8572pt>
+<images/original_marked.png, id=627, 1026.83624pt x 697.8572pt>
 File: images/original_marked.png Graphic file (type png)
 <use images/original_marked.png>
-Package pdftex.def Info: images/original_marked.png  used on input line 532.
-(pdftex.def)             Requested size: 426.7914pt x 290.05257pt.
+Package pdftex.def Info: images/original_marked.png  used on input line 546. on
+ input line 546.
+Package pdftex.def Info: Requested size: 426.7914pt x 290.05257pt on input line
+ 546.
 Package epstopdf Info: Source file: <images/result_depth_from_focus_res20.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-20 15:03:15
 (epstopdf)                    size: 15411238 bytes
 (epstopdf)             Output file: <images/result_depth_from_focus_res20-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-20 15:07:20
 (epstopdf)                    size: 661697 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/result_depth_from_fo
 cus_res20-eps-converted-to.pdf images/result_depth_from_focus_res20.eps>
-(epstopdf)             \includegraphics on input line 544.
+(epstopdf)             \includegraphics on input line 558.
 Package epstopdf Info: Output file is already uptodate.
-<images/result_depth_from_focus_res20-eps-converted-to.pdf, id=608, 2168.1pt x 
-2168.1pt>
+<images/result_depth_from_focus_res20-eps-converted-to.pdf, id=630, pagebox=cro
+pbox, 2168.1pt x 2168.1pt>
 File: images/result_depth_from_focus_res20-eps-converted-to.pdf Graphic file (t
 ype pdf)
 <use images/result_depth_from_focus_res20-eps-converted-to.pdf>
 Package pdftex.def Info: images/result_depth_from_focus_res20-eps-converted-to.
-pdf  used on input line 544.
-(pdftex.def)             Requested size: 426.7914pt x 426.76425pt.
+pdf  used on input line 558. on input line 558.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.76425pt on input line
+ 558.
 Package epstopdf Info: Source file: <images/error_res20_all.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
-(epstopdf)                    size: 256363 bytes
+(epstopdf)                    date: 2018-04-19 11:21:29
+(epstopdf)                    size: 252392 bytes
 (epstopdf)             Output file: <images/error_res20_all-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-19 11:39:31
 (epstopdf)                    size: 88875 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/error_res20_all-eps-
 converted-to.pdf images/error_res20_all.eps>
-(epstopdf)             \includegraphics on input line 551.
+(epstopdf)             \includegraphics on input line 565.
 Package epstopdf Info: Output file is already uptodate.
-<images/error_res20_all-eps-converted-to.pdf, id=609, 433.62pt x 306.14375pt>
+<images/error_res20_all-eps-converted-to.pdf, id=631, pagebox=cropbox, 433.62pt
+ x 306.14375pt>
 File: images/error_res20_all-eps-converted-to.pdf Graphic file (type pdf)
 <use images/error_res20_all-eps-converted-to.pdf>
 Package pdftex.def Info: images/error_res20_all-eps-converted-to.pdf  used on i
-nput line 551.
-(pdftex.def)             Requested size: 298.75267pt x 210.93576pt.
+nput line 565. on input line 565.
+Package pdftex.def Info: Requested size: 298.75267pt x 210.93576pt on input lin
+e 565.
 Package epstopdf Info: Source file: <images/result_depth_from_focus_pre.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-18 15:02:31
 (epstopdf)                    size: 15411236 bytes
 (epstopdf)             Output file: <images/result_depth_from_focus_pre-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-18 16:04:02
 (epstopdf)                    size: 550654 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/result_depth_from_fo
 cus_pre-eps-converted-to.pdf images/result_depth_from_focus_pre.eps>
-(epstopdf)             \includegraphics on input line 566.
+(epstopdf)             \includegraphics on input line 580.
 Package epstopdf Info: Output file is already uptodate.
-<images/result_depth_from_focus_pre-eps-converted-to.pdf, id=610, 2168.1pt x 21
-68.1pt>
+<images/result_depth_from_focus_pre-eps-converted-to.pdf, id=632, pagebox=cropb
+ox, 2168.1pt x 2168.1pt>
 File: images/result_depth_from_focus_pre-eps-converted-to.pdf Graphic file (typ
 e pdf)
 <use images/result_depth_from_focus_pre-eps-converted-to.pdf>
 Package pdftex.def Info: images/result_depth_from_focus_pre-eps-converted-to.pd
-f  used on input line 566.
-(pdftex.def)             Requested size: 426.7914pt x 426.76425pt.
+f  used on input line 580. on input line 580.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.76425pt on input line
+ 580.
 Package epstopdf Info: Source file: <images/error_res1_all.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
-(epstopdf)                    size: 257703 bytes
+(epstopdf)                    date: 2018-04-19 11:20:07
+(epstopdf)                    size: 253712 bytes
 (epstopdf)             Output file: <images/error_res1_all-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-19 11:39:33
 (epstopdf)                    size: 89335 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/error_res1_all-eps-c
 onverted-to.pdf images/error_res1_all.eps>
-(epstopdf)             \includegraphics on input line 572.
+(epstopdf)             \includegraphics on input line 586.
 Package epstopdf Info: Output file is already uptodate.
-<images/error_res1_all-eps-converted-to.pdf, id=611, 433.62pt x 306.14375pt>
+<images/error_res1_all-eps-converted-to.pdf, id=633, pagebox=cropbox, 433.62pt 
+x 306.14375pt>
 File: images/error_res1_all-eps-converted-to.pdf Graphic file (type pdf)
 <use images/error_res1_all-eps-converted-to.pdf>
 Package pdftex.def Info: images/error_res1_all-eps-converted-to.pdf  used on in
-put line 572.
-(pdftex.def)             Requested size: 298.75267pt x 210.93576pt.
+put line 586. on input line 586.
+Package pdftex.def Info: Requested size: 298.75267pt x 210.93576pt on input lin
+e 586.
 Package epstopdf Info: Source file: <images/speeds.eps>
-(epstopdf)                    date: 2018-06-08 09:43:56
-(epstopdf)                    size: 1427223 bytes
+(epstopdf)                    date: 2018-04-23 12:08:16
+(epstopdf)                    size: 1407574 bytes
 (epstopdf)             Output file: <images/speeds-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:56
+(epstopdf)                    date: 2018-04-23 12:08:33
 (epstopdf)                    size: 284056 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/speeds-eps-converted
 -to.pdf images/speeds.eps>
-(epstopdf)             \includegraphics on input line 582.
+(epstopdf)             \includegraphics on input line 596.
 Package epstopdf Info: Output file is already uptodate.
-<images/speeds-eps-converted-to.pdf, id=615, 445.665pt x 289.08pt>
+<images/speeds-eps-converted-to.pdf, id=637, pagebox=cropbox, 445.665pt x 289.0
+8pt>
 File: images/speeds-eps-converted-to.pdf Graphic file (type pdf)
 <use images/speeds-eps-converted-to.pdf>
 Package pdftex.def Info: images/speeds-eps-converted-to.pdf  used on input line
- 582.
-(pdftex.def)             Requested size: 298.75267pt x 193.78845pt.
+ 596. on input line 596.
+Package pdftex.def Info: Requested size: 298.75267pt x 193.78845pt on input lin
+e 596.
 
-Overfull \hbox (45.67844pt too wide) in paragraph at lines 591--608
+Overfull \hbox (45.67844pt too wide) in paragraph at lines 605--622
 [][]
  []
 
-[31] [32 <./images/original_marked.png>] [33 <./images/result_depth_from_focus_
+[32] [33 <./images/original_marked.png>] [34 <./images/result_depth_from_focus_
 res20-eps-converted-to.pdf>]
 Underfull \vbox (badness 1184) has occurred while \output is active []
 
- [34 <./images/error_res20_all-eps-converted-to.pdf>] [35 <./images/result_dept
-h_from_focus_pre-eps-converted-to.pdf>] [36 <./images/error_res1_all-eps-conver
+ [35 <./images/error_res20_all-eps-converted-to.pdf>] [36 <./images/result_dept
+h_from_focus_pre-eps-converted-to.pdf>] [37 <./images/error_res1_all-eps-conver
 ted-to.pdf> <./images/speeds-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <images/epi_vs_gdepth.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
-(epstopdf)                    size: 16231804 bytes
+(epstopdf)                    date: 2018-04-23 16:41:40
+(epstopdf)                    size: 16011929 bytes
 (epstopdf)             Output file: <images/epi_vs_gdepth-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-23 16:41:58
 (epstopdf)                    size: 1701735 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/epi_vs_gdepth-eps-co
 nverted-to.pdf images/epi_vs_gdepth.eps>
-(epstopdf)             \includegraphics on input line 616.
+(epstopdf)             \includegraphics on input line 630.
 Package epstopdf Info: Output file is already uptodate.
-<images/epi_vs_gdepth-eps-converted-to.pdf, id=788, 742.775pt x 722.7pt>
+<images/epi_vs_gdepth-eps-converted-to.pdf, id=810, pagebox=cropbox, 742.775pt 
+x 722.7pt>
 File: images/epi_vs_gdepth-eps-converted-to.pdf Graphic file (type pdf)
 <use images/epi_vs_gdepth-eps-converted-to.pdf>
 Package pdftex.def Info: images/epi_vs_gdepth-eps-converted-to.pdf  used on inp
-ut line 616.
-(pdftex.def)             Requested size: 426.7914pt x 415.26256pt.
-<images/sandclock_results.png, id=793, 730.73pt x 664.4825pt>
+ut line 630. on input line 630.
+Package pdftex.def Info: Requested size: 426.7914pt x 415.26256pt on input line
+ 630.
+<images/sandclock_results.png, id=815, 730.73pt x 664.4825pt>
 File: images/sandclock_results.png Graphic file (type png)
 <use images/sandclock_results.png>
-Package pdftex.def Info: images/sandclock_results.png  used on input line 630.
-(pdftex.def)             Requested size: 426.7914pt x 388.09714pt.
- [37] [38 <./images/epi_vs_gdepth-eps-converted-to.pdf>] [39 <./images/sandcloc
-k_results.png>] [40]
+Package pdftex.def Info: images/sandclock_results.png  used on input line 644. 
+on input line 644.
+Package pdftex.def Info: Requested size: 426.7914pt x 388.09714pt on input line
+ 644.
+ [38] [39 <./images/epi_vs_gdepth-eps-converted-to.pdf>] [40 <./images/sandcloc
+k_results.png>] [41]
 Package epstopdf Info: Source file: <images/bilateral_params.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
-(epstopdf)                    size: 131812 bytes
+(epstopdf)                    date: 2018-04-30 12:43:56
+(epstopdf)                    size: 129496 bytes
 (epstopdf)             Output file: <images/bilateral_params-eps-converted-to.p
 df>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-30 12:44:03
 (epstopdf)                    size: 41748 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/bilateral_params-eps
 -converted-to.pdf images/bilateral_params.eps>
-(epstopdf)             \includegraphics on input line 650.
+(epstopdf)             \includegraphics on input line 664.
 Package epstopdf Info: Output file is already uptodate.
-<images/bilateral_params-eps-converted-to.pdf, id=839, 444.66125pt x 289.08pt>
+<images/bilateral_params-eps-converted-to.pdf, id=860, pagebox=cropbox, 444.661
+25pt x 289.08pt>
 File: images/bilateral_params-eps-converted-to.pdf Graphic file (type pdf)
 <use images/bilateral_params-eps-converted-to.pdf>
 Package pdftex.def Info: images/bilateral_params-eps-converted-to.pdf  used on 
-input line 650.
-(pdftex.def)             Requested size: 298.75267pt x 194.22072pt.
+input line 664. on input line 664.
+Package pdftex.def Info: Requested size: 298.75267pt x 194.22072pt on input lin
+e 664.
 Package epstopdf Info: Source file: <images/bilateral_norm_params.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
-(epstopdf)                    size: 141114 bytes
+(epstopdf)                    date: 2018-04-30 12:42:21
+(epstopdf)                    size: 138596 bytes
 (epstopdf)             Output file: <images/bilateral_norm_params-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-04-30 12:44:03
 (epstopdf)                    size: 43730 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/bilateral_norm_param
 s-eps-converted-to.pdf images/bilateral_norm_params.eps>
-(epstopdf)             \includegraphics on input line 656.
+(epstopdf)             \includegraphics on input line 670.
 Package epstopdf Info: Output file is already uptodate.
-<images/bilateral_norm_params-eps-converted-to.pdf, id=844, 444.66125pt x 289.0
-8pt>
+<images/bilateral_norm_params-eps-converted-to.pdf, id=865, pagebox=cropbox, 44
+4.66125pt x 289.08pt>
 File: images/bilateral_norm_params-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/bilateral_norm_params-eps-converted-to.pdf>
 Package pdftex.def Info: images/bilateral_norm_params-eps-converted-to.pdf  use
-d on input line 656.
-(pdftex.def)             Requested size: 298.75267pt x 194.22072pt.
-<images/bilat_results-eps-converted-to.pdf, id=849, 722.7pt x 722.7pt>
+d on input line 670. on input line 670.
+Package pdftex.def Info: Requested size: 298.75267pt x 194.22072pt on input lin
+e 670.
+<images/bilat_results-eps-converted-to.pdf, id=870, pagebox=cropbox, 722.7pt x 
+722.7pt>
 File: images/bilat_results-eps-converted-to.pdf Graphic file (type pdf)
 <use images/bilat_results-eps-converted-to.pdf>
 Package pdftex.def Info: images/bilat_results-eps-converted-to.pdf  used on inp
-ut line 663.
-(pdftex.def)             Requested size: 426.7914pt x 426.79732pt.
+ut line 677. on input line 677.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 677.
 Package epstopdf Info: Source file: <images/thresh_params.eps>
-(epstopdf)                    date: 2018-06-08 09:43:56
-(epstopdf)                    size: 207894 bytes
+(epstopdf)                    date: 2018-05-02 17:19:48
+(epstopdf)                    size: 203906 bytes
 (epstopdf)             Output file: <images/thresh_params-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2018-06-08 09:43:56
+(epstopdf)                    date: 2018-05-02 17:19:57
 (epstopdf)                    size: 62076 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/thresh_params-eps-co
 nverted-to.pdf images/thresh_params.eps>
-(epstopdf)             \includegraphics on input line 676.
+(epstopdf)             \includegraphics on input line 690.
 Package epstopdf Info: Output file is already uptodate.
-<images/thresh_params-eps-converted-to.pdf, id=858, 734.745pt x 224.84pt>
+<images/thresh_params-eps-converted-to.pdf, id=879, pagebox=cropbox, 734.745pt 
+x 224.84pt>
 File: images/thresh_params-eps-converted-to.pdf Graphic file (type pdf)
 <use images/thresh_params-eps-converted-to.pdf>
 Package pdftex.def Info: images/thresh_params-eps-converted-to.pdf  used on inp
-ut line 676.
-(pdftex.def)             Requested size: 426.7914pt x 130.60626pt.
-<images/thresh_results-eps-converted-to.pdf, id=863, 722.7pt x 722.7pt>
+ut line 690. on input line 690.
+Package pdftex.def Info: Requested size: 426.7914pt x 130.60626pt on input line
+ 690.
+<images/thresh_results-eps-converted-to.pdf, id=884, pagebox=cropbox, 722.7pt x
+ 722.7pt>
 File: images/thresh_results-eps-converted-to.pdf Graphic file (type pdf)
 <use images/thresh_results-eps-converted-to.pdf>
 Package pdftex.def Info: images/thresh_results-eps-converted-to.pdf  used on in
-put line 682.
-(pdftex.def)             Requested size: 426.7914pt x 426.79732pt.
- [41 <./images/bilateral_params-eps-converted-to.pdf>]
+put line 696. on input line 696.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 696.
+ [42 <./images/bilateral_params-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <images/old_outer.eps>
-(epstopdf)                    date: 2018-06-08 09:43:55
-(epstopdf)                    size: 307636 bytes
+(epstopdf)                    date: 2018-05-09 14:58:25
+(epstopdf)                    size: 301481 bytes
 (epstopdf)             Output file: <images/old_outer-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:55
+(epstopdf)                    date: 2018-05-09 15:24:24
 (epstopdf)                    size: 88999 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/old_outer-eps-conver
 ted-to.pdf images/old_outer.eps>
-(epstopdf)             \includegraphics on input line 691.
+(epstopdf)             \includegraphics on input line 705.
 Package epstopdf Info: Output file is already uptodate.
-<images/old_outer-eps-converted-to.pdf, id=872, 734.745pt x 452.69125pt>
+<images/old_outer-eps-converted-to.pdf, id=893, pagebox=cropbox, 734.745pt x 45
+2.69125pt>
 File: images/old_outer-eps-converted-to.pdf Graphic file (type pdf)
 <use images/old_outer-eps-converted-to.pdf>
 Package pdftex.def Info: images/old_outer-eps-converted-to.pdf  used on input l
-ine 691.
-(pdftex.def)             Requested size: 426.7914pt x 262.96173pt.
+ine 705. on input line 705.
+Package pdftex.def Info: Requested size: 426.7914pt x 262.96173pt on input line
+ 705.
 Package epstopdf Info: Source file: <images/thresh_segm_morph.eps>
-(epstopdf)                    date: 2018-06-08 09:43:57
-(epstopdf)                    size: 431150 bytes
+(epstopdf)                    date: 2018-05-08 10:40:39
+(epstopdf)                    size: 423729 bytes
 (epstopdf)             Output file: <images/thresh_segm_morph-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2018-06-08 09:43:57
+(epstopdf)                    date: 2018-05-08 10:42:59
 (epstopdf)                    size: 129269 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/thresh_segm_morph-ep
 s-converted-to.pdf images/thresh_segm_morph.eps>
-(epstopdf)             \includegraphics on input line 702.
+(epstopdf)             \includegraphics on input line 716.
 Package epstopdf Info: Output file is already uptodate.
-<images/thresh_segm_morph-eps-converted-to.pdf, id=875, 736.7525pt x 452.69125p
-t>
+<images/thresh_segm_morph-eps-converted-to.pdf, id=896, pagebox=cropbox, 736.75
+25pt x 452.69125pt>
 File: images/thresh_segm_morph-eps-converted-to.pdf Graphic file (type pdf)
 <use images/thresh_segm_morph-eps-converted-to.pdf>
 Package pdftex.def Info: images/thresh_segm_morph-eps-converted-to.pdf  used on
- input line 702.
-(pdftex.def)             Requested size: 426.7914pt x 262.23645pt.
+ input line 716. on input line 716.
+Package pdftex.def Info: Requested size: 426.7914pt x 262.23645pt on input line
+ 716.
 Class scrreprt Info: Workaround for not recommended usage of \\ or
-(scrreprt)           \newlinein caption text  on input line 703.
+(scrreprt)           \newlinein caption text  on input line 717.
 
 Underfull \vbox (badness 1152) has occurred while \output is active []
 
- [42 <./images/bilateral_norm_params-eps-converted-to.pdf>] [43 <./images/bilat
-_results-eps-converted-to.pdf>] [44 <./images/thresh_params-eps-converted-to.pd
-f>] [45 <./images/thresh_results-eps-converted-to.pdf>]
-<images/thresh_results_morph-eps-converted-to.pdf, id=969, 722.7pt x 722.7pt>
+ [43 <./images/bilateral_norm_params-eps-converted-to.pdf>] [44 <./images/bilat
+_results-eps-converted-to.pdf>] [45 <./images/thresh_params-eps-converted-to.pd
+f>] [46 <./images/thresh_results-eps-converted-to.pdf>]
+<images/thresh_results_morph-eps-converted-to.pdf, id=990, pagebox=cropbox, 722
+.7pt x 722.7pt>
 File: images/thresh_results_morph-eps-converted-to.pdf Graphic file (type pdf)
 <use images/thresh_results_morph-eps-converted-to.pdf>
 Package pdftex.def Info: images/thresh_results_morph-eps-converted-to.pdf  used
- on input line 714.
-(pdftex.def)             Requested size: 426.7914pt x 426.79732pt.
-<images/thresh_vs_old_vs_newerror.png, id=974, 370.986pt x 489.027pt>
+ on input line 728. on input line 728.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 728.
+<images/thresh_vs_old_vs_newerror.png, id=995, 370.986pt x 489.027pt>
 File: images/thresh_vs_old_vs_newerror.png Graphic file (type png)
 <use images/thresh_vs_old_vs_newerror.png>
 Package pdftex.def Info: images/thresh_vs_old_vs_newerror.png  used on input li
-ne 726.
-(pdftex.def)             Requested size: 298.75267pt x 393.82634pt.
+ne 741. on input line 741.
+Package pdftex.def Info: Requested size: 298.75267pt x 393.82634pt on input lin
+e 741.
+<images/old_vs_alternative-eps-converted-to.pdf, id=1000, pagebox=cropbox, 722.
+7pt x 722.7pt>
+File: images/old_vs_alternative-eps-converted-to.pdf Graphic file (type pdf)
+<use images/old_vs_alternative-eps-converted-to.pdf>
+Package pdftex.def Info: images/old_vs_alternative-eps-converted-to.pdf  used o
+n input line 751. on input line 751.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 751.
+ [47 <./images/old_outer-eps-converted-to.pdf>] [48 <./images/thresh_segm_morph
+-eps-converted-to.pdf>] [49 <./images/thresh_results_morph-eps-converted-to.pdf
+>] [50 <./images/thresh_vs_old_vs_newerror.png>]
+Package epstopdf Info: Source file: <images/newerror_confidence.eps>
+(epstopdf)                    date: 2018-07-20 15:46:56
+(epstopdf)                    size: 219779 bytes
+(epstopdf)             Output file: <images/newerror_confidence-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2018-07-20 15:53:41
+(epstopdf)                    size: 17507 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/newerror_confidence-
+eps-converted-to.pdf images/newerror_confidence.eps>
+(epstopdf)             \includegraphics on input line 758.
+Package epstopdf Info: Output file is already uptodate.
+<images/newerror_confidence-eps-converted-to.pdf, id=1066, pagebox=cropbox, 722
+.7pt x 216.81pt>
+File: images/newerror_confidence-eps-converted-to.pdf Graphic file (type pdf)
+<use images/newerror_confidence-eps-converted-to.pdf>
+Package pdftex.def Info: images/newerror_confidence-eps-converted-to.pdf  used 
+on input line 758. on input line 758.
+Package pdftex.def Info: Requested size: 298.75267pt x 89.62709pt on input line
+ 758.
+<images/choose_lower_results-eps-converted-to.pdf, id=1067, pagebox=cropbox, 72
+2.7pt x 722.7pt>
+File: images/choose_lower_results-eps-converted-to.pdf Graphic file (type pdf)
+<use images/choose_lower_results-eps-converted-to.pdf>
+Package pdftex.def Info: images/choose_lower_results-eps-converted-to.pdf  used
+ on input line 771. on input line 771.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 771.
+Package epstopdf Info: Source file: <images/choose_lower_params.eps>
+(epstopdf)                    date: 2018-07-16 16:15:45
+(epstopdf)                    size: 215896 bytes
+(epstopdf)             Output file: <images/choose_lower_params-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2018-07-17 17:22:12
+(epstopdf)                    size: 16348 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/choose_lower_params-
+eps-converted-to.pdf images/choose_lower_params.eps>
+(epstopdf)             \includegraphics on input line 778.
+Package epstopdf Info: Output file is already uptodate.
+<images/choose_lower_params-eps-converted-to.pdf, id=1068, pagebox=cropbox, 722
+.7pt x 216.81pt>
+File: images/choose_lower_params-eps-converted-to.pdf Graphic file (type pdf)
+<use images/choose_lower_params-eps-converted-to.pdf>
+Package pdftex.def Info: images/choose_lower_params-eps-converted-to.pdf  used 
+on input line 778. on input line 778.
+Package pdftex.def Info: Requested size: 426.7914pt x 128.03918pt on input line
+ 778.
+<images/choose_lower_difference-eps-converted-to.pdf, id=1069, pagebox=cropbox,
+ 722.7pt x 722.7pt>
+File: images/choose_lower_difference-eps-converted-to.pdf Graphic file (type pd
+f)
+<use images/choose_lower_difference-eps-converted-to.pdf>
+Package pdftex.def Info: images/choose_lower_difference-eps-converted-to.pdf  u
+sed on input line 786. on input line 786.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 786.
+Package epstopdf Info: Source file: <images/sgm_results_thresh.eps>
+(epstopdf)                    date: 2018-07-17 15:58:19
+(epstopdf)                    size: 2827570 bytes
+(epstopdf)             Output file: <images/sgm_results_thresh-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2018-07-17 15:58:35
+(epstopdf)                    size: 197282 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/sgm_results_thresh-e
+ps-converted-to.pdf images/sgm_results_thresh.eps>
+(epstopdf)             \includegraphics on input line 800.
+Package epstopdf Info: Output file is already uptodate.
+<images/sgm_results_thresh-eps-converted-to.pdf, id=1070, pagebox=cropbox, 425.
+59pt x 603.25375pt>
+File: images/sgm_results_thresh-eps-converted-to.pdf Graphic file (type pdf)
+<use images/sgm_results_thresh-eps-converted-to.pdf>
+Package pdftex.def Info: images/sgm_results_thresh-eps-converted-to.pdf  used o
+n input line 800. on input line 800.
+Package pdftex.def Info: Requested size: 426.7914pt x 604.99199pt on input line
+ 800.
 
-Overfull \hbox (29.53543pt too wide) in paragraph at lines 799--844
+
+LaTeX Warning: Float too large for page by 23.99197pt on input line 803.
+
+<images/sgm_coherence_thresh-eps-converted-to.pdf, id=1071, pagebox=cropbox, 72
+2.7pt x 722.7pt>
+File: images/sgm_coherence_thresh-eps-converted-to.pdf Graphic file (type pdf)
+<use images/sgm_coherence_thresh-eps-converted-to.pdf>
+Package pdftex.def Info: images/sgm_coherence_thresh-eps-converted-to.pdf  used
+ on input line 814. on input line 814.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 814.
+Package epstopdf Info: Source file: <images/choose_lower_sgm_ppr.eps>
+(epstopdf)                    date: 2018-07-19 15:31:44
+(epstopdf)                    size: 215007 bytes
+(epstopdf)             Output file: <images/choose_lower_sgm_ppr-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2018-07-19 15:35:48
+(epstopdf)                    size: 16278 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/choose_lower_sgm_ppr
+-eps-converted-to.pdf images/choose_lower_sgm_ppr.eps>
+(epstopdf)             \includegraphics on input line 823.
+Package epstopdf Info: Output file is already uptodate.
+<images/choose_lower_sgm_ppr-eps-converted-to.pdf, id=1072, pagebox=cropbox, 72
+2.7pt x 216.81pt>
+File: images/choose_lower_sgm_ppr-eps-converted-to.pdf Graphic file (type pdf)
+<use images/choose_lower_sgm_ppr-eps-converted-to.pdf>
+Package pdftex.def Info: images/choose_lower_sgm_ppr-eps-converted-to.pdf  used
+ on input line 823. on input line 823.
+Package pdftex.def Info: Requested size: 426.7914pt x 128.03918pt on input line
+ 823.
+Package epstopdf Info: Source file: <images/choose_lower_sgm_ppr_thresh.eps>
+(epstopdf)                    date: 2018-07-19 15:33:55
+(epstopdf)                    size: 215014 bytes
+(epstopdf)             Output file: <images/choose_lower_sgm_ppr_thresh-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2018-07-19 15:35:49
+(epstopdf)                    size: 16301 bytes
+(epstopdf)             Command: <epstopdf --outfile=images/choose_lower_sgm_ppr
+_thresh-eps-converted-to.pdf images/choose_lower_sgm_ppr_thresh.eps>
+(epstopdf)             \includegraphics on input line 830.
+Package epstopdf Info: Output file is already uptodate.
+<images/choose_lower_sgm_ppr_thresh-eps-converted-to.pdf, id=1073, pagebox=crop
+box, 722.7pt x 216.81pt>
+File: images/choose_lower_sgm_ppr_thresh-eps-converted-to.pdf Graphic file (typ
+e pdf)
+<use images/choose_lower_sgm_ppr_thresh-eps-converted-to.pdf>
+Package pdftex.def Info: images/choose_lower_sgm_ppr_thresh-eps-converted-to.pd
+f  used on input line 830. on input line 830.
+Package pdftex.def Info: Requested size: 426.7914pt x 128.03918pt on input line
+ 830.
+
+Overfull \hbox (29.53543pt too wide) in paragraph at lines 837--882
 [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [46 <./images/old_outer-eps-converted-to.pdf>] [47 <./images/thresh_segm_morph
--eps-converted-to.pdf>] [48 <./images/thresh_results_morph-eps-converted-to.pdf
->] [49 <./images/thresh_vs_old_vs_newerror.png>] [50]
+[51] [52 <./images/old_vs_alternative-eps-converted-to.pdf> <./images/newerror_
+confidence-eps-converted-to.pdf>] [53 <./images/choose_lower_results-eps-conver
+ted-to.pdf>] [54 <./images/choose_lower_params-eps-converted-to.pdf>] [55 <./im
+ages/choose_lower_difference-eps-converted-to.pdf>] [56 <./images/sgm_results_t
+hresh-eps-converted-to.pdf>] [57 <./images/sgm_coherence_thresh-eps-converted-t
+o.pdf>] [58 <./images/choose_lower_sgm_ppr-eps-converted-to.pdf> <./images/choo
+se_lower_sgm_ppr_thresh-eps-converted-to.pdf>]
 part I.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 849.
-[51
+(scrkbase)              on input line 887.
+[59
 
 ]
 
@@ -1327,110 +1606,116 @@ Class scrreprt Warning: You are using `\begin{appendix}...\end{appendix}'.
 (scrreprt)              inconsistent.
 (scrreprt)              Because of this, you should remove `\end{appendix}'
 (scrreprt)              and replace `\begin{appendix}' by command
-(scrreprt)              `\appendix' on input line 850.
+(scrreprt)              `\appendix' on input line 888.
 
 chapter A.
-[52
+[60
 
 ]
 chapter B.
 Package epstopdf Info: Source file: <images/sgm_param_contour.eps>
-(epstopdf)                    date: 2018-06-08 09:43:56
-(epstopdf)                    size: 2439507 bytes
+(epstopdf)                    date: 2018-05-16 16:51:22
+(epstopdf)                    size: 2314786 bytes
 (epstopdf)             Output file: <images/sgm_param_contour-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2018-07-18 16:34:57
+(epstopdf)                    date: 2018-07-19 09:46:50
 (epstopdf)                    size: 667872 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/sgm_param_contour-ep
 s-converted-to.pdf images/sgm_param_contour.eps>
-(epstopdf)             \includegraphics on input line 886.
+(epstopdf)             \includegraphics on input line 924.
 Package epstopdf Info: Output file is already uptodate.
-<images/sgm_param_contour-eps-converted-to.pdf, id=1061, 1084.05pt x 216.81pt>
+<images/sgm_param_contour-eps-converted-to.pdf, id=1388, pagebox=cropbox, 1084.
+05pt x 216.81pt>
 File: images/sgm_param_contour-eps-converted-to.pdf Graphic file (type pdf)
 <use images/sgm_param_contour-eps-converted-to.pdf>
 Package pdftex.def Info: images/sgm_param_contour-eps-converted-to.pdf  used on
- input line 886.
-(pdftex.def)             Requested size: 426.7914pt x 85.35945pt.
+ input line 924. on input line 924.
+Package pdftex.def Info: Requested size: 426.7914pt x 85.35945pt on input line 
+924.
 Package epstopdf Info: Source file: <images/sgm_params_contour_mse_100.eps>
-(epstopdf)                    date: 2018-06-08 09:43:56
-(epstopdf)                    size: 7839436 bytes
+(epstopdf)                    date: 2018-05-22 14:48:34
+(epstopdf)                    size: 7436617 bytes
 (epstopdf)             Output file: <images/sgm_params_contour_mse_100-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:56
+(epstopdf)                    date: 2018-05-22 15:15:38
 (epstopdf)                    size: 2129916 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/sgm_params_contour_m
 se_100-eps-converted-to.pdf images/sgm_params_contour_mse_100.eps>
-(epstopdf)             \includegraphics on input line 893.
+(epstopdf)             \includegraphics on input line 931.
 Package epstopdf Info: Output file is already uptodate.
-<images/sgm_params_contour_mse_100-eps-converted-to.pdf, id=1062, 722.7pt x 722
-.7pt>
+<images/sgm_params_contour_mse_100-eps-converted-to.pdf, id=1389, pagebox=cropb
+ox, 722.7pt x 722.7pt>
 File: images/sgm_params_contour_mse_100-eps-converted-to.pdf Graphic file (type
  pdf)
 <use images/sgm_params_contour_mse_100-eps-converted-to.pdf>
 Package pdftex.def Info: images/sgm_params_contour_mse_100-eps-converted-to.pdf
-  used on input line 893.
-(pdftex.def)             Requested size: 426.7914pt x 426.79732pt.
+  used on input line 931. on input line 931.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 931.
 Package epstopdf Info: Source file: <images/sgm_params_contour_discontinuities_
 0070.eps>
-(epstopdf)                    date: 2018-06-08 09:43:56
-(epstopdf)                    size: 7762453 bytes
+(epstopdf)                    date: 2018-05-22 14:48:46
+(epstopdf)                    size: 7363845 bytes
 (epstopdf)             Output file: <images/sgm_params_contour_discontinuities_
 0070-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:56
+(epstopdf)                    date: 2018-05-22 15:16:35
 (epstopdf)                    size: 2190125 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/sgm_params_contour_d
 iscontinuities_0070-eps-converted-to.pdf images/sgm_params_contour_discontinuit
 ies_0070.eps>
-(epstopdf)             \includegraphics on input line 900.
+(epstopdf)             \includegraphics on input line 938.
 Package epstopdf Info: Output file is already uptodate.
-<images/sgm_params_contour_discontinuities_0070-eps-converted-to.pdf, id=1063, 
-722.7pt x 722.7pt>
+<images/sgm_params_contour_discontinuities_0070-eps-converted-to.pdf, id=1390, 
+pagebox=cropbox, 722.7pt x 722.7pt>
 File: images/sgm_params_contour_discontinuities_0070-eps-converted-to.pdf Graph
 ic file (type pdf)
 <use images/sgm_params_contour_discontinuities_0070-eps-converted-to.pdf>
 Package pdftex.def Info: images/sgm_params_contour_discontinuities_0070-eps-con
-verted-to.pdf  used on input line 900.
-(pdftex.def)             Requested size: 426.7914pt x 426.79732pt.
+verted-to.pdf  used on input line 938. on input line 938.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 938.
 Package epstopdf Info: Source file: <images/sgm_params_contour_mae_planes.eps>
-(epstopdf)                    date: 2018-06-08 09:43:56
-(epstopdf)                    size: 3495443 bytes
+(epstopdf)                    date: 2018-05-22 14:48:57
+(epstopdf)                    size: 3324598 bytes
 (epstopdf)             Output file: <images/sgm_params_contour_mae_planes-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-06-08 09:43:56
+(epstopdf)                    date: 2018-05-22 15:15:42
 (epstopdf)                    size: 770850 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/sgm_params_contour_m
 ae_planes-eps-converted-to.pdf images/sgm_params_contour_mae_planes.eps>
-(epstopdf)             \includegraphics on input line 907.
+(epstopdf)             \includegraphics on input line 945.
 Package epstopdf Info: Output file is already uptodate.
-<images/sgm_params_contour_mae_planes-eps-converted-to.pdf, id=1064, 722.7pt x 
-722.7pt>
+<images/sgm_params_contour_mae_planes-eps-converted-to.pdf, id=1391, pagebox=cr
+opbox, 722.7pt x 722.7pt>
 File: images/sgm_params_contour_mae_planes-eps-converted-to.pdf Graphic file (t
 ype pdf)
 <use images/sgm_params_contour_mae_planes-eps-converted-to.pdf>
 Package pdftex.def Info: images/sgm_params_contour_mae_planes-eps-converted-to.
-pdf  used on input line 907.
-(pdftex.def)             Requested size: 426.7914pt x 426.79732pt.
-[53
+pdf  used on input line 945. on input line 945.
+Package pdftex.def Info: Requested size: 426.7914pt x 426.79732pt on input line
+ 945.
+[61
 
- <./images/sgm_param_contour-eps-converted-to.pdf>] [54 <./images/sgm_params_co
-ntour_mse_100-eps-converted-to.pdf>] [55 <./images/sgm_params_contour_discontin
-uities_0070-eps-converted-to.pdf>] [56 <./images/sgm_params_contour_mae_planes-
+ <./images/sgm_param_contour-eps-converted-to.pdf>] [62 <./images/sgm_params_co
+ntour_mse_100-eps-converted-to.pdf>] [63 <./images/sgm_params_contour_discontin
+uities_0070-eps-converted-to.pdf>] [64 <./images/sgm_params_contour_mae_planes-
 eps-converted-to.pdf>]
 chapter C.
-(MA.lof)
+(MA.lof [65
+
+])
 \tf@lof=\write5
 \openout5 = `MA.lof'.
 
- [57
-
-] (MA.lot)
+ (MA.lot)
 \tf@lot=\write6
 \openout6 = `MA.lot'.
 
- (MA.bbl [58]
+ (MA.bbl [66]
 chapter D.
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+("C:\Users\jnieswand\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1cmtt.fd
+"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 Underfull \hbox (badness 10000) in paragraph at lines 19--23
@@ -1449,23 +1734,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--23
 ng-[]part-[]2/$[][]\T1/cmr/m/n/12 .
  []
 
-[59
+[67
 
-]) [60]
+]) [68]
 \openout2 = `deposition.aux'.
 
- (deposition.tex) [61
+ (deposition.tex) [69
 
 ]
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 919.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 919.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 957.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 957.
 (MA.aux (titlepages-ger.aux) (titlepages-eng.aux) (abstracts.aux)
 (deposition.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 919.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 919.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 957.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 957.
 Package rerunfilecheck Info: File `MA.out' has not changed.
 (rerunfilecheck)             Checksum: 1F06F4ED029904FB9FC617572C52B12D;3421.
 
@@ -1475,50 +1760,57 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 919.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 957.
  ) 
 Here is how much of TeX's memory you used:
- 10406 strings out of 493305
- 166552 string characters out of 3138874
- 359248 words of memory out of 3000000
- 13486 multiletter control sequences out of 15000+200000
+ 10271 strings out of 493312
+ 167604 string characters out of 3128087
+ 350348 words of memory out of 3000000
+ 13318 multiletter control sequences out of 15000+200000
  22376 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,18n,80p,9083b,597s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Jacob\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ectt1200.pk> <C:\Users\Jacob\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecsx2488.pk> <C:\Users\Jacob\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecrm0600.pk> <C:\Users\Jacob\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Jacob\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Jacob\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Jacob\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1440.pk> <C:\Us
-ers\Jacob\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.
-pk> <C:\Users\Jacob\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecsx1200.pk> <C:\Users\Jacob\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
-\ec\dpi600\ecsx2074.pk> <C:\Users\Jacob\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\Jacob\AppData\Local\MiKTeX\2.9\font
-s\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Jacob\AppData\Local\MiKTe
-X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk> <C:\Users\Jacob\AppData\L
-ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Jacob
-\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440.pk> <C:\U
-sers\Jacob\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1728
-.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on MA.pdf (61 pages, 20186070 bytes).
+ 49i,18n,80p,8815b,627s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
+600\ectt1200.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
+knappen\ec\dpi600\ecsx2488.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fon
+ts\pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk> <C:\Users\jnieswand\AppData\Local\
+MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\jnieswand\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Us
+ers\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1
+200.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\e
+c\dpi600\ecsx1440.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.
+9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\jnieswand\AppData\L
+ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2074.pk> <C:\Users\jnies
+wand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <
+C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ecbx1095.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
+pen\ec\dpi600\ecsx1728.pk> <C:\Users\jnieswand\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\jnieswand\AppData\Local\MiKT
+eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440.pk> <C:\Users\jnieswand\AppD
+ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1728.pk><C:/Users/j
+nieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jnieswand/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jnieswand/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Use
+rs/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/jnieswand/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/jnieswand/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Use
+rs/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mss17.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb><C:/Users/jnieswand/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jnieswand/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jnieswand/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pf
+b>
+Output written on MA.pdf (69 pages, 30466492 bytes).
 PDF statistics:
- 1891 PDF objects out of 2073 (max. 8388607)
- 233 named destinations out of 1000 (max. 500000)
- 536 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2228 PDF objects out of 2487 (max. 8388607)
+ 253 named destinations out of 1000 (max. 500000)
+ 591 words of extra memory for PDF output out of 10000 (max. 10000000)
 

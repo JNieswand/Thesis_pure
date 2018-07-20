@@ -466,6 +466,13 @@ P2' =  \frac{P2}{\sqrt{(Im_b^2 +Im_r^2 + Im_g^2)}},
 \end{equation}
 with $Im$ being the center view of the lightfield and $Im_{b,g,r}$ being the 3 color channels. If the color intensity changes, the penalty for a disparity discontinuity is lowered.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/subplot_sgm}
+	\caption[SGM from different directions]{This Plot shows the disparity maps based on the modified cost function after going along 8 paths. The upper[lower] left[right] map represents the map after going along the path in upper[lower] left [right] direction.}
+	\label{fig:subplotsgm}
+\end{figure}
+
 \subsection{Occlusion awareness in SGM for light Fields}
 
 If we take a close look at figure \ref{fig:discretecont}, one can see that at least at some discontinuities the ST pipeline manages to calculate the depth of the background structure near boundaries with good coherence, but the foreground structure is overlapping and quantitatively measured with higher coherence. Once we know that at least at some edges an improvement can be made by adapting the evaluation function in a sense that the highest coherence does not necessarily measure the right depth, we realize that SGM is doing the job already. The simple heuristic approach is to change the global minimization function \ref{eq:global_sgm_cont} such that a positive disparity jump is less punished than a negative one. In fact, the function changes to
@@ -480,6 +487,13 @@ P3 & \text{ if }d_{\vec p} - d_{\vec q} < -1\\
 \end{equation}
 \subsection{SGM as postprocessing smoothing}
 In general Semi-Global Matching refers to minimizing an energy function in one dimension for different paths in the given space. In case of disparity mapping, the disparity candidate values and its initial cost values have to be given. One can e.g. take the final disparity map and choose N values for each pixel that are extracted randomly from a local neighbourhood. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_ppr_example}
+	\caption[Examplefor postprocessing smoothing]{a: Errorneous disparity map before smoothing b: Same disparity map after smoothing}
+	\label{fig:sgmpprexample}
+\end{figure}
 
 
 \chapter{Evaluation}
@@ -719,7 +733,8 @@ In figure \ref{fig:threshresultsmorph} the segmentation algorithm is compared to
 
 
 \subsection{Alternative coherence}
-The use of the alternative Cost function as explained in section \ref{sec:alternative} only works in combination with thresholding the gradient (section \ref{sec:thresholdinggradients}). For this reason we compare the error maps of the old pipeline, the threshold pipeline and the new error measure to each other in figure \ref{fig:threshvsoldvsnewerror}. It becomes clear that the new error measure does perform about equally as good as the thresholded pipeline. The alternative coherence measure was expected to result in a better disparity map, because in theory it should handle occlusion edges to some degree better then the old coherence measure does. Still, \ref{fig:threshvsoldvsnewerror} shows that the errors remain in the same spot.
+The use of the alternative Cost function as explained in section \ref{sec:alternative} only works in combination with thresholding the gradient (section \ref{sec:thresholdinggradients}). For this reason we compare the error maps of the old pipeline, the threshold pipeline and the new error measure to each other in figure \ref{fig:threshvsoldvsnewerror}. From the given score above each subimage one can conclude that the new error measure does perform about equally as good as the thresholded pipeline. The alternative coherence measure was expected to result in a better disparity map, because in theory it should handle occlusion edges to some degree better then the old coherence measure does. Still, \ref{fig:threshvsoldvsnewerror} shows that the errors remain roughly in the same spots.
+
 
 \begin{figure}
 	\centering
@@ -729,45 +744,63 @@ The use of the alternative Cost function as explained in section \ref{sec:altern
 \end{figure}
 
 
+Both the old coherence and the new error measure calculate the respective error from the EPI in horizontal and vertical direction. Both views get merged based on the error measure of each view, resulting in a merged Coherence/Error map. This can be seen in figure \ref{fig:oldvsalternative}, where for each scene the horizontal, vertical and merged Coherence/Error map is illustrated as well as the actual error that was produced by the pipeline. Since in figure \ref{fig:threshvsoldvsnewerror} one recognizes that the disparity error maps for both pipelines don't differ much, only the error of the old pipeline is shown in figure \ref{fig:oldvsalternative}. One can see that the merged error of the new error measure seems to have a bigger overlap with the actual error, making it a better tool for masking out bad pixels than the coherence value. Especially in the scene \textit{cotton} the occlusion edge errors fit better to the error with the new error measure.\\
+To quantify this result, we choose different error thresholds for both pipelines and set all disparity values whose related error is below the threshold to zero. The higher the amount of masked out pixels is, the higher we expect the MSE to be since the amount of disparity values being 0 increases linearly (those disparity values also account for the total MSE). This linear relation between the percentage of disparity values set to zero and the total MSE is plotted in figure \ref{fig:newerrorconfidence} in a logarithmic manner. Using equal axes this would result in curves with linear form. The logarithmic scale however allows us to evaluate more easily how many pixels have to be set to zero until the result gets significantly worse. As long as the masked out pixels are already highly inaccurate, the resulting MSE doesn't change much by setting them to zero. Note that in all scenes zero is circa the mean depth of the scene. These plots confirm the observation that the error in the scene \textit{cotton} is prognosted better by the new error measure, since setting the upper 10 $\%$ of the highest error pixels to 0 results in a better score than doing the same with the old coherence measure. In the other scenes the quality of the error measure seems to be quite equal in both cases. 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/old_vs_alternative-eps-converted-to}
+	\caption[Old error vs New Error]{}
+	\label{fig:oldvsalternative}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/newerror_confidence}
+	\caption[Dependence of error on cut out pixels]{The relative MSE is plotted on the percentage of pixels that are set to 0 at different coherence values. Left the New error metric is used, right the old pipeline is used.}
+	\label{fig:newerrorconfidence}
+\end{figure}
+
+
 \subsection{Alternative merging of x- and y-direction}
 
 
 
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/choose_lower_results-eps-converted-to}
-%	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
-%	\label{fig:chooselowerresults}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/choose_lower_params}
-%	\caption[Alternative Merging: Parameter dependence]{Alternative Merging: Parameter dependence. Left: Mean Squared Error. Right: BadPixel Score}
-%	\label{fig:chooselowerparams}
-%\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_results-eps-converted-to}
+	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
+	\label{fig:chooselowerresults}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_params}
+	\caption[Alternative Merging: Parameter dependence]{Alternative Merging: Parameter dependence. Left: Mean Squared Error. Right: BadPixel Score}
+	\label{fig:chooselowerparams}
+\end{figure}
 
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_difference-eps-converted-to}
+	\caption[Alternative Merging:Parameter dependence]{From left to right: Parameter dependent alternative merging. Up to down: scenes \textit{boxes, cotton, dino, sideboard}.}
+	\label{fig:chooselowerdifference-eps-converted-to}
+\end{figure}
 
 
 
 
 \section{Semi-Global Matching}
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/subplot_sgm}
-%	\caption[SGM from different directions]{This Plot shows the disparity maps based on the modified cost function after going along 8 paths. The upper[lower] left[right] map represents the map after going along the path in upper[lower] left [right] direction.}
-%	\label{fig:subplotsgm}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/sgm_results_thresh}
-%	\caption[Semi-Global Matching Results]{Disparity error maps using the old pipeline (left) and the Semi-Global Matching Algorithm (Right). Yellow is a big deviation, dark-blue is no deviation.}
-%	\label{fig:sgmresultsthresh}
-%\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_results_thresh}
+	\caption[Semi-Global Matching Results]{Disparity error maps using the old pipeline (left) and the Semi-Global Matching Algorithm (Right). Yellow is a big deviation, dark-blue is no deviation.}
+	\label{fig:sgmresultsthresh}
+\end{figure}
 
 
 
@@ -776,23 +809,28 @@ The use of the alternative Cost function as explained in section \ref{sec:altern
 \subsection*{Improved Coherence Measure by using SGM}
 
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh-eps-converted-to}
-%	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
-%	\label{fig:sgmcoherencethresh}
-%\end{figure}
-%
-%\subsection*{SGM as pure Postprocessing}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{images/choose_lower_sgm_ppr_20_300_25}
-%	\caption[Alternative Merging with SGM Postprocessing]{Alternative Merging with SGM Postprocessing}
-%	\label{fig:chooselowersgmppr2030025}
-%\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh-eps-converted-to}
+	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
+	\label{fig:sgmcoherencethresh}
+\end{figure}
 
+\subsection*{SGM as pure Postprocessing}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr}
+	\caption[Alternative Merging with SGM Postprocessing]{Alternative Merging with SGM Postprocessing}
+	\label{fig:chooselowersgmppr}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_thresh}
+	\caption[Alternative Merging with SGM Postprocessing with thresholded gradients]{Alternative Merging with SGM Postprocessing while using thresholded gradients.}
+	\label{fig:chooselowersgmpprthresh}
+\end{figure}
 
 \section{Resumee}
 \begin{table}
