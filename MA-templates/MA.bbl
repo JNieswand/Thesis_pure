@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -36,6 +36,10 @@ Robert~C Bolles, H~Harlyn Baker, and David~H Marimont.
   from motion.
 \newblock \emph{International journal of computer vision}, 1\penalty0
   (1):\penalty0 7--55, 1987.
+
+\bibitem[Community(2014)]{blender2014blender}
+Blender~Online Community.
+\newblock Blender—a 3d modelling and rendering package, 2014.
 
 \bibitem[Diebold(2016)]{diebold2016light}
 Maximilian Diebold.

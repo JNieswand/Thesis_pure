@@ -49,6 +49,9 @@
 
   \tableofcontents
   %% Put your contents here
+
+
+\chapter{Introduction (TODO)}
 \chapter{Theory}
 \section{Light Field Parametrization}
 The earliest introduction to Light Fields in literature can be found in \cite{adelson1991plenoptic}, where they parametrize the field of light as a  so-called \glqq plenoptic function \grqq. If we assume that every point in space emits a light ray  in a given direction which is characterized by a intensity value $P$, the whole information in the light field is given as a 6-dimensional function
@@ -100,11 +103,37 @@ where $f$ is the focal length of the camera and $b$ is the baseline between the 
 	\label{fig:simpleepi}
 \end{figure}
 \section{Metrics for the evaluation of depth maps}
+In the following technical Dataset details and general evaluation measures are presented. The Datasets are provided by \cite{honauer2016benchmark}.
 \subsection{dense and sparse maps}
+The synthetic Lightfield datasets are designed with Blender (\cite{blender2014blender}) and provide photos from the scene in a crosshair pattern, similar to the camera configuration in figure \ref{fig:lumiplus}. This allows to calculate a disparity map from only one point of view due to the restricted baseline of the cameras. In contrast to Stereo camera setups Light Field imaging enables a densely sampled reconstruction of the depth at each pixel. However a full pointcloud of a scanned object  which is ideal for object detection applications will not be reconstructed due to occlusions. To evaluate the quality of the depth map, one could either try to optimize the overall error on the whole depth map (MSE) or count the number of pixels that are close to the Ground Truth with given tolerance Level (BadPixel Score). From thereon one either tries to provide a sparse depth map masking out all the pixel where the confidence is low or the disparity map is provided on the whole pixel space. While sparse disparity maps are the choice for exact measurements in industrial applications, the second method facilitates comparisons of different methods. For this reason the thesis mainly focusses on the Metric score on the dense disparity estimation maps using different algorithms. Only for the application on real data one has to face large regions with low confidence, thus masking becomes relevant again.
 \subsection{mean squared error}
+The Mean squared error, typically multiplied by a factor of 100, is defined as 
+\begin{equation}\label{key}
+\text{MSE} = \frac{\sum_x (d(x) - gt(x))^2}{\text{Nr of Pixels}} \cdot 100
+\end{equation}
+and describes the overall deviation from ground thruth. $d(x)$ is the measured disparity value at pixel $x$, $gt(x)$ is the ground truth value at pixel $x$. 
 \subsection{bad pixel score}
+The Number of pixels at which the disparity value $d(x)$ deviates more than the tolerance $t$ from the ground truth $gt(x)$ is given by
+\begin{equation}\label{key}
+\text{BadPixel}(t) = \frac{\{|d(x) - gt(x)| > t \}}{\text{Nr of Pixels}}.
+\end{equation}
 \subsection{bumpiness}
+The bumpyness score is quantified by the Frobenius norm of the hessian matrix $H_f$ of a function $f$ which is defined here as $f = d-gt$. Smooth surfaces lead to a better bumpyness score regardless of possible missorientations and offsets:
+\begin{equation}\label{key}
+\text{Bumpiness} = \frac{\min(0.05, ||H_f(x)||_F)}{\text{Nr of Pixels}} \cdot 100
+\end{equation}
 \subsection{discontinuity and planar scores}
+In some scenes masks are applied to evaluate the score at different spots in the scene. This way it can be focussed quantitatively on challenges (planar surfaces or discontinuities) that are set by the scene. Given a mask $M$ the BadPixel Score is then given as 
+\begin{equation}\label{key}
+\text{BadPixel}(t) = \frac{\{x \in M:|d(x) - gt(x)| > t \}}{\text{Nr of Pixels }x \in M}.
+\end{equation}
+\subsection{Mean Relative Error}
+In some cases we refer to the Mean Relative Error(MRE) instead of the Mean squared Error. The difference lies in the normalisation:
+
+\begin{equation}\label{key}
+MRE = \frac{\sum_{x} (d(x) - gt(x) )^2}{(\text{max. disp - min. disp})* \text{Nr of Pixels}}
+\end{equation}
+
 \section{Depth from Structure Tensor}
 Measuring depth from light field data can be done using various approaches.
 \cite{wu2017light} divide light field depth estimation approaches in three categories:
@@ -143,7 +172,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \begin{figure}[]
  	\centering
  	\includegraphics[width=0.7\linewidth]{images/Lumiplus}
- 	\caption[LumiPlus Scanner from HDVisionSystems]{Instead of a complete camera array a crosshair camera reduces the number of cameras to one row and one column for faster processing. This Scanner from HDVisionSystems is mounted an a robot arm for industrial applications.}
+ 	\caption[LumiPlus Scanner from HDVisionSystems]{Instead of a complete camera array a crosshair camera reduces the number of cameras to one row and one column for faster processing. This \textit{Lumi+} - Scanner from HDVisionSystems is mounted an a robot arm for industrial applications.}
  	\label{fig:lumiplus}
  \end{figure}
  
@@ -229,12 +258,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  	\item[ $g_{\sigma_c}$] is a gaussian function weighting the color distance in RGB space between the  RGB values of the original EPI at $p$ and $q$ using $\sigma_c$ as standard deviation,
  	\item[$W_P$] is a normalization factor so that the sum over all the neighbourhood always is 1. 
  \end{itemize}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{images/bilat}
-	\caption[Bilateral filtering]{Bilateral filtering of an epi}
-	\label{fig:bilat}
-\end{figure}
+
 
 It is important to notice that the color distance is extracted from the EPI, though we are filtering the components of the second derivatives, see equation \ref{eq:structuretensor}. In fact, the EPI only serves as a \glqq guide\grqq for the filtering.
  \subsection{Thresholding the gradients}
@@ -244,7 +268,7 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \begin{align}
  	\tilde{\vec \nabla}(x,y) = \frac{1}{\sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}} \vec \nabla_x(x,y)
  \end{align}
- Nevertheless in some occasions one wants the stronger gradients to play a bigger role in the preferred orientation, since small gradients are more likely to be noisy. The only way to damp the gradients at occlusions while not strengthening the small noisy gradients in an EPI is to implement a trunctation threshold. The gradient is then given by
+ Nevertheless in some occasions one wants the stronger gradients to play a bigger role in the preferred orientation, since small gradients are more likely to be noisy. The only way to damp the gradients at occlusions while not strengthening the small noisy gradients in an EPI is to implement a truncation threshold. The gradient is then given by
  \begin{align}
  \tilde{\vec \nabla}(x,y) &= \begin{cases}
 \frac{\text{threshold}}{\text{norm}} \vec \nabla(x,y) \quad &\text{if}\quad \text{norm}> \text{threshold}\\
@@ -257,11 +281,12 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \subsection{Occlusion-awareness using segmentation of the EPI}
  \label{sec:occlusionsegmentation}
  In the section a method is proposed that attempts to handle both occlusion errors mentioned in section \ref{sec:occlusionproblem}.\\
- Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs as one can see in the evaluation. See section \ref{sec:evaluation} for more details. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculate them seperately. By extracting them from the EPI, background and foreground structure are calculated without being biased by the transition itself. Therefor the EPI is segmented into occlusion transistions and areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach is fastly implemented and is sufficient for our needs. In principle the algorithm works as follows:
+ Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs in order to handle the occlusion problems. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculate them seperately. By setting the gradient at the transition in the EPI to 0, background and foreground structure are calculated without being biased by the transition itself. Therefor the EPI is segmented binarily into occlusion transistions and continuous areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach does not need to calculate the disparity values beforehand and can be implemented in the workflow directly. In principle the algorithm works as follows:
  \begin{enumerate}
- 	\item Segmentate the transitions and the rest of the EPI with a binary mask.
+ 	\item Segmentate the transitions and the rest of the EPI with a binary mask based on the gradient norm.
  	\item Calculate the structure tensor components on the masked gradient of the EPI. All masked gradients are zero and do not affect the local environment structure.
  	\item Calculate the structure tensor components again, now on the inverted masked gradient of the EPI.
+ 	\item Join the the disparity values from both masks.
  \end{enumerate}
  In figure \ref{fig:derivativesfull} the segmentation process is illustrated step-by-step. The gradient of the gray-valued EPI (a) is calculated in x- and y-direction (b), from which one calculates and thresholds the norm (c, d). The threshold itself is chosen to be 0.5 if not mentioned otherwise. It is essential to modify resulting mask from the binary thresholding (e)  using morphological image-processing operators as explained in detail in \cite{homepages.inf.ed.ac.uk}. It is made use of Morphological Closing (structured filling in of image region boundary pixels), which is explained in figure \ref{fig:closing}.\\
  Having a look at the different scenarios in the given EPI that can happen when segmenting, the necessarity for morphological closing becomes clear. The EPI has two visible disparity transitions, one at Pixel [133] and one at Pixel [185]. At [133] (a) it is seen that the transition affects multiple neighbouring pixels even though the EPI isn't smoothed yet. Our aim is to mask those transtions. However at Pixel [63] and[174] the threshold is also crossed, since big gradients do not necessarily have to lie on a transition. Still the false-positive masked transitions are less uncomfortable to handle then a false negative result. It is clearly visible at [63], that zero crossings in the gradient lead to holes in the mask which need to be closed by morphological closing. Since the local environment of each pixel is only given by near pixels in the same segment (masked/unmasked), small holes lead to errorneous results at those pixels. After morphological closing, a last postprocessing step has to be made to handle the smearing due to the $3\times 3§$-gaussian presmoothing. In figure \ref{fig:closing} (d) one sees that the transition peak is gaussian-formed. If one simply cuts out the segment at the threshold transition, the background segment gradient is still dominated by the gradients directly next to the segment transtions. This becomes visible in figure \ref{fig:segmgaussian}, where the inverted mask of the EPI gradient is shown. Thus morphological dilation with a $3\times3$ kernel is applied on the inverted filter, resulting in a complete seperation of any peak crossing the threshold.
@@ -363,7 +388,14 @@ It is important to notice that the color distance is extracted from the EPI, tho
   \end{cases}
    \end{equation}
 
- 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_difference}
+	\caption[Alternative Merging:Parameter dependence]{From left to right: Parameter dependent alternative merging. Up to down: scenes \textit{boxes, cotton, dino, sideboard}.}
+	\label{fig:chooselowerdifference-eps-converted-to}
+\end{figure}
+
+ Figure \ref{fig:chooselowerdifference-eps-converted-to} shows the effect of varying the threshold introduced in equation \ref{eq:altmerging}. The occlusion edges shrink significantly with a higher Threshold.
 \section{Depth from focus}
 \label{sec:theo depth}
 One advantage of using lightfields for depth measure is its ability to get a two-dimensional mapping of the scene with focus at any depth. Integrating the views of the light field camera array has the same effect as the integration of a focussed lense camera, as the lense is simply integrating slightly different viewpoints of the same scene point when focussed on the correct depth. \\
@@ -379,7 +411,7 @@ We obtain
 \bar{L}(x,y) = \frac{1}{N_{u,v}}\int\int L'(u, v, x, y) du  dv =\frac{1}{N_{u,v}}\sum_{u}\sum_{v}  L'(u, v, x, y)
 \end{equation}
 Once we can focus at any range, one can adopt \textit{depth-from-focus}-techniques as described in \cite{watanabe1998rational} for depth measure. If the scene point at a given image coordinate $(x, y)$ in the center view is in focus, the contrast in the integrated image $\bar{L}(x,y)$ is high, thus a contrast measure at each pixel combined with stepwise refocussing yields a depth map. \\
-For measuring the contrast, one has different options: The most straight forward approach is calculating the first derivative of the grey-value image. At high contrast structure the local intensity changes are expected to be high. Alternatively one could measure the second derivative laplacian that eventually results in higher robustness. The implementation and tests of those techniques for the benchmark dataset can be found in section \ref{label}.\\
+For measuring the contrast, one has different options: The most straight forward approach is calculating the first derivative of the grey-value image. At high contrast structure the local intensity changes are expected to be high. Alternatively one could measure the second derivative laplacian that eventually results in higher robustness. The implementation and tests of those techniques for the benchmark dataset can be found in section \ref{sec: depth from focus}.\\
 Using a pinhole camera array allows us to go further and find a response value that shows higher consistency. Taking the absolute difference between the center view of the camera array and the refocussed image yields to promising results as shown in \cite{tao2017shape}. Under the assumption of lambertian surfaces the RGB- value of any scene point should be the same under all angles. Thus when refocussed on the correct depth, summing over all angles should result in a value that ideally is the same as in the center view alone. This is referred as \textit{photo consistency}; for more information read \cite{tao2017shape}.
 The response value at a given depth is obtained from
 \begin{equation}\label{key}
@@ -389,7 +421,7 @@ where $P(x,  y)$ is the center view. For more robustness, it is averaged over a 
 \begin{equation}\label{eq:responsecorr}
 D'(x,y) = \frac{1}{N_{u,v}}\sum_{u}\sum_{v}  \left|L'(u, v, x, y) - P(x,y)\right|.
 \end{equation}
-We tested those methods against the common contrast measures mentioned above, the results are found in section results.
+We tested those methods against the common contrast measures mentioned above, the results are found in section \ref{sec: depth from focus}.
 
 \section{Semi-Global Matching}
 \subsection{Semi - Global Matching for Stereo Vision}
@@ -417,7 +449,7 @@ L'_r(\vec{p}, D) = C(\vec{p}, D) + \text {min}
 \end{cases}
 \end{equation} 
 By always adding the minimum path cost of the previous pixel on the scanline we are looking at, we solve equation \ref{eq:global_sgm} in one dimension. It is to mention that the rolling sum can reach quite high numbers that are unpleasant to handle on the computer; a normalization is implemented by substracting min$_D L'_r(\vec{p_\text{before}}, D)$ from all pixel cost values $L'_r(\vec{p}, D)$. The position of the minimum cost function at pixel $\vec p$ is unaffected by that normalization.\\
- Summing along at least 8 path directions (crosshair + diagonals) results in disparity maps with reduced error pixel while maintaining clean edges. Neither a blur filter, a median filter or a bilateral filter would preserve those features.
+ Summing along at least 8 path directions (crosshair + diagonals) results in disparity maps with reduced error pixel while maintaining clean edges. 
 \subsection{Semi - Global Matching for Light fields}
 Even though Hirschmüller describes Semi - Global Matching (SGM) as a complete algorithm to obtain a disparity map from a stereo image input, we further refer to SGM as the true novelty of his work: the implementation of an approximation to the global solution of the cost function (equation \ref{eq:global_sgm}). Indepent from the method one uses to calculate a disparity map,  one needs a cost function defined in disparity space for each pixel to make use of SGM. 
 Similar to the Stereo Matching depth estimation, the structure tensor depth estimation pipeline for Lightfield data sets produces a disparity map and a coherence value at each disparity shift. This implies, that the SGM algorithm can be adapted to improve the results of the structure tensor pipeline. However, there are some significant differences between those two methods:
@@ -453,7 +485,7 @@ P2 & \text{ if }|d_{\vec p} - d_{\vec q}| > 1\\
 \end{equation}
 The recursive 1-d form to solve the global constraint on a scanline then changes to:
 
-\begin{equation}\label{key}
+\begin{equation}\label{eq:recursive1d}
 L'_r(\vec{p}, s) = C(\vec{p}, s) + \text{min}_i
 \begin{cases}
 L'_r(\vec{p}_\text{before}, s_i)+P1 \cdot |d_{\vec p, s} - d_{\vec{p}_\text{before}, s_i}|  & \text{ if }|d_{\vec p, s} - d_{\vec{p}_\text{before}, s_i}| \leq 1 \\
@@ -461,7 +493,7 @@ L'_r(\vec{p}_\text{before}, s_i)+P2 & \text{ if }|d_{\vec p, s} - d_{\vec{p}_\te
 \end{cases}
 \end{equation} 
 The biggest difference lies in the fact that the small factor that is smoothing the image linearely increases with the distance. This change is necessary under the assumption that the disparity space is continuous. In other words we cluster disparity differences between two neighbouring points as either part of one surface ($|d_{\vec p, s} - d_{\vec{p}_\text{before}, s_i}| \leq 1$) that gets smoothed by the linearly increasing penalty, or assume a real disparity discontinuity that is penalized regardless of the size of the jump - the second error remains constant as it is in Stereo matching. Note that in our implementation, $P2$ is modified by 
-\begin{equation}\label{key}
+\begin{equation}\label{eq:gradientp2}
 P2' =  \frac{P2}{\sqrt{(Im_b^2 +Im_r^2 + Im_g^2)}},
 \end{equation}
 with $Im$ being the center view of the lightfield and $Im_{b,g,r}$ being the 3 color channels. If the color intensity changes, the penalty for a disparity discontinuity is lowered.
@@ -469,7 +501,7 @@ with $Im$ being the center view of the lightfield and $Im_{b,g,r}$ being the 3 c
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/subplot_sgm}
-	\caption[SGM from different directions]{This Plot shows the disparity maps based on the modified cost function after going along 8 paths. The upper[lower] left[right] map represents the map after going along the path in upper[lower] left [right] direction.}
+	\caption[SGM from different directions]{a: scene \textit{dino} using the old pipeline,}
 	\label{fig:subplotsgm}
 \end{figure}
 
@@ -486,13 +518,54 @@ P3 & \text{ if }d_{\vec p} - d_{\vec q} < -1\\
 \right).
 \end{equation}
 \subsection{SGM as postprocessing smoothing}
-In general Semi-Global Matching refers to minimizing an energy function in one dimension for different paths in the given space. In case of disparity mapping, the disparity candidate values and its initial cost values have to be given. One can e.g. take the final disparity map and choose N values for each pixel that are extracted randomly from a local neighbourhood. 
-
+\label{sec:postprocessing_smoothing}
+In general Semi-Global Matching refers to minimizing an energy function in one dimension for different paths in the given space. In case of disparity mapping, the disparity candidate values and its initial cost values have to be given. To use SGM as an efficient tool for smoothing, these disparity candidate values have to be chosen wisely. In scope of this work we propose to choose for each pixel 5 neighbouring pixels that are randomly chosen from the close neighbourhood after constructing the disparity map with any algorithm. In this sense the SGM is used as a pure postprocessing step that can be used to improve any depth map. The effects of smoothing the disparity map while maintaining edges is depicted in figure \ref{fig:sgmpprexample} as an example.
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/sgm_ppr_example}
 	\caption[Examplefor postprocessing smoothing]{a: Errorneous disparity map before smoothing b: Same disparity map after smoothing}
 	\label{fig:sgmpprexample}
+\end{figure}
+\subsection{Iterative postprocessing}
+To reach the best best result possible the SGM- postprocessing is applied multiple times. This iterative process is inspired by \cite{Benjaminsarbeit}. Instead of choosing random pixel from the close neighbourhood, the candidate values are found by adding/substracting a $\Delta$ from the original pixel depth value $d_{i}$, such that the candidate values are given by the triple $(d_{i};d_{i}-\Delta;d_{i}+\Delta)$. The candidate with lowest cost is chosen and new candidates are formed for the next iteration. To reach convergence, this $\Delta$ shrinks by a factor of two each iteration as long as the chosen candidate was the central one. Otherwise $\Delta$ stays the same size. In figure \ref{fig:iterationsteps} a) an exemplary disparity value is shown in dependence of the iteration step. The candidate window gets smaller each step, the stopping criterium is given by the overall iteration number. 
+However, setting the same $\Delta$ at each pixel leads to problems along any SGM scanline, as scatched in figure \ref{fig:iterationsteps} b). Since all candidates are initialized with the same $\Delta$ one finds 3 identical surfaces through the scanline that are shifted by $\Delta$. Since they are almost identical, the cost of the disparity values lying either on one or the other surface is close to being identical. Hence the algorithm produces large errors along the scanline when choosing the wrong 'layer'. To overcome this problem one could apply a chess-pattern-like initialisation of the pixels. When proposing candidates to the SGM algorithm, every second pixel in the 2D-depth map is held constant to one value while the other pixels obtain 3 candidate values. After iterating, the second half of the pixels will be held constant. As depicted in figure \ref{fig:iterationsteps} c) only one surface line will have a low cost value. However doing this iteration doubles the amount of time the code consumes. 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/iteration_steps}
+	\caption[Iteration steps]{a) One exemplary pixel value in function of iteration steps. At each iteration, 3 candidate values for each pixel are chosen, the one with the lowest score is marked red. The candidate value window is marked with blue lines. b) One exemplary scanline through the depth map. Red marks the input values, the black points are the added candidate values. The green line marks the position of an outlyer. The magenta-colored lines show the pathes with the lowest cost. c) same as the diagramm b) with the difference of using a chess pattern initialisation. }
+	\label{fig:iterationsteps}
+\end{figure}
+
+\subsection{A new penalty function} 
+The iterative pipeline does not assume that any of its candidates at one pixel position have to be close to the ground truth disparity, e.g. having an outlyer $d_i$ at pixel $i(x,y)$ does not necesserily mean that either $d_i-\Delta$ or $d_i+\Delta$ are close to the ground truth. With punishing those candidates as described in equation \ref{eq:global_sgm_cont}, all 3 candidates would obtain the same cost function value. However one wants the candidate that is closest to its neighbours to be the one with the lowest cost. Thus the cost function should be monotonically increasing in function of the distance to the previous disparity value $d_{i-1}$. A simple linearly increasing cost function would lead to overly smoothed edges. The proposed global cost function that is to be minimized then looks like
+
+\begin{equation}\label{eq:global_sgm_function}
+E(d) = \sum_{\vec p} \left(C(\vec{p}, D_{\vec p}) + \sum_{q\in N_p} 
+P2\cdot \left(1- \exp\left(\frac{-|d_{\vec{p}} - d_{\vec{q}}|}{P1}\right)\right)
+\right).
+\end{equation}
+Note that the initial cost can be neglected since we assume the same initial cost for all candidates such that we obtain the form
+\begin{equation}\label{eq:global_sgm_function_wo}
+E(d) = \sum_{\vec p}\sum_{q\in N_p} 
+P2\cdot \left(1- \exp\left(\frac{-|d_{\vec{p}} - d_{\vec{q}}|}{P1}\right)\right)
+\end{equation}
+with the 1D recursive form
+\begin{equation}\label{eq:recursive1dexp}
+L'_r(\vec{p}, s) = \text{min}_i\left( L'_r(\vec{p}_\text{before}, s_i) + P2\cdot \left(1- \exp\left(\frac{-|d_{\vec{p,s}} - d_{\vec{p}_\text{before}, s_i}|}{P1}\right)\right)\right).
+\end{equation}
+The equation \ref{eq:recursive1dexp} is plotted in figure \ref{fig:penaltyfunction} on the right side. In comparison to the old penalty function it has one less parameter, it is continuous and it always favours smaller disparity differences in order to get iterative processing to work. The error $P2$ is modified the same way it is like before, see equation \ref{eq:gradientp2}. Large image gradients are more likely to lie on a disparity discontinuity, therefor the error is reduced.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/penalty_function}
+	\caption[Penalty function]{Scatch of different proposed Penalty functions. Left: Function as described in equation \ref{eq:recursive1d}. Right function as described in \ref{eq:recursive1dexp}.}
+	\label{fig:penaltyfunction}
+\end{figure}
+In figure \ref{fig:lineariteration} the effect of different penalty functions is depicted. Figure \ref{fig:lineariteration} a) shows the result of the scene $cotton$ after smoothing with the exponential penalty function \ref{eq:recursive1dexp}, while figure \ref{fig:lineariteration} b) shows the disparity map after iterative SGM processing with a linear penalty function. One sees that the linear function leads to smoother surfaces, however the smoothness constraint also oversmoothens the edges in the image. In a) the the edges are maintained sharp. The figure \ref{fig:lineariteration} c) shows the ground truth for comparison. 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/linear_iteration}
+	\caption[Linear Cost function results]{a) Depth map after Iterative SGM smoothing using an exponential penalty function. b) Instead a linear penalty function is used. c) Ground Truth}
+	\label{fig:lineariteration}
 \end{figure}
 
 
@@ -547,10 +620,7 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
 		\caption[Pixel response for depth from focus techniques]{At different pixel positions we take a look on how the Pixel response value behaves for the four different depth-from-focus techniques: Photo consistency (orange), Angular correspondence ( blue), First derivative (red) and The Laplace method (green) A high value means high confidence (low cost).}
 		\label{fig:originalmarked}
 	\end{figure}
-	Having a look at the actual disparity maps produced by the different techniques (figure \ref{fig:resultdepthfromfocus}) we can already capture that the angular correspondence and photo consistency method produce the more consistent, smooth disparity maps. A quantitative evaluation confirms this impression: We measure the mean relative error (MRE), which is defined as the mean squared error over all pixels $\vec{p}$ divided by the maximum disparity range (the maximum error possible).
-	\begin{equation}\label{key}
-	MRE = \sum_{\vec p } (d_{\text{ground truth}} - d_{\vec p} )^2/(\text{max. disp - min. disp})
-	\end{equation}
+	Having a look at the actual disparity maps produced by the different techniques (figure \ref{fig:resultdepthfromfocus}) we can already capture that the angular correspondence and photo consistency method produce the more consistent, smooth disparity maps. A quantitative evaluation confirms this impression:
 	The diagram in figure \ref{fig:errorres20all} indicates that for all scenes either the Photo consistency or the Angular Correspondence method obtain the lowest mean relative error.
 	
 	\begin{figure}
@@ -647,6 +717,12 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 \end{figure}
 
 \subsection{Bilateralfilter}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/bilat}
+	\caption[Bilateral filtering]{Bilateral filtering of an epi }
+	\label{fig:bilat}
+\end{figure}
  This section illustrates the effects of using a bilateral filter in the Structure Tensor pipeline instead of a Gaussian Filter. Figure \ref{fig:bilateralparams} shows the Mean Squared Error as well as the discontinuity score when using a bilateral filter with the original EPI as a guide. The Scores are normed to the score of the Structure tensor pipeline. For large $\sigma_\text{Color}$ both converge to 1, because in this limit the weighting based on the color space distance (see equation \ref{eq:bilateral}) is a constant function. Thus one again obtains the same result as with a normal gaussian filter. Note that the $\sigma_\text{Space}$ remains the same as in the case of a normal filtering ( $\sigma_\text{Space}=7$ pix). Unfortunately the MSE metric score and the discontinuity score is worse than with using the gaussian kernel for the complete parameter space. Especially surfaces with a lot of texture suffer from splitting the weights by their color values. This becomes clear as the scene \textit{sideboard} with the fine patterned wallpaper reaches the worst results. (PICTURE). Any pixel that doesn't encounter enough neighboring pixels with an equal color results in a Stucture tensor that only takes into account the very local gradient in the EPI. Since the aim was to especially handle disparity transitions by not mixing up two regions in the EPI with different colors, we take a look at the results for the discontinuity metric defined by \cite{honauer2016benchmark}. Even if one can see a slight improvement at some transitions looking at the disparity maps, the discontinuity score is still unaffected since the edge fattening is still visible. Since the results do not satisfy the expections and the guided bilateral filter also takes about 5 times longer then the normal structure tensor, we try an alternative approach.\\
  Instead of using the original EPI as a guide, one could directly take the structure tensor component vector 
  \begin{equation}\label{key}
@@ -745,31 +821,47 @@ The use of the alternative Cost function as explained in section \ref{sec:altern
 
 
 Both the old coherence and the new error measure calculate the respective error from the EPI in horizontal and vertical direction. Both views get merged based on the error measure of each view, resulting in a merged Coherence/Error map. This can be seen in figure \ref{fig:oldvsalternative}, where for each scene the horizontal, vertical and merged Coherence/Error map is illustrated as well as the actual error that was produced by the pipeline. Since in figure \ref{fig:threshvsoldvsnewerror} one recognizes that the disparity error maps for both pipelines don't differ much, only the error of the old pipeline is shown in figure \ref{fig:oldvsalternative}. One can see that the merged error of the new error measure seems to have a bigger overlap with the actual error, making it a better tool for masking out bad pixels than the coherence value. Especially in the scene \textit{cotton} the occlusion edge errors fit better to the error with the new error measure.\\
-To quantify this result, we choose different error thresholds for both pipelines and set all disparity values whose related error is below the threshold to zero. The higher the amount of masked out pixels is, the higher we expect the MSE to be since the amount of disparity values being 0 increases linearly (those disparity values also account for the total MSE). This linear relation between the percentage of disparity values set to zero and the total MSE is plotted in figure \ref{fig:newerrorconfidence} in a logarithmic manner. Using equal axes this would result in curves with linear form. The logarithmic scale however allows us to evaluate more easily how many pixels have to be set to zero until the result gets significantly worse. As long as the masked out pixels are already highly inaccurate, the resulting MSE doesn't change much by setting them to zero. Note that in all scenes zero is circa the mean depth of the scene. These plots confirm the observation that the error in the scene \textit{cotton} is prognosted better by the new error measure, since setting the upper 10 $\%$ of the highest error pixels to 0 results in a better score than doing the same with the old coherence measure. In the other scenes the quality of the error measure seems to be quite equal in both cases. 
+To quantify this result, we choose different error thresholds for both pipelines and set all disparity values whose related error is below the threshold to zero. The higher the amount of masked out pixels is, the higher we expect the MSE to be since the amount of disparity values being 0 increases linearly (those disparity values also account for the total MSE). This linear relation between the percentage of disparity values set to zero and the total MSE is plotted in figure \ref{fig:newerrorconfidence} in a logarithmic manner. Using equal axes this would result in curves with linear form. The logarithmic scale however allows us to evaluate more easily how many pixels have to be set to zero until the result gets significantly worse. As long as the masked out pixels are already highly inaccurate, the resulting MSE doesn't change much by setting them to zero. Note that in all scenes zero is circa the mean depth of the scene. These plots confirm the observation that the error in the scene \textit{cotton} is prognosted better by the new error measure, since setting the upper 10 $\%$ of the highest error pixels to 0 results in a better score than doing the same with the old coherence measure. In the other scenes the quality of the error measure seems to be equal in both cases. 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/old_vs_alternative-eps-converted-to}
-	\caption[Old error vs New Error]{}
+	\includegraphics[width=1\linewidth]{images/old_vs_alternative}
+	\caption[Old error vs New Error]{Columns on the left: The coherence value from the horizontal EPI, vertical EPI and the merged coherence map. Middle to the right columns: Alternative error measure based on error propagation. On the very right: Actual deviation from the ground truth.}
 	\label{fig:oldvsalternative}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/newerror_confidence}
+	\includegraphics[width=1\linewidth]{images/newerror_confidence}
 	\caption[Dependence of error on cut out pixels]{The relative MSE is plotted on the percentage of pixels that are set to 0 at different coherence values. Left the New error metric is used, right the old pipeline is used.}
 	\label{fig:newerrorconfidence}
 \end{figure}
 
 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/histogram_error_mask_old}
+	\caption[Histogram when masking errors]{The error histogram for different masks based on thresholding the coherence map. The labeling indicates the fraction of masked out pixels.}
+	\label{fig:histogramerrormaskold}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/histogram_error_mask_new_err}
+	\caption[Histogram when masking errors with new error map]{The error histogram for different masks based on thresholding the new error map. The labeling indicates the fraction of masked out pixels.}
+	\label{fig:histogramerrormasknewerr}
+\end{figure}
 \subsection{Alternative merging of x- and y-direction}
 
-
+When merging the x- and y- directional depth estimations giving  preference to the depth value that is further away, one obtains better results on occlusion edges while the number of outliers rises. This trade-off is favourable, because statistically "random" outliers are easier to handle in a postprocessing step then systematic errors such as edge fattening. The trade-off is controlled via the threshold in equation \ref{eq:altmerging} and is set to 0.7 in figure \ref{fig:chooselowerresults}. In the close-up views of the deviation from the ground truth in all four scenes ( column 3 and 4 in figure \ref{fig:chooselowerresults}) one sees that occlusion edges are significantly improved, especially in scene \textit{boxes} and \textit{dino}. In scene \textit{cotton} the edge remains, however it is smaller. The last scene does not show a significant improvement at occlusions. In all scenes however the noise has increased. On planar areas the higher coherence value is mostly the better one while on occlusions the coherence does not serve as a good measure to decide wether to take the x-directional or the y- directional depth estimation. As a result, one faces noise as it can be observed well in scene \textit{boxes} and \textit{sideboard}. \\
+Nevertheless the MSE is improved for all scenes if the threshold value is set between 0 and 0.5 as one can see from figure \ref{fig:chooselowerparams} on the left side. The threshold value 0 corresponds to the old pipeline, the threshold value 1 corresponds to always choosing the lower disparity value. Choosing big threshold values however leads to increased noise, thus worsening the MSE score. Note that we can see from figure \ref{fig:chooselowerparams} on the right that the BadPixel score is increasing, followingly the amount of pixels that are highly accurate decreases for a high threshold value. However the occlusion handling can compensate for the noise which is leading to the increased BadPixel score. Further we can smoothen out slight errors more easily than bigger deviations at occlusion edges.\\
+The same plot can be found in figure \ref{fig:chooselowerparamsthresh} where the algorithm is combined with thresholding the gradients as described in section \ref{sec:thresholdinggradients}. One can see that we can see a slight improvement in the MSE for the scenes \textit{dino} and \textit{sideboard}, while the improvement of the occlusions in scene \textit{boxes} cannot compensate the increasing noise. The scene \textit{cotton} with big occlusion edges obtains the best result for the highest threshold value. Even though it doesn't improve the MSE Score it may be favourable to have this merging implemented if it can be handled by postprocessing smoothing. This is evaluated using the SemiGlobal Matching algorithm in section \ref{sec:sgmppr_ev}. Note taht the dependent parameter is the one referenced in equation \ref{eq:altmerging}, the gradient treshold is set to 0.1 . For this reason the $MSE/MSE_{ST}$ Score does not start by 1. Even though in figure \ref{fig:chooselowerparams} and figure \ref{fig:chooselowerresults} it seems that occlusions can be handeled by alternative merging, the gradient threshold does the same, such that both combined do not necessarily improve the result as seen in figure \ref{fig:chooselowerparamsthresh} on the left. For a higher Merging parameter the BadPixel Score is always increasing due to higher noise coming from low coherence disparity values.
 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/choose_lower_results-eps-converted-to}
-	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene.}
+	\includegraphics[width=1\linewidth]{images/choose_lower_results}
+	\caption[Results from alternative merging of x- and y- direction]{Left columns: Comparison between the old merging and the new merging for the whole depth map. The absolute deviation from the ground truth is shown. Middle columns: Close-up view on occlusion edges. Right column: Localisation of the close-up view in the scene. Parameter from equation \ref{eq:altmerging} is set to 0.7.}
 	\label{fig:chooselowerresults}
 \end{figure}
 
@@ -783,16 +875,18 @@ To quantify this result, we choose different error thresholds for both pipelines
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/choose_lower_difference-eps-converted-to}
-	\caption[Alternative Merging:Parameter dependence]{From left to right: Parameter dependent alternative merging. Up to down: scenes \textit{boxes, cotton, dino, sideboard}.}
-	\label{fig:chooselowerdifference-eps-converted-to}
+	\includegraphics[width=1\linewidth]{images/choose_lower_params_thresh}
+	\caption[Alternative Merging: Parameter dependence]{Alternative Merging + tresholded gradients: Parameter dependence. Left: Mean Squared Error. Right: BadPixel Score}
+	\label{fig:chooselowerparamsthresh}
 \end{figure}
 
 
 
 
-\section{Semi-Global Matching}
 
+
+\section{Semi-Global Matching}
+The Semi-Global Matching algorithm as implemented here is dependent on 3 parameters. We tried to perform a grid search to find the best parameters. The illustration of the grid search can be found in the appendix in figure \ref{fig:sgmparamscontourmse100}, \ref{fig:sgmparamscontourdis} and \ref{fig:sgmparamscontourdmae} for different metrics. Even though one may conclude from  figure \ref{fig:sgmparamscontourdmae} that the score for planes is improved by setting a high parameter 1, the difference between the maximum and minimum score in the grid search is too small to see any dependence on any of the parameters. Note that we sampled the parameter space logarithmically to cover a wider space. Obtaining independence of the parameters is positive for working with the algorithm, the reason for the indpendence lies in the fact that at most pixels the candidate disparity values between whom the SGM algorithm decides are the same. If the Structure tensor only finds one unambiguous disparity value, this value is chosen regardless of the parameters. Though on planar surfaces this unambiguity is not given, thus the SGM algorithm is able to smoothen such surfaces. This can be seen in figure \ref{fig:sgmresultsthresh}, where the old pipeline is compared to the result using with the sgm algorithm. The depth map is improved at surfaces with noisy values, thus the SGM has a smoothing effect. However at occlusion edges the SGM pipeline does not perform significantly better. 
 
 
 \begin{figure}
@@ -807,29 +901,110 @@ To quantify this result, we choose different error thresholds for both pipelines
 
 
 \subsection*{Improved Coherence Measure by using SGM}
+Even though the SGM pipeline does not handle occlusion edges well, it still does recognize disparity jumps as high costs in the cost function. In figure \ref{fig:sgmcoherencethresh} the cost function is depicted in comparison to the actual error as well as in comparison to the old pipeline. Large disparity jumps are punished with a big penalty, thus they can be detected easily. In scene \textit{cotton} and \textit{sideboard} such disparity jumps are detected, while the other disparity jumps we see are less then 1 pixel shift and they are only punished by a small penalty. The cost function itself could be used to mask out possibly errorneous pixels. To test the quality of such a masking the error histogramm for all 4 scenes is plotted in figure \ref{fig:histogramerrormasksgm}. It becomes obvious for scene \textit{dino} and \textit{sideboard} that large errors are masked out more often than it did with using the old coherence measure as depicted in figure \ref{fig:histogramerrormaskold}. In scene \textit{boxes} the disparity map is quite noisy which makes it hard to mask out those regions.\\
+ However the usability of an error measure based on SGM is restricted due to the dependence on the penalty parameters mentioned in equation \ref{eq:global_sgm_cont_occlusion}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh}
+	\caption[SGM Coherence measure]{The assumed error (grey-valued) when calculating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
+	\label{fig:sgmcoherencethresh}
+\end{figure}
+
 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{images/sgm_coherence_thresh-eps-converted-to}
-	\caption[SGM Coherence measure]{The assumed error (grey-valued) when caluclating depth without using SGM (left) and with SGM (right). In Color the actual error for both pipelines is depicted.}
-	\label{fig:sgmcoherencethresh}
+	\includegraphics[width=1\linewidth]{images/histogram_error_mask_sgm}
+	\caption[Histogram when masking errors with new error map]{The error histogram for different masks based on thresholding with the cost function . The labeling indicates the fraction of masked out pixels.}
+	\label{fig:histogramerrormasksgm}
+\end{figure}
+\subsection*{SGM as pure Postprocessing}
+\label{sec:sgmppr_ev}
+
+For now we take as input the processed disparity map from the structuretensor and create the SGM candidates at each pixel from the local neighbourhood as described in section \ref{sec:postprocessing_smoothing}. Figure \ref{fig:chooselowersgmpprwindowsize5} shows how MSE, BadPixel Score and processing time depend on the Number of candidates from the local neighbourhood which is defined as a 5x5 window around the relevant pixel. The candidates are chosen randomly from the neighbourhood. One sees that the MSE not necessarily improves given more candidates. In the scene \textit{cotton} and \textit{sideboard} we reach a fast saturation of the mse while in the scene \textit{boxes} one would even need more candidates to reach convergence. This has to do with the large noisy regions in the scene that make it impossible to get an acceptable candidate from the neigbourhood. In scene \textit{the MSE} even gets worse with a higher number of candidates. On the other hand the BadPixel Score is improved for all scenes. One can conclude that the postprocessing SGM manages to improve the depth map at small regions of deviations (outlyiers), however larger errorneous regions can not be corrected because of the limited amount of candidate values. Using an iterative ansatz we try to overcome this problem in the next section.\\
+ 
+Figure \ref{fig:chooselowersgmppr} shows the dependence on the merging parameter that is characterized by equation \ref{eq:altmerging}. Larger parameters lead to better results at discontinuities, however the error surface error is increased.
+\begin{figure}
+	\centering
+	\includegraphics[width=01\linewidth]{images/choose_lower_sgm_ppr_windowsize_5}
+	\caption[SGM as pure postprocessing combined with Alternative merging parameter dependence]{SGM as pure postprocessing combined with Alternative merging: The Number of candidates that is chosen from the direct neighbourhood is varied. Left/Middle: The MSE/BadPixel Score in dependence of the Nr of candidates. Right: the processing time of the algorithm dependent on the Nr of candidates. The window size is hald constant at 5.}
+	\label{fig:chooselowersgmpprwindowsize5}
 \end{figure}
 
-\subsection*{SGM as pure Postprocessing}
+
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr}
-	\caption[Alternative Merging with SGM Postprocessing]{Alternative Merging with SGM Postprocessing}
+	\caption[Alternative Merging with SGM Postprocessing]{Alternative Merging with SGM Postprocessing. Left/Right: MSE/BadPixel Score as a function of the merging threshold.}
 	\label{fig:chooselowersgmppr}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_thresh}
-	\caption[Alternative Merging with SGM Postprocessing with thresholded gradients]{Alternative Merging with SGM Postprocessing while using thresholded gradients.}
+	\caption[Alternative Merging with SGM Postprocessing with thresholded gradients]{Alternative Merging with SGM Postprocessing while using thresholded gradients. Left/Right: MSE/BadPixel Score as a function of the merging threshold.}
 	\label{fig:chooselowersgmpprthresh}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_contour_mse_100}
+	\caption[Parameter dependence for Posprocessing SGM using alternative merging+thresholded gradients.]{MSE Parameter dependence for Posprocessing SGM using alternative merging+thresholded gradients.}
+	\label{fig:chooselowersgmpprcontourmse100}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_contour_badpix_0070}
+	\caption[Badpixel Parameter dependence for Posprocessing SGM using alternative merging+thresholded gradients.]{Badpixel score parameter dependence for Posprocessing SGM using alternative merging+thresholded gradients.}
+	\label{fig:chooselowersgmpprcontourbadpix_0070}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_contour_discontinuities_0070}
+	\caption[Discontinuity score Parameter dependence for Posprocessing SGM using alternative merging+thresholded gradients.]{Discontinuity score parameter dependence for Posprocessing SGM using alternative merging+thresholded gradients.}
+	\label{fig:chooselowersgmpprcontourbadpixel_discontinuities0070}
+\end{figure}
+\subsection{Iterative SGM postprocessing}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/iteration_cost_cotton}
+	\caption[Iterative Improvement of scene \textit{cotton}]{Cotton iterative}
+	\label{fig:iterationcostcotton}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/choose_lower_sgm_ppr_merge_iterations}
+	\caption[Iterations vs Score]{Iterations vs Score}
+	\label{fig:chooselowersgmpprmergeiterations}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/choose_lower_sgm_ppr_merge_iterations_exp_penalty1}
+	\caption[jump dist vs score]{jump dist vs score}
+	\label{fig:chooselowersgmpprmergeiterationsexppenalty1}
+\end{figure}
+
+
+\subsection{Application on real data}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/image_sequence_realdata}
+	\caption[Silicium Scan]{Silicium Scan with iterative SGM}
+	\label{fig:imagesequencerealdata}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/truck_realdata_small}
+	\caption[Truck with iterative SGM]{a) Truck b)}
+	\label{fig:truckrealdatasmall}
 \end{figure}
 
 \section{Resumee}
@@ -878,6 +1053,8 @@ To quantify this result, we choose different error thresholds for both pipelines
 		pp Median 9 & & 12.73 & 4.76 & 1.76 &3.20 \\
 		\hline 
 		pp Median 11 & & 12.73 & 4.76 & 1.76 &3.20 \\
+		\hline
+		Iterations 2 & & 
 	\end{tabular} 
 \end{table}
 
@@ -946,6 +1123,27 @@ To quantify this result, we choose different error thresholds for both pipelines
   		\caption[planes score for different (3) parameters]{planes score for different (3) parameters}
   		\label{fig:sgmparamscontourdmae}
   	\end{figure}
+  
+  	\begin{figure}
+  		\centering
+  		\includegraphics[width=1\linewidth]{images/histogram_error_mask_perfect}
+  		\caption[Histogram when masking errors with new error map]{The error histogram for different masks supposed one has found the ideal mask . The labeling indicates the fraction of masked out pixels.}
+  		\label{fig:histogramerrormaskperfect}
+  	\end{figure}
+  
+   	\begin{figure}
+  	\centering
+  	\includegraphics[width=1\linewidth]{images/histogram_error_mask_random}
+  	\caption[Histogram when masking errors with new error map]{The error histogram for different masks supposed the mask is completely random. The labeling indicates the fraction of masked out pixels.}
+  	\label{fig:histogramerrormaskrandom}
+  \end{figure}
+\subsection{Real Data}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/truck_realdata}
+	\caption[Truck with iterative SGM]{a) Truck b)}
+	\label{fig:truckrealdata}
+\end{figure}
     \chapter{Lists}
     \listoffigures
     \listoftables
