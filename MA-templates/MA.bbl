@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -46,6 +46,12 @@ Maximilian Diebold.
 \newblock \emph{Light-Field Imaging and Heterogeneous Light Fields}.
 \newblock PhD thesis, 2016.
 
+\bibitem[Ernst and Hirschm{\"u}ller(2008)]{ernst2008mutual}
+Ines Ernst and Heiko Hirschm{\"u}ller.
+\newblock Mutual information based semi-global stereo matching on the gpu.
+\newblock In \emph{International Symposium on Visual Computing}, pages
+  228--239. Springer, 2008.
+
 \bibitem[Hirschmuller(2005)]{hirschmuller2005accurate}
 Heiko Hirschmuller.
 \newblock Accurate and efficient stereo processing by semi-global matching and
@@ -69,6 +75,12 @@ Katrin Honauer, Ole Johannsen, Daniel Kondermann, and Bastian Goldluecke.
 Bernd J{\"a}hne.
 \newblock \emph{Digitale Bildverarbeitung}.
 \newblock Springer-Verlag, 2013.
+
+\bibitem[Moratto()]{sgmimplement}
+Zachary Moratto.
+\newblock Sgm implementation.
+\newblock \url{http://lunokhod.org/?p=1403}.
+\newblock Accessed: 2018-10-13.
 
 \bibitem[Ng et~al.()Ng, Levoy, Br{\'e}dif, Duval, Horowitz, and
   Hanrahan]{ng2005light}
