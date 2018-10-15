@@ -1002,7 +1002,7 @@ The effect of the number of iterations on the MSE can also be extracted from fig
 	\label{fig:chooselowersgmpprmergeiterations}
 \end{figure}
 
-In the following we want to examine the effects of changing the initial $\Delta$ ( see section \ref{sec:iterative}) on the MSE as well as on the BadPixel Score. In Figure \ref{fig:chooselowersgmpprmergeiterationsexppenalty1} The MSE and BadPixel Score are plotted in function of $\Delta_\text{initial}$. For very low initial $\Delta$ no convergence can be reached, thus the MSE does stay high. For higher $\Delta$ the MSE is basically uneffected after the fixed number of 5 iterations. The BadPixel Score reaches a minimum for an initial $\Delta$ = 1 . To obtain the same result with higher $\Delta$ more iterations would be needed.
+In the following we want to examine the effects of changing the initial $\Delta$ ( see section \ref{sec:iterative}) on the MSE as well as on the BadPixel Score. In Figure \ref{fig:chooselowersgmpprmergeiterationsexppenalty1} The MSE and BadPixel Score are plotted in function of $\Delta_\text{initial}$. For very low initial $\Delta$ no convergence can be reached, thus the MSE does stay high. For higher $\Delta$ the MSE is basically uneffected, given a the fixed number of 5 iterations. The BadPixel Score reaches a minimum for an initial $\Delta$ = 1 . To obtain the same result with higher $\Delta$ more iterations would be needed.
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_merge_iterations_exp_penalty1}
@@ -1013,6 +1013,8 @@ In the following we want to examine the effects of changing the initial $\Delta$
 
 \subsection{Application on real data}
 \label{realdata}
+In this section we want to evaluate qualitatively the use of SGM postprocessing on real captured data instead of synthetic rendered images. Therefor we have a look at data from the Stanford light field archive (\cite{wiburn2004high}) as well as captured light fields with the \textit{Lumi+} sensor in course of an internship with HDVision Systems. In contrast to the synthetic scenes real captured light fields suffer from bad illumination, slight rectification errors and lense abberations. Thus the Structure Tensor coherence is mostly lower, leading to sparse disparity maps (after filtering out disparity values related to low coherence). One could simply run the SGM iterative postprocessing algorithm only on pixels with sufficient coherence, however we want to also smoothen outliers with low coherence instead of filtering them out. To include outliers for correction while excluding larger areas of bad coherence, we apply morphological opening to the binary mask which has been created based on a coherence threshold. If not mentioned differently, the threshold is set to 0.85. We choose to use a rather small morphological kernel (3x3) to make sure every pixel has at least one neighbour initially which has been measured with sufficient coherence. In figure \ref{fig:imagesequencerealdata} one gets an impression on how SGM postprocessing changes the depth map. One can see the sparse depth map (a)) produced by the structure tensor (included gradient threshold already) of a glossy silicium fragmantary used in chemical industry to produce electrical devices. The accompanying mask can be seen in (b)), only pixels in black are evaluated. One can see a lot white pixels in between the black area, which we aim to include in the SGM pathwise optimization. Hence the masked is enhanced with a 3x3 morphological opening kernel, such that the new mask defines adjoint areas of low/high coherence (c)). We then run the SGM iterative postprocessing only on the pixels masked in black. The resulting depth map is more dense (d)). e) shows the center view of the camera in comparison .
+
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/image_sequence_realdata}
@@ -1020,6 +1022,8 @@ In the following we want to examine the effects of changing the initial $\Delta$
 	\label{fig:imagesequencerealdata}
 \end{figure}
 
+
+Another application example on real data is the Lego truck from the Stanford light field archive depicted in figure \ref{fig:truckrealdatasmall} (h)). We focus on a smal clipping of the scene which is depicted in figure \ref{fig:truckrealdatasmall} (g)). One sees the effects of different coherence thresholds, merging parameters and gradient thresholds in figure a) - f). Figure a) shows the Basic structure tensor result with a minimal coherence set to 0.85. In contrast figure b) shows the same result with a coherence of 0.5. Values with low coherence added to the depth map lead to a more dense map however the added pixels are mostly noisy. Obviously the wires in the image are fattened (edge fattening), also the holes on the blue lego part are not visible. In c) and d) we see the same depth maps as in a) and b) despite that we changed to alternative merging. Still the wires appear to be a lot wider than they actually are
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/truck_realdata_small}

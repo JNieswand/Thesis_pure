@@ -43,7 +43,7 @@
 \contentsline {section}{\numberline {3.3}Semi-Global Matching}{63}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Iterative SGM postprocessing}{68}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Application on real data}{70}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Resumee}{70}{section.3.4}
+\contentsline {section}{\numberline {3.4}Resumee}{71}{section.3.4}
 \contentsline {part}{\numberline {I}Appendix}{74}{part.1}
 \contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{75}{appendix.A}
 \contentsline {chapter}{\numberline {B}SGM Parameter Testing}{76}{appendix.B}
