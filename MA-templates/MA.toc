@@ -1,4 +1,4 @@
-\babel@toc {english}{}
+\select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction (TODO)}{8}{chapter.1}
 \contentsline {chapter}{\numberline {2}Theory}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Light Field Parametrization}{9}{section.2.1}
@@ -42,13 +42,13 @@
 \contentsline {subsection}{\numberline {3.2.6}Alternative merging of x- and y-direction}{56}{subsection.3.2.6}
 \contentsline {section}{\numberline {3.3}Semi-Global Matching}{63}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Iterative SGM postprocessing}{68}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Application on real data}{70}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Resumee}{71}{section.3.4}
-\contentsline {part}{\numberline {I}Appendix}{74}{part.1}
-\contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{75}{appendix.A}
-\contentsline {chapter}{\numberline {B}SGM Parameter Testing}{76}{appendix.B}
-\contentsline {subsection}{\numberline {B.0.1}Real Data}{76}{subsection.B.0.1}
-\contentsline {chapter}{\numberline {C}Lists}{82}{appendix.C}
-\contentsline {section}{\numberline {C.1}List of Figures}{82}{section.C.1}
-\contentsline {section}{\numberline {C.2}List of Tables}{83}{section.C.2}
-\contentsline {chapter}{\numberline {D}Bibliography}{84}{appendix.D}
+\contentsline {subsection}{\numberline {3.3.2}Application on real data}{71}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Resumee}{74}{section.3.4}
+\contentsline {part}{\numberline {I}Appendix}{75}{part.1}
+\contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{76}{appendix.A}
+\contentsline {chapter}{\numberline {B}SGM Parameter Testing}{77}{appendix.B}
+\contentsline {subsection}{\numberline {B.0.1}Real Data}{77}{subsection.B.0.1}
+\contentsline {chapter}{\numberline {C}Lists}{83}{appendix.C}
+\contentsline {section}{\numberline {C.1}List of Figures}{83}{section.C.1}
+\contentsline {section}{\numberline {C.2}List of Tables}{84}{section.C.2}
+\contentsline {chapter}{\numberline {D}Bibliography}{85}{appendix.D}

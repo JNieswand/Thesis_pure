@@ -202,10 +202,10 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \section{Modifications on the structure tensor}
  In the following diffent methods will be explained which modify the Structure tensor algorithm proposed by \cite{wanner2014orientation}. In section \ref{Evaluation} implementations of those modifications will be evaluated and discussed.
  \subsection{Kernelsizes}
- The Structure tensor algorithm calculates the depth based on the preffered orientation of the EPI in a local neighbourhood. If one chooses a bigger neighbourhood, the resulting depth map is likely to be smoother, however the accuracy at edges in the scene will rapidly decrease.\\
- Even though one often wants to smoothen the depth map in a postprocessing step to improve the overall result and cancel out outlyiers, the structure tensor algorithm by Wanner is forced to smoothen the depth map beforehand.\\
+ The Structure tensor algorithm calculates the depth based on the preffered orientation of the EPI in a local neighbourhood. If one chooses a larger neighbourhood, the resulting depth map is likely to be smoother, however the accuracy at edges in the scene will rapidly decrease.\\
+ Even though one often wants to smoothen the depth map in a postprocessing step to reduce the noise and cancel out outlyiers, the structure tensor algorithm by Wanner is forced to smoothen the depth map in the process by estimating the depth from the local neighboorhood in the EPI.\\
  In the work of \cite{wanner2014orientation} the effect of the kernel size has been examined extensively and he calculated the best parameters for different scenes by grid search.\\
- Note that if the kernel is smaller then the height of the EPI, the outer cameras are neglected and do not enter in the calculation of the depth. To maintain the information of all cameras and vary the kernel size at the same time, \cite{diebold2016light} proposes asymmetrical kernelsizes to eventually reduce edge-fattening effects. However, assymetrical kernels still need to find a trade off between denoising and avoiding edge fattening and do not significantly increase the quality of the depth map result.\\
+ Note that if the kernel is smaller than the height of the EPI, the outer cameras are neglected and do not enter in the calculation of the depth. To maintain the information of all cameras and vary the kernel size at the same time, \cite{diebold2016light} proposes asymmetrical kernelsizes to eventually reduce edge-fattening effects. However, assymetrical kernels still need to find a trade off between denoising and avoiding edge fattening and do not significantly increase the quality of the depth map result.\\
  Another approach is to choose a custom kernel form which only weights the local gradients that could possibly be part of the \glqq correct\grqq line in the EPI. Such a kernel is illustrated in figure \ref{fig:sandclock},  it has the form of as sandclock. in y-direction, it still follows a gaussian distribution.
  \begin{figure}
  	\centering
@@ -246,12 +246,12 @@ It is important to notice that the color distance is extracted from the EPI, tho
  \end{cases} \\
 \text{with} \quad \text{norm} &= \sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}.\\
  \end{align}
- The threshold should be chosen the lowest possible in a manner that gradients higher than the threshold are barely affected by noise. In section \ref{sec:evaluation} different thresholds are tested, if not mentioned otherwise a threshold of 0.1 is used assuming that the underlying EPI is a gray-value image with range 0-1.\\
+ The threshold should be chosen the lowest possible in a manner that gradients higher than the threshold are barely affected by noise. In section \ref{sec:ev_thresh} different thresholds are tested, if not mentioned otherwise a threshold of 0.1 is used assuming that the underlying EPI is a gray-value image with range 0-1.\\
  
  \subsection{Occlusion-awareness using segmentation of the EPI}
  \label{sec:occlusionsegmentation}
  In the section a method is proposed that attempts to handle both occlusion errors mentioned in section \ref{sec:occlusionproblem}.\\
- Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs in order to handle the occlusion problems. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculate them seperately. By setting the gradient at the transition in the EPI to 0, background and foreground structure are calculated without being biased by the transition itself. Therefor the EPI is segmented binarily into occlusion transistions and continuous areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach does not need to calculate the disparity values beforehand and can be implemented in the workflow directly. In principle the algorithm works as follows:
+ Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs in order to handle the occlusion problems. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculate them seperately. By setting the gradient at the transition in the EPI to 0, background and foreground structure are calculated without being biased by the gradient of the transition itself. Therefor the EPI is segmented binarily into occlusion transistions and continuous areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach does not need to calculate the disparity values beforehand and can be implemented in the workflow directly. In principle the algorithm works as follows:
  \begin{enumerate}
  	\item Segmentate the transitions and the rest of the EPI with a binary mask based on the gradient norm.
  	\item Calculate the structure tensor components on the masked gradient of the EPI. All masked gradients are zero and do not affect the local environment structure.
@@ -766,6 +766,7 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandcloc
 
 
 \subsection{Thresholding Gradients}
+\label{sec:ev_thresh}
 When the gradient norm is thresholded as explained in section \ref{sec:thresholdinggradients}, the main aim is to change the weights of the gradients contributing to the structure tensor such that all gradients contribute the same. The smallest gradients however underly noise effects, therefor they are not upscaled. A threshold is set at which bigger gradient norms are normed to that threshold. As one can see in figure \ref{fig:threshparams}, for big threshold values the result is equal to the old ST pipeline results as all gradients in the EPI are below the threshold, thus they are unaffected. Setting an extremely low threshold has the same effect as normalizing all gradients to the same strength. Especially on planar surfaces which typically have less texture and therefor low gradient strengths in the EPI, the error score is worse when normalizing the gradient, as one can see in figure \ref{fig:threshparams} in the right plot. However, the MSE is mostly affected by the edge fattening error as described in section \ref{sec:occlusionproblem}. Therefor simple normalizing already improves the MSE, since the gradient strength of the transition weights less into the structure tensor. The normed discontinuity score in the middle of figure \ref{fig:threshparams} is counter-intuitive since it is even worse for low threshold values. The reason is that the mask used for calculating the discontinuity score by \cite{honauer2016benchmark} is smaller then the edge fattening even after normalizing. Thus the discontinuity score cannot represent a better discontinuity behaviour if the edges do not lie in the mask. \\
 Since the scene \textit{boxes} is the noisiest one, the MSE is affected least by improving the disparity transitions. The MSE in the scene \textit{cotton} on the other hand is mostly affected by the edge fattening error, thus its MSE is improved most by the Thresholding of the Gradients. All scenes show an improved MSE for the complete parameter space. Note that the threshold is plotted in a logarithmic scale. In figure \ref{fig:threshresults} the thresholded gradient ST result is compared to the bilateral and gaussian ST result. It is obvious that with a gaussian kernel, transitions are fattened and errorneous. It seems that the bilateral filter at least for the upper 3 scenes performs best, while the thresholded ST still produces the same errors as the gaussian ST, as one can see in the \textit{boxes}-scene (upper row). Nevertheless the additional noise (see scene \textit{sideboard}, last row) produced by the bilateral filtering finally results in a worse MSE score. 
 \begin{figure}
@@ -1002,11 +1003,29 @@ The effect of the number of iterations on the MSE can also be extracted from fig
 	\label{fig:chooselowersgmpprmergeiterations}
 \end{figure}
 
-In the following we want to examine the effects of changing the initial $\Delta$ ( see section \ref{sec:iterative}) on the MSE as well as on the BadPixel Score. In Figure \ref{fig:chooselowersgmpprmergeiterationsexppenalty1} The MSE and BadPixel Score are plotted in function of $\Delta_\text{initial}$. For very low initial $\Delta$ no convergence can be reached, thus the MSE does stay high. For higher $\Delta$ the MSE is basically uneffected, given a the fixed number of 5 iterations. The BadPixel Score reaches a minimum for an initial $\Delta$ = 1 . To obtain the same result with higher $\Delta$ more iterations would be needed.
+In the following we want to examine the effects of changing the initial $\Delta$ ( see section \ref{sec:iterative}) on the MSE as well as on the BadPixel Score. In Figure \ref{fig:chooselowersgmppriterations5smoothingdelta} The MSE and BadPixel Score are plotted in function of $\Delta_\text{initial}$. The iteration number is set to five. For very low as well as for high initial $\Delta$ no convergence can be reached in a reasonable amount of iterations. Doing only 5 iterations the ideal $\Delta_\text{initial} \approx 1$. It makes sense to choose the parameter at the same Magnitude of the image disparity range to reach any disparity value.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_iterations_5_smoothing_delta}
+	\caption[Iterative SGM dependence on Initial Delta with 10 iterations]{Iterative SGM pipeline dependence on Initial $\Delta$ with fixed Number of iterations (5). Left: normed Mean Squared Error for all four scenes in function of $\Delta$. Middle: Normed BadPixel Score in function of $\Delta$. Note that the x axis scale is logarithmic.}
+	\label{fig:chooselowersgmppriterations5smoothingdelta}
+\end{figure}
+The same plot as in figure \ref{fig:chooselowersgmppriterations5smoothingdelta} can be found in figure \ref{fig:chooselowersgmppriterations10smoothingdelta}, with a different number of iterations (10). While the $MSE$ for small initial $\Delta$ doesn't change, we observe convergence for larger $\Delta$. Interestingly the overall $MSE$ minimum shifts to the right. Outliers that are distinct from their ground truth can only converge with a big number of iterations as well as a large enough $\Delta_\text{initial}$. This is now given with $\Delta_\text{initial} = 10$.
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_iterations_10_smoothing_delta}
+	\caption[Iterative SGM dependence on Initial Delta with 10 iterations]{Same plot as figure \ref{fig:chooselowersgmppriterations5smoothingdelta}, doing 10 iterations instead of 5.}
+	\label{fig:chooselowersgmppriterations10smoothingdelta}
+\end{figure}
+
+Further we examine the effect of changing the smoothing Parameter P1 from equation \ref{eq:recursive1dexp}. This changes the form of penalizing disparity deviations from 2 neighbouring points on a SGM scanline. For very small P1 the penalty is close to being a constant regardless of the disparity deviations, thus no convergence can be reached. In figure \ref{fig:chooselowersgmpprmergeiterationsexppenalty1} this can be seen in the left 
+
+
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/choose_lower_sgm_ppr_merge_iterations_exp_penalty1}
-	\caption[Iterative SGM dependence on Jump Distance ]{Iterative SGM pipeline dependence on Initial $\Delta$ with fixed Number of iterations (5). Left: normed Mean Squared Error for all four scenes in function of $\Delta$. Middle: Normed BadPixel Score in function of $\Delta$. Note that the x axis scale is logarithmic. (TODO:SAME PLOT WITH 10 ITERATIONS)}
+	\caption[Iterative SGM dependence on Smoothing Parameter ]{Iterative SGM pipeline dependence on Smoothing parameter P1 from equation \ref{eq:recursive1dexp} with fixed Number of iterations (5). Left: normed Mean Squared Error for all four scenes in function of P1. Middle: Normed BadPixel Score in function of P1. Note that the x axis scale is logarithmic.}
 	\label{fig:chooselowersgmpprmergeiterationsexppenalty1}
 \end{figure}
 
