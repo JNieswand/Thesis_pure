@@ -528,7 +528,7 @@ L'_r(\vec{p}, s) = \text{min}_i\left( L'_r(\vec{p}_\text{before}, s_i) + P2\cdot
 The equation \ref{eq:recursive1dexp} is plotted in figure \ref{fig:penaltyfunction} on the right side. In comparison to the old penalty function it has one less parameter, it is continuous and it always favours smaller disparity differences in order to get iterative processing to work. The error $P2$ is modified the same way it is like before, see equation \ref{eq:gradientp2}. Large image gradients are more likely to lie on a disparity discontinuity, therefor the error is reduced.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/penalty_function}
+	\includegraphics[width=1\linewidth]{images/penalty_function}
 	\caption[Penalty function]{Scatch of different proposed Penalty functions. Left: Function as described in equation \ref{eq:recursive1d}. Right function as described in \ref{eq:recursive1dexp}.}
 	\label{fig:penaltyfunction}
 \end{figure}
@@ -1030,6 +1030,14 @@ Further we examine the effect of changing the smoothing Parameter P1 from equati
 \end{figure}
 
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{images/sgm_results_iterative}
+	\caption[Iterative SGM Images]{Depth map of scenes \textit{boxes, cotton, dino, sideboard} from up to down. Left: Old Pipeline Depth map. Middle: Ground Truth. Right: SGM Iterative Postprocessing}
+	\label{fig:sgmresultsiterative}
+\end{figure}
+
+
 \subsection{Application on real data}
 \label{realdata}
 In this section we want to evaluate qualitatively the use of SGM postprocessing on real captured data instead of synthetic rendered images. Therefor we have a look at data from the Stanford light field archive (\cite{wiburn2004high}) as well as captured light fields with the \textit{Lumi+} sensor in course of an internship with HDVision Systems. In contrast to the synthetic scenes real captured light fields suffer from bad illumination, slight rectification errors and lense abberations. Thus the Structure Tensor coherence is mostly lower, leading to sparse disparity maps (after filtering out disparity values related to low coherence). One could simply run the SGM iterative postprocessing algorithm only on pixels with sufficient coherence, however we want to also smoothen outliers with low coherence instead of filtering them out. To include outliers for correction while excluding larger areas of bad coherence, we apply morphological opening to the binary mask which has been created based on a coherence threshold. If not mentioned differently, the threshold is set to 0.85. We choose to use a rather small morphological kernel (3x3) to make sure every pixel has at least one neighbour initially which has been measured with sufficient coherence. In figure \ref{fig:imagesequencerealdata} one gets an impression on how SGM postprocessing changes the depth map. One can see the sparse depth map (a)) produced by the structure tensor (included gradient threshold already) of a glossy silicium fragmantary used in chemical industry to produce electrical devices. The accompanying mask can be seen in (b)), only pixels in black are evaluated. One can see a lot white pixels in between the black area, which we aim to include in the SGM pathwise optimization. Hence the masked is enhanced with a 3x3 morphological opening kernel, such that the new mask defines adjoint areas of low/high coherence (c)). We then run the SGM iterative postprocessing only on the pixels masked in black. The resulting depth map is more dense (d)). e) shows the center view of the camera in comparison .
@@ -1042,16 +1050,17 @@ In this section we want to evaluate qualitatively the use of SGM postprocessing 
 \end{figure}
 
 
-Another application example on real data is the Lego truck from the Stanford light field archive depicted in figure \ref{fig:truckrealdatasmall} (h)). We focus on a smal clipping of the scene which is depicted in figure \ref{fig:truckrealdatasmall} (g)). One sees the effects of different coherence thresholds, merging parameters and gradient thresholds in figure a) - f). Figure a) shows the Basic structure tensor result with a minimal coherence set to 0.85. In contrast figure b) shows the same result with a coherence of 0.5. Values with low coherence added to the depth map lead to a more dense map however the added pixels are mostly noisy. Obviously the wires in the image are fattened (edge fattening), also the holes on the blue lego part are not visible. In c) and d) we see the same depth maps as in a) and b) despite that we changed to alternative merging. Still the wires appear to be a lot wider than they actually are
+Another application example on real data is the Lego truck from the Stanford light field archive depicted in figure \ref{fig:truckrealdatasmall} (h)). We focus on a smal clipping of the scene which is depicted in figure \ref{fig:truckrealdatasmall} (g)). One sees the effects of different coherence thresholds, merging parameters and gradient thresholds in figure a) - f). Figure a) shows the Basic structure tensor result with a minimal coherence set to 0.85. In contrast figure b) shows the same result with a coherence of 0.5. Values with low coherence added to the depth map lead to a more dense map however the added pixels are mostly noisy. Obviously the wires in the image are fattened (edge fattening), also the holes on the blue lego part are not visible. In c) and d) we see the same depth maps as in a) and b) despite that we use \textbf{alternative merging}. Still the wires appear to be a lot wider than they actually are, yet one can observe an improved refinement at the wholes in the blue lego part. In d) (lower minimal coherence) even more details on the crane are visible, since the alternative merging implicitly is restricted by minimal coherence. However this comes at the cost of noise. The figure e) shows the disparity map with a \textbf{gradient threshold} applied. this in general leads to a sparse structure compared to a), while details are finer, especially the edge fattening is drastically reduced. All wires on the crane in the clipping are as wide as they are ment to be. After that we  apply \textbf{Postprocessing SGM} (5 Iterations) in figure f) in the disparity map obtained in e). Here the surface is closed without oversmoothing the structure. In the Appendix one finds the Full depth map without clipping (section \ref{sec:realdata_appendix}).
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/truck_realdata_small}
-	\caption[Truck with iterative SGM]{a) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.85. b) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.5 . c) Depth map when using alternative merging, minimal coherence set to 0.85. d) Depth map when using alternative merging, minimal coherence set to 0.5.  e) Depth map when thresholding gradients, minimal coherence set to 0.85. f) e) Depth map when thresholding gradients and using iterative SGM Postprocessing, minimal coherence set to 0.85.  g) Centre view clipping of the scene h) full centre view of the scene.}
+	\caption[Truck with iterative SGM]{a) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.85. b) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.5. c) Depth map when using alternative merging, minimal coherence set to 0.85. d) Depth map when using alternative merging, minimal coherence set to 0.5. e) Depth map when thresholding gradients, minimal coherence set to 0.85. f) Depth map when thresholding gradients and using iterative SGM Postprocessing, minimal coherence set to 0.85.  g) Centre view clipping of the scene h) full centre view of the scene.}
 	\label{fig:truckrealdatasmall}
 \end{figure}
 
-\section{Resumee}
+\section{Comparison of Results}
 \begin{table}
+	\centering
 	\begin{tabular}{|c|c|c|c|c|c|}
 		\hline 
 		Method & Time(s) (cotton) & \multicolumn{4}{c|}{MSE} \\ 
@@ -1060,51 +1069,88 @@ Another application example on real data is the Lego truck from the Stanford lig
 		\hline
 		Old Pipeline & 4.78 & 17.03 & 6.16 & 2.09 & 3.89 \\
 		\hline 
-		Sandclock & 6.81  & 18.55  & 6.78  & 2.23  & 4.14 \\ 
+		Sandclock kernel & 6.81  & 18.55  & 6.78  & 2.23  & 4.14 \\ 
 		\hline 
-		epi-bilateralfilter ($\sigma = 90$) &  43.96 &  19.26  & 6.41  & 2.22  & 4.16  \\ 
+		EPI-Bilateralfilter ($\sigma = 90$) &  43.96 &  19.26  & 6.41  & 2.22  & 4.16  \\ 
 		\hline 
-		bilateralfilter($\sigma = 750$) & 20.18  & 18.95  &  6.38 & 2.10  &4.32  \\ 
+		Bilateralfilter($\sigma = 750$) & 20.18  & 18.95  &  6.38 & 2.10  &4.32  \\ 
 		\hline 
-		Thresholding (thresh = 0.1) & 6.06 & 15.57  & 4.38  & 1.39  & 3.03  \\ 
+		Gradient Threshold (0.1) & 6.06 & 15.57  & 4.38  & 1.39  & 3.03  \\ 
 		\hline 
-		occlusion segmentation&&&&&\\(7x7 morph, thresh = 0.1) & 11.28  & 18.08 &  3.39 & 1.78  & 3.91  \\ 
+		Gradient Threshold (0.1) +&&&&&\\
+		 Alternative merging(0.3) & 6.91 & 16.14 & 3.45 & 1.35 & 2.95 \\
+		\hline
+		Gradient Threshold (0.1) + &&&&&\\Occlusion segmentation&&&&&\\(7x7 morph. Filter) & 11.28  & 18.08 &  3.39 & 1.78  & 3.91  \\ 
 		\hline 
-		alternative coherence +Treshold & 14.15  & 15.85  & 4.30  & 1.25  & 3.38  \\ 
+		Alternative Coherence +&&&&&\\Gradient Treshold (0.1) & 14.15  & 15.85  & 4.30  & 1.25  & 3.38  \\ 
 		\hline 
-		SGM (4000,64000,1000) & 8.90 & 14.98  & 3.84  & 1.75  & 3.18  \\ 
+		Semiglobal Matching&&&&&\\
+		Params: (4000,64000,1000) & 8.90 & 14.98  & 3.84  & 1.75  & 3.18  \\ 
 		\hline 
-		SGM+Threshold & 12.75  & 13.31  & 2.96   & 1.11   & 2.43 \\ 
+		Semiglobal Matching&&&&&\\
+		Params: (4000,64000,1000) +&&&&&\\
+		Gradient Threshold (0.1) & 12.75  & 13.31  & 2.96   & 1.11   & 2.43 \\ 
 		\hline 
 		\hline
-		pp Gauss 3 & & 12.59 & 4.80 & 1.68 & 2.92 \\
+		PPR Gaussfiltering (3x3) & 4.80 & 12.59 & 4.80 & 1.68 & 2.92 \\
 		\hline
-		pp Gauss 5 & & 11.95 & 4.54 & 1.59 &  2.72 \\
+		PPR Gaussfiltering (5x5) &4.80 & 11.95 & 4.54 & 1.59 &  2.72 \\
 		\hline 
-		pp Gauss 7 & & 11.51 & 4.31 & 1.50 & 2.58 \\
+		PPR Gaussfiltering (7x7) & 4.82& 11.51 & 4.31 & 1.50 & 2.58 \\
 		\hline
-		pp Gauss 9 & & 11.34 & 4.16 & 1.46 & 2.52 \\
+		PPR Gaussfiltering (9x9) & 4.84& 11.34 & 4.16 & 1.46 & 2.52 \\
 		\hline
-		pp sgm (4000, 256000, 400) & &12.0 & 2.15 & 1.08 & 1.98\\
+		PPR Gaussfiltering (3x3) +&&&&&\\
+		 Gradient Threshold (0.1) & 6.12 & 10.29 & 3.04 & 0.97 &2.04\\
 		\hline
-		pp Median 3 & & 13.21 & 4.96 & 1.83 & 3.35 \\
+		PPR Gaussfiltering (5x5) +&&&&&\\
+		Gradient Threshold (0.1) & 6.12 & 9.63 & 2.81 & 0.91 & 1.90\\
 		\hline
-		pp Median 5 & & 12.73 & 4.76 & 1.76 & 3.20 \\
+		PPR Semiglobal Matching&&&&&\\
+		Params: (4000, 256000, 400) +&&&&&\\
+		Gradient Threshold (0.1) & 13.2 &12.0 & 2.15 & 1.08 & 1.98\\
 		\hline
-		pp Median 7 & & 12.73 & 4.76 & 1.76 & 3.20 \\
+		PPR Medianfiltering (3x3) & 4.80 & 13.21 & 4.96 & 1.83 & 3.35 \\
+		\hline
+		PPR Medianfiltering (5x5) & 4.83 & 12.73 & 4.76 & 1.76 & 3.20 \\
+		\hline
+		PPR Medianfiltering (3x3) +&&&&&\\
+		Gradient Threshold (0.1) &6.09 & 10.68 & 3.14 & 1.06 & 2.29 \\
 		\hline 
-		pp Median 9 & & 12.73 & 4.76 & 1.76 &3.20 \\
-		\hline 
-		pp Median 11 & & 12.73 & 4.76 & 1.76 &3.20 \\
+		PPR Medianfiltering (5x5) +&&&&&\\
+		Gradient Threshold (0.1)  & 6.11& 10.15 & 2.95 & 1.01 &2.17 \\
 		\hline
-		Iterations 2 & & 
-	\end{tabular} 
+		PPR Semiglobal Matching+&&&&&\\
+		5 Iterations & 54 & 9.8  & 2.05 & 0.66 & 1.78  \\
+		\hline
+		PPR Semiglobal Matching+&&&&&\\
+		10 Iterations  & 114 & \textbf{8.71} & \textbf{1.94} & \textbf{0.53} & \textbf{1.59} \\
+		\hline
+		PPR Semiglobal Matching+&&&&&\\
+		10 Iterations +&&&&&\\
+		 Medianfiltering (3x3) & 114 & 9.02 & 2.50 & 0.75 & 1.64 \\
+		\hline
+		PPR Semiglobal Matching+&&&&&\\
+		10 Iterations +&&&&&\\
+		Medianfiltering (5x5) & 114 & 9.28 & 2.50 & 0.75 & 1.64 \\
+		\hline
+	\end{tabular}
+\caption[Resumee Table]{Comparison of all methods on MSE metric. PPR stands for Postprocessing} 
+\label{tab:comparison}
 \end{table}
 
+The table \ref{tab:comparison}  shows all MSE values as well as the processing time for all modifications and algorithms we implemented. While some ideas (e.g. The Sandclock shaped kernel) did not bring the results we assumed beforehand,others did. \textbf{ Gradient Thresholding} does improve the result by ca. 30 $\%$ while taking about 30$\%$ more processing time. To differentiate between Improvement related to object details and overall smootheness, we applied a Gaussfilter as well as a Medianfilter on the results in a postprocessing step. After filtering the Thresholded Gradient pipeline performs even better and outmatches the Old Pipeline (with PPR filtering) ba ca. 40 $\%$ in both cases. The \textbf{alternative merging} does only improve on very small details of the depth map, since occlusion problems are already handled by \textbf{ Gradient Thresholding}. Nevertheless the MSE is improved slightly when adding alternative merging to the Gradient threshold pipeline.\\
+Without Postprocessing the SemiGlobal Matching+Gradient Thresholding pipeline reaches the best scores. Implementing the alternative Coherence measure in The Structure tensor pipeline only improves the result slightly, it even worsens in the case of scene \textit{sideboard}.\\
+As overall best performs the \textbf{iterative postprocessing SemiGlobal Matching} pipeline with 10 iterations, however the implementation aquires almost 2 Minutes for calculation. With only 5 iterations, the result is only a little worse than with 10 iterations. Applying a filter afterwards only worsens the MSE.
 
+\chapter{Resumee and Outlook}
 
+In the following we will give an overview over the different methods that were implemtented an tested to improve the depth map obtained from EPI disparity estimation using the structure tensor.\\
+Firstly we tested different Depth-from-defocus techniques to pick out the most suitable for creating a coarse depth map. This depth map was used as a pre-estimate to limit the disparity space, thus fastening up the Structure tensor pipeline while avoiding outliers beforehand. However it turned out that on the one hand the obtained coarse depth maps were not precise enough, on the other hand no significant speedup could be obtained even with perfect pre-estimates. For that reasons we dropped the idea and continued to implement modifications in the structure tensor pipeline, which lead to significant improvements in the MSE metric. Some Methods did not bring the results we hoped for (sandclock shaped kernel, bilateral filtering in the Structure tensor).
+An alternative Coherence measurement has been developed based on first order error propagation, leading to slightly improved results to a cost of processing time. Occlusion handling with segmentating the EPIs based on the gradient norm showed some good results in scene \textit{cotton}, however it needs clear contrast edges in the scene to identify depth discontinuities. Implementing an alternative merging of x- and y- directional disparity estimations allowed for higher detail resolution and occlusion handling, however occlusions are taken care of with implementing a truncation threshold to the gradient in the EPI. This modification is easily implemented, does not significantly take longer in processing and noticeably improves the MSE for all scenes. \\
+In accordance to its original use we implemented the Semiglobal Matching algorithm in process, however we realized that results were better when proposing disparity candidate values artificially in a postprocessing step solely dependent on the estimated depth map. In an iterative manner we minimized the cost function to get a smooth result while retaining clear edges. However in its present form, this algorithm takes almost 2 minutes to calculate on 512x512 images.
 
-  \part{Appendix}
+  \part*{Appendix}
   \begin{appendix}
   	\chapter{Derivation of the structure tensor}
   	The derivation is taken from \cite{jahne2013digitale}. Taking a function $g:\Omega\rightarrow \!R, \Omega \subset \!R^D$, the pereferred local direction $\vec{n} \subset \!R^D$ must satisfy the following equation:
@@ -1180,7 +1226,8 @@ Another application example on real data is the Lego truck from the Stanford lig
   	\caption[Histogram when masking errors with new error map]{The error histogram for different masks supposed the mask is completely random. The labeling indicates the fraction of masked out pixels.}
   	\label{fig:histogramerrormaskrandom}
   \end{figure}
-\subsection{Real Data}
+\chapter{Real Data}
+\label{sec:realdata_appendix}
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/truck_realdata}

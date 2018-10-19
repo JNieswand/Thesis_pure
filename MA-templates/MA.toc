@@ -22,12 +22,12 @@
 \contentsline {subsection}{\numberline {2.5.4}SGM as postprocessing smoothing}{31}{subsection.2.5.4}
 \contentsline {subsection}{\numberline {2.5.5}Iterative postprocessing}{32}{subsection.2.5.5}
 \contentsline {subsection}{\numberline {2.5.6}A new penalty function}{33}{subsection.2.5.6}
-\contentsline {subsection}{\numberline {2.5.7}SemiGlobal Matching implementation}{34}{subsection.2.5.7}
-\contentsline {section}{\numberline {2.6}Metrics for the evaluation of depth maps}{34}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}dense and sparse maps}{34}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.5.7}SemiGlobal Matching implementation}{33}{subsection.2.5.7}
+\contentsline {section}{\numberline {2.6}Metrics for the evaluation of depth maps}{35}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}dense and sparse maps}{35}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}mean squared error}{35}{subsection.2.6.2}
-\contentsline {subsection}{\numberline {2.6.3}bad pixel score}{35}{subsection.2.6.3}
-\contentsline {subsection}{\numberline {2.6.4}bumpiness}{35}{subsection.2.6.4}
+\contentsline {subsection}{\numberline {2.6.3}bad pixel score}{36}{subsection.2.6.3}
+\contentsline {subsection}{\numberline {2.6.4}bumpiness}{36}{subsection.2.6.4}
 \contentsline {subsection}{\numberline {2.6.5}discontinuity and planar scores}{36}{subsection.2.6.5}
 \contentsline {subsection}{\numberline {2.6.6}Mean Relative Error}{36}{subsection.2.6.6}
 \contentsline {chapter}{\numberline {3}Evaluation}{37}{chapter.3}
@@ -43,12 +43,12 @@
 \contentsline {section}{\numberline {3.3}Semi-Global Matching}{63}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Iterative SGM postprocessing}{68}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Application on real data}{71}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Resumee}{74}{section.3.4}
-\contentsline {part}{\numberline {I}Appendix}{75}{part.1}
-\contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{76}{appendix.A}
-\contentsline {chapter}{\numberline {B}SGM Parameter Testing}{77}{appendix.B}
-\contentsline {subsection}{\numberline {B.0.1}Real Data}{77}{subsection.B.0.1}
-\contentsline {chapter}{\numberline {C}Lists}{83}{appendix.C}
-\contentsline {section}{\numberline {C.1}List of Figures}{83}{section.C.1}
-\contentsline {section}{\numberline {C.2}List of Tables}{84}{section.C.2}
-\contentsline {chapter}{\numberline {D}Bibliography}{85}{appendix.D}
+\contentsline {section}{\numberline {3.4}Comparison of Results}{74}{section.3.4}
+\contentsline {chapter}{\numberline {4}Resumee and Outlook}{77}{chapter.4}
+\contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{79}{appendix.A}
+\contentsline {chapter}{\numberline {B}SGM Parameter Testing}{80}{appendix.B}
+\contentsline {chapter}{\numberline {C}Real Data}{85}{appendix.C}
+\contentsline {chapter}{\numberline {D}Lists}{87}{appendix.D}
+\contentsline {section}{\numberline {D.1}List of Figures}{87}{section.D.1}
+\contentsline {section}{\numberline {D.2}List of Tables}{89}{section.D.2}
+\contentsline {chapter}{\numberline {E}Bibliography}{90}{appendix.E}
