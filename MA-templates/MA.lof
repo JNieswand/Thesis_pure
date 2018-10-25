@@ -62,17 +62,13 @@
 \contentsline {figure}{\numberline {3.39}{\ignorespaces Iterative SGM dependence on Smoothing Parameter }}{71}{figure.3.39}
 \contentsline {figure}{\numberline {3.40}{\ignorespaces Iterative SGM Images}}{72}{figure.3.40}
 \contentsline {figure}{\numberline {3.41}{\ignorespaces Silicium Scan with iterative SGM}}{73}{figure.3.41}
-\contentsline {figure}{\numberline {3.42}{\ignorespaces Truck with iterative SGM}}{75}{figure.3.42}
+\contentsline {figure}{\numberline {3.42}{\ignorespaces Truck clipping with iterative SGM}}{75}{figure.3.42}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces parameter grid test for semi global matching}}{80}{figure.B.1}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Mean squared error for different (3) parameters}}{81}{figure.B.2}
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Discontinuity score for different (3) parameters}}{82}{figure.B.3}
-\contentsline {figure}{\numberline {B.4}{\ignorespaces planes score for different (3) parameters}}{83}{figure.B.4}
-\contentsline {figure}{\numberline {B.5}{\ignorespaces Histogram when masking errors with new error map}}{84}{figure.B.5}
-\contentsline {figure}{\numberline {B.6}{\ignorespaces Histogram when masking errors with new error map}}{84}{figure.B.6}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Truck with iterative SGM}}{82}{figure.B.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Truck with iterative SGM}}{86}{figure.C.1}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces CNN Results}}{84}{figure.C.1}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Truck with CNN +SGM}}{85}{figure.C.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

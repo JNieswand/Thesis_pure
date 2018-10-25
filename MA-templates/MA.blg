@@ -5,19 +5,39 @@ A level-1 auxiliary file: abstracts.aux
 The style file: plainnat.bst
 A level-1 auxiliary file: deposition.aux
 Database file #1: references.bib
-Warning--I didn't find a database entry for "loremIpsum"
+Warning--entry type for "wolf2018object" isn't style-file defined
+--line 9 of file references.bib
 Warning--I didn't find a database entry for "Benjaminsarbeit"
 Warning--to sort, need author or key in iwr.uni-heidelberg.de
 Warning--to sort, need author or key in homepages.inf.ed.ac.uk
 Warning--to sort, need author or key in what-when-how.com
+Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon, Seon Joo Kim" for entry shin18epinet
+while executing---line 1347 of file plainnat.bst
+Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon, Seon Joo Kim" for entry shin18epinet
+while executing---line 1347 of file plainnat.bst
+Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon, Seon Joo Kim" for entry shin18epinet
+while executing---line 1347 of file plainnat.bst
+Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon, Seon Joo Kim" for entry shin18epinet
+while executing---line 1347 of file plainnat.bst
+Warning--to sort, need author or key in hci_benchmark
+Warning--empty year in hci_benchmark
 Warning--empty year in homepages.inf.ed.ac.uk
 Warning--empty year in iwr.uni-heidelberg.de
 Warning--empty year in what-when-how.com
 Warning--empty journal in adelson1991plenoptic
+Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon, Seon Joo Kim" for entry shin18epinet
+while executing---line 1429 of file plainnat.bst
+Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon, Seon Joo Kim" for entry shin18epinet
+while executing---line 1429 of file plainnat.bst
+Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon, Seon Joo Kim" for entry shin18epinet
+while executing---line 1429 of file plainnat.bst
+Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So Kweon, Seon Joo Kim" for entry shin18epinet
+while executing---line 1429 of file plainnat.bst
 Warning--empty school in diebold2016light
+Warning--can't use both volume and number fields in huang2017densely
 Warning--empty year in sgmimplement
 Warning--empty journal in ng2005light
 Warning--empty year in ng2005light
 Warning--empty year in ng2005light
 Warning--empty school in wanner2014orientation
-(There were 15 warnings)
+(There were 8 error messages)

@@ -1,9 +1,14 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[hci()]{hci_benchmark}
+Hci benchmark dataset.
+\newblock \url{http://hci-lightfield.iwr.uni-heidelberg.de/benchmark/}.
+\newblock Accessed: 2018-010-16.
 
 \bibitem[hom()]{homepages.inf.ed.ac.uk}
 Website of the hypermedia image processing.
@@ -21,6 +26,26 @@ what-when-how.com.
   \url{http://what-when-how.com/introduction-to-video-and-image-processing/morphology-introduction-to-video-and-image-processing-part-2/}.
 \newblock Accessed: 2018-04-16.
 
+\bibitem[Abadi et~al.(2015)Abadi, Agarwal, Barham, Brevdo, Chen, Citro,
+  Corrado, Davis, Dean, Devin, Ghemawat, Goodfellow, Harp, Irving, Isard, Jia,
+  Jozefowicz, Kaiser, Kudlur, Levenberg, Man\'{e}, Monga, Moore, Murray, Olah,
+  Schuster, Shlens, Steiner, Sutskever, Talwar, Tucker, Vanhoucke, Vasudevan,
+  Vi\'{e}gas, Vinyals, Warden, Wattenberg, Wicke, Yu, and
+  Zheng]{tensorflow2015-whitepaper}
+Mart\'{\i}n Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen,
+  Craig Citro, Greg~S. Corrado, Andy Davis, Jeffrey Dean, Matthieu Devin,
+  Sanjay Ghemawat, Ian Goodfellow, Andrew Harp, Geoffrey Irving, Michael Isard,
+  Yangqing Jia, Rafal Jozefowicz, Lukasz Kaiser, Manjunath Kudlur, Josh
+  Levenberg, Dandelion Man\'{e}, Rajat Monga, Sherry Moore, Derek Murray, Chris
+  Olah, Mike Schuster, Jonathon Shlens, Benoit Steiner, Ilya Sutskever, Kunal
+  Talwar, Paul Tucker, Vincent Vanhoucke, Vijay Vasudevan, Fernanda Vi\'{e}gas,
+  Oriol Vinyals, Pete Warden, Martin Wattenberg, Martin Wicke, Yuan Yu, and
+  Xiaoqiang Zheng.
+\newblock {TensorFlow}: Large-scale machine learning on heterogeneous systems,
+  2015.
+\newblock URL \url{https://www.tensorflow.org/}.
+\newblock Software available from tensorflow.org.
+
 \bibitem[Adelson et~al.(1991)Adelson, Bergen, et~al.]{adelson1991plenoptic}
 Edward~H Adelson, James~R Bergen, et~al.
 \newblock The plenoptic function and the elements of early vision.
@@ -36,6 +61,13 @@ Robert~C Bolles, H~Harlyn Baker, and David~H Marimont.
   from motion.
 \newblock \emph{International journal of computer vision}, 1\penalty0
   (1):\penalty0 7--55, 1987.
+
+\bibitem[Changha~Shin(2018)]{shin18epinet}
+Youngjin Yoon In So Kweon Seon Joo~Kim Changha~Shin, Hae-Gon~Jeon.
+\newblock Epinet: A fully-convolutional neural network using epipolar geometry
+  for depth from light field images.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, 2018.
 
 \bibitem[Community(2014)]{blender2014blender}
 Blender~Online Community.
@@ -71,10 +103,24 @@ Katrin Honauer, Ole Johannsen, Daniel Kondermann, and Bastian Goldluecke.
   fields.
 \newblock In \emph{Asian Conference on Computer Vision}. Springer, 2016.
 
+\bibitem[Huang et~al.(2017)Huang, Liu, Van Der~Maaten, and
+  Weinberger]{huang2017densely}
+Gao Huang, Zhuang Liu, Laurens Van Der~Maaten, and Kilian~Q Weinberger.
+\newblock Densely connected convolutional networks.
+\newblock In \emph{CVPR}, volume~1, page~3, 2017.
+
 \bibitem[J{\"a}hne(2013)]{jahne2013digitale}
 Bernd J{\"a}hne.
 \newblock \emph{Digitale Bildverarbeitung}.
 \newblock Springer-Verlag, 2013.
+
+\bibitem[Luo et~al.(2017)Luo, Zhou, Fang, Liang, Zhang, and Dai]{luo2017epi}
+Yaoxiang Luo, Wenhui Zhou, Junpeng Fang, Linkai Liang, Hua Zhang, and Guojun
+  Dai.
+\newblock Epi-patch based convolutional neural network for depth estimation on
+  4d light field.
+\newblock In \emph{International Conference on Neural Information Processing},
+  pages 642--652. Springer, 2017.
 
 \bibitem[Moratto()]{sgmimplement}
 Zachary Moratto.
@@ -125,6 +171,11 @@ Masahiro Watanabe and Shree~K Nayar.
 Bennett Wiburn.
 \newblock \emph{High performance imaging using arrays of inexpensive cameras}.
 \newblock PhD thesis, Citeseer, 2004.
+
+\bibitem[Wolf(2018)]{wolf2018object}
+Christian Wolf.
+\newblock 3d-object recognition and detection with convolutional neural
+  networks, 2018.
 
 \bibitem[Wu et~al.(2017)Wu, Masia, Jarabo, Zhang, Wang, Dai, Chai, and
   Liu]{wu2017light}

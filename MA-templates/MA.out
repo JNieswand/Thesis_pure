@@ -1,4 +1,4 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction \(TODO\)}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Theory}{}% 2
 \BOOKMARK [1][-]{section.2.1}{Light Field Parametrization}{chapter.2}% 3
 \BOOKMARK [2][-]{subsection.2.1.1}{The Lumigraph}{section.2.1}% 4
@@ -45,8 +45,8 @@
 \BOOKMARK [1][-]{section.3.4}{Comparison of Results}{chapter.3}% 45
 \BOOKMARK [0][-]{chapter.4}{Resumee and Outlook}{}% 46
 \BOOKMARK [0][-]{appendix.A}{Derivation of the structure tensor}{}% 47
-\BOOKMARK [0][-]{appendix.B}{SGM Parameter Testing}{}% 48
-\BOOKMARK [0][-]{appendix.C}{Real Data}{}% 49
+\BOOKMARK [0][-]{appendix.B}{Real Data}{}% 48
+\BOOKMARK [0][-]{appendix.C}{CNN Disparity Estimation implementation}{}% 49
 \BOOKMARK [0][-]{appendix.D}{Lists}{}% 50
 \BOOKMARK [1][-]{section.D.1}{List of Figures}{appendix.D}% 51
 \BOOKMARK [1][-]{section.D.2}{List of Tables}{appendix.D}% 52

@@ -51,7 +51,21 @@
   %% Put your contents here
 
 
-\chapter{Introduction (TODO)}
+\chapter{Introduction}
+In the field of computer vision one big challenge is the \textit{3D Reconstruction} based on 2D Images. This is reasoned by the sheer amount of different applications, reaching from industrial quality management to creations of CGI effects as well as in the gaming industry. 3D Reconstruction recently has become irreplaceable in the car industry related to the developement of autonomous driving systems. Another industrial application is the robotic vision for improving automation setups.\\
+
+Obtaining 3D Information via a camera system is mainly done by using either stereo camera systems, structured light systems ToF(Time-of-Flight)-cameras or 
+interferometry cameras. While the last 3 mentioned systems are capable of of reconstructing 3D-scenes of diffuse surfaces quite well, they do not make use of the surface RGB values.\\
+Recently \textit{Light field imaging} as an expansion of Stereo imaging has become a main field of research in computer vision. By capturing the scene from multiple viewpoints, a whole bunch of data can be processed to not only reconstruct the depth, also statements can be made about the surface characteristics. The real time processing of a sufficient amount of 2D data however still remains a challenge. \\
+Further reconstructing the 3D image from 2D images tasks comes with challenging tasks:
+\begin{itemize}
+	\item Occlusions: As we cannot see the full scene from each viewpoint, some points of the surface we are looking at are either partly or fully occluded.
+	\item single-coloured surfaces: Parts of the scene with low textural structure lead makes viewpoint-to-viewpoint-matching barely possible.
+	\item Glossy surfaces: When developing a 3D reconstruction solution based on the assumption of \textit{lambertian} surfaces, we assume a surface point to be in the same color no matter from which position/angle we look at it. However this is not the case for reflective/glossy surfaces.
+\end{itemize}
+In this work, we try to tackle those problems using a depth reconstruction algorithm based on the work of \cite{wanner2014orientation} while maintaining reasonable calculation times.
+
+
 \chapter{Theory}
 \section{Light Field Parametrization}
 The earliest introduction to Light Fields in literature can be found in \cite{adelson1991plenoptic}, where they parametrize the field of light as a  so-called \glqq plenoptic function \grqq. If we assume that every point in space emits a light ray  in a given direction which is characterized by a intensity value $P$, the whole information in the light field is given as a 6-dimensional function
@@ -1054,7 +1068,7 @@ Another application example on real data is the Lego truck from the Stanford lig
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/truck_realdata_small}
-	\caption[Truck with iterative SGM]{a) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.85. b) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.5. c) Depth map when using alternative merging, minimal coherence set to 0.85. d) Depth map when using alternative merging, minimal coherence set to 0.5. e) Depth map when thresholding gradients, minimal coherence set to 0.85. f) Depth map when thresholding gradients and using iterative SGM Postprocessing, minimal coherence set to 0.85.  g) Centre view clipping of the scene h) full centre view of the scene.}
+	\caption[Truck clipping with iterative SGM]{a) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.85. b) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.5. c) Depth map when using alternative merging, minimal coherence set to 0.85. d) Depth map when using alternative merging, minimal coherence set to 0.5. e) Depth map when thresholding gradients, minimal coherence set to 0.85. f) Depth map when thresholding gradients and using iterative SGM Postprocessing, minimal coherence set to 0.85.  g) Centre view clipping of the scene h) full centre view of the scene.}
 	\label{fig:truckrealdatasmall}
 \end{figure}
 
@@ -1149,7 +1163,14 @@ In the following we will give an overview over the different methods that were i
 Firstly we tested different Depth-from-defocus techniques to pick out the most suitable for creating a coarse depth map. This depth map was used as a pre-estimate to limit the disparity space, thus fastening up the Structure tensor pipeline while avoiding outliers beforehand. However it turned out that on the one hand the obtained coarse depth maps were not precise enough, on the other hand no significant speedup could be obtained even with perfect pre-estimates. For that reasons we dropped the idea and continued to implement modifications in the structure tensor pipeline, which lead to significant improvements in the MSE metric. Some Methods did not bring the results we hoped for (sandclock shaped kernel, bilateral filtering in the Structure tensor).
 An alternative Coherence measurement has been developed based on first order error propagation, leading to slightly improved results to a cost of processing time. Occlusion handling with segmentating the EPIs based on the gradient norm showed some good results in scene \textit{cotton}, however it needs clear contrast edges in the scene to identify depth discontinuities. Implementing an alternative merging of x- and y- directional disparity estimations allowed for higher detail resolution and occlusion handling, however occlusions are taken care of with implementing a truncation threshold to the gradient in the EPI. This modification is easily implemented, does not significantly take longer in processing and noticeably improves the MSE for all scenes. \\
 In accordance to its original use we implemented the Semiglobal Matching algorithm in process, however we realized that results were better when proposing disparity candidate values artificially in a postprocessing step solely dependent on the estimated depth map. In an iterative manner we minimized the cost function to get a smooth result while retaining clear edges. However in its present form, this algorithm takes almost 2 minutes to calculate on 512x512 images.
-
+\\
+Based on other publications it is expected that the SGM algorithm can be implemented with higher efficience. As future work we propose to implement the iterative postprocessing SGM algorithm on a GPU to reach highest efficiency and possibly allow SGM to be applied in realtime.\\
+Further we propose to do quantitative real data tests with the Structure tensor by using a laser-scanned test scene. By using only synthetic data, all effects coming from abberations and calibration uncertainties are ignored.\\
+Next to sparse mapping and occlusion handling another issue of the Structure Tensor depth estimation are glossy surfaces. As part of this work tried to locate and separate glossy surfaces in the scene based on the work of \cite{tao2017shape}. However this side project did not work out successfully to present any results, leaving a branch of possibilities for further research.\\
+\\ 
+However, while working on the thesis, recent publications (\cite{luo2017epi}, \cite{shin18epinet}) present machine-learning based methods to reconstruct depth map from light field data yielding\setcitestyle{numbers} very good results in the HCI 4D Light Field Benchmark (\cite{hci_benchmark}).\\
+In another side project we trained a neural network based on Tensorflow (\cite{tensorflow2015-whitepaper}) which takes as input a single EPI (9x512) and assigns 512 depth values to it. It has been trained with the EPIs from the synthetic data we used in this work. Qualitative results can be found in the appendix. As our CNN already produced acceptable results and state of the art methods are machine-learing based, the future research on training neural nets for light field depth estimation is promising in our eyes.
+\setcitestyle{authoryear}
   \part*{Appendix}
   \begin{appendix}
   	\chapter{Derivation of the structure tensor}
@@ -1184,62 +1205,89 @@ In accordance to its original use we implemented the Semiglobal Matching algorit
   	
   	 \setcitestyle{numbers}
   	 
-  	\chapter{SGM Parameter Testing}
-  	\begin{figure}
-  		\centering
-  		\includegraphics[width=1\linewidth]{images/sgm_param_contour}
-  		\caption[parameter grid test for semi global matching]{parameter grid test for semi global matching}
-  		\label{fig:sgmparamcontour}
-  	\end{figure}
-  	
-  	\begin{figure}
-  		\centering
-  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_mse_100}
-  		\caption[Mean squared error for different (3) parameters]{Mean squared error for different (3) parameters}
-  		\label{fig:sgmparamscontourmse100}
-  	\end{figure}
-  	
-  	\begin{figure}
-  		\centering
-  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_discontinuities_0070}
-  		\caption[Discontinuity score for different (3) parameters]{discontinuity score for different (3) parameters}
-  		\label{fig:sgmparamscontourdis}
-  	\end{figure}
-  	
-  	\begin{figure}
-  		\centering
-  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_mae_planes}
-  		\caption[planes score for different (3) parameters]{planes score for different (3) parameters}
-  		\label{fig:sgmparamscontourdmae}
-  	\end{figure}
-  
-  	\begin{figure}
-  		\centering
-  		\includegraphics[width=1\linewidth]{images/histogram_error_mask_perfect}
-  		\caption[Histogram when masking errors with new error map]{The error histogram for different masks supposed one has found the ideal mask . The labeling indicates the fraction of masked out pixels.}
-  		\label{fig:histogramerrormaskperfect}
-  	\end{figure}
-  
-   	\begin{figure}
-  	\centering
-  	\includegraphics[width=1\linewidth]{images/histogram_error_mask_random}
-  	\caption[Histogram when masking errors with new error map]{The error histogram for different masks supposed the mask is completely random. The labeling indicates the fraction of masked out pixels.}
-  	\label{fig:histogramerrormaskrandom}
-  \end{figure}
+%  	\chapter{SGM Parameter Testing}
+%  	\begin{figure}
+%  		\centering
+%  		\includegraphics[width=1\linewidth]{images/sgm_param_contour}
+%  		\caption[parameter grid test for semi global matching]{parameter grid test for semi global matching}
+%  		\label{fig:sgmparamcontour}
+%  	\end{figure}
+%  	
+%  	\begin{figure}
+%  		\centering
+%  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_mse_100}
+%  		\caption[Mean squared error for different (3) parameters]{Mean squared error for different (3) parameters}
+%  		\label{fig:sgmparamscontourmse100}
+%  	\end{figure}
+%  	
+%  	\begin{figure}
+%  		\centering
+%  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_discontinuities_0070}
+%  		\caption[Discontinuity score for different (3) parameters]{discontinuity score for different (3) parameters}
+%  		\label{fig:sgmparamscontourdis}
+%  	\end{figure}
+%  	
+%  	\begin{figure}
+%  		\centering
+%  		\includegraphics[width=1\linewidth]{images/sgm_params_contour_mae_planes}
+%  		\caption[planes score for different (3) parameters]{planes score for different (3) parameters}
+%  		\label{fig:sgmparamscontourdmae}
+%  	\end{figure}
+%  
+%  	\begin{figure}
+%  		\centering
+%  		\includegraphics[width=1\linewidth]{images/histogram_error_mask_perfect}
+%  		\caption[Histogram when masking errors with new error map]{The error histogram for different masks supposed one has found the ideal mask . The labeling indicates the fraction of masked out pixels.}
+%  		\label{fig:histogramerrormaskperfect}
+%  	\end{figure}
+%  
+%   	\begin{figure}
+%  	\centering
+%  	\includegraphics[width=1\linewidth]{images/histogram_error_mask_random}
+%  	\caption[Histogram when masking errors with new error map]{The error histogram for different masks supposed the mask is completely random. The labeling indicates the fraction of masked out pixels.}
+%  	\label{fig:histogramerrormaskrandom}
+%  \end{figure}
 \chapter{Real Data}
 \label{sec:realdata_appendix}
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/truck_realdata}
-	\caption[Truck with iterative SGM]{a) Truck b)}
+	\caption[Truck with iterative SGM]{a) Depth map prod. by the structure tensor pipeline, with minimal coherence set to 0.85. b) Depth map when thresholding gradients, minimal coherence set to 0.85. c) Depth map when thresholding gradients and using iterative SGM Postprocessing, minimal coherence set to 0.85.  d) full centre view of the scene.}
 	\label{fig:truckrealdata}
 \end{figure}
-    \chapter{Lists}
-    \listoffigures
-    \listoftables
-    \bibliography{references}{}
-    \citestyle{egu}
-    \bibliographystyle{plainnat}
-    \include{deposition}
-  \end{appendix}
+\setcitestyle{authoryear}
+\chapter{CNN Disparity Estimation implementation}
+The approach of using machine learning for 3D reconstruction from light field is a growing area in research nowadays. Our approach is based on on supervised learning, using state-of-the-art Convolutional Neural Net (CNN) Architectures.
+We used a DenseNet CNN architecture that has been developed by \cite{huang2017densely} and has been applied to various task in the field of computer vision, e.g. for 3D- Object recognition and detection based on RGB-D data by \cite{wolf2018object}. In particular, the same architecture from this work has been used, adapted such that the input format fits the format of the EPIs used. As input data we use the 9x512x3 RGB EPI data, where 9 view angles are used, 512 is the pixelsize in the direction of the viewing positions and 3 describes the RGB-space. The output is a list with 512 entries, representing the depth values along the EPI. \\
+As we did before, we use a crosshair light field input yielding EPIs in x- and y-direction. For the sake of simplicity, our CNN only handles EPIs, such that the merging of x-and y-direction is done without ML. In fact, Semiglobal matching is applied, taking both directional values as candidates and scanning through the diagonal paths in the image for the best fitting depth.\\
+For training the Network we used 24 synthetic scenes from the \cite{hci_benchmark} Benchmark dataset, resulting in 512*24 EPIS for each direction, in total 24 576 EPI training sets.
+
+\section*{Results}
+
+In figure \ref{fig:cnnepiimages} the results of the trained CNN can be seen. In the lower leftr the scene \textit{pens} is depicted, which has been used for training of the Neural Net. It is expected to yield good results, however overfitting cannot be ruled out based ont testing training data. In this scene one can already see tearing effects along x- and y- direction. As the depth estimation happens row-(column-)wise, this effect is expected. In this example, the depth estimation based on x- and y- directional EPIs is done by simply taking the in-between value at each pixel. The synthetic testscene \textit{herbs} in the lower right already shows stronger tearing effects, however small details are captured surprisingly well. The real world scene \textit{trucks} is depicted in the upper row of figure \ref{fig:cnnepiimages}, horizontal and vertical EPI depth map estimations are separated. Here the smearing is even worse. Instead of merging x- and y-direction by the in-between value of both depth estimations, we merge them using the SGM algorithm with 2 candidates at each point, which are given by the directional CNN depth estimations. In figure \ref{fig:depthcnntruck} on the right the merged detph map is depicted in comparison to the Structure tensor pipeline result. Even though tearing is still visible, the result is a dense depth map showing a highly detailed depht map on textured areas, while big unicolored areas are also solved well.\\
+This side project is a proof-of-concept that reveals the power of CNN in light field depth reconstruction.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/CNN_EPi_images}
+	\caption[CNN Results]{Upper Left: Depth map created from trained CNN using vertical EPIs. Upper Right: Depth map created from trained CNN using horizontal EPIs. Lower Left: Depth map from training dataset. Lower Right: Depth map from a synthetic scene that is not part of the training data.}
+	\label{fig:cnnepiimages}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/truck_cnndata}
+	\caption[Truck with CNN +SGM]{Left: Clipping of the depth map of scene \textit{truck}, produced by the struchture tensor. right: Merged depth map from the CNN, using SGM for merging. }
+	\label{fig:depthcnntruck}
+\end{figure}
+
+\end{appendix}
+\chapter{Lists}
+\listoffigures
+\listoftables
+\bibliography{references}{}
+\citestyle{egu}
+\bibliographystyle{plainnat}
+\include{deposition}
+    
+
 \end{document}
