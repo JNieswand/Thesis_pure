@@ -1,4 +1,4 @@
-\babel@toc {english}{}
+\select@language {english}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Two-plane parametrisation}}{10}{figure.2.1}
@@ -15,11 +15,12 @@
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Alternative Merging:Parameter dependence}}{25}{figure.2.12}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Example values: One point $\mathaccentV {vec}17Ep$ contains different values}}{29}{figure.2.13}
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Discrete scanline to continuous scanline}}{30}{figure.2.14}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces SGM from different directions}}{30}{figure.2.15}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Example for post-processing smoothing}}{32}{figure.2.16}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Iteration steps}}{33}{figure.2.17}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Penalty function}}{34}{figure.2.18}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Linear Cost function results}}{34}{figure.2.19}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Different SGM Paths}}{30}{figure.2.15}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces SGM from different directions}}{31}{figure.2.16}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Example for post-processing smoothing}}{32}{figure.2.17}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Iteration steps}}{33}{figure.2.18}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Penalty function}}{34}{figure.2.19}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Linear Cost function results}}{35}{figure.2.20}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Pixel response for depth from focus techniques}}{39}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Depth from focus: depth maps}}{40}{figure.3.2}

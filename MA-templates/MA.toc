@@ -1,4 +1,4 @@
-\babel@toc {english}{}
+\select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{8}{chapter.1}
 \contentsline {chapter}{\numberline {2}Theory}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Light Field Parametrization}{9}{section.2.1}
@@ -20,13 +20,13 @@
 \contentsline {subsection}{\numberline {2.5.2}Semi - Global Matching for light fields}{28}{subsection.2.5.2}
 \contentsline {subsection}{\numberline {2.5.3}Occlusion awareness in SGM for light Fields}{31}{subsection.2.5.3}
 \contentsline {subsection}{\numberline {2.5.4}SGM as post-processing smoothing}{31}{subsection.2.5.4}
-\contentsline {subsection}{\numberline {2.5.5}Iterative post-processing}{31}{subsection.2.5.5}
-\contentsline {subsection}{\numberline {2.5.6}A new penalty function}{32}{subsection.2.5.6}
+\contentsline {subsection}{\numberline {2.5.5}Iterative post-processing}{32}{subsection.2.5.5}
+\contentsline {subsection}{\numberline {2.5.6}A new penalty function}{33}{subsection.2.5.6}
 \contentsline {subsection}{\numberline {2.5.7}Semi-global Matching implementation}{34}{subsection.2.5.7}
 \contentsline {section}{\numberline {2.6}Metrics for the evaluation of depth maps}{35}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}dense and sparse maps}{35}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}mean squared error}{35}{subsection.2.6.2}
-\contentsline {subsection}{\numberline {2.6.3}bad pixel score}{35}{subsection.2.6.3}
+\contentsline {subsection}{\numberline {2.6.2}mean squared error}{36}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}bad pixel score}{36}{subsection.2.6.3}
 \contentsline {subsection}{\numberline {2.6.4}bumpiness}{36}{subsection.2.6.4}
 \contentsline {subsection}{\numberline {2.6.5}discontinuity and planar scores}{36}{subsection.2.6.5}
 \contentsline {subsection}{\numberline {2.6.6}Mean Relative Error}{36}{subsection.2.6.6}
