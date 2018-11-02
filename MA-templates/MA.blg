@@ -7,6 +7,11 @@ A level-1 auxiliary file: deposition.aux
 Database file #1: references.bib
 Warning--entry type for "wolf2018object" isn't style-file defined
 --line 9 of file references.bib
+Warning--entry type for "freist2018reconst" isn't style-file defined
+--line 16 of file references.bib
+Warning--entry type for "schoenpflug2017optimizing" isn't style-file defined
+--line 22 of file references.bib
+Warning--I didn't find a database entry for "freist2018reconstr"
 Warning--I didn't find a database entry for "Benjaminsarbeit"
 Warning--to sort, need author or key in iwr.uni-heidelberg.de
 Warning--to sort, need author or key in homepages.inf.ed.ac.uk

@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="173.26636mm"
+   height="95.792595mm"
+   viewBox="0 0 173.26636 95.792595"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="sgm.svg"
+   inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1211">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1213"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1215">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1217"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1219">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1221"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1223">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1225"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1227">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1229"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1231">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1233"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1235">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1237"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1239">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1241"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1243">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1245"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1247">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1249"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1251">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1253"
+         width="173.32323"
+         height="103.97735"
+         x="-3.4295309"
+         y="0.60593694"
+         ry="0.40686682" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1255">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1257"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1259">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1261"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1263">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1265"
+         width="173.32323"
+         height="103.97735"
+         x="-3.4295309"
+         y="0.60593694"
+         ry="0.40686682" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1267">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1269"
+         width="173.32323"
+         height="103.97735"
+         x="-3.4295309"
+         y="0.60593694"
+         ry="0.40686682" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1271">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1273"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1275">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1277"
+         width="186.49945"
+         height="96.631325"
+         x="-3.6902478"
+         y="0.56312734"
+         ry="0.37812158" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1279">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1281"
+         width="186.49947"
+         height="96.631325"
+         x="-3.690248"
+         y="0.56312734"
+         ry="0.37812158" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1283">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1285"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1287">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1289"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1291">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1293"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1295">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1297"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1299">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1301"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1303">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1305"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1307">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1309"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1311">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1313"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1315">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1317"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1319">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1321"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1323">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1325"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1327">
+      <rect
+         style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+         id="rect1329"
+         width="175.59608"
+         height="102.6315"
+         x="-3.4745038"
+         y="0.59809387"
+         ry="0.40160048" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="183.16109"
+     inkscape:cy="200.18415"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <sodipodi:guide
+       position="182.6817,96.598864"
+       orientation="1,0"
+       id="guide837"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="40.494329,139.89651"
+       orientation="1,0"
+       id="guide895"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="28.19993,147.1128"
+       orientation="1,0"
+       id="guide897"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="53.055996,98.469744"
+       orientation="0.99999878,0.0015612934"
+       id="guide899"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="65.617663,92.055274"
+       orientation="1,0"
+       id="guide901"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="77.585152,83.456284"
+       orientation="1,0"
+       id="guide903"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="90.473729,94.995244"
+       orientation="1,0"
+       id="guide905"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="102.76813,101.67698"
+       orientation="1,0"
+       id="guide907"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="28.199929,72.164254"
+       orientation="0,1"
+       id="guide1008"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="73.368481,53.702094"
+       orientation="0,1"
+       id="guide1010"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="28.199929,61.853824"
+       orientation="0,1"
+       id="guide1183"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="-0.39790857,72.164264"
+       orientation="1,0"
+       id="guide1185"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="26.463872,23.925034"
+       orientation="0,1"
+       id="guide1191"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="28.199929,12.916484"
+       orientation="0,1"
+       id="guide1193"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="26.133142,2.3331544"
+       orientation="0,1"
+       id="guide1195"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(3.0765952,-2.7406984)">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ed1c24;fill-opacity:0.5373832;fill-rule:evenodd;stroke:none;stroke-width:4.75299978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect1154"
+       width="37.417732"
+       height="10.530861"
+       x="49.453335"
+       y="87.317703"
+       ry="0.40160048"
+       clip-path="url(#clipPath1327)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.08969593;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect815"
+       width="144.52158"
+       height="10.886811"
+       x="25.123335"
+       y="17.605337"
+       ry="0.06389048"
+       clip-path="url(#clipPath1323)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.08969593;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect815-1"
+       width="144.52158"
+       height="10.886811"
+       x="25.123335"
+       y="28.492149"
+       ry="0.06389048"
+       clip-path="url(#clipPath1319)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.91399997;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect815-0"
+       width="62.042149"
+       height="10.886811"
+       x="25.090872"
+       y="65.415855"
+       ry="0.06389048"
+       clip-path="url(#clipPath1315)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.91399997;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect815-5"
+       width="62.042149"
+       height="10.886811"
+       x="25.090872"
+       y="76.302666"
+       ry="0.06389048"
+       clip-path="url(#clipPath1311)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.91399997;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect815-7"
+       width="62.042149"
+       height="10.886811"
+       x="25.090872"
+       y="87.189484"
+       ry="0.06389048"
+       clip-path="url(#clipPath1307)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.57546777;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 49.979193,17.836462 49.71234,39.219058"
+       id="path876-1"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1303)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.55625272;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 74.502403,17.893469 0.0062,21.20993"
+       id="path876-1-2-6"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1299)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.7071327;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 37.417734,64.971185 37.155783,97.861643"
+       id="path876-1-2-6-99-3"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1295)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.7071327;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 49.715286,64.958102 49.453335,97.848561"
+       id="path876-1-2-6-99-3-6"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1291)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.7071327;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 62.276953,65.619559 -0.261951,32.89046"
+       id="path876-1-2-6-99-3-7"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1287)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.7071327;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 74.838621,65.430571 74.57667,98.32103"
+       id="path876-1-2-6-99-3-4"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1283)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.96459579px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.2491149"
+       x="29.328211"
+       y="25.079069"
+       id="text1014"
+       transform="scale(0.94153668,1.0620935)"
+       inkscape:transform-center-x="0.13363476"
+       inkscape:transform-center-y="-0.66817382"
+       clip-path="url(#clipPath1279)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1012"
+         x="29.328211"
+         y="25.079069"
+         style="stroke-width:0.2491149">1  2  3  4  5  6  ...             32 </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.96459579px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.24911489"
+       x="28.913147"
+       y="70.213165"
+       id="text1014-8"
+       transform="scale(0.94153669,1.0620935)"
+       inkscape:transform-center-x="0.13363476"
+       inkscape:transform-center-y="-0.66817382"
+       clip-path="url(#clipPath1275)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1012-9"
+         x="28.913147"
+         y="70.213165"
+         style="stroke-width:0.24911489">1  2  3  4  5   </tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5890649;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 152.57126,17.410459 -0.26628,22.453233"
+       id="path876-1-2-6-99-0"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1271)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.09199715px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15229993"
+       x="25.472528"
+       y="86.729462"
+       id="text1051-0"
+       transform="scale(1.0131134,0.98705633)"
+       clip-path="url(#clipPath1267)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1049-8"
+         x="25.472528"
+         y="86.729462"
+         style="stroke-width:0.15229993"> 1    2   4.1 4.1 4.1  </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.09199715px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15229993"
+       x="25.499681"
+       y="97.425049"
+       id="text1051-0-5"
+       transform="scale(1.0131134,0.98705633)"
+       clip-path="url(#clipPath1263)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1049-8-8"
+         x="25.499681"
+         y="97.425049"
+         style="stroke-width:0.15229993">1.0 1.0 0.3 0.2 0.2  </tspan></text>
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ed1c24;fill-opacity:0.55607473;fill-rule:evenodd;stroke:none;stroke-width:4.81714725;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect1089"
+       width="12.613314"
+       height="9.8273792"
+       x="74.783821"
+       y="29.026691"
+       ry="0"
+       clip-path="url(#clipPath1259)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.55625272;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 87.390933,17.644143 0.0062,21.20993"
+       id="path876-1-2-6-6"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1255)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.09199715px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15229993"
+       x="26.50783"
+       y="37.210354"
+       id="text1051"
+       transform="scale(1.0131134,0.98705633)"
+       clip-path="url(#clipPath1251)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1049"
+         x="26.50783"
+         y="37.210354"
+         style="stroke-width:0.15229993">0.5 0.9 0.8 0.2 0.1 1.0   ... </tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.55625272;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 62.541068,17.622116 0.0062,21.20993"
+       id="path876-1-2-6-5"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1247)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.55625272;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 99.685332,17.75575 0.0062,21.209931"
+       id="path876-1-2-6-4"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1243)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="23.989407"
+       y="10.574845"
+       id="text1158"
+       clip-path="url(#clipPath1239)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1156"
+         x="23.989407"
+         y="10.574845"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.26458332">Stereo:</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.55625272;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 37.417734,17.75575 0.0062,21.209932"
+       id="path876-1-2-6-4-1"
+       inkscape:connector-curvature="0"
+       clip-path="url(#clipPath1235)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="23.800419"
+       y="57.174107"
+       id="text1177"
+       clip-path="url(#clipPath1231)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1175"
+         x="23.800419"
+         y="57.174107"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.26458332">Light field:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-3.4745038"
+       y="26.36904"
+       id="text1181"
+       clip-path="url(#clipPath1227)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1179"
+         x="-3.4745038"
+         y="26.36904"
+         style="font-size:7.76111126px;stroke-width:0.26458332">disp:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-3.4745038"
+       y="36.67947"
+       id="text1189"
+       clip-path="url(#clipPath1223)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1187"
+         x="-3.4745038"
+         y="36.67947"
+         style="font-size:7.76111126px;stroke-width:0.26458332">cost:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-3.4745038"
+       y="74.608261"
+       id="text1199"
+       clip-path="url(#clipPath1219)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1197"
+         x="-3.4745038"
+         y="74.608261"
+         style="font-size:7.76111126px;stroke-width:0.26458332">shift:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-3.4745038"
+       y="85.616806"
+       id="text1203"
+       clip-path="url(#clipPath1215)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1201"
+         x="-3.4745038"
+         y="85.616806"
+         style="font-size:7.76111126px;stroke-width:0.26458332">disp:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-3.4745038"
+       y="96.200142"
+       id="text1207"
+       clip-path="url(#clipPath1211)"
+       inkscape:export-filename="C:\Users\jnieswand\Documents\Thesis_pure\MA-templates\images\sgm_table.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1205"
+         x="-3.4745038"
+         y="96.200142"
+         style="font-size:7.76111126px;stroke-width:0.26458332">cost:</tspan></text>
+  </g>
+</svg>

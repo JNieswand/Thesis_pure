@@ -52,22 +52,26 @@
 
 
 \chapter{Introduction}
-In the field of computer vision one big challenge is the \textit{3D Reconstruction} based on 2D Images. This is reasoned by the sheer amount of different applications, reaching from industrial quality management to creations of CGI effects as well as in the gaming industry. 3D Reconstruction recently has become irreplaceable in the car industry related to the development of autonomous driving systems. Another industrial application is the robotic vision for improving automation setups, such as vision-controlled pick-and-place systems.\\
+In the field of computer vision one big challenge is the 3D reconstruction based on 2D images. This is reasoned by the sheer amount of different applications, reaching from industrial quality management to creations of CGI effects as well as in the gaming industry. 3D Reconstruction recently has become irreplaceable in the car industry related to the development of autonomous driving systems. Another industrial application is the robotic vision for improving automation setups, such as vision-controlled pick-and-place systems.\\
 
 Obtaining 3D Information via a camera system is mainly done by using either stereo camera systems, structured light systems, TOF(Time-of-flight)-cameras or interferometry cameras. While the last 3 mentioned systems are capable of reconstructing 3D-scenes of diffuse surfaces quite well, they do not make use of the surface RGB values.\\
-Recently \textit{light field imaging} as an expansion of Stereo imaging has become a main field of research in computer vision. By capturing the scene from multiple viewpoints, a whole bunch of data can be processed to not only reconstruct the depth, but also enable making statements about the surface characteristics. The real-time processing of a sufficient amount of 2D data however still remains a challenge. \\
+When capturing a scene from two waypoints (stereo), feature matching is used to determine the depth of a feature point passively. 
+Recently \textit{light field imaging} as an expansion of stereo imaging has become a main field of research in computer vision. By capturing the scene from multiple viewpoints, a whole bunch of data can be processed to not only reconstruct the depth more robustly, but also enable making statements about the surface characteristics. The real-time processing of a sufficient amount of 2D data still remains a challenge. \\
 Further reconstructing the 3D image from 2D images tasks comes with challenging tasks:
 \begin{itemize}
 	\item Occlusions: As we cannot see the full scene from each viewpoint, some points of the surface we are looking at are either partly or fully occluded.
 	\item single-coloured surfaces: Parts of the scene with low textural structure lead makes viewpoint-to-viewpoint-matching barely possible.
 	\item Glossy surfaces: When developing a 3D reconstruction solution based on the assumption of \textit{lambertian} surfaces, we assume a surface point to be in the same colour no matter from which position/angle we look at it. However,  this is not the case for reflective/glossy surfaces.
 \end{itemize}
-In this work, we try to tackle those problems using a depth reconstruction algorithm based on the work of \cite{wanner2014orientation} while maintaining reasonable calculation times.
+In this work, we try to tackle those problems using a depth reconstruction algorithm based on the work of \cite{wanner2014orientation} while maintaining reasonable calculation times.\\
+Advanced research on light field depth reconstruction has been published by \cite{diebold2016light}, expanding the approach to heterogenous light fields. \cite{schoenpflug2017optimizing} conducts research at inpainting low-feature areas in light field depth maps. In the work of \cite{freist2018reconst} modifications on the algorithm of Wanner as well as a graph-based post-processing optimization method are proposed for obtaining imporoved depth maps.
+
+
 
 
 \chapter{Theory}
 \section{Light Field Parametrization}
-The earliest introduction to Light Fields in literature can be found in \cite{adelson1991plenoptic}, where they parametrize the field of light as a  so-called \glqq plenoptic function \grqq. If we assume that every point in space emits a light ray  in a given direction which is characterized by an intensity value $P$, the whole information in the light field is given as a 6-dimensional function
+The earliest introduction to Light Fields in literature can be found in \cite{adelson1991plenoptic}, where they parametrize the field of light as a  so-called 'plenoptic function'. If we assume that every point in space emits a light ray  in a given direction which is characterized by an intensity value $P$, the whole information in the light field is given as a 6-dimensional function
 \begin{equation}\label{key}
 P(V_x,V_y, V_z, \theta, \phi, \lambda),
 \end{equation}
@@ -81,22 +85,23 @@ P(x,y, V_x, V_y, V_z, \lambda).
  A more detailed introduction to light fields can also be found in \cite{wanner2014orientation}. 
  \setcitestyle{authoryear}
 \subsection{The Lumigraph}
-In the form of \ref{eq:plenoptic} the plenoptic function is a 7-dimensional function, which is difficult to record and to handle. As described by \cite{wu2017light} this plenoptic function is usually simplified in 3 steps: First, we neglect the time dependence (assuming a static scene), further we neglect the wavelength $\lambda$, instead we define the mapped value of the plenoptic function as a vector containing the colour channels. 
-Additionally, the plenoptic function obtains redundant information due to the fact, that light rays that are lying on one line in space propagate in the same direction, as introduced by \cite{bolles1987epipolar}. The 4D- representation is also known as the \textit{Lumigraph}. Those 4 dimensions can be split to 2 angular dimensions describing the direction of each ray and 2 dimensions for the location of the ray: Since every ray would pass an image plane of infinite size once (if the propagation vector is not parallel), two coordinates for localizing the ray are sufficient. Commonly the \textit{two-plane-parametrisation} is used to describe the light field. Every ray is characterized by the intersection of two arbitrary parallel planes $\Pi$ and $\Omega$. Mathematically spoken the light field $L$ is a function
+In the form of \ref{eq:plenoptic} the plenoptic function is a 7-dimensional function, which is difficult to record and to handle. As described by \cite{wu2017light} this plenoptic function is usually simplified in 3 steps: First, we neglect the time dependence assuming a static scene. Further we neglect the wavelength $\lambda$, instead we define the mapped value of the plenoptic function as a vector containing the colour channels. 
+Additionally, the plenoptic function obtains redundant information due to the fact, that light rays that are lying on one line in space propagate in the same direction, as introduced by \cite{bolles1987epipolar}. The 4D-representation is also known as the \textit{Lumigraph}. Those 4 dimensions can be split to 2 angular dimensions describing the direction of each ray and 2 dimensions for the location of the ray: Since every ray would pass an image plane of infinite size once (if the propagation vector is not parallel), two coordinates for localizing the ray are sufficient. Commonly the \textit{two-plane-parametrisation} is used to describe the light field. Every ray is characterized by the intersection of two arbitrary parallel planes $\Pi$ and $\Omega$. Mathematically spoken the light field $L$ is a function
 \begin{equation}\label{key}
 L:\Omega\times \Pi \rightarrow \!R\qquad x,y,s,t\rightarrow L(x,y,s,t),
 \end{equation}
 where $x,y$ are the coordinates in the first plane $\Omega$ and $s,t$ are the coordinates in the second plane $\Pi$. If we move a camera in a plane and take pictures of a scene orthogonal to the camera plane, the image itself is described by the image coordinates $x,y$ while the position of the camera is denoted as $s,t$. Both planes are parallel to each other; that way a light field can be measured in a straightforward manner.
+\setcitestyle{numbers}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/twoplane_param}
-	\caption[Two-plane parametrisation]{In a 4-dimensional two-plane parametrisation a light ray is characterized by the intersection with two parallel planes. we refer to the plane  $\Pi$ as the camera plane and the plane $\Omega$ as the image plane. From \cite{Xu:12}}
+	\caption[Two-plane parametrisation]{In a 4-dimensional two-plane parametrisation a light ray is characterized by the intersection with two parallel planes. We refer to the plane  $\Pi$ as the camera plane and the plane $\Omega$ as the image plane. From \cite{Xu:12}}
 	\label{fig:twoplaneparam}
 \end{figure}
-
+\setcitestyle{authoryear}
 \subsection{Epipolar Plane Images}
 \label{sec:epi}
-We measure the light field in order to obtain as much information about the scene we're looking at as possible. In order to obtain the three-dimensional structure one needs to map the light field in a certain manner: We take a look at one 2-dimensional slice through the 4-dimensional space while keeping 2 coordinates constant: one horizontal coordinate  $x^{*}$  in the image plane and one vertical coordinate $t^{*}$ in the camera plane (or vice versa). The slice $\Sigma_{x^{*}, t^{*}}$ is a 2-dimensional image called Epipolar Plane Image (EPI). In figure \ref{fig:epivisualization} the extraction of an EPI from camera array data is visualized. As seen in figure \ref{fig:simpleepi} it consists of lines with different slopes, each point on one line with the same slope belongs to the same point in the scene viewed from different angles. From the slope $\Delta$ of the line at each point we obtain the distance from the camera plane with the equation
+We measure the light field in order to obtain as much information about the scene we're looking at as possible. In order to obtain the 3-dimensional structure one needs to map the light field in a certain manner: We take a look at one 2-dimensional slice through the 4-dimensional space while keeping 2 coordinates constant: one horizontal coordinate  $x^{*}$  in the image plane and one vertical coordinate $t^{*}$ in the camera plane (or vice versa). The slice $\Sigma_{x^{*}, t^{*}}$ is a 2-dimensional image called Epipolar Plane Image (EPI). In figure \ref{fig:epivisualization} the extraction of an EPI from camera array data is visualized. As seen in figure \ref{fig:simpleepi} it consists of lines with different slopes, each point on one line with the same slope belongs to the same point in the scene viewed from different angles. From the slope $\Delta$ of the line at each point we obtain the distance from the camera plane with the equation
 \begin{equation}\label{eq:distance}
 \text{distance} = \frac{f\cdot b}{\Delta},
 \end{equation}
@@ -105,14 +110,14 @@ where $f$ is the focal length of the camera and $b$ is the baseline between the 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/epiVisualization}
-	\caption[Visualization of an EPI extraction]{Visualization of an Epipolar Plane Image extractoin: A camera array takes images of the same scene from slightly different angles (left array). For a fixed image coordinate $y^*$ (green) and a fixed camera coordinate $t^*$ (red) the pixels are extracted and stacked up resulting in an EPI $\Sigma_{y^*, t^*}$ (green box on the right). From   \setcitestyle{numbers}\cite{iwr.uni-heidelberg.de} \setcitestyle{authoryear}}
+	\caption[Visualization of an EPI extraction]{Visualization of an Epipolar Plane Image extractoin: A camera array takes images of the same scene from slightly different angles (left array). For a fixed image coordinate $y^*$ (green) and a fixed camera coordinate $t^*$ (red) the pixels are extracted and stacked up resulting in an EPI $\Sigma_{y^*, t^*}$ (green box on the right). From \setcitestyle{numbers}\cite{iwr.uni-heidelberg.de} \setcitestyle{authoryear}}
 	\label{fig:epivisualization}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/simple_epi}
-	\caption[Example Epipolar Plane image]{An Epipolar Plane Image (EPI) that consists of 9 rows (9 equidistant views or sample points in the camera plane). Points with the same colour correspond to the same scene point. Since the viewpoints are slightly shifted, the scene point is also shifted in each view by the disparity $d$. Marked in red one can identify the centre position of the camera viewpoints.}
+	\caption[Example Epipolar Plane image]{An Epipolar Plane Image (EPI) that consists of 9 rows (9 equidistant views or sample points in the camera plane). Points with the same colour correspond to the same scene point. Since the viewpoints are slightly shifted, the scene point is also shifted in each view by the disparity $d$. The pixels from the centre view position are marked in red.}
 	\label{fig:simpleepi}
 \end{figure}
 
@@ -125,7 +130,7 @@ Measuring depth from light field data can be done using various approaches.
 	\item EPI-based methods
 	\item Learning-based methods
 \end{enumerate}
-In the following we focus on one specific EPI-based method on which is investigated as part of this work. However, the reader is encouraged to take a look at the cited paper \glqq Light Field Image Processing: An Overview \grqq by \cite{wu2017light} for a state-of-the-art overview of different light field approaches.\\
+In the following we focus on one specific EPI-based method on which is investigated as part of this work. However, the reader is encouraged to take a look at the cited publication 'Light Field Image Processing: An Overview' by \cite{wu2017light} for a state-of-the-art overview of different light field approaches.\\
 \cite{wanner2014orientation} makes use of the oriented structure of the EPI using image-processing techniques. This idea has first been introduced by \cite{bigun1987optimal} in 1987.\\
 
 The 2-dimensional structure tensor $J$  on a function $g:\Omega \rightarrow \!R, \Omega \subset \!R^2 $ is defined as
@@ -155,7 +160,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \begin{figure}[]
  	\centering
  	\includegraphics[width=0.7\linewidth]{images/Lumiplus}
- 	\caption[LumiPlus Scanner from HDVision Systems]{Instead of a complete camera array a crosshair camera reduces the number of cameras to one row and one column for faster processing. This \textit{Lumi+} - Scanner from HDVision Systems is mounted an a robot arm for industrial applications.}
+ 	\caption[LumiPlus Scanner from HDVision Systems]{Instead of a complete camera array a crosshair camera reduces the number of cameras to one row and one column for faster processing. This \textit{Lumi+} - Scanner from HDVision Systems is mounted on a robot arm for industrial applications.}
  	\label{fig:lumiplus}
  \end{figure}
  
@@ -165,7 +170,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \text{horizontal view}&\rightarrowtail \text{Nr of columns in image coordinates }\times \text{Nr of cameras}
  \end{align*}
  
- For each EPI we calculate the structure tensor independently. This is done by first pre-smoothing the EPI with a $3\times3$ Gaussian kernel to obtain reasonable results when calculating the gradient in the next step. Note that before calculating the gradient, the EPI is converted to grey-scale format.\\
+ For each EPI we calculate the structure tensor independently. This is done by first pre-smoothing the EPI with a $3\times3$ Gaussian kernel to obtain to avoid noise. Note that before calculating the gradient, the EPI is converted to grey-scale format.\\
  The gradient is calculated via the Scharr-filter, which has the form
  \begin{align}\label{key}
  \text{Scharr}_x &= \left(\begin{matrix}
@@ -197,7 +202,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \end{equation} 
  \subsection{The occlusion problem of the structure Tensor}
  \label{sec:occlusionproblem}
- Having a look at the results of the the benchmark test of \cite{honauer2016benchmark} one realizes that most light field depth estimation algorithms suffer from large errors near depth discontinuities. Since the centre view pixels close to the edge of a depth discontinuity are at least partly occluded, this behaviour is to be expected. The ST almost always produces a systematic error near discontinuities, leading to a \glqq magnification\grqq of the object closer to the camera in the depth map, see figure \ref{fig:cottondiscontinuities0070}. We refer to this as \glqq edge fattening \grqq. The reason for this error has its origin in the smoothing of the EPI as part of the algorithm.  At the occlusion, the edge between the fore- and background follows the same orientation as the foreground does. \\
+ Having a look at the results of the the benchmark test of \cite{honauer2016benchmark} one realizes that most light field depth estimation algorithms suffer from large errors near depth discontinuities. Since the centre view pixels close to the edge of a depth discontinuity are at least partly occluded, this behaviour is to be expected. The ST almost always produces a systematic error near discontinuities, leading to a 'magnification' of the object closer to the camera in the depth map, see figure \ref{fig:cottondiscontinuities0070}. We refer to this as 'edge fattening'. The reason for this error has its origin in the smoothing of the EPI as part of the algorithm.  At the occlusion, the edge between the fore- and background follows the same orientation as the foreground does. \\
   Furthermore the occlusion mostly comes with a a colour change, resulting in a high gradient which dominates the local environment orientation: Edge fattening is the consequence. In figure \ref{fig:occlusion} one can recognize two effects leading to edge fattening: Firstly the EPI is smoothed with a $3\times 3$ Gaussian kernel which already will enlarge the foreground structure (b). This becomes clear when we illustrate the norm of the gradients (c), since the strong (white) gradients all measure the foreground (green) structure. A clear shift to the left is visible from (b) to (c). However, this bias error is small compared to the second error that is indicated in (d): The red dot lies clearly in the background structure. However, calculating the structure tensor components from the local environment (green square) one would obtain the foreground structure at the red dot, since the strong gradients in the square dominate. In (e) the total bias in labelling the two structures is illustrated. 
   \begin{figure}
   	\centering
@@ -219,7 +224,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  Even though one often wants to smoothen the depth map in a post-processing step to reduce the noise and cancel out outliers, the structure tensor algorithm by Wanner is forced to smoothen the depth map in the process by estimating the depth from the local neighbourhood in the EPI.\\
  In the work of \cite{wanner2014orientation} the effect of the kernel size has been examined extensively and he calculated the best parameters for different scenes by grid search.\\
  Note that if the kernel is smaller than the height of the EPI, the outer cameras are neglected and do not enter in the calculation of the depth. To maintain the information of all cameras and vary the kernel size at the same time, \cite{diebold2016light} proposes asymmetrical kernel sizes to eventually reduce edge-fattening effects. However, asymmetrical kernels still need to find a trade off between denoising and avoiding edge fattening and do not significantly increase the quality of the depth map result.\\
- Another approach is to choose a custom kernel form which only weights the local gradients that could possibly be part of the \glqq correct\grqq line in the EPI. Such a kernel is illustrated in figure \ref{fig:sandclock},  it has the form of as sandglass. in y-direction, it still follows a Gaussian distribution.
+ Another approach is to choose a custom kernel form which only weights the local gradients that could possibly be part of the 'correct' line in the EPI. Such a kernel is illustrated in figure \ref{fig:sandclock},  it has the form of as sandglass. In y-direction, it still follows a Gaussian distribution.
  \begin{figure}
  	\centering
  	\includegraphics[width=0.7\linewidth]{images/sandclock.png}
@@ -229,7 +234,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  
  \subsection{Colour-awareness with bilateral filtering}
  \label{sec:bilateral}
- In its original form the structure tensor pipeline weights the square of all gradients in a local environment by the distance to the reference point. Since all local gradients in the EPI that belong to the same colour in the EPI are very likely to belong to the same orientation, in theory one only has to find all points with the same colour which then lie on the same line in the EPI. The preferred orientation of the gradients at those points will then correspond to their slope with high confidence. However, most objects are not perfectly lambertian such that not all points on the correct line have to be of the exact same colour. Only filtering the exact colour will lead to noisy results. Though one could implement a filter weighting not only the distance in a Gaussian manner but also the distance from the  EPI kernel origin in the colour RGB space; such a filter is called \glqq bilateral filter \grqq (\cite{tomasi1998bilateral}). Pixels with completely different colour will be excluded from the Neighbourhood when calculating the structure tensor. In equation \ref{eq:structuretensor} the window function $G$ is then defined as 
+ In its original form the structure tensor pipeline weights the square of all gradients in a local environment by the distance to the reference point. Since all local gradients in the EPI that belong to the same colour are very likely to belong to the same orientation, in theory one has to find all points with the same colour which then lie on the same line in the EPI. The preferred orientation of the gradients at those points will then correspond to their slope with high confidence. However, most objects are not perfectly lambertian such that not all points on the correct line have to be of the exact same colour. Only filtering the exact colour will lead to noisy results. Though one could implement a filter weighting not only the distance in a Gaussian manner but also the distance from the  EPI kernel origin in the colour RGB space; such a filter is called 'bilateral filter' (\cite{tomasi1998bilateral}). Pixels with completely different colour will be excluded from the Neighbourhood when calculating the structure tensor. In equation \ref{eq:structuretensor} the window function $G$ is then defined as 
  \begin{equation}\label{eq:bilateral}
  G_P = \frac{1}{W_p}\sum_{q\in N} g_{\sigma_d}(||p-q||) g_{\sigma_c}(||I_{p, \text{EPI}}-I_{q, \text{EPI}}||),
  \end{equation}
@@ -243,7 +248,7 @@ G*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & G*\frac{\partial 
  \end{itemize}
 
 
-It is important to notice that the colour distance is extracted from the EPI, though we are filtering the components of the second derivatives, see equation \ref{eq:structuretensor}. In fact, the EPI only serves as a \glqq guide\grqq for the filtering.
+It is important to notice that the colour distance is extracted from the EPI, though we are filtering the components of the second derivatives, see equation \ref{eq:structuretensor}. In fact, the EPI only serves as a guide for the filtering.
  \subsection{Thresholding the gradients}
  \label{sec:thresholdinggradients}
  In section \ref{sec:occlusionproblem} it is explained why the structure tensor struggles to serve with a  good estimation at depth transitions. It is referred to two errors, one coming from the first smoothing, the other one as a result from the second Gaussian smoothing. To avoid the second error, one could in principle normalize all local gradients such that in figure \ref{fig:occlusion} (d) the foreground gradients in a local environment obey the same weight in the structure tensor calculation as the background gradients around the red dot.\\
@@ -251,7 +256,7 @@ It is important to notice that the colour distance is extracted from the EPI, th
  \begin{align}
  	\tilde{\vec \nabla}(x,y) = \frac{1}{\sqrt{\nabla_x(x,y)^2 + \nabla_y(x,y)^2}} \vec \nabla_x(x,y)
  \end{align}
- Nevertheless in some occasions one wants the stronger gradients to play a bigger role in the preferred orientation, since small gradients are more likely to be noisy. The only way to damp the gradients at occlusions while not strengthening the small noisy gradients in an EPI is to implement a truncation threshold. The gradient is then given by
+ Nevertheless in some occasions one wants the stronger gradients to play a bigger role in the preferred orientation, since small gradients are more likely to be noisy. One way to damp the gradients at occlusions while not strengthening the small noisy gradients in an EPI is to implement a truncation threshold. The gradient is then given by
  \begin{align}
  \tilde{\vec \nabla}(x,y) &= \begin{cases}
 \frac{\text{threshold}}{\text{norm}} \vec \nabla(x,y) \quad &\text{if}\quad \text{norm}> \text{threshold}\\
@@ -263,30 +268,31 @@ It is important to notice that the colour distance is extracted from the EPI, th
  
  \subsection{Occlusion-awareness using segmentation of the EPI}
  \label{sec:occlusionsegmentation}
- In the section a method is proposed that attempts to handle both occlusion errors mentioned in section \ref{sec:occlusionproblem}.\\
- Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs in order to handle the occlusion problems. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculate them separately. By setting the gradient at the transition in the EPI to 0, background and foreground structure are calculated without being biased by the gradient of the transition itself. Therefore the EPI is segmented binarily into occlusion transitions and continuous areas, whereby the norm vector is thresholded to create a binary mask on the EPI. Possibly one could think of a better criterion that is segmenting occlusion/non-occlusion areas, however this approach does not need to calculate the disparity values beforehand and can be implemented in the work flow directly. In principle the algorithm works as follows:
+ In this section a method is proposed that attempts to handle both occlusion errors mentioned in section \ref{sec:occlusionproblem}.\\
+ Bilateral filtering (section \ref{sec:bilateral}) and thresholding the gradients (section \ref{sec:thresholdinggradients}) may improve the depth map estimation, however they come with trade-offs in order to handle the occlusion problems. An alternative way to maintain sharp transitions is to find those transitions in the EPI and calculate them separately. By setting the gradient at the transition in the EPI to 0, background and foreground structure are calculated without being biased by the gradient of the transition itself. Therefore the EPI is segmented binarily into occlusion transitions and continuous areas, whereby the norm vector is thresholded to create a binary mask on the EPI. \\
+ Possibly one could think of a better criterion for segmenting occlusion/non-occlusion areas then the norm vector size. However, using this binary mask there is no need to calculate the disparity values beforehand and it can be implemented in the work flow directly. In principle the algorithm works as follows:
  \begin{enumerate}
  	\item Segment the transitions and the rest of the EPI with a binary mask based on the gradient norm.
  	\item Calculate the structure tensor components on the masked gradient of the EPI. All masked gradients are zero and do not affect the local environment structure.
  	\item Calculate the structure tensor components again, now on the inverted masked gradient of the EPI.
  	\item Join the the disparity values from both masks.
  \end{enumerate}
- In figure \ref{fig:derivativesfull} the segmentation process is illustrated step-by-step. The gradient of the grey-value EPI (a) is calculated in x- and y-direction (b), from which one calculates and thresholds the norm (c, d). The threshold itself is chosen to be 0.5 if not mentioned otherwise. It is essential to modify resulting mask from the binary thresholding (e)  using morphological image-processing operators as explained in detail in \cite{homepages.inf.ed.ac.uk}. It is made use of Morphological Closing (structured filling in of image region boundary pixels), which is explained in figure \ref{fig:closing}.\\
- Having a look at the different scenarios in the given EPI that can happen when segmenting, the necessity for morphological closing becomes clear. The EPI has two visible disparity transitions, one at Pixel [133] and one at Pixel [185]. At [133] (a) it is seen that the transition affects multiple neighbouring pixels even though the EPI isn't smoothed yet. Our aim is to mask those transitions. However at Pixel [63] and[174] the threshold is also crossed, since big gradients do not necessarily have to lie on a transition. Still the false-positive masked transitions are less uncomfortable to handle then a false negative result. It is clearly visible at [63], that zero crossings in the gradient lead to holes in the mask which need to be closed by morphological closing. Since the local environment of each pixel is only given by near pixels in the same segment (masked/unmasked), small holes lead to erroneous results at those pixels. After morphological closing, a last post-processing step has to be made to handle the smearing due to the $3\times 3$-Gaussian pre-smoothing In figure \ref{fig:closing} (d) one sees that the transition peak is Gaussian-formed. If one simply cuts out the segment at the threshold transition, the background segment gradient is still dominated by the gradients directly next to the segment transitions. This becomes visible in figure \ref{fig:segmgaussian}, where the inverted mask of the EPI gradient is shown. Thus morphological dilation with a $3\times3$ kernel is applied on the inverted filter, resulting in a complete separation of any peak crossing the threshold.
+ In figure \ref{fig:derivativesfull} the segmentation process is illustrated step-by-step. The gradient of the grey-value EPI (a) is calculated in x- and y-direction (b), from which one calculates and thresholds the norm (c, d). The threshold itself is chosen to be 0.5 if not mentioned otherwise. It is essential to modify the resulting mask from the binary thresholding (e) using morphological image-processing operators as explained in detail in \setcitestyle{numbers}\cite{homepages.inf.ed.ac.uk}\setcitestyle{authoryear}. We make use of Morphological Closing (structured in-filling of image region boundary pixels), which is explained in figure \ref{fig:closing}.\\
+ Having a look at the different scenarios in the given EPI that can happen when segmenting, the necessity for morphological closing becomes clear, see figure \ref{fig:derivativesfull}. The EPI has two visible disparity transitions, one at Pixel [133] and one at Pixel [185]. At [133] (a) it is seen that the transition affects multiple neighbouring pixels even though the EPI isn't smoothed yet. Our aim is to mask those transitions. However at Pixel [63] and[174] the threshold is also crossed, since big gradients do not necessarily have to lie on a transition. Still the false-positive masked transitions are less uncomfortable to handle then a false negative result. It is clearly visible at [63], that zero crossings in the gradient lead to holes in the mask which need to be closed by morphological closing. Since the local environment of each pixel is only given by near pixels in the same segment (masked/unmasked), small holes lead to erroneous results at those pixels. After morphological closing, a last post-processing step has to be made to handle the smearing due to the $3\times 3$-Gaussian pre-smoothing In figure \ref{fig:closing} (d) one sees that the transition peak is Gaussian-formed. If one simply cuts out the segment at the threshold transition, the background segment gradient is still dominated by the gradients directly next to the segment transitions. This becomes visible in figure \ref{fig:segmgaussian}, where the inverted mask of the EPI gradient is shown. Thus morphological dilation with a $3\times3$ kernel is applied on the inverted filter, resulting in a complete separation of any peak crossing the threshold.
  
  
  
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/derivatives_full}
-	\caption[Segmenting an EPI]{(a) Input EPI to be segmented. (b) show the local derivatives along the centre view line. (c) shows the vector norm of the derivative. (d) shows the centre view norm with the threshold that is applied to mask transitions. (e) shows the resulting mask. (f) shows the improved mask using morphological image processing. (g) shows the mask at the centre view before and after using morph. image processing. }
+	\caption[Segmenting an EPI]{(a) Input EPI to be segmented. (b) show the local derivatives along the centre view line. (c) shows the vector norm of the derivative. (d) shows the centre view norm with the threshold that is applied to mask transitions. (e) shows the resulting mask. (f) shows the improved mask using morphological image processing. (g) shows the centre view line from (e,f). }
 	\label{fig:derivativesfull}
 
 \end{figure}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/closing}
-	\caption[Morphological closing]{Morphological closing is a combination of Dilation and Erosion. Dilation uses a custom-sized kernel and turns any 0 to 1, if at least one 1 is found in the local environment. Erosion turns any 1 to 0, if at least one 0 is found in the local environment. Image from \cite{what-when-how.com}}
+	\caption[Morphological closing]{Morphological closing is a combination of Dilation and Erosion. Dilation applies a custom-sized binary kernel on a binary input file and turns all \textbf{0} to \textbf{1} as long as at least one \textbf{1} is found in the kernel. Erosion on the other hand turns all \textbf{1} to \textbf{0} in the kernel. \setcitestyle{numbers}Image from \cite{what-when-how.com}\setcitestyle{authoryear}}
 	\label{fig:closing}
 \end{figure}
 
@@ -361,9 +367,9 @@ It is important to notice that the colour distance is extracted from the EPI, th
  If we insert the above equation \ref{eq:normed_std_final} into \ref{eq:std_struct} into \ref{eq:deviation_d}, we obtain a deviation measure $\Delta d$ for the disparity based on the gradient deviation in the EPI.
  
  \subsection{Alternative Merging of x- and y- orientation}
- In the old ST Pipeline, the coherence value as defined in equation \ref{eq:coherence} not only determines which depth value should be chosen from refocussing the EPI, it is also used to decide whether the local depth estimation is taken from the x-directed EPI or the y-direction. In the article of \cite{sheng2018occlusion} a full light field is evaluated such that multiple EPIs are available for each point. To handle occlusions, the EPI with less intensity variance is chosen to calculate the depth. In our case we are working with a crosshair light field only providing two EPIs for each scene point. Choosing the one with higher coherence seems logical, however at occlusions we are mostly provided with a clear structure in the EPI leading to a high coherence value. As a result, the EPI including edges is chosen in the close neighbourhood of a discontinuity edge, leading to \textbf{edge fattening}.\\
- In his work, \cite{wanner2014orientation} also proposes a TV-L minimization scheme to merge the disparity values resulting from x-directional and y-directional EPIs. Despite achieving good results, the improvement did not justify the calculation time of such optimization scheme. He thus sticks to choose the value with higher coherence.\\
- Instead one simply chooses the disparity value which relates to the a larger depth, and only chooses the closer disparity value, if the coherence difference is big enough. Therefore we introduce a threshold:
+ In the old ST Pipeline, the coherence value as defined in equation \ref{eq:coherence} not only determines which depth value should be chosen from refocussing the EPI, it is also used to decide whether the local depth estimation is taken from the x-directed EPI or the y-direction. In the article of \cite{sheng2018occlusion} a full light field is evaluated such that multiple EPIs are available for each point. To handle occlusions, the EPI with less intensity variance is chosen to calculate the depth. As we are working with a crosshair light field only providing two EPIs for each scene point, this is not a possible approach in our case. Choosing the one with higher coherence seems logical, however at occlusions we are mostly provided with a clear structure in the EPI leading to a high coherence value. As a result, the EPI including edges is chosen in the close neighbourhood of a discontinuity edge, leading to 'edge fattening'.\\
+ In his work, \cite{wanner2014orientation} also proposes a TV-L minimization scheme to merge the disparity values resulting from x-directional and y-directional EPIs. Despite achieving good results, the improvement did not justify the calculation time of this optimization scheme. He thus sticks to choose the value with higher coherence.\\
+ Instead, we propose to choose the disparity value which relates to a larger depth and only chooses the closer disparity value, if the coherence difference is big enough. Therefore we introduce a threshold:
  \begin{equation}\label{eq:altmerging}
  d(x,y) = \begin{cases}
  \min(d_x(x,y),d_y(x,y))&\text{ if } |c_x(x,y)-c_y(x,y)|<\text{threshold} \\
@@ -375,19 +381,19 @@ It is important to notice that the colour distance is extracted from the EPI, th
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{images/choose_lower_difference}
-	\caption[Alternative Merging:Parameter dependence]{From left to right: Parameter dependent alternative merging. Up to down: scenes \textit{boxes, cotton, dino, sideboard}.}
+	\caption[Alternative Merging:Parameter dependence]{From left to right: Parameter dependent alternative merging. Up to down: scenes \textit{boxes, cotton, dino, sideboard}. The deviation from ground truth is marked yellow, zero deviation is dark-purple.}
 	\label{fig:chooselowerdifference-eps-converted-to}
 \end{figure}
 
- Figure \ref{fig:chooselowerdifference-eps-converted-to} shows the effect of varying the threshold introduced in equation \ref{eq:altmerging}. The occlusion edges shrink significantly with a higher threshold.
+ Figure \ref{fig:chooselowerdifference-eps-converted-to} shows the effect of varying the threshold introduced in equation \ref{eq:altmerging} on the depth map by showing the deviation to the ground truth at occlusion discontinuities for different parameter values. The occlusion edges shrink significantly with a higher threshold. However the effect is scene-dependent.
 \section{Depth from focus}
 \label{sec:theo depth}
 One advantage of using light fields for depth measure is its ability to get a two-dimensional mapping of the scene with focus at any depth. Integrating the views of the light field camera array has the same effect as the integration of a focussed lens camera, as the lens is simply integrating slightly different viewpoints of the same scene point when focussed on the correct depth. \\
- Obtaining the refocussed integrated image is a synthetic process that only requires shifting the view coordinates artificially. Given a full four-dimensional light field $L(u, v, x, y)$ we can refocus the light field as described in\setcitestyle{numbers} \cite{ng2005light}\setcitestyle{authoryear}:
+ Obtaining the refocussed integrated image is a synthetic process that only requires shifting the view coordinates artificially. Given a full four-dimensional light field $L(u, v, x, y)$ we can refocus the light field as described in\setcitestyle{numbers}\cite{ng2005light}\setcitestyle{authoryear}:
  \begin{equation}\label{eq:refocus}
 L'(u, v, x, y) = L(u(1-d'), v(1-d'), x, y),
 \end{equation}
-where $d'$ describes the relative pixel shift. The disparity is directly related to the absolute depth of the focus (relate to PICTURE) if the relevant camera parameters are  known. Given the baseline $b$ in meters and the focal length $f$ in pixels, the depth $Z$ is given as \begin{equation}\label{key}
+where $d'$ describes the relative pixel shift. The disparity is directly related to the absolute depth of the focus if the relevant camera parameters are  known. Given the baseline $b$ in meters and the focal length $f$ in pixels, the depth $Z$ is given as \begin{equation}\label{key}
 Z = \frac{f\cdot b}{d}.
 \end{equation} 
 We obtain
@@ -408,8 +414,8 @@ D'(x,y) = \frac{1}{N_{u,v}}\sum_{u}\sum_{v}  \left|L'(u, v, x, y) - P(x,y)\right
 We tested those methods against the common contrast measures mentioned above, the results are found in section \ref{sec: depth from focus}.
 
 \section{Semi-Global Matching}
-\subsection{Semi - Global Matching for Stereo Vision}
-In contrast to light field depth estimation techniques Stereo systems often suffer from mismatching pixels between the left and right images. Many attempts have been made to smoothen bad pixels, resulting in blurred edges or long calculation times. One promising attempt to improve matching results was published in 2005 by Heiko Hirschmüller (\cite{hirschmuller2005accurate}) that was described as \glqq a very good trade off between runtime and accuracy \grqq $\,$ (\cite{hirschmuller2011semi}): we speak of Semi-Global Matching.\\
+\subsection{Semi-Global Matching for Stereo Vision}
+In contrast to light field depth estimation techniques stereo systems more often suffer from mismatching pixels between the left and right images. Many attempts have been made to smoothen bad pixels, resulting in blurred edges or long calculation times. One promising attempt to improve matching results was published by \cite{hirschmuller2005accurate}: we speak of Semi-Global Matching (SGM).\\
 In general,  matching of two stereo images means shifting the disparity over the predefined disparity range and comparing both images (pixel- or block-wise) until we have a cost value at each image point for each discrete disparity. We assign to each pixel $\vec{p}$ the disparity value $D_{\vec p}$ which is related to the lowest cost $C(\vec{p}, D_{\vec p})$. This matching does not have to be unique, resulting in erroneous pixel disparities. 
 To overcome this one wants to minimize a global cost function of the form 
 \begin{equation}\label{eq:global_sgm}
@@ -421,7 +427,10 @@ E(D) = \sum_{\vec p} \left(C(\vec{p}, D_{\vec p}) + \sum_{q\in N_p}
 	\end{cases}  
 \right).
 \end{equation}
-The fist term sums all matching costs over the whole image, while the second term forces continuity by comparing the disparity of all neighbour pixels $N_q$ to the disparity $D_p$; if a  small discontinuity is detected ($D_{\vec p} - D_{\vec q} = 1$), a small penalty is added to the global cost function. Since a small discontinuity can be found essentially at any tilted plane, only a small error is added. A bigger disparity difference indices a clear discontinuity in the disparity map. Note that the penalty $P2$ can be divided by the gradient of the original image to allow a disparity discontinuity when we find edges in the image; at these points we expect the disparity to be discontinuous.\\ However, minimizing the global cost function involves computational cumbersome algorithms as it is a NP-complete Problem (\cite{hirschmuller2011semi}). Semi-Global Matching however chooses another approach by minimizing the global cost function along one-dimensional lines -- this can indeed be calculated in polynomial time.
+The fist term sums all matching costs over the whole image, while the second term forces continuity by comparing the disparity of all neighbour pixels $N_q$ to the disparity $D_p$; if a  small discontinuity is detected ($D_{\vec p} - D_{\vec q} = 1$), a small penalty is added to the global cost function. Since a small discontinuity can be found essentially at any tilted plane, only a small error is added. A bigger disparity difference indices a clear discontinuity in the disparity map. Note that the penalty $P2$ can be divided by the gradient $|\nabla|$ of the original image to allow a disparity discontinuity when we find edges in the image; at these points we expect the disparity to be discontinuous. We obtain
+\begin{equation}\label{key}
+P2'(x,y) = \frac{P2}{|\nabla|(x,y)}.
+\end{equation}\\ However, minimizing the global cost function involves computational cumbersome algorithms as it is a NP-complete Problem (\cite{hirschmuller2011semi}). Semi-Global Matching however chooses another approach by minimizing the global cost function along one-dimensional lines -- this can indeed be calculated in polynomial time.
 The new smoothed cost function $S(\vec p , D_{\vec p})$ at pixel $\vec{p}$ is then given as the sum of all 1D minimum cost paths that are ending in $\vec{p}$.  The minimal cost $L'_r$ along the path $r$ is defined recursively as
 \begin{equation}\label{eq:local_sgm}
 L'_r(\vec{p}, D) = C(\vec{p}, D) + \text {min}
@@ -432,18 +441,17 @@ L'_r(\vec{p}, D) = C(\vec{p}, D) + \text {min}
 	\text{min}_i L'_r(\vec{p_\text{before}}, i)+P2 
 \end{cases}
 \end{equation} 
-By always adding the minimum path cost of the previous pixel on the scanline we are looking at, we solve equation \ref{eq:global_sgm} in one dimension. It is to mention that the rolling sum can reach quite high numbers that are unpleasant to handle on the computer; a normalization is implemented by subtracting min$_D L'_r(\vec{p_\text{before}}, D)$ from all pixel cost values $L'_r(\vec{p}, D)$. The position of the minimum cost function at pixel $\vec p$ is unaffected by that normalization.\\
- Summing along at least 8 path directions (crosshair + diagonals) results in disparity maps with reduced error pixel while maintaining clean edges. 
-\subsection{Semi - Global Matching for light fields}
-Even though Hirschmüller describes Semi - Global Matching (SGM) as a complete algorithm to obtain a disparity map from a stereo image input, we further refer to SGM as the true novelty of his work: the implementation of an approximation to the global solution of the cost function (equation \ref{eq:global_sgm}). Independent from the method one uses to calculate a disparity map,  one needs a cost function defined in disparity space for each pixel to make use of SGM. 
+By always adding the minimum path cost of the previous pixel on the scanline we are looking at, we solve equation \ref{eq:global_sgm} in one dimension. Note that the rolling sum can reach quite high numbers that are unpleasant to handle on the computer; a normalization is implemented by subtracting min$_D L'_r(\vec{p_\text{before}}, D)$ from all pixel cost values $L'_r(\vec{p}, D)$. The position of the minimum cost function at pixel $\vec p$ is unaffected by that normalization.
+\subsection{Semi-Global Matching for light fields}
+Even though Hirschmüller describes SGM as a complete algorithm to obtain a disparity map from a stereo image input, we further refer to SGM as the true novelty of his work: The implementation of an approximation to the global solution of the cost function (equation \ref{eq:global_sgm}). Independent from the method one uses to calculate a disparity map,  one needs a cost function defined in disparity space for each pixel to make use of SGM. 
 Similar to the Stereo Matching depth estimation, the structure tensor depth estimation pipeline for light field data sets produces a disparity map and a coherence value at each disparity shift. This implies, that the SGM algorithm can be adapted to improve the results of the structure tensor pipeline. However, there are some significant differences between those two methods:
 \begin{enumerate}
-	\item The structure tensor algorithm is tuned to a much smaller disparity range. While in \cite{hirschmuller2005accurate} Hirschmüller scans a disparity range of 32 pixels , The benchmark data sets for light fields mostly include close-up views of objects, with a disparity range between 2 and 10 pixels. In figure \ref{fig:table-skizze} one can see the different values that are allocated in memory for each pixel of the image.
+	\item The structure tensor algorithm is tuned to a much smaller disparity range. While \cite{hirschmuller2005accurate} scans a disparity range of 32 pixels, the benchmark data sets for light fields mostly include close-up views of objects, with a disparity range between 2 and 10 pixels. In figure \ref{fig:table-skizze} one can see the different values that are allocated in memory for each pixel of the image.
 	\item The sub-pixel accuracy using the structure tensor is a lot higher than the stereo matching sub-pixel accuracy. A simple adaptation of the algorithm to the structure tensor pipeline would require to give up the best feature that is provided by the ST, its sub-pixel accuracy.
 \end{enumerate}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/table-skizze}
+	\includegraphics[width=0.7\linewidth]{images/sgm_table}
 	\caption[Example values: One point $\vec p$ contains different values]{One point $\vec p$ contains different values (values here: example values): For Stereo matching, the resolution is given by the discrete disparity steps. Each disparity value has a cost value assigned to it. Using the ST, we have a different sub-pixel accuracy for every disparity shift, while the sub-pixel accuracy can differ from the shift by up to 1.2 }
 	\label{fig:table-skizze}
 \end{figure}
@@ -641,7 +649,7 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
 	D'(x,y) = \text{Laplace}(I)(x,y) = \frac{\partial^2 I}{\partial x^2}(x,y) + \frac{\partial^2 I}{\partial y^2}(x,y)
 	\end{equation}
 \end{description}
-	In the following we are going to compare the method qualitatively and quantitatively. In figure \ref{fig:originalmarked} one can see the pixel response value refocussed at different disparities for all the methods at example points in the test-scene \glqq complextestscene\grqq. Points close to edges as well as points on clear surface with less structure on it are chosen. One can see that the pixel response of the Angular correspondence and the Photo-consistency method for those points show a more consistent behaviour, meaning that only one clear maximum can be seen. The derivative method as well as the Laplace method both seem to have trouble especially on pixel coordinates close to edges. This can be seen most clearly at the edge of the melon, where The first derivative shows 2 Maxima, while the Angular correspondence and Photo consistency measure find a clean maximum indicating at which depth the point can be found. However, on surfaces with less structure as for example on the potato, the Photo consistency measure struggles to find a clear maximum -- still it has one at the right position. 
+	In the following we are going to compare the method qualitatively and quantitatively. In figure \ref{fig:originalmarked} one can see the pixel response value refocussed at different disparities for all the methods at example points in the test-scene 'complextestscene'. Points close to edges as well as points on clear surface with less structure on it are chosen. One can see that the pixel response of the Angular correspondence and the Photo-consistency method for those points show a more consistent behaviour, meaning that only one clear maximum can be seen. The derivative method as well as the Laplace method both seem to have trouble especially on pixel coordinates close to edges. This can be seen most clearly at the edge of the melon, where The first derivative shows 2 Maxima, while the Angular correspondence and Photo consistency measure find a clean maximum indicating at which depth the point can be found. However, on surfaces with less structure as for example on the potato, the Photo consistency measure struggles to find a clear maximum -- still it has one at the right position. 
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\linewidth]{images/original_marked}
@@ -698,7 +706,7 @@ The methods that are tested are described in section \ref{sec:theo depth}. We te
  	Further testing we stick to the Photo Consistency measure, as it produces the best results in terms of speed and precision.\\
  	The next step is to use the pre-estimate at each pixel to skip the iterative refocussing in the structure tensor pipeline. However, since not all points on an EPI are of the same depth, the EPI is segmented in parts of the same pre-estimation depth. Those parts are refocussed separately to the estimated depth, results are illustrated in figure \ref{fig:epivsgdepth}. Note that the edge of the depth images have been removed when calculating the MRE. 
  	Unfortunately the Photo Consistency pre-estimate pipeline yields worse results then the Structure Tensor itself. The reason is that artefacts from the pre-estimate maintain after the structure tensor pipeline has been applied to the EPI. Additionally one has to mention that only those pixels in the depth map that have a high coherence measure given by the ST pipeline are taken into account when calculating the errors. Hence a bias towards the Structure tensor pipeline in terms of optimal error results is expected. \\
- 	Also the pre-estimation is even more time-consuming than the structure tensor itself. Because of the splitting of the EPI, the runtime is scene dependent. The time difference between the scene is therefore enormous, the results can be found in table \ref{tab:time_gdepth}. If one jumps the pre-estimation step and takes the Ground truth data as a \glqq pre-estimate \grqq, the pipeline is significantly faster than iteratively refocussing on each depth. The pre-estimate itself neither takes too long (about 2 seconds), but the EPI gets segmented into smaller parts when using the pre-estimate. A global smoothing scheme on the pre-estimate can possibly improve the runtime by minimizing the amount of disparity jumps, however this would result in even more artefact effects. We leave that aspect for future work.\\ In summary the obtained results using the Photo consistency measure as a pre-estimate for the structure tensor do not improve the obtained results regarding the Mean squared error and runtime-wise. 
+ 	Also the pre-estimation is even more time-consuming than the structure tensor itself. Because of the splitting of the EPI, the runtime is scene dependent. The time difference between the scene is therefore enormous, the results can be found in table \ref{tab:time_gdepth}. If one jumps the pre-estimation step and takes the Ground truth data as a 'pre-estimate', the pipeline is significantly faster than iteratively refocussing on each depth. The pre-estimate itself neither takes too long (about 2 seconds), but the EPI gets segmented into smaller parts when using the pre-estimate. A global smoothing scheme on the pre-estimate can possibly improve the runtime by minimizing the amount of disparity jumps, however this would result in even more artefact effects. We leave that aspect for future work.\\ In summary the obtained results using the Photo consistency measure as a pre-estimate for the structure tensor do not improve the obtained results regarding the Mean squared error and runtime-wise. 
  	\begin{table}
 	\begin{tabular}{|c|c|c|c|}
 		\hline 
@@ -760,7 +768,7 @@ In figure \ref{fig:sandclockresults} the results we obtain from using a sandglas
  \frac{\partial g^2}{\partial x \partial s} \\
  \end{matrix}\right)
  \end{equation}
- as the guide for the bilateral filtering of itself. The idea behind it is closely related to the EPI segmentation as described in section \ref{sec:occlusionawareness}. Big gradients in the EPI are more consistently referring to the same transition. By separating small and big gradients, the influence of the structure in front is less significant than it is without using the bilateral filtering. As one can see in figure \ref{fig:bilateralnormparams}, using the ST components as a guide can actually result in a better MSE. However, for each scene the score is dependent on the parameter $\sigma$ that is chosen. Also, the discontinuity score does not improve even though in figure \ref{fig:bilatresults} a clear improvement can be seen at occlusion borders. Actually the edge fattening is by far bigger then the masks used to determine the discontinuity score in figure \ref{fig:bilateralnormparams}. In figure \ref{fig:bilatresults} The depth maps zoomed at some disparity transitions in the given scenes \textit{boxes, cotton, dino} and \textit{sideboard} are shown, calculated with the Gaussian and bilateral filter. One can observe that the bilateral filter (with the Structure tensor component as a guide) results in sharper edges that are significantly less \glqq fattened \grqq than the Gaussian equivalent. This becomes clear when looking at the head of the teddy bear in the scene \textit{dino}. Even though the front object still occupies more space then it should (edge fattening), the edge has become smaller. This effect cannot be seen when using a bilateral filter with the EPI as a guide however.\\
+ as the guide for the bilateral filtering of itself. The idea behind it is closely related to the EPI segmentation as described in section \ref{sec:occlusionawareness}. Big gradients in the EPI are more consistently referring to the same transition. By separating small and big gradients, the influence of the structure in front is less significant than it is without using the bilateral filtering. As one can see in figure \ref{fig:bilateralnormparams}, using the ST components as a guide can actually result in a better MSE. However, for each scene the score is dependent on the parameter $\sigma$ that is chosen. Also, the discontinuity score does not improve even though in figure \ref{fig:bilatresults} a clear improvement can be seen at occlusion borders. Actually the edge fattening is by far bigger then the masks used to determine the discontinuity score in figure \ref{fig:bilateralnormparams}. In figure \ref{fig:bilatresults} The depth maps zoomed at some disparity transitions in the given scenes \textit{boxes, cotton, dino} and \textit{sideboard} are shown, calculated with the Gaussian and bilateral filter. One can observe that the bilateral filter (with the Structure tensor component as a guide) results in sharper edges that are significantly less 'fattened' than the Gaussian equivalent. This becomes clear when looking at the head of the teddy bear in the scene \textit{dino}. Even though the front object still occupies more space then it should (edge fattening), the edge has become smaller. This effect cannot be seen when using a bilateral filter with the EPI as a guide however.\\
  Additionally it becomes clear when looking at the scene \textit{boxes} in figure \ref{fig:bilatresults} that the depth estimation using the bilateral filter with the structure tensor component as a guide is less affected by the by the colour differences in the image. When using the Gaussian ST, the error along the edge is dependent on the background structure as the transition to the lettering on the bag results in less error then above. The bilateral filter however does produce a consistent error that may be better to handle for post-processing
 
 \begin{figure}
@@ -1207,7 +1215,7 @@ In another side project we trained a neural network based on Tensorflow (\cite{t
 	w*\frac{\partial g}{\partial s}\frac{\partial g}{\partial x} & w*\frac{\partial g}{\partial s}\frac{\partial g}{\partial s} 
 	\end{matrix}\right),
 	\end{equation}  
-	where \glqq $*$ \grqq describes a convolution.	
+	where '$*$' describes a convolution.	
   	
   	
   	 \setcitestyle{numbers}

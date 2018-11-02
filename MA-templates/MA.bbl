@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -84,6 +84,10 @@ Ines Ernst and Heiko Hirschm{\"u}ller.
 \newblock In \emph{International Symposium on Visual Computing}, pages
   228--239. Springer, 2008.
 
+\bibitem[Freist(2018)]{freist2018reconst}
+Benjamin Freist.
+\newblock 3d reconstruction in lightfields, 2018.
+
 \bibitem[Hirschmuller(2005)]{hirschmuller2005accurate}
 Heiko Hirschmuller.
 \newblock Accurate and efficient stereo processing by semi-global matching and
@@ -133,6 +137,11 @@ Zachary Moratto.
 Ren Ng, Marc Levoy, Mathieu Br{\'e}dif, Gene Duval, Mark Horowitz, and Pat
   Hanrahan.
 \newblock Light field photography with a hand-held plenoptic camera.
+
+\bibitem[Schönpflug(2017)]{schoenpflug2017optimizing}
+Schönpflug.
+\newblock Optimizing depth maps and point clouds from light field imaging,
+  2017.
 
 \bibitem[Sheng et~al.(2018)Sheng, Zhao, Zhang, Zhang, and
   Yang]{sheng2018occlusion}

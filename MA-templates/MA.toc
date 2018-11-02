@@ -1,54 +1,54 @@
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{8}{chapter.1}
-\contentsline {chapter}{\numberline {2}Theory}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}Light Field Parametrization}{9}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}The Lumigraph}{9}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Epipolar Plane Images}{10}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Depth from Structure Tensor}{11}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Implementation}{12}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}The occlusion problem of the structure Tensor}{15}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Modifications on the structure tensor}{15}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Kernel sizes}{15}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Colour-awareness with bilateral filtering}{18}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Thresholding the gradients}{18}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Occlusion-awareness using segmentation of the EPI}{19}{subsection.2.3.4}
-\contentsline {subsection}{\numberline {2.3.5}An alternative to the coherence as the confidence measure}{20}{subsection.2.3.5}
-\contentsline {subsection}{\numberline {2.3.6}Alternative Merging of x- and y- orientation}{24}{subsection.2.3.6}
-\contentsline {section}{\numberline {2.4}Depth from focus}{25}{section.2.4}
-\contentsline {section}{\numberline {2.5}Semi-Global Matching}{27}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Semi - Global Matching for Stereo Vision}{27}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Semi - Global Matching for light fields}{28}{subsection.2.5.2}
-\contentsline {subsection}{\numberline {2.5.3}Occlusion awareness in SGM for light Fields}{31}{subsection.2.5.3}
-\contentsline {subsection}{\numberline {2.5.4}SGM as post-processing smoothing}{31}{subsection.2.5.4}
-\contentsline {subsection}{\numberline {2.5.5}Iterative post-processing}{32}{subsection.2.5.5}
-\contentsline {subsection}{\numberline {2.5.6}A new penalty function}{33}{subsection.2.5.6}
-\contentsline {subsection}{\numberline {2.5.7}Semi-global Matching implementation}{34}{subsection.2.5.7}
-\contentsline {section}{\numberline {2.6}Metrics for the evaluation of depth maps}{35}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}dense and sparse maps}{35}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}mean squared error}{36}{subsection.2.6.2}
-\contentsline {subsection}{\numberline {2.6.3}bad pixel score}{36}{subsection.2.6.3}
-\contentsline {subsection}{\numberline {2.6.4}bumpiness}{36}{subsection.2.6.4}
-\contentsline {subsection}{\numberline {2.6.5}discontinuity and planar scores}{36}{subsection.2.6.5}
-\contentsline {subsection}{\numberline {2.6.6}Mean Relative Error}{36}{subsection.2.6.6}
-\contentsline {chapter}{\numberline {3}Evaluation}{37}{chapter.3}
-\contentsline {section}{\numberline {3.1}Depth from focus}{37}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Using depth-from-refocus as a pre-estimate for the ST}{38}{subsection.3.1.1}
-\contentsline {section}{\numberline {3.2}Modification on the Structure Tensor}{45}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Sandglass kernel}{45}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Bilateral filter}{45}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Thresholding Gradients}{48}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Occlusion awareness segmentation}{51}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Alternative coherence}{53}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}Alternative merging of x- and y-direction}{56}{subsection.3.2.6}
-\contentsline {section}{\numberline {3.3}Semi-Global Matching}{63}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Iterative SGM post-processing}{68}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Application on real data}{72}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Comparison of Results}{73}{section.3.4}
-\contentsline {chapter}{\numberline {4}Resumee and Outlook}{77}{chapter.4}
-\contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{80}{appendix.A}
-\contentsline {chapter}{\numberline {B}Real Data}{81}{appendix.B}
-\contentsline {chapter}{\numberline {C}CNN Disparity Estimation implementation}{83}{appendix.C}
-\contentsline {chapter}{\numberline {D}Lists}{85}{appendix.D}
-\contentsline {section}{\numberline {D.1}List of Figures}{85}{section.D.1}
-\contentsline {section}{\numberline {D.2}List of Tables}{86}{section.D.2}
-\contentsline {chapter}{\numberline {E}Bibliography}{87}{appendix.E}
+\contentsline {chapter}{\numberline {2}Theory}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}Light Field Parametrization}{10}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}The Lumigraph}{10}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Epipolar Plane Images}{11}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Depth from Structure Tensor}{12}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Implementation}{13}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}The occlusion problem of the structure Tensor}{16}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Modifications on the structure tensor}{16}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Kernel sizes}{16}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Colour-awareness with bilateral filtering}{19}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Thresholding the gradients}{19}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Occlusion-awareness using segmentation of the EPI}{20}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}An alternative to the coherence as the confidence measure}{21}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.6}Alternative Merging of x- and y- orientation}{25}{subsection.2.3.6}
+\contentsline {section}{\numberline {2.4}Depth from focus}{26}{section.2.4}
+\contentsline {section}{\numberline {2.5}Semi-Global Matching}{28}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Semi-Global Matching for Stereo Vision}{28}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Semi-Global Matching for light fields}{29}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Occlusion awareness in SGM for light Fields}{32}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.4}SGM as post-processing smoothing}{32}{subsection.2.5.4}
+\contentsline {subsection}{\numberline {2.5.5}Iterative post-processing}{33}{subsection.2.5.5}
+\contentsline {subsection}{\numberline {2.5.6}A new penalty function}{34}{subsection.2.5.6}
+\contentsline {subsection}{\numberline {2.5.7}Semi-global Matching implementation}{35}{subsection.2.5.7}
+\contentsline {section}{\numberline {2.6}Metrics for the evaluation of depth maps}{36}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}dense and sparse maps}{36}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}mean squared error}{37}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}bad pixel score}{37}{subsection.2.6.3}
+\contentsline {subsection}{\numberline {2.6.4}bumpiness}{37}{subsection.2.6.4}
+\contentsline {subsection}{\numberline {2.6.5}discontinuity and planar scores}{37}{subsection.2.6.5}
+\contentsline {subsection}{\numberline {2.6.6}Mean Relative Error}{37}{subsection.2.6.6}
+\contentsline {chapter}{\numberline {3}Evaluation}{38}{chapter.3}
+\contentsline {section}{\numberline {3.1}Depth from focus}{38}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Using depth-from-refocus as a pre-estimate for the ST}{39}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Modification on the Structure Tensor}{46}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Sandglass kernel}{46}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Bilateral filter}{46}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Thresholding Gradients}{49}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Occlusion awareness segmentation}{52}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Alternative coherence}{54}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Alternative merging of x- and y-direction}{57}{subsection.3.2.6}
+\contentsline {section}{\numberline {3.3}Semi-Global Matching}{64}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Iterative SGM post-processing}{69}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Application on real data}{73}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Comparison of Results}{74}{section.3.4}
+\contentsline {chapter}{\numberline {4}Resumee and Outlook}{78}{chapter.4}
+\contentsline {chapter}{\numberline {A}Derivation of the structure tensor}{81}{appendix.A}
+\contentsline {chapter}{\numberline {B}Real Data}{82}{appendix.B}
+\contentsline {chapter}{\numberline {C}CNN Disparity Estimation implementation}{84}{appendix.C}
+\contentsline {chapter}{\numberline {D}Lists}{86}{appendix.D}
+\contentsline {section}{\numberline {D.1}List of Figures}{86}{section.D.1}
+\contentsline {section}{\numberline {D.2}List of Tables}{87}{section.D.2}
+\contentsline {chapter}{\numberline {E}Bibliography}{88}{appendix.E}
