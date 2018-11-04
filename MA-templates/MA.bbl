@@ -55,6 +55,10 @@ Edward~H Adelson, James~R Bergen, et~al.
 Josef Bigun.
 \newblock Optimal orientation detection of linear symmetry, 1987.
 
+\bibitem[Blender(2014)]{blender2014blender}
+Blender.
+\newblock Blender—a 3d modelling and rendering package, 2014.
+
 \bibitem[Bolles et~al.(1987)Bolles, Baker, and Marimont]{bolles1987epipolar}
 Robert~C Bolles, H~Harlyn Baker, and David~H Marimont.
 \newblock Epipolar-plane image analysis: An approach to determining structure
@@ -68,10 +72,6 @@ Youngjin Yoon In So Kweon Seon Joo~Kim Changha~Shin, Hae-Gon~Jeon.
   for depth from light field images.
 \newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
   Pattern Recognition}, 2018.
-
-\bibitem[Community(2014)]{blender2014blender}
-Blender~Online Community.
-\newblock Blender—a 3d modelling and rendering package, 2014.
 
 \bibitem[Diebold(2016)]{diebold2016light}
 Maximilian Diebold.
@@ -126,10 +126,10 @@ Yaoxiang Luo, Wenhui Zhou, Junpeng Fang, Linkai Liang, Hua Zhang, and Guojun
 \newblock In \emph{International Conference on Neural Information Processing},
   pages 642--652. Springer, 2017.
 
-\bibitem[Moratto()]{sgmimplement}
+\bibitem[Moratto(2013)]{sgmimplement}
 Zachary Moratto.
 \newblock Sgm implementation.
-\newblock \url{http://lunokhod.org/?p=1403}.
+\newblock \url{http://lunokhod.org/?p=1403}, 2013.
 \newblock Accessed: 2018-10-13.
 
 \bibitem[Ng et~al.()Ng, Levoy, Br{\'e}dif, Duval, Horowitz, and

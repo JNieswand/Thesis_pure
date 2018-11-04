@@ -11,8 +11,6 @@ Warning--entry type for "freist2018reconst" isn't style-file defined
 --line 16 of file references.bib
 Warning--entry type for "schoenpflug2017optimizing" isn't style-file defined
 --line 22 of file references.bib
-Warning--I didn't find a database entry for "freist2018reconstr"
-Warning--I didn't find a database entry for "Benjaminsarbeit"
 Warning--to sort, need author or key in iwr.uni-heidelberg.de
 Warning--to sort, need author or key in homepages.inf.ed.ac.uk
 Warning--to sort, need author or key in what-when-how.com
@@ -40,7 +38,6 @@ Too many commas in name 1 of "Changha Shin, Hae-Gon Jeon, Youngjin Yoon, In So K
 while executing---line 1429 of file plainnat.bst
 Warning--empty school in diebold2016light
 Warning--can't use both volume and number fields in huang2017densely
-Warning--empty year in sgmimplement
 Warning--empty journal in ng2005light
 Warning--empty year in ng2005light
 Warning--empty year in ng2005light
