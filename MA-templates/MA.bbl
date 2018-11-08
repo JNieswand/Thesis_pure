@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -32,27 +32,25 @@ what-when-how.com.
   Schuster, Shlens, Steiner, Sutskever, Talwar, Tucker, Vanhoucke, Vasudevan,
   Vi\'{e}gas, Vinyals, Warden, Wattenberg, Wicke, Yu, and
   Zheng]{tensorflow2015-whitepaper}
-Mart\'{\i}n Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen,
-  Craig Citro, Greg~S. Corrado, Andy Davis, Jeffrey Dean, Matthieu Devin,
-  Sanjay Ghemawat, Ian Goodfellow, Andrew Harp, Geoffrey Irving, Michael Isard,
-  Yangqing Jia, Rafal Jozefowicz, Lukasz Kaiser, Manjunath Kudlur, Josh
-  Levenberg, Dandelion Man\'{e}, Rajat Monga, Sherry Moore, Derek Murray, Chris
-  Olah, Mike Schuster, Jonathon Shlens, Benoit Steiner, Ilya Sutskever, Kunal
-  Talwar, Paul Tucker, Vincent Vanhoucke, Vijay Vasudevan, Fernanda Vi\'{e}gas,
-  Oriol Vinyals, Pete Warden, Martin Wattenberg, Martin Wicke, Yuan Yu, and
-  Xiaoqiang Zheng.
+M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro, G.~S. Corrado,
+  A.~Davis, J.~Dean, M.~Devin, S.~Ghemawat, I.~Goodfellow, A.~Harp, G.~Irving,
+  M.~Isard, Y.~Jia, R.~Jozefowicz, L.~Kaiser, M.~Kudlur, J.~Levenberg,
+  D.~Man\'{e}, R.~Monga, S.~Moore, D.~Murray, C.~Olah, M.~Schuster, J.~Shlens,
+  B.~Steiner, I.~Sutskever, K.~Talwar, P.~Tucker, V.~Vanhoucke, V.~Vasudevan,
+  F.~Vi\'{e}gas, O.~Vinyals, P.~Warden, M.~Wattenberg, M.~Wicke, Y.~Yu, and
+  X.~Zheng.
 \newblock {TensorFlow}: Large-scale machine learning on heterogeneous systems,
   2015.
 \newblock URL \url{https://www.tensorflow.org/}.
 \newblock Software available from tensorflow.org.
 
 \bibitem[Adelson et~al.(1991)Adelson, Bergen, et~al.]{adelson1991plenoptic}
-Edward~H Adelson, James~R Bergen, et~al.
+E.~H. Adelson, J.~R. Bergen, et~al.
 \newblock The plenoptic function and the elements of early vision.
 \newblock 1991.
 
 \bibitem[Bigun(1987)]{bigun1987optimal}
-Josef Bigun.
+J.~Bigun.
 \newblock Optimal orientation detection of linear symmetry, 1987.
 
 \bibitem[Blender(2014)]{blender2014blender}
@@ -60,82 +58,86 @@ Blender.
 \newblock Blender—a 3d modelling and rendering package, 2014.
 
 \bibitem[Bolles et~al.(1987)Bolles, Baker, and Marimont]{bolles1987epipolar}
-Robert~C Bolles, H~Harlyn Baker, and David~H Marimont.
+R.~C. Bolles, H.~H. Baker, and D.~H. Marimont.
 \newblock Epipolar-plane image analysis: An approach to determining structure
   from motion.
 \newblock \emph{International journal of computer vision}, 1\penalty0
   (1):\penalty0 7--55, 1987.
 
 \bibitem[Changha~Shin(2018)]{shin18epinet}
-Youngjin Yoon In So Kweon Seon Joo~Kim Changha~Shin, Hae-Gon~Jeon.
+Y.~Y. I. S. K. S. J.~K. Changha~Shin, Hae-Gon~Jeon.
 \newblock Epinet: A fully-convolutional neural network using epipolar geometry
   for depth from light field images.
 \newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
   Pattern Recognition}, 2018.
 
 \bibitem[Diebold(2016)]{diebold2016light}
-Maximilian Diebold.
+M.~Diebold.
 \newblock \emph{Light-Field Imaging and Heterogeneous Light Fields}.
 \newblock PhD thesis, 2016.
 
 \bibitem[Ernst and Hirschm{\"u}ller(2008)]{ernst2008mutual}
-Ines Ernst and Heiko Hirschm{\"u}ller.
+I.~Ernst and H.~Hirschm{\"u}ller.
 \newblock Mutual information based semi-global stereo matching on the gpu.
 \newblock In \emph{International Symposium on Visual Computing}, pages
   228--239. Springer, 2008.
 
 \bibitem[Freist(2018)]{freist2018reconst}
-Benjamin Freist.
+B.~Freist.
 \newblock 3d reconstruction in lightfields, 2018.
 
 \bibitem[Hirschmuller(2005)]{hirschmuller2005accurate}
-Heiko Hirschmuller.
+H.~Hirschmuller.
 \newblock Accurate and efficient stereo processing by semi-global matching and
   mutual information.
 \newblock In \emph{Computer Vision and Pattern Recognition, 2005. CVPR 2005.
   IEEE Computer Society Conference on}, volume~2, pages 807--814. IEEE, 2005.
 
+\bibitem[Hirschmuller(2008)]{hirschmuller2008stereo}
+H.~Hirschmuller.
+\newblock Stereo processing by semiglobal matching and mutual information.
+\newblock \emph{IEEE Transactions on pattern analysis and machine
+  intelligence}, 30\penalty0 (2):\penalty0 328--341, 2008.
+
 \bibitem[Hirschm{\"u}ller(2011)]{hirschmuller2011semi}
-Heiko Hirschm{\"u}ller.
+H.~Hirschm{\"u}ller.
 \newblock Semi-global matching-motivation, developments and applications.
 \newblock \emph{Photogrammetric Week 11}, pages 173--184, 2011.
 
 \bibitem[Honauer et~al.(2016)Honauer, Johannsen, Kondermann, and
   Goldluecke]{honauer2016benchmark}
-Katrin Honauer, Ole Johannsen, Daniel Kondermann, and Bastian Goldluecke.
+K.~Honauer, O.~Johannsen, D.~Kondermann, and B.~Goldluecke.
 \newblock A dataset and evaluation methodology for depth estimation on 4d light
   fields.
 \newblock In \emph{Asian Conference on Computer Vision}. Springer, 2016.
 
 \bibitem[Huang et~al.(2017)Huang, Liu, Van Der~Maaten, and
   Weinberger]{huang2017densely}
-Gao Huang, Zhuang Liu, Laurens Van Der~Maaten, and Kilian~Q Weinberger.
+G.~Huang, Z.~Liu, L.~Van Der~Maaten, and K.~Q. Weinberger.
 \newblock Densely connected convolutional networks.
 \newblock In \emph{CVPR}, volume~1, page~3, 2017.
 
 \bibitem[J{\"a}hne(2013)]{jahne2013digitale}
-Bernd J{\"a}hne.
+B.~J{\"a}hne.
 \newblock \emph{Digitale Bildverarbeitung}.
 \newblock Springer-Verlag, 2013.
 
 \bibitem[Luo et~al.(2017)Luo, Zhou, Fang, Liang, Zhang, and Dai]{luo2017epi}
-Yaoxiang Luo, Wenhui Zhou, Junpeng Fang, Linkai Liang, Hua Zhang, and Guojun
-  Dai.
+Y.~Luo, W.~Zhou, J.~Fang, L.~Liang, H.~Zhang, and G.~Dai.
 \newblock Epi-patch based convolutional neural network for depth estimation on
   4d light field.
 \newblock In \emph{International Conference on Neural Information Processing},
   pages 642--652. Springer, 2017.
 
 \bibitem[Moratto(2013)]{sgmimplement}
-Zachary Moratto.
+Z.~Moratto.
 \newblock Sgm implementation.
 \newblock \url{http://lunokhod.org/?p=1403}, 2013.
 \newblock Accessed: 2018-10-13.
 
 \bibitem[Ng et~al.()Ng, Levoy, Br{\'e}dif, Duval, Horowitz, and
   Hanrahan]{ng2005light}
-Ren Ng, Marc Levoy, Mathieu Br{\'e}dif, Gene Duval, Mark Horowitz, and Pat
-  Hanrahan.
+R.~Ng, M.~Levoy, M.~Br{\'e}dif, G.~Duval, M.~Horowitz, and P.~Hanrahan.
 \newblock Light field photography with a hand-held plenoptic camera.
 
 \bibitem[Schönpflug(2017)]{schoenpflug2017optimizing}
@@ -145,57 +147,56 @@ Schönpflug.
 
 \bibitem[Sheng et~al.(2018)Sheng, Zhao, Zhang, Zhang, and
   Yang]{sheng2018occlusion}
-Hao Sheng, Pan Zhao, Shuo Zhang, Jun Zhang, and Da~Yang.
+H.~Sheng, P.~Zhao, S.~Zhang, J.~Zhang, and D.~Yang.
 \newblock Occlusion-aware depth estimation for light field using
   multi-orientation epis.
 \newblock \emph{Pattern Recognition}, 74:\penalty0 587--599, 2018.
 
 \bibitem[Tao et~al.(2017)Tao, Srinivasan, Hadap, Rusinkiewicz, Malik, and
   Ramamoorthi]{tao2017shape}
-Michael~W Tao, Pratul~P Srinivasan, Sunil Hadap, Szymon Rusinkiewicz, Jitendra
-  Malik, and Ravi Ramamoorthi.
+M.~W. Tao, P.~P. Srinivasan, S.~Hadap, S.~Rusinkiewicz, J.~Malik, and
+  R.~Ramamoorthi.
 \newblock Shape estimation from shading, defocus, and correspondence using
   light-field angular coherence.
 \newblock \emph{IEEE transactions on pattern analysis and machine
   intelligence}, 39\penalty0 (3):\penalty0 546--560, 2017.
 
 \bibitem[Tomasi and Manduchi(1998)]{tomasi1998bilateral}
-Carlo Tomasi and Roberto Manduchi.
+C.~Tomasi and R.~Manduchi.
 \newblock Bilateral filtering for gray and color images.
 \newblock In \emph{Computer Vision, 1998. Sixth International Conference on},
   pages 839--846. IEEE, 1998.
 
 \bibitem[Wanner(2014)]{wanner2014orientation}
-Sven Wanner.
+S.~Wanner.
 \newblock \emph{Orientation Analysis in 4D Light Fields}.
 \newblock PhD thesis, 2014.
 
 \bibitem[Watanabe and Nayar(1998)]{watanabe1998rational}
-Masahiro Watanabe and Shree~K Nayar.
+M.~Watanabe and S.~K. Nayar.
 \newblock Rational filters for passive depth from defocus.
 \newblock \emph{International Journal of Computer Vision}, 27\penalty0
   (3):\penalty0 203--225, 1998.
 
 \bibitem[Wiburn(2004)]{wiburn2004high}
-Bennett Wiburn.
+B.~Wiburn.
 \newblock \emph{High performance imaging using arrays of inexpensive cameras}.
 \newblock PhD thesis, Citeseer, 2004.
 
 \bibitem[Wolf(2018)]{wolf2018object}
-Christian Wolf.
+C.~Wolf.
 \newblock 3d-object recognition and detection with convolutional neural
   networks, 2018.
 
 \bibitem[Wu et~al.(2017)Wu, Masia, Jarabo, Zhang, Wang, Dai, Chai, and
   Liu]{wu2017light}
-Gaochang Wu, Belen Masia, Adrian Jarabo, Yuchen Zhang, Liangyong Wang, Qionghai
-  Dai, Tianyou Chai, and Yebin Liu.
+G.~Wu, B.~Masia, A.~Jarabo, Y.~Zhang, L.~Wang, Q.~Dai, T.~Chai, and Y.~Liu.
 \newblock Light field image processing: An overview.
 \newblock \emph{IEEE Journal of Selected Topics in Signal Processing},
   11\penalty0 (7):\penalty0 926--954, 2017.
 
 \bibitem[Xu et~al.(2012)Xu, Ke, and Lam]{Xu:12}
-Zhimin Xu, Jun Ke, and Edmund~Y. Lam.
+Z.~Xu, J.~Ke, and E.~Y. Lam.
 \newblock High-resolution lightfield photography using two masks.
 \newblock \emph{Opt. Express}, 20\penalty0 (10):\penalty0 10971--10983, May
   2012.

@@ -1,11 +1,11 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Theory}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Light Field Parametrization}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.1}{Light field parametrization}{chapter.2}% 3
 \BOOKMARK [2][-]{subsection.2.1.1}{The Lumigraph}{section.2.1}% 4
-\BOOKMARK [2][-]{subsection.2.1.2}{Epipolar Plane Images}{section.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.1.2}{Epipolar plane images}{section.2.1}% 5
 \BOOKMARK [1][-]{section.2.2}{Depth from structure tensor}{chapter.2}% 6
 \BOOKMARK [2][-]{subsection.2.2.1}{Implementation}{section.2.2}% 7
-\BOOKMARK [2][-]{subsection.2.2.2}{The occlusion problem of the structure Tensor}{section.2.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.2}{The occlusion problem of the structure tensor}{section.2.2}% 8
 \BOOKMARK [1][-]{section.2.3}{Modifications on the structure tensor}{chapter.2}% 9
 \BOOKMARK [2][-]{subsection.2.3.1}{Kernel sizes}{section.2.3}% 10
 \BOOKMARK [2][-]{subsection.2.3.2}{Colour-awareness with bilateral filtering}{section.2.3}% 11
@@ -32,7 +32,7 @@
 \BOOKMARK [0][-]{chapter.3}{Evaluation}{}% 32
 \BOOKMARK [1][-]{section.3.1}{Depth from focus}{chapter.3}% 33
 \BOOKMARK [2][-]{subsection.3.1.1}{Using depth-from-refocus as a pre-estimate for the ST}{section.3.1}% 34
-\BOOKMARK [1][-]{section.3.2}{Modification on the structure tensor}{chapter.3}% 35
+\BOOKMARK [1][-]{section.3.2}{Modifications on the structure tensor}{chapter.3}% 35
 \BOOKMARK [2][-]{subsection.3.2.1}{Sandglass kernel}{section.3.2}% 36
 \BOOKMARK [2][-]{subsection.3.2.2}{Bilateral filter}{section.3.2}% 37
 \BOOKMARK [2][-]{subsection.3.2.3}{Thresholding gradients}{section.3.2}% 38
@@ -40,15 +40,18 @@
 \BOOKMARK [2][-]{subsection.3.2.5}{Alternative coherence}{section.3.2}% 40
 \BOOKMARK [2][-]{subsection.3.2.6}{Alternative merging of x- and y-direction}{section.3.2}% 41
 \BOOKMARK [1][-]{section.3.3}{Semi-global matching}{chapter.3}% 42
-\BOOKMARK [2][-]{subsection.3.3.1}{Iterative SGM post-processing}{section.3.3}% 43
-\BOOKMARK [2][-]{subsection.3.3.2}{Application on real data}{section.3.3}% 44
-\BOOKMARK [1][-]{section.3.4}{Comparison of Results}{chapter.3}% 45
-\BOOKMARK [0][-]{chapter.4}{Resumee and Outlook}{}% 46
-\BOOKMARK [0][-]{appendix.A}{Derivation of the structure tensor}{}% 47
-\BOOKMARK [0][-]{appendix.B}{SGM parameter testing}{}% 48
-\BOOKMARK [0][-]{appendix.C}{Real Data}{}% 49
-\BOOKMARK [0][-]{appendix.D}{CNN Disparity Estimation implementation}{}% 50
-\BOOKMARK [0][-]{appendix.E}{Lists}{}% 51
-\BOOKMARK [1][-]{section.E.1}{List of Figures}{appendix.E}% 52
-\BOOKMARK [1][-]{section.E.2}{List of Tables}{appendix.E}% 53
-\BOOKMARK [0][-]{appendix.F}{Bibliography}{}% 54
+\BOOKMARK [2][-]{subsection.3.3.1}{In-process SGM}{section.3.3}% 43
+\BOOKMARK [2][-]{subsection.3.3.2}{Improved coherence measure by using SGM}{section.3.3}% 44
+\BOOKMARK [2][-]{subsection.3.3.3}{SGM as pure post-processing}{section.3.3}% 45
+\BOOKMARK [2][-]{subsection.3.3.4}{Iterative SGM post-processing}{section.3.3}% 46
+\BOOKMARK [2][-]{subsection.3.3.5}{Application on real data}{section.3.3}% 47
+\BOOKMARK [1][-]{section.3.4}{Comparison of Results}{chapter.3}% 48
+\BOOKMARK [0][-]{chapter.4}{Resumee and Outlook}{}% 49
+\BOOKMARK [0][-]{appendix.A}{Derivation of the structure tensor}{}% 50
+\BOOKMARK [0][-]{appendix.B}{SGM parameter testing}{}% 51
+\BOOKMARK [0][-]{appendix.C}{Real Data}{}% 52
+\BOOKMARK [0][-]{appendix.D}{CNN disparity estimation implementation}{}% 53
+\BOOKMARK [0][-]{appendix.E}{Lists}{}% 54
+\BOOKMARK [1][-]{section.E.1}{List of Figures}{appendix.E}% 55
+\BOOKMARK [1][-]{section.E.2}{List of Tables}{appendix.E}% 56
+\BOOKMARK [0][-]{appendix.F}{Bibliography}{}% 57
