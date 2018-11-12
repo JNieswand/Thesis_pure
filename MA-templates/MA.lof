@@ -1,80 +1,82 @@
-\select@language {english}
+\babel@toc {english}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Two-plane parametrisation}}{10}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Visualization of an EPI extraction}}{11}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Example epipolar plane image}}{11}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces LumiPlus Scanner from HDVision Systems}}{13}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Refocussed EPI}}{14}{figure.2.5}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Occlusion in an EPI}}{15}{figure.2.6}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Discontinuity evaluation}}{16}{figure.2.7}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Sandglass kernel}}{17}{figure.2.8}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Segmenting an EPI}}{19}{figure.2.9}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Morphological closing}}{20}{figure.2.10}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Enhanced segmentation mask}}{21}{figure.2.11}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Alternative Merging: Parameter dependence}}{24}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces SGM Path explanation}}{26}{figure.2.13}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces SGM data to be storaged}}{28}{figure.2.14}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Exemplary SGM path}}{28}{figure.2.15}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces SGM depth map from different directions}}{30}{figure.2.16}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Two-plane parametrisation}}{11}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Visualization of an EPI extraction}}{12}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Example epipolar plane image}}{12}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces LumiPlus Scanner from HDVision Systems}}{14}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Refocussed EPI}}{15}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Occlusion in an EPI}}{16}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Discontinuity evaluation}}{17}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Sandglass kernel}}{18}{figure.2.8}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Segmenting an EPI}}{20}{figure.2.9}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Morphological closing}}{21}{figure.2.10}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Enhanced segmentation mask}}{22}{figure.2.11}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Alternative Merging: Parameter dependence}}{25}{figure.2.12}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces SGM Path explanation}}{27}{figure.2.13}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces SGM data to be storaged}}{29}{figure.2.14}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Exemplary SGM path}}{29}{figure.2.15}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces SGM depth map from different directions}}{31}{figure.2.16}
 \contentsline {figure}{\numberline {2.17}{\ignorespaces Example for post-processing smoothing}}{31}{figure.2.17}
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Iterative SGM: Convergence}}{32}{figure.2.18}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Iterative SGM: Penalty function}}{33}{figure.2.19}
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Linear cost function vs. exponential cost function results}}{33}{figure.2.20}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Iterative SGM: Penalty function}}{34}{figure.2.19}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Linear cost function vs. exponential cost function results}}{34}{figure.2.20}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Pixel response for depth from focus techniques}}{37}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Depth from focus: Depth maps}}{38}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Mean squared error for depth-from-focus techniques}}{39}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Depth from focus: depth maps with resolution 1}}{40}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Mean squared error for depth-from-focus techniques}}{41}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Speed of different depth-from-focus techniques}}{41}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Photo-consistency pre-estimate for the structure tensor}}{42}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Results with custom sized kernel}}{43}{figure.3.8}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Bilateral filtering}}{44}{figure.3.9}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Parameter dependency for bilateral filtering using EPI}}{46}{figure.3.10}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Pixel response for depth from focus techniques}}{38}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Depth from focus: Depth maps}}{39}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Mean squared error for depth-from-focus techniques}}{40}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Depth from focus: depth maps with resolution 1}}{41}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Mean squared error for depth-from-focus techniques}}{42}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Speed of different depth-from-focus techniques}}{42}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Photo-consistency pre-estimate for the structure tensor}}{43}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Results with custom sized kernel}}{44}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Bilateral filtering}}{45}{figure.3.9}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Parameter dependency for bilateral filtering using EPI}}{45}{figure.3.10}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Parameter dependency for bilateral filtering}}{46}{figure.3.11}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Results of the bilateral filtering}}{47}{figure.3.12}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Results when thresholding the gradients in the EPI}}{48}{figure.3.13}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Disparity map zoom-ins for different methods}}{48}{figure.3.14}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Varying kernel size}}{49}{figure.3.15}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Disparity map zoom-ins for different methods}}{49}{figure.3.14}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Varying kernel size}}{50}{figure.3.15}
 \contentsline {figure}{\numberline {3.16}{\ignorespaces Segmentation of EPI dependence on the morphology kernel}}{50}{figure.3.16}
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Disparity map zoom-ins for different methods}}{51}{figure.3.17}
 \contentsline {figure}{\numberline {3.18}{\ignorespaces Comparing alternative coherence to new coherence}}{52}{figure.3.18}
 \contentsline {figure}{\numberline {3.19}{\ignorespaces Old coherence vs new error}}{53}{figure.3.19}
 \contentsline {figure}{\numberline {3.20}{\ignorespaces Dependence of error on cut out pixels}}{54}{figure.3.20}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Histogram when masking errors}}{54}{figure.3.21}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Histogram when masking errors with new error map}}{55}{figure.3.22}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Results from alternative merging of x- and y- direction}}{56}{figure.3.23}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Alternative merging: Parameter dependence}}{56}{figure.3.24}
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Alternative merging: Parameter dependence}}{57}{figure.3.25}
-\contentsline {figure}{\numberline {3.26}{\ignorespaces Semi-global matching results}}{58}{figure.3.26}
-\contentsline {figure}{\numberline {3.27}{\ignorespaces SGM Coherence measure}}{59}{figure.3.27}
-\contentsline {figure}{\numberline {3.28}{\ignorespaces Histogram when masking errors with new error map}}{59}{figure.3.28}
-\contentsline {figure}{\numberline {3.29}{\ignorespaces SGM as pure post-processing combined with alternative merging parameter dependence}}{60}{figure.3.29}
-\contentsline {figure}{\numberline {3.30}{\ignorespaces Alternative merging with SGM post-processing}}{61}{figure.3.30}
-\contentsline {figure}{\numberline {3.31}{\ignorespaces Alternative merging with SGM post-processing with thresholded gradients}}{61}{figure.3.31}
-\contentsline {figure}{\numberline {3.32}{\ignorespaces Parameter dependence for post-processing SGM using alternative merging+thresholded gradients.}}{62}{figure.3.32}
-\contentsline {figure}{\numberline {3.33}{\ignorespaces BadPixel parameter dependence for post-processing SGM using alternative merging+thresholded gradients.}}{62}{figure.3.33}
-\contentsline {figure}{\numberline {3.34}{\ignorespaces Discontinuity score parameter dependence for post-processing SGM using alternative merging+thresholded gradients.}}{62}{figure.3.34}
-\contentsline {figure}{\numberline {3.35}{\ignorespaces Iterative improvement of scene \textit {cotton}}}{63}{figure.3.35}
-\contentsline {figure}{\numberline {3.36}{\ignorespaces Iterative SGM dependence on number of iterations}}{64}{figure.3.36}
-\contentsline {figure}{\numberline {3.37}{\ignorespaces Iterative SGM dependence on initial $\Delta $ with 5 iterations}}{64}{figure.3.37}
-\contentsline {figure}{\numberline {3.38}{\ignorespaces Iterative SGM dependence on initial $\Delta $ with 10 iterations}}{65}{figure.3.38}
-\contentsline {figure}{\numberline {3.39}{\ignorespaces Iterative SGM dependence on smoothing parameter}}{65}{figure.3.39}
-\contentsline {figure}{\numberline {3.40}{\ignorespaces Iterative SGM: depth maps}}{66}{figure.3.40}
-\contentsline {figure}{\numberline {3.41}{\ignorespaces Silicium scan with iterative SGM}}{67}{figure.3.41}
-\contentsline {figure}{\numberline {3.42}{\ignorespaces Truck clipping with iterative SGM}}{69}{figure.3.42}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Results from alternative merging of x- and y- direction}}{55}{figure.3.21}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Alternative merging: Parameter dependence}}{55}{figure.3.22}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Alternative merging: Parameter dependence}}{56}{figure.3.23}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Semi-global matching results}}{57}{figure.3.24}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces SGM Coherence measure}}{58}{figure.3.25}
+\contentsline {figure}{\numberline {3.26}{\ignorespaces SGM as pure post-processing combined with alternative merging parameter dependence}}{59}{figure.3.26}
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Alternative merging with SGM post-processing}}{60}{figure.3.27}
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Alternative merging with SGM post-processing with thresholded gradients}}{60}{figure.3.28}
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Parameter dependence for post-processing SGM using alternative merging+thresholded gradients.}}{61}{figure.3.29}
+\contentsline {figure}{\numberline {3.30}{\ignorespaces BadPixel parameter dependence for post-processing SGM using alternative merging+thresholded gradients.}}{61}{figure.3.30}
+\contentsline {figure}{\numberline {3.31}{\ignorespaces Discontinuity score parameter dependence for post-processing SGM using alternative merging+thresholded gradients.}}{61}{figure.3.31}
+\contentsline {figure}{\numberline {3.32}{\ignorespaces Iterative improvement of scene \textit {cotton}}}{62}{figure.3.32}
+\contentsline {figure}{\numberline {3.33}{\ignorespaces Iterative SGM dependence on number of iterations}}{63}{figure.3.33}
+\contentsline {figure}{\numberline {3.34}{\ignorespaces Iterative SGM dependence on initial $\Delta $ with 5 iterations}}{63}{figure.3.34}
+\contentsline {figure}{\numberline {3.35}{\ignorespaces Iterative SGM dependence on initial $\Delta $ with 10 iterations}}{64}{figure.3.35}
+\contentsline {figure}{\numberline {3.36}{\ignorespaces Iterative SGM dependence on smoothing parameter}}{64}{figure.3.36}
+\contentsline {figure}{\numberline {3.37}{\ignorespaces Iterative SGM: depth maps}}{65}{figure.3.37}
+\contentsline {figure}{\numberline {3.38}{\ignorespaces Silicium scan with iterative SGM}}{66}{figure.3.38}
+\contentsline {figure}{\numberline {3.39}{\ignorespaces Truck clipping with iterative SGM}}{67}{figure.3.39}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Parameter grid test for semi global matching}}{76}{figure.B.1}
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Mean squared error for different (3) parameters}}{77}{figure.B.2}
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Discontinuity score for different (3) parameters}}{78}{figure.B.3}
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Planar score for different (3) parameters}}{79}{figure.B.4}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Histogram when masking errors with new error map}}{74}{figure.B.1}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Histogram when masking errors with new error map}}{75}{figure.B.2}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Histogram when masking errors}}{75}{figure.B.3}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Histogram when masking errors with new error map}}{75}{figure.B.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Truck with iterative SGM}}{80}{figure.C.1}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Parameter grid test for semi global matching}}{76}{figure.C.1}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Mean squared error for different (3) parameters}}{77}{figure.C.2}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Discontinuity score for different (3) parameters}}{78}{figure.C.3}
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Planar score for different (3) parameters}}{79}{figure.C.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {D.1}{\ignorespaces CNN results}}{82}{figure.D.1}
-\contentsline {figure}{\numberline {D.2}{\ignorespaces Truck with CNN +SGM}}{83}{figure.D.2}
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Truck with iterative SGM}}{80}{figure.D.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {E.1}{\ignorespaces CNN results}}{82}{figure.E.1}
+\contentsline {figure}{\numberline {E.2}{\ignorespaces Truck with CNN +SGM}}{83}{figure.E.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

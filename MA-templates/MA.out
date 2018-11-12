@@ -45,13 +45,14 @@
 \BOOKMARK [2][-]{subsection.3.3.3}{SGM as pure post-processing}{section.3.3}% 45
 \BOOKMARK [2][-]{subsection.3.3.4}{Iterative SGM post-processing}{section.3.3}% 46
 \BOOKMARK [2][-]{subsection.3.3.5}{Application on real data}{section.3.3}% 47
-\BOOKMARK [1][-]{section.3.4}{Comparison of Results}{chapter.3}% 48
-\BOOKMARK [0][-]{chapter.4}{Resumee and Outlook}{}% 49
+\BOOKMARK [1][-]{section.3.4}{Comparison of results}{chapter.3}% 48
+\BOOKMARK [0][-]{chapter.4}{Resumee and outlook}{}% 49
 \BOOKMARK [0][-]{appendix.A}{Derivation of the structure tensor}{}% 50
-\BOOKMARK [0][-]{appendix.B}{SGM parameter testing}{}% 51
-\BOOKMARK [0][-]{appendix.C}{Real Data}{}% 52
-\BOOKMARK [0][-]{appendix.D}{CNN disparity estimation implementation}{}% 53
-\BOOKMARK [0][-]{appendix.E}{Lists}{}% 54
-\BOOKMARK [1][-]{section.E.1}{List of Figures}{appendix.E}% 55
-\BOOKMARK [1][-]{section.E.2}{List of Tables}{appendix.E}% 56
-\BOOKMARK [0][-]{appendix.F}{Bibliography}{}% 57
+\BOOKMARK [0][-]{appendix.B}{Alternative Coherence: Visualizing the quality of a mask}{}% 51
+\BOOKMARK [0][-]{appendix.C}{SGM parameter testing}{}% 52
+\BOOKMARK [0][-]{appendix.D}{Real Data}{}% 53
+\BOOKMARK [0][-]{appendix.E}{CNN disparity estimation implementation}{}% 54
+\BOOKMARK [0][-]{appendix.F}{Lists}{}% 55
+\BOOKMARK [1][-]{section.F.1}{List of Figures}{appendix.F}% 56
+\BOOKMARK [1][-]{section.F.2}{List of Tables}{appendix.F}% 57
+\BOOKMARK [0][-]{appendix.G}{Bibliography}{}% 58
